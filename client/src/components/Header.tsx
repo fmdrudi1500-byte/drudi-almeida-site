@@ -1,11 +1,12 @@
 /* ============================================================
    Header — Drudi e Almeida
-   Fixed navigation with glass effect, logo, nav links, and CTA
+   Fixed navigation with glass effect, logo, nav links, dark mode toggle, and CTA
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/jXphKGejnsXpoASn.jpg";
 
@@ -32,6 +33,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [location] = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -66,7 +68,7 @@ export default function Header() {
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "glass shadow-sm"
-            : "bg-white/95 backdrop-blur-sm"
+            : "bg-background/95 backdrop-blur-sm"
         }`}
       >
         <div className="container flex items-center justify-between h-20">
@@ -75,7 +77,7 @@ export default function Header() {
             <img
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
-              className="h-12 md:h-14 w-auto"
+              className={`h-12 md:h-14 w-auto ${theme === "dark" ? "brightness-0 invert opacity-90" : ""}`}
             />
           </Link>
 
@@ -91,7 +93,7 @@ export default function Header() {
                 >
                   <button
                     className={`font-ui text-sm font-medium px-4 py-2 rounded-md flex items-center gap-1 transition-colors hover:text-gold ${
-                      location.startsWith("/instituto") ? "text-gold" : "text-navy"
+                      location.startsWith("/instituto") ? "text-gold" : "text-foreground"
                     }`}
                   >
                     {link.name}
@@ -112,7 +114,7 @@ export default function Header() {
                               key={child.href}
                               href={child.href}
                               className={`block px-4 py-2.5 font-ui text-sm transition-colors hover:bg-gold/10 hover:text-gold ${
-                                location === child.href ? "text-gold bg-gold/5" : "text-navy"
+                                location === child.href ? "text-gold bg-gold/5" : "text-foreground"
                               }`}
                             >
                               {child.name}
@@ -128,7 +130,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   className={`font-ui text-sm font-medium px-4 py-2 rounded-md transition-colors hover:text-gold ${
-                    location === link.href ? "text-gold" : "text-navy"
+                    location === link.href ? "text-gold" : "text-foreground"
                   }`}
                 >
                   {link.name}
@@ -137,17 +139,48 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* CTA + Dark Mode Toggle + Mobile Toggle */}
+          <div className="flex items-center gap-2">
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
+              aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="w-4 h-4" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="w-4 h-4" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+
             <Link
               href="/agendamento"
-              className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy-light transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light"
             >
               Agendar Consulta
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-navy"
+              className="lg:hidden p-2 text-foreground"
               aria-label="Menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -166,7 +199,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 z-40 bg-white border-b border-border shadow-lg overflow-hidden"
+            className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 z-40 bg-background border-b border-border shadow-lg overflow-hidden"
           >
             <nav className="container py-4 flex flex-col gap-1">
               {navLinks.map((link) =>
@@ -174,7 +207,7 @@ export default function Header() {
                   <div key={link.name}>
                     <button
                       onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-navy rounded-md hover:bg-cream transition-colors"
+                      className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
                     >
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
@@ -191,7 +224,7 @@ export default function Header() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block pl-8 pr-3 py-2.5 font-ui text-sm text-warm-gray hover:text-gold transition-colors"
+                              className="block pl-8 pr-3 py-2.5 font-ui text-sm text-muted-foreground hover:text-gold transition-colors"
                             >
                               {child.name}
                             </Link>
@@ -204,8 +237,8 @@ export default function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-cream ${
-                      location === link.href ? "text-gold" : "text-navy"
+                    className={`font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted ${
+                      location === link.href ? "text-gold" : "text-foreground"
                     }`}
                   >
                     {link.name}
@@ -215,7 +248,7 @@ export default function Header() {
               <div className="pt-3 mt-2 border-t border-border">
                 <Link
                   href="/agendamento"
-                  className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full"
+                  className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full dark:bg-gold dark:text-navy"
                 >
                   Agendar Consulta
                 </Link>

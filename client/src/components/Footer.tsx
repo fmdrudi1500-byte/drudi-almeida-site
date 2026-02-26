@@ -111,6 +111,7 @@ export default function Footer() {
                 { name: "Convênios", href: "/convenios" },
                 { name: "Blog", href: "/blog" },
                 { name: "Contato", href: "/contato" },
+                { name: "Trabalhe Conosco", href: "/trabalhe-conosco" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link

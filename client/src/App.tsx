@@ -21,6 +21,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Convenios = lazy(() => import("./pages/Convenios"));
 const Agendamento = lazy(() => import("./pages/Agendamento"));
+const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
 
 function PageLoader() {
   return (
@@ -51,6 +52,7 @@ function Router() {
           <Route path="/convenios" component={Convenios} />
           <Route path="/agendamento" component={Agendamento} />
           <Route path="/contato" component={Contato} />
+          <Route path="/trabalhe-conosco" component={TrabalheConosco} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>
@@ -62,7 +64,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider defaultTheme="light" switchable>
         <TooltipProvider>
           <Toaster />
           <Router />
