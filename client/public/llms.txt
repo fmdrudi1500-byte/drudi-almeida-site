@@ -1,0 +1,56 @@
+# Drudi e Almeida Clínicas Oftalmológicas
+
+> Referência em oftalmologia com 5 institutos especializados. Tecnologia de ponta e cuidado humanizado para a sua visão.
+
+## Sobre
+
+A Drudi e Almeida Clínicas Oftalmológicas é uma clínica de referência em saúde ocular localizada em São Paulo, Brasil. Fundada com o propósito de democratizar o acesso à oftalmologia de excelência, a clínica combina tecnologia de ponta com atendimento humanizado.
+
+A clínica conta com 5 institutos especializados, cada um dedicado a uma área específica da oftalmologia, garantindo tratamento focado e atualizado com as mais recentes evidências científicas internacionais.
+
+## Institutos Especializados
+
+### Instituto da Catarata
+Especializado no diagnóstico e tratamento cirúrgico da catarata. Utiliza tecnologia Femto Laser para cirurgia de catarata com precisão submicrométrica, oferecendo maior segurança, previsibilidade e recuperação visual acelerada. A facoemulsificação é o procedimento padrão, com substituição do cristalino opaco por lente intraocular artificial.
+
+### Instituto do Ceratocone
+Dedicado ao diagnóstico e tratamento do ceratocone, doença progressiva que afeta a córnea. Oferece crosslinking de córnea (padrão-ouro para estabilização), implante de anel intracorneano e adaptação de lentes de contato especiais (rígidas e esclerais).
+
+### Instituto do Glaucoma
+Focado no diagnóstico precoce e tratamento contínuo do glaucoma, o "ladrão silencioso da visão". Oferece tratamento com colírios, trabeculoplastia seletiva a laser (SLT) e cirurgias como trabeculectomia e implante de dispositivos de drenagem.
+
+### Instituto da Retina
+Especializado em doenças da retina, incluindo retinopatia diabética, degeneração macular relacionada à idade (DMRI), descolamento de retina e oclusões vasculares. Conta com OCT de alta resolução, mapeamento ultra-widefield, injeções intravítreas (anti-VEGF), fotocoagulação a laser e vitrectomia.
+
+### Instituto de Estrabismo
+Dedicado ao diagnóstico e tratamento do estrabismo em crianças e adultos. Oferece correção com óculos, tampão ocular (oclusão), toxina botulínica e cirurgia de estrabismo para ajuste dos músculos extraoculares.
+
+## Tecnologia
+
+A clínica investe continuamente em equipamentos de última geração:
+- Femto Laser para cirurgia de catarata
+- Tomógrafo de Coerência Óptica (OCT) de alta resolução
+- Crosslinking acelerado para ceratocone
+- Mapeamento Ultra-Widefield da retina
+- Biômetro Óptico para cálculo de lente intraocular
+
+## Contato
+
+- Telefone: (11) 91654-4653
+- E-mail: contato@drudialmeida.com.br
+- WhatsApp: https://wa.me/5511916544653
+- Localização: São Paulo - SP, Brasil
+- Horário: Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h
+
+## Links
+
+- [Página Inicial](/)
+- [Sobre Nós](/sobre)
+- [Instituto da Catarata](/instituto/catarata)
+- [Instituto do Ceratocone](/instituto/ceratocone)
+- [Instituto do Glaucoma](/instituto/glaucoma)
+- [Instituto da Retina](/instituto/retina)
+- [Instituto de Estrabismo](/instituto/estrabismo)
+- [Tecnologia](/tecnologia)
+- [Blog](/blog)
+- [Contato](/contato)

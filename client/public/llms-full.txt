@@ -1,0 +1,154 @@
+# Drudi e Almeida Clínicas Oftalmológicas — Conteúdo Completo
+
+> Este documento contém o conteúdo completo do site da Drudi e Almeida Clínicas Oftalmológicas, otimizado para leitura por modelos de linguagem (LLMs) como ChatGPT, Gemini, Claude e outros.
+
+---
+
+## Sobre a Clínica
+
+A Drudi e Almeida Clínicas Oftalmológicas é referência em saúde ocular em São Paulo, Brasil. Fundada com o propósito de democratizar o acesso à oftalmologia de excelência, a clínica combina a experiência de profissionais altamente qualificados com a tecnologia mais avançada disponível no mercado.
+
+A missão da clínica é oferecer cuidado oftalmológico de alta qualidade, acessível e humanizado. Seus 5 institutos especializados foram criados para garantir que cada paciente receba tratamento focado e aprofundado em sua condição específica.
+
+### Valores
+- Cuidado Humanizado: cada paciente é único e recebe atendimento personalizado e acolhedor.
+- Excelência Técnica: profissionais altamente qualificados e em constante atualização.
+- Tecnologia de Ponta: investimento contínuo nos equipamentos mais modernos do mercado.
+- Acessibilidade: democratização do acesso à saúde ocular de qualidade.
+
+---
+
+## Instituto da Catarata
+
+### O que é a Catarata?
+A catarata é a opacificação do cristalino, a lente natural do olho que fica atrás da íris e da pupila. Este processo, geralmente relacionado à idade, torna a visão embaçada, como se olhássemos através de um vidro fosco. É a principal causa de cegueira reversível no mundo.
+
+### Sintomas
+- Visão embaçada, nublada ou turva
+- Dificuldade para enxergar à noite
+- Sensibilidade à luz e ao brilho
+- Necessidade de luz mais forte para ler
+- Visão de halos ao redor das luzes
+- Alterações frequentes no grau dos óculos
+- Percepção desbotada das cores
+- Visão dupla em um dos olhos
+
+### Tratamento
+O único tratamento eficaz para a catarata é a cirurgia de facoemulsificação. Na Drudi e Almeida, utiliza-se a tecnologia do Femto Laser para realizar o procedimento com precisão submicrométrica. O cristalino opaco é removido e substituído por uma lente intraocular artificial.
+
+Benefícios da cirurgia a laser: maior precisão e segurança, procedimento mais rápido, recuperação visual acelerada e possibilidade de corrigir miopia e astigmatismo simultaneamente.
+
+### Perguntas Frequentes
+- A cirurgia dói? Não, é realizada com anestesia local por colírios e é indolor.
+- Quanto tempo dura? Em média 10 a 15 minutos por olho.
+- A catarata pode voltar? Não. Uma vez removido o cristalino opaco, a catarata não retorna.
+- Quando posso voltar às atividades? A maioria retoma atividades leves no dia seguinte.
+
+---
+
+## Instituto do Ceratocone
+
+### O que é o Ceratocone?
+O ceratocone é uma doença ocular não inflamatória que afeta a córnea, tornando-a progressivamente mais fina e curva em formato de cone. Causa distorção das imagens, visão embaçada e astigmatismo irregular. Geralmente surge na adolescência ou início da idade adulta.
+
+### Sintomas
+- Visão borrada e distorcida
+- Aumento rápido do astigmatismo e miopia
+- Necessidade de trocar óculos com frequência
+- Visão de halos ao redor das luzes
+- Visão dupla em um olho
+- Sensibilidade à luz
+
+### Tratamentos
+- Crosslinking de Córnea: tratamento padrão-ouro que utiliza riboflavina e luz ultravioleta para enrijecer as fibras de colágeno da córnea.
+- Anel Intracorneano: implante de segmentos para regularizar a curvatura da córnea.
+- Lentes de Contato Especiais: lentes rígidas gás-permeáveis ou esclerais para corrigir o astigmatismo irregular.
+
+### Perguntas Frequentes
+- Coçar os olhos pode causar ceratocone? Sim, é um dos principais fatores de risco.
+- Ceratocone tem cura? Não tem cura, mas o crosslinking é eficaz em estabilizar a progressão.
+- Quem tem ceratocone pode fazer LASIK? Não, a cirurgia refrativa é contraindicada.
+
+---
+
+## Instituto do Glaucoma
+
+### O que é o Glaucoma?
+O glaucoma é um grupo de doenças oculares que causam danos progressivos ao nervo óptico, geralmente associados ao aumento da pressão intraocular. Conhecido como o "ladrão silencioso da visão", geralmente não apresenta sintomas nas fases iniciais.
+
+### Fatores de Risco
+- Idade acima de 40 anos
+- Histórico familiar de glaucoma
+- Pressão intraocular elevada
+- Descendência africana ou asiática
+- Miopia elevada
+- Diabetes e outras condições metabólicas
+
+### Tratamentos
+- Colírios: forma mais comum de tratamento para reduzir a pressão intraocular.
+- Laser (SLT): trabeculoplastia seletiva a laser para estimular o sistema de drenagem.
+- Cirurgia: trabeculectomia ou implante de dispositivos de drenagem para casos avançados.
+
+### Perguntas Frequentes
+- Glaucoma tem cura? Não, mas tem controle eficaz com tratamento adequado.
+- O tratamento é para a vida toda? Na maioria dos casos, sim.
+- Pressão ocular alta significa glaucoma? Não necessariamente, é um fator de risco.
+
+---
+
+## Instituto da Retina
+
+### O que é a Retina?
+A retina é uma fina camada de tecido sensível à luz que reveste o interior do olho, funcionando como o filme de uma câmera fotográfica. A mácula, no centro da retina, é responsável pela visão central de detalhes e cores.
+
+### Doenças Tratadas
+- Retinopatia Diabética: complicação do diabetes que afeta os vasos sanguíneos da retina.
+- Degeneração Macular (DMRI): afeta a mácula, causando perda da visão central.
+- Descolamento de Retina: emergência médica que requer tratamento cirúrgico imediato.
+- Oclusões Vasculares: bloqueio de veias ou artérias da retina.
+
+### Tratamentos
+- OCT de Alta Resolução para diagnóstico preciso.
+- Injeções Intravítreas (Anti-VEGF) para bloquear vasos anormais.
+- Fotocoagulação a Laser para tratar áreas de isquemia.
+- Vitrectomia para casos complexos.
+
+---
+
+## Instituto de Estrabismo
+
+### O que é o Estrabismo?
+O estrabismo é uma condição em que os olhos não estão alinhados na mesma direção. Afeta cerca de 4% da população e pode surgir em qualquer idade, embora seja mais comum na infância.
+
+### Tipos
+- Esotropia: desvio convergente (olhos para dentro).
+- Exotropia: desvio divergente (olhos para fora).
+- Hipertropia: desvio vertical (um olho mais alto).
+- Estrabismo Paralítico: causado por paralisia muscular.
+
+### Tratamentos
+- Uso de Óculos para correção do alinhamento.
+- Tampão Ocular para tratamento da ambliopia.
+- Toxina Botulínica para enfraquecer músculo hiperativo.
+- Cirurgia de Estrabismo para ajuste permanente dos músculos.
+
+---
+
+## Tecnologia
+
+### Equipamentos
+- Femto Laser: precisão submicrométrica para cirurgia de catarata.
+- Tomógrafo de Coerência Óptica (OCT): scan de alta resolução da retina e nervo óptico.
+- Crosslinking Acelerado: tecnologia moderna para tratamento do ceratocone.
+- Mapeamento Ultra-Widefield: visualização de mais de 80% da retina em uma imagem.
+- Biômetro Óptico: cálculo preciso da lente intraocular com tecnologia a laser.
+
+---
+
+## Contato
+
+- Telefone: (11) 91654-4653
+- E-mail: contato@drudialmeida.com.br
+- WhatsApp: https://wa.me/5511916544653
+- Localização: São Paulo - SP, Brasil
+- Horário de Funcionamento: Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h
