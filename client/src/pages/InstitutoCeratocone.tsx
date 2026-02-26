@@ -83,6 +83,78 @@ export default function InstitutoCeratocone() {
         </div>
       </section>
 
+      {/* ========== ARTE E VISÃO — VAN GOGH ========== */}
+      <section className="section-padding bg-navy text-cream overflow-hidden">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Arte e Visão</span>
+            <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Van Gogh e a Visão Distorcida</h2>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
+            <AnimateOnScroll>
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
+                <img
+                  src={IMAGES.art.vanGoghStarryNight}
+                  alt="Noite Estrelada sobre o Ródano — Van Gogh, 1888"
+                  className="w-full h-auto"
+                />
+                <div className="bg-navy-light p-3 text-center">
+                  <p className="font-body text-xs text-cream/70">"Noite Estrelada sobre o Ródano" — Van Gogh, 1888</p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={0.15}>
+              <div className="space-y-5">
+                <p className="font-body text-base text-cream/85 leading-relaxed">
+                  Vincent van Gogh (1853–1890) é um dos artistas mais icônicos da história. Suas pinceladas vigorosas, espirais dramáticas e distorções visuais — tão evidentes em obras como "Noite Estrelada" — há muito intrigam pesquisadores sobre a relação entre sua arte e sua visão.
+                </p>
+                <p className="font-body text-base text-cream/85 leading-relaxed">
+                  Estudos oftalmológicos sugerem que Van Gogh pode ter sofrido de <strong className="text-gold">astigmatismo irregular</strong>, uma condição em que a córnea tem curvatura desigual — exatamente o que ocorre no ceratocone. Essa irregularidade faz com que as luzes pareçam esticadas, com halos e raios, e as formas se distorçam.
+                </p>
+                <p className="font-body text-base text-cream/85 leading-relaxed">
+                  Os famosos halos ao redor das estrelas e as ondulações nas paisagens de Van Gogh são notavelmente semelhantes à visão de um paciente com ceratocone. Embora não possamos diagnosticá-lo retroativamente, a conexão entre sua arte e os sintomas visuais do ceratocone é fascinante.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <AnimateOnScroll delay={0.1} className="order-2 md:order-1">
+              <div className="space-y-5">
+                <h3 className="font-display text-2xl text-cream">O Olhar de Van Gogh</h3>
+                <p className="font-body text-base text-cream/85 leading-relaxed">
+                  Em seus autorretratos, Van Gogh frequentemente se representava com olhos intensos e penetrantes. Pesquisadores notaram que ele pintava os próprios olhos com assimetrias sutis, o que pode indicar uma percepção visual alterada.
+                </p>
+                <p className="font-body text-base text-cream/85 leading-relaxed">
+                  Na Drudi e Almeida, usamos a arte como ferramenta de conscientização: assim como Van Gogh transformou sua visão em obras-primas, nós trabalhamos para que nossos pacientes com ceratocone recuperem a nitidez e a qualidade visual que merecem.
+                </p>
+                <div className="bg-gold/10 border border-gold/30 rounded-lg p-4 mt-4">
+                  <p className="font-body text-sm text-cream/90 italic">
+                    "Se você vê halos ao redor das luzes ou as imagens parecem distorcidas, agende uma avaliação. O diagnóstico precoce do ceratocone é fundamental para preservar sua visão."
+                  </p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={0.15} className="order-1 md:order-2">
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
+                <img
+                  src={IMAGES.art.vanGoghSelfPortrait}
+                  alt="Autorretrato — Van Gogh, 1887"
+                  className="w-full h-auto"
+                />
+                <div className="bg-navy-light p-3 text-center">
+                  <p className="font-body text-xs text-cream/70">"Autorretrato" — Van Gogh, 1887</p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre o ceratocone." />
       <InstitutoCTA text="Agende uma avaliação com nossos especialistas em ceratocone." />
     </>

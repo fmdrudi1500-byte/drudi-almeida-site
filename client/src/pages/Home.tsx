@@ -4,11 +4,12 @@
    Hero, Institutos, Sobre, Tecnologia, Depoimentos, Blog, CTA
    ============================================================ */
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
+import { useRef } from "react";
 
 const institutos = [
   {
@@ -61,16 +62,28 @@ const stats = [
 ];
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
   return (
     <>
-      {/* ========== HERO ========== */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.hero.main})` }}
+      {/* ========== HERO WITH PARALLAX ========== */}
+      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{
+            backgroundImage: `url(${IMAGES.hero.main})`,
+            y: heroImageY,
+            scale: heroImageScale,
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
+          style={{ opacity: heroOverlayOpacity }}
+        />
 
         {/* Content */}
         <div className="relative container py-20">
@@ -504,55 +517,79 @@ export default function Home() {
             </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Monet */}
             <AnimateOnScroll delay={0}>
-              <Link href="/instituto/catarata" className="group block">
-                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
-                  <div className="h-48 overflow-hidden">
+              <Link href="/instituto/catarata" className="group block h-full">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-44 overflow-hidden">
                     <img src={IMAGES.art.monetJapaneseBridge} alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                  <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Catarata</span>
                     <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Claude Monet</h3>
-                    <p className="font-body text-xs text-cream/60 leading-relaxed">A catarata transformou as cores vibrantes de Monet em tons amarelados e borrados — visível em suas pinturas.</p>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">A catarata transformou as cores vibrantes de Monet em tons amarelados e borrados.</p>
+                  </div>
+                </div>
+              </Link>
+            </AnimateOnScroll>
+
+            {/* Van Gogh */}
+            <AnimateOnScroll delay={0.08}>
+              <Link href="/instituto/ceratocone" className="group block h-full">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-44 overflow-hidden">
+                    <img src={IMAGES.art.vanGoghStarryNight} alt="Van Gogh - Noite Estrelada, halos e distorções do ceratocone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
+                    <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Ceratocone</span>
+                    <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Vincent van Gogh</h3>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">Os halos e espirais de Van Gogh lembram a visão distorcida do ceratocone.</p>
                   </div>
                 </div>
               </Link>
             </AnimateOnScroll>
 
             {/* Degas */}
-            <AnimateOnScroll delay={0.1}>
-              <Link href="/instituto/retina" className="group block">
-                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
-                  <div className="h-48 overflow-hidden">
+            <AnimateOnScroll delay={0.16}>
+              <Link href="/instituto/retina" className="group block h-full">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-44 overflow-hidden">
                     <img src={IMAGES.art.degasDancers} alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                  <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Retina</span>
                     <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Edgar Degas</h3>
-                    <p className="font-body text-xs text-cream/60 leading-relaxed">A degeneração macular de Degas fez suas bailarinas ficarem cada vez mais borradas e pastosas.</p>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">A degeneração macular de Degas fez suas bailarinas ficarem cada vez mais borradas.</p>
                   </div>
                 </div>
               </Link>
             </AnimateOnScroll>
 
             {/* Da Vinci */}
-            <AnimateOnScroll delay={0.2}>
-              <Link href="/instituto/estrabismo" className="group block">
-                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
-                  <div className="h-48 overflow-hidden">
+            <AnimateOnScroll delay={0.24}>
+              <Link href="/instituto/estrabismo" className="group block h-full">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-44 overflow-hidden">
                     <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                  <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Estrabismo</span>
                     <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Leonardo da Vinci</h3>
-                    <p className="font-body text-xs text-cream/60 leading-relaxed">Estudos revelam que Da Vinci tinha exotropia intermitente, o que pode ter contribuído para sua genialidade.</p>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">Estudos revelam que Da Vinci tinha exotropia intermitente, vantagem artística.</p>
                   </div>
                 </div>
               </Link>
             </AnimateOnScroll>
           </div>
+
+          {/* Link para o artigo completo */}
+          <AnimateOnScroll className="text-center mt-10">
+            <Link href="/blog/arte-visao-doencas-oculares-historia-arte" className="inline-flex items-center gap-2 font-ui text-sm font-semibold text-gold hover:text-gold-light transition-colors">
+              Leia o artigo completo: Arte e Visão na História
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimateOnScroll>
         </div>
       </section>
 

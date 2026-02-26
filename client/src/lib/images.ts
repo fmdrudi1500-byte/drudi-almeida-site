@@ -32,6 +32,8 @@ export const IMAGES = {
     elGrecoToledo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/CyllqkwfVkxboVaD.jpg",
     daVinciStrabismus: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/tjFAKPBlHLVpdwvV.jpg",
     rembrandtSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/EuPODdxSBIgDitkq.jpg",
+    vanGoghStarryNight: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/nuRRrdSXTUGgVztf.jpg",
+    vanGoghSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/SaVZZRtMuqleSZBC.jpg",
   },
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {

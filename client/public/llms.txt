@@ -58,8 +58,32 @@ A clínica investe continuamente em equipamentos de última geração:
 ## Agendamento Online
 A Drudi e Almeida oferece agendamento online através do site (página /agendamento). O paciente pode escolher a unidade, o instituto, o convênio e preencher seus dados. O formulário envia automaticamente para o WhatsApp da clínica para confirmação.
 
-## Convênios Aceitos
+## Arte e Visão nos Institutos
 
+A Drudi e Almeida utiliza obras de arte como ferramenta de conscientização sobre doenças oculares:
+- Instituto da Catarata: Claude Monet pintou com catarata por décadas. Comparação da Ponte Japonesa de 1899 vs 1922.
+- Instituto do Ceratocone: Vincent van Gogh pode ter sofrido de astigmatismo irregular (ceratocone). Halos e distorções em Noite Estrelada.
+- Instituto do Glaucoma: El Greco pode ter tido glaucoma. Figuras alongadas e perspectiva distorcida.
+- Instituto da Retina: Edgar Degas sofria de degeneração macular. Georges Seurat criou o Pontilhismo.
+- Instituto de Estrabismo: Leonardo da Vinci e Rembrandt tinham evidências de exotropia intermitente.
+
+## Artigos do Blog (13 artigos)
+
+- Arte e Visão: Como Doenças Oculares Transformaram a História da Arte (/blog/arte-visao-doencas-oculares-historia-arte)
+- Catarata: Sintomas, Causas e Tratamento — Guia Completo (/blog/catarata-sintomas-tratamento-guia-completo)
+- Ceratocone: O que é, Diagnóstico e Tratamentos Modernos (/blog/ceratocone-o-que-e-e-como-tratar)
+- Glaucoma: Por que é Chamado de Ladrão Silencioso da Visão? (/blog/glaucoma-ladrao-silencioso-da-visao)
+- Retinopatia Diabética: Prevenção e Tratamento (/blog/retinopatia-diabetica-prevencao-tratamento)
+- Estrabismo Infantil: Quando Procurar o Oftalmologista? (/blog/estrabismo-infantil-quando-procurar-oftalmologista)
+- A Importância do Exame Oftalmológico Regular (/blog/importancia-exame-oftalmologico-regular)
+- Quando Levar a Criança ao Oftalmologista? Guia por Idade (/blog/quando-levar-crianca-ao-oftalmologista)
+- Cuidados Pós-Cirurgia de Catarata (/blog/cuidados-pos-cirurgia-catarata)
+- Lentes Intraoculares: Monofocal, Multifocal ou Trifocal? (/blog/lentes-intraoculares-tipos-diferenca)
+- Síndrome do Olho Seco: Causas, Sintomas e Tratamentos (/blog/olho-seco-causas-tratamento)
+- Arte e Visão: Como a Catarata Transformou as Pinturas de Monet (/blog/arte-e-visao-monet-catarata-historia)
+- Miopia Infantil: A Epidemia da Era Digital (/blog/miopia-infantil-epidemia-digital)
+
+## Convênios Aceitos
 A Drudi e Almeida atende os seguintes convênios: Prevent Senior, Bradesco Saúde, Mediservice, PROPM, Amil, Unimed Seguros e Ameplam. Todos os convênios cobrem consultas, exames diagnósticos e procedimentos cirúrgicos nos 5 institutos especializados.
 
 ## Links

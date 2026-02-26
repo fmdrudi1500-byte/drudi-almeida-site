@@ -122,6 +122,15 @@ export const blogArticles: BlogArticle[] = [
     image: IMAGES.art.monetBeforeAfter,
   },
   {
+    slug: "arte-visao-doencas-oculares-historia-arte",
+    title: "Arte e Visão: Como Doenças Oculares Transformaram a História da Arte",
+    excerpt: "De Monet a Van Gogh, de El Greco a Da Vinci: descubra como catarata, ceratocone, glaucoma e estrabismo influenciaram as obras-primas que definiram a história da arte.",
+    category: "Arte e Visão",
+    date: "2026-02-24",
+    readTime: "12 min",
+    image: IMAGES.art.monetJapaneseBridge,
+  },
+  {
     slug: "miopia-infantil-epidemia-digital",
     title: "Miopia Infantil: A Epidemia da Era Digital",
     excerpt: "A miopia em crianças cresce em ritmo alarmante no mundo todo. Entenda o papel das telas, da luz natural e como prevenir a progressão.",
