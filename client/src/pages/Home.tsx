@@ -265,53 +265,135 @@ export default function Home() {
       </section>
 
       {/* ========== TECNOLOGIA ========== */}
-      <section className="relative section-padding overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.hero.technology})` }}
-        />
-        <div className="absolute inset-0 bg-navy/90" />
-
-        <div className="relative container">
+      <section className="section-padding bg-gradient-to-b from-background via-cream/30 to-background">
+        <div className="container">
           <AnimateOnScroll className="text-center mb-12">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
               Infraestrutura
             </span>
-            <h2 className="font-display text-3xl md:text-4xl text-cream mt-3 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
               Tecnologia de Ponta
             </h2>
-            <p className="font-body text-base text-cream/70 max-w-2xl mx-auto leading-relaxed">
-              Investimos continuamente nos equipamentos mais modernos para garantir 
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Contamos com <strong>14 equipamentos de última geração</strong> para garantir
               diagnósticos precisos e tratamentos seguros.
             </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-6" />
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: "Femto Laser", desc: "Precisão submicrométrica para cirurgia de catarata a laser." },
-              { title: "OCT de Alta Resolução", desc: "Scan detalhado da retina e nervo óptico para diagnóstico precoce." },
-              { title: "Crosslinking Acelerado", desc: "Tecnologia moderna para estabilizar o ceratocone de forma rápida." },
-            ].map((tech, i) => (
-              <AnimateOnScroll key={tech.title} delay={i * 0.15}>
-                <div className="glass-dark rounded-xl p-7 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center mb-4">
-                    <Zap className="w-5 h-5 text-gold" />
+          {/* Horizontal scrollable equipment showcase */}
+          <div className="relative">
+            <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gold/30 scrollbar-track-transparent -mx-4 px-4">
+              {[
+                {
+                  name: "OCT com Angio-OCT",
+                  brand: "Maestro 2 — Topcon",
+                  highlight: "Automatizado — resultado em segundos",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ervHszJTapbyUNRh.png",
+                  category: "Diagnóstico",
+                },
+                {
+                  name: "Pentacam AXL",
+                  brand: "Oculus",
+                  highlight: "Análise completa do segmento anterior",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/BjIDRRibGgbqaEgW.png",
+                  category: "Diagnóstico",
+                },
+                {
+                  name: "Campo Visual",
+                  brand: "Humphrey 750i — Zeiss",
+                  highlight: "Padrão-ouro para glaucoma",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/uqfZPyapWiDmhgjZ.webp",
+                  category: "Diagnóstico",
+                },
+                {
+                  name: "Laser Argônio Multipoint",
+                  brand: "Vitra 2 — Quantel Medical",
+                  highlight: "Multispot — tratamento mais rápido",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/LUSoVEgfmutwLJEX.png",
+                  category: "Tratamento",
+                },
+                {
+                  name: "OPD-Scan III",
+                  brand: "Nidek",
+                  highlight: "5 exames em 1 único aparelho",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/tHthjLAVqdFduqHi.jpg",
+                  category: "Diagnóstico",
+                },
+                {
+                  name: "Yag Laser",
+                  brand: "Optimis II — Quantel Medical",
+                  highlight: "Precisão com mínima energia",
+                  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/uNpBHQmkJerdsODE.jpeg",
+                  category: "Cirúrgico",
+                },
+              ].map((eq, i) => (
+                <AnimateOnScroll key={eq.name} delay={i * 0.08}>
+                  <div className="group snap-start shrink-0 w-[280px] md:w-[300px] bg-white dark:bg-navy/40 rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-gold/40 transition-all duration-300">
+                    {/* Image */}
+                    <div className="relative h-48 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-navy/60 dark:to-navy/40 flex items-center justify-center p-6 overflow-hidden">
+                      <img
+                        src={eq.image}
+                        alt={eq.name}
+                        className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute top-3 right-3">
+                        <span className={`inline-block text-[10px] font-bold font-ui tracking-wider uppercase px-2.5 py-1 rounded-full ${
+                          eq.category === "Diagnóstico" ? "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300" :
+                          eq.category === "Tratamento" ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300" :
+                          "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300"
+                        }`}>
+                          {eq.category}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Info */}
+                    <div className="p-5">
+                      <h3 className="font-display text-lg text-navy dark:text-cream mb-0.5 group-hover:text-gold transition-colors">
+                        {eq.name}
+                      </h3>
+                      <p className="font-ui text-xs text-muted-foreground mb-3">{eq.brand}</p>
+                      <div className="flex items-center gap-2 bg-gold/8 border border-gold/15 rounded-lg px-3 py-2">
+                        <Zap className="w-3.5 h-3.5 text-gold shrink-0" />
+                        <span className="font-ui text-xs text-navy dark:text-cream/90 font-medium">{eq.highlight}</span>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-display text-lg text-cream mb-2">{tech.title}</h3>
-                  <p className="font-body text-sm text-cream/60 leading-relaxed">{tech.desc}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
+                </AnimateOnScroll>
+              ))}
+            </div>
+
+            {/* Scroll hint gradient */}
+            <div className="hidden md:block absolute top-0 right-0 bottom-6 w-16 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
 
-          <AnimateOnScroll className="text-center mt-10">
-            <Link
-              href="/tecnologia"
-              className="inline-flex items-center gap-2 border border-gold/40 text-gold font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-gold/10 transition-colors"
-            >
-              Ver Todos os Equipamentos
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          {/* Stats + CTA */}
+          <AnimateOnScroll className="mt-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex items-center gap-8 text-center">
+                <div>
+                  <div className="font-display text-2xl text-navy dark:text-cream font-bold">14</div>
+                  <div className="font-ui text-[11px] text-muted-foreground tracking-wide">Equipamentos</div>
+                </div>
+                <div className="w-px h-8 bg-border" />
+                <div>
+                  <div className="font-display text-2xl text-navy dark:text-cream font-bold">6</div>
+                  <div className="font-ui text-[11px] text-muted-foreground tracking-wide">Fabricantes</div>
+                </div>
+                <div className="w-px h-8 bg-border" />
+                <div>
+                  <div className="font-display text-2xl text-navy dark:text-cream font-bold">3</div>
+                  <div className="font-ui text-[11px] text-muted-foreground tracking-wide">Categorias</div>
+                </div>
+              </div>
+              <Link
+                href="/tecnologia"
+                className="inline-flex items-center gap-2 bg-navy text-cream dark:bg-gold dark:text-navy font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light dark:hover:bg-gold-light transition-colors"
+              >
+                Ver Todos os Equipamentos
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </AnimateOnScroll>
         </div>
       </section>
