@@ -336,15 +336,25 @@ export default function Home() {
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
                 image: IMAGES.doctors.drFernando,
-                highlight: "Condecoração \"Amigo da Marinha\" — Projeto Amazônia",
+                highlights: [
+                  "Especialista em Catarata e Retina Cirúrgica",
+                  "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
+                  "Preceptor de Retina e Catarata — Residência Médica IAMSPE",
+                  "Condecoração \"Amigo da Marinha\" — Projeto Amazônia",
+                ],
               },
               {
                 name: "Dra. Priscilla R. de Almeida",
                 role: "Diretora Técnica",
-                specialty: "Segmento Anterior e Lentes de Contato",
+                specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173",
                 image: IMAGES.doctors.draPriscilla,
-                highlight: "Fellowship em Córnea — EPM/UNIFESP",
+                highlights: [
+                  "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
+                  "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
+                  "Fellowship em Córnea e Doenças Externas",
+                  "Especialista em Adaptação de Lentes de Contato Especiais",
+                ],
               },
               {
                 name: "Dra. Maria Amélia V. de Melo",
@@ -352,7 +362,12 @@ export default function Home() {
                 specialty: "Estrabismo e Oftalmologia Pediátrica",
                 crm: "CRM-SP 199.188",
                 image: IMAGES.doctors.draMariaAmelia,
-                highlight: "Especialização em Estrabismo",
+                highlights: [
+                  "Especialização em Estrabismo — Instituto Luiz Braille / FMJ",
+                  "Graduação em Medicina pela Faculdade de Medicina de Jundiaí",
+                  "Trabalhos apresentados no Congresso Brasileiro de Oftalmologia",
+                  "Experiência em Cirurgia de Estrabismo Infantil e Adulto",
+                ],
               },
             ].map((doc, i) => (
               <AnimateOnScroll key={doc.name} delay={i * 0.12}>
@@ -376,9 +391,13 @@ export default function Home() {
                     <h3 className="font-display text-lg text-navy mb-0.5">{doc.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-1">{doc.specialty}</p>
                     <p className="font-body text-[11px] text-muted-foreground mb-3">{doc.crm}</p>
-                    <div className="flex items-start gap-2 bg-cream/60 rounded-lg p-2.5 border border-gold/10">
-                      <Award className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                      <p className="font-ui text-[11px] text-navy leading-snug">{doc.highlight}</p>
+                    <div className="space-y-1.5">
+                      {doc.highlights.map((h, idx) => (
+                        <div key={idx} className="flex items-start gap-2 bg-cream/60 rounded-lg px-2.5 py-1.5 border border-gold/10">
+                          <Award className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                          <p className="font-ui text-[11px] text-navy leading-snug">{h}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
