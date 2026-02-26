@@ -68,9 +68,9 @@ export default function Home() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.hero.eyeAbstract})` }}
+          style={{ backgroundImage: `url(${IMAGES.hero.main})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
 
         {/* Content */}
         <div className="relative container py-20">
