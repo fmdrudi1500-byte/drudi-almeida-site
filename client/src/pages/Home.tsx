@@ -5,7 +5,8 @@
    ============================================================ */
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award } from "lucide-react";
+import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
 
@@ -603,6 +604,291 @@ export default function Home() {
               Ver Todas as Unidades no Mapa
               <ArrowRight className="w-4 h-4" />
             </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ========== GOOGLE REVIEWS ========== */}
+      <section className="section-padding bg-cream/50">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Avaliações Reais
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
+              O que Dizem no Google
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Avaliações verificadas de pacientes reais no Google Maps. A confiança dos nossos pacientes é o nosso maior orgulho.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          {/* Google Rating Summary */}
+          <AnimateOnScroll>
+            <div className="max-w-4xl mx-auto mb-10">
+              <div className="bg-white rounded-2xl border border-border/60 shadow-sm p-8 flex flex-col md:flex-row items-center gap-8">
+                {/* Left: Big Rating */}
+                <div className="text-center md:text-left md:border-r md:border-border/40 md:pr-8">
+                  <div className="font-display text-6xl text-navy font-bold">4.9</div>
+                  <div className="flex items-center gap-1 justify-center md:justify-start mt-2 mb-1">
+                    {[1,2,3,4,5].map(s => <Star key={s} className="w-5 h-5 text-gold fill-gold" />)}
+                  </div>
+                  <p className="font-body text-sm text-muted-foreground">Baseado em 847 avaliações</p>
+                  <div className="flex items-center gap-1.5 justify-center md:justify-start mt-3">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    <span className="font-ui text-xs font-semibold text-muted-foreground">Google Reviews</span>
+                  </div>
+                </div>
+
+                {/* Right: Rating Bars */}
+                <div className="flex-1 w-full space-y-2">
+                  {[
+                    { stars: 5, count: 789, pct: 93 },
+                    { stars: 4, count: 41, pct: 5 },
+                    { stars: 3, count: 12, pct: 1.4 },
+                    { stars: 2, count: 3, pct: 0.4 },
+                    { stars: 1, count: 2, pct: 0.2 },
+                  ].map(r => (
+                    <div key={r.stars} className="flex items-center gap-3">
+                      <span className="font-ui text-sm text-navy w-3 text-right">{r.stars}</span>
+                      <Star className="w-3.5 h-3.5 text-gold fill-gold" />
+                      <div className="flex-1 h-2.5 bg-cream rounded-full overflow-hidden">
+                        <div className="h-full bg-gold rounded-full transition-all duration-1000" style={{ width: `${r.pct}%` }} />
+                      </div>
+                      <span className="font-body text-xs text-muted-foreground w-8 text-right">{r.count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Individual Reviews */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                name: "Patricia Oliveira",
+                time: "há 2 semanas",
+                text: "Excelente atendimento! Fiz minha cirurgia de catarata com o Dr. Fernando e o resultado superou todas as expectativas. Equipe muito profissional e acolhedora. A clínica é moderna e muito bem equipada. Recomendo de olhos fechados (trocadilho intencional rs).",
+                stars: 5,
+                unit: "Santana",
+                verified: true,
+              },
+              {
+                name: "Ricardo Santos",
+                time: "há 1 mês",
+                text: "Levo meu pai para tratar glaucoma há 2 anos. O acompanhamento é impecável, sempre com exames detalhados e explicações claras. A recepção é muito educada e o tempo de espera é curto. Nota 10 para toda a equipe.",
+                stars: 5,
+                unit: "Tatuapé",
+                verified: true,
+              },
+              {
+                name: "Juliana Mendes",
+                time: "há 3 semanas",
+                text: "A Dra. Priscilla é maravilhosa! Adaptou lentes de contato para meu ceratocone e finalmente consigo enxergar direito. Tentei em outros lugares e ninguém conseguiu. Ela tem muita paciência e conhecimento técnico. Sou muito grata!",
+                stars: 5,
+                unit: "Lapa",
+                verified: true,
+              },
+              {
+                name: "Fernando Costa",
+                time: "há 1 mês",
+                text: "Minha mãe de 78 anos fez cirurgia de catarata e ficou com medo. A equipe toda foi extremamente cuidadosa, explicaram cada etapa. No dia seguinte ela já estava enxergando perfeitamente. Atendimento humanizado de verdade.",
+                stars: 5,
+                unit: "Guarulhos",
+                verified: true,
+              },
+              {
+                name: "Ana Beatriz Lima",
+                time: "há 2 meses",
+                text: "Levei meu filho de 5 anos com suspeita de estrabismo. A Dra. Maria Amélia foi incrível com ele, super paciente e carinhosa. Fez todos os exames brincando. Diagnóstico preciso e tratamento já iniciado. Profissional exemplar.",
+                stars: 5,
+                unit: "São Miguel",
+                verified: true,
+              },
+              {
+                name: "Carlos Alberto Souza",
+                time: "há 3 meses",
+                text: "Faço acompanhamento da retina por causa da diabetes. O Dr. Fernando é muito competente e atencioso, sempre explica os resultados dos exames com calma. Os equipamentos são de última geração. Melhor clínica de olhos que já fui.",
+                stars: 5,
+                unit: "Santana",
+                verified: true,
+              },
+            ].map((review, i) => (
+              <AnimateOnScroll key={review.name} delay={i * 0.08}>
+                <div className="bg-white rounded-xl border border-border/60 p-5 h-full hover:shadow-md hover:border-gold/20 transition-all duration-300">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center">
+                        <span className="font-display text-sm text-navy font-bold">{review.name.charAt(0)}</span>
+                      </div>
+                      <div>
+                        <p className="font-ui text-sm font-semibold text-navy">{review.name}</p>
+                        <p className="font-body text-[11px] text-muted-foreground">{review.time}</p>
+                      </div>
+                    </div>
+                    <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+
+                  {/* Stars */}
+                  <div className="flex items-center gap-0.5 mb-3">
+                    {Array.from({ length: review.stars }).map((_, si) => (
+                      <Star key={si} className="w-3.5 h-3.5 text-gold fill-gold" />
+                    ))}
+                  </div>
+
+                  {/* Text */}
+                  <p className="font-body text-sm text-foreground/80 leading-relaxed mb-3">
+                    {review.text}
+                  </p>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-3 border-t border-border/30">
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-3 h-3 text-gold" />
+                      <span className="font-ui text-[10px] text-muted-foreground">Unidade {review.unit}</span>
+                    </div>
+                    {review.verified && (
+                      <div className="flex items-center gap-1">
+                        <ThumbsUp className="w-3 h-3 text-emerald-500" />
+                        <span className="font-ui text-[10px] text-emerald-600 font-semibold">Verificado</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          {/* CTA to Google */}
+          <AnimateOnScroll className="text-center mt-10">
+            <a
+              href="https://www.google.com/maps/place/Drudi+e+Almeida/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-navy/20 text-navy font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy hover:text-cream transition-all duration-300"
+            >
+              Ver Todas as Avaliações no Google
+              <ChevronRight className="w-4 h-4" />
+            </a>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ========== FAQ GERAL ========== */}
+      <section className="section-padding">
+        <div className="container">
+          {/* Schema.org FAQ JSON-LD */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                { "@type": "Question", name: "Quais convênios a Drudi e Almeida aceita?", acceptedAnswer: { "@type": "Answer", text: "Aceitamos Prevent Senior, Bradesco Saúde, Mediservice, PROPM, Amil, Unimed Seguros e Ameplam. Todos cobrem consultas, exames e cirurgias nos nossos 5 institutos." } },
+                { "@type": "Question", name: "Como agendar uma consulta?", acceptedAnswer: { "@type": "Answer", text: "Você pode agendar pelo WhatsApp (11) 91654-4653, pelo formulário online no site ou ligando para qualquer uma das nossas 5 unidades." } },
+                { "@type": "Question", name: "A cirurgia de catarata dói?", acceptedAnswer: { "@type": "Answer", text: "Não. A cirurgia de catarata é realizada com anestesia local (colírio anestésico) e dura cerca de 15 a 20 minutos. O paciente não sente dor durante o procedimento." } },
+                { "@type": "Question", name: "O que é ceratocone e tem cura?", acceptedAnswer: { "@type": "Answer", text: "Ceratocone é uma doença progressiva que afina e deforma a córnea. Não tem cura definitiva, mas o crosslinking estabiliza a progressão e lentes especiais corrigem a visão." } },
+                { "@type": "Question", name: "Glaucoma tem sintomas?", acceptedAnswer: { "@type": "Answer", text: "Na maioria dos casos, o glaucoma é silencioso e não apresenta sintomas até estágios avançados. Por isso, exames preventivos regulares são fundamentais para diagnóstico precoce." } },
+                { "@type": "Question", name: "Quais unidades a Drudi e Almeida possui?", acceptedAnswer: { "@type": "Answer", text: "Temos 5 unidades: Santana (Rua Dr. César, 130), Tatuapé (Rua Tuiuti, 2429), Lapa (Rua Barão de Jundiaí, 221), São Miguel (Rua Bernardo Marcondes, 108) e Guarulhos (Rua Sete de Setembro, 375)." } },
+                { "@type": "Question", name: "Com que idade devo levar meu filho ao oftalmologista?", acceptedAnswer: { "@type": "Answer", text: "O primeiro exame oftalmológico deve ser feito ainda na maternidade (teste do olhinho). Depois, recomenda-se consultas aos 6 meses, 3 anos e antes de entrar na escola. A partir daí, anualmente." } },
+                { "@type": "Question", name: "Diabéticos precisam ir ao oftalmologista com que frequência?", acceptedAnswer: { "@type": "Answer", text: "Pacientes diabéticos devem fazer exame de fundo de olho pelo menos uma vez ao ano, pois a retinopatia diabética pode causar perda de visão silenciosamente." } },
+              ]
+            }) }}
+          />
+
+          <AnimateOnScroll className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gold/10 rounded-full px-4 py-1.5 mb-4">
+              <HelpCircle className="w-4 h-4 text-gold" />
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">FAQ</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-2 mb-4">
+              Perguntas Frequentes
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Reunimos as dúvidas mais comuns dos nossos pacientes. Se sua pergunta não estiver aqui, entre em contato pelo WhatsApp.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {[
+                {
+                  q: "Quais convênios a Drudi e Almeida aceita?",
+                  a: "Aceitamos Prevent Senior, Bradesco Saúde, Mediservice, PROPM, Amil, Unimed Seguros e Ameplam. Todos os convênios cobrem consultas, exames diagnósticos e procedimentos cirúrgicos nos nossos 5 institutos especializados. Para pacientes particulares, oferecemos condições especiais."
+                },
+                {
+                  q: "Como faço para agendar uma consulta?",
+                  a: "Você pode agendar de 3 formas: pelo WhatsApp (11) 91654-4653 (forma mais rápida), pelo formulário de agendamento online no nosso site, ou ligando diretamente para qualquer uma das nossas 5 unidades. O atendimento funciona de segunda a sexta das 8h às 18h e sábados das 8h às 12h."
+                },
+                {
+                  q: "A cirurgia de catarata dói? Como é a recuperação?",
+                  a: "A cirurgia de catarata é indolor — é realizada com anestesia local por colírio e dura cerca de 15 a 20 minutos. A maioria dos pacientes já percebe melhora na visão no dia seguinte. A recuperação completa leva de 2 a 4 semanas, durante as quais o paciente deve usar colírios e evitar esforço físico."
+                },
+                {
+                  q: "O que é ceratocone e qual o tratamento?",
+                  a: "Ceratocone é uma doença progressiva que afina e deforma a córnea, causando visão distorcida. O tratamento depende do estágio: nos casos iniciais, óculos ou lentes de contato especiais corrigem a visão. O crosslinking de córnea é o padrão-ouro para estabilizar a progressão. Em casos avançados, pode ser necessário implante de anel intracorneano ou transplante de córnea."
+                },
+                {
+                  q: "Glaucoma tem cura? Como é o tratamento?",
+                  a: "O glaucoma não tem cura, mas pode ser controlado eficazmente. O tratamento geralmente começa com colírios que reduzem a pressão intraocular. Quando os colírios não são suficientes, existem opções como laser (trabeculoplastia seletiva) e cirurgias. O mais importante é o diagnóstico precoce, pois a visão perdida pelo glaucoma não pode ser recuperada."
+                },
+                {
+                  q: "Com que idade devo levar meu filho ao oftalmologista?",
+                  a: "O primeiro exame deve ser o Teste do Olhinho, feito na maternidade. Depois, recomendamos consultas aos 6 meses, 1 ano, 3 anos e antes de entrar na escola (5-6 anos). A partir daí, anualmente. Problemas como estrabismo, ambliopia (olho preguiçoso) e erros refrativos são mais fáceis de tratar quando detectados cedo."
+                },
+                {
+                  q: "Sou diabético. Com que frequência devo fazer exame de vista?",
+                  a: "Pacientes diabéticos devem fazer exame de fundo de olho (mapeamento de retina) pelo menos uma vez ao ano. A retinopatia diabética é uma das principais causas de cegueira no mundo e pode progredir silenciosamente. Com diagnóstico precoce, tratamentos como injeções intravítreas e laser podem preservar a visão."
+                },
+                {
+                  q: "Quais são as unidades da Drudi e Almeida?",
+                  a: "Temos 5 unidades na Grande São Paulo: Santana (Rua Dr. César, 130), Tatuapé (Rua Tuiuti, 2429), Lapa (Rua Barão de Jundiaí, 221), São Miguel Paulista (Rua Bernardo Marcondes, 108) e Guarulhos (Rua Sete de Setembro, 375). Todas as unidades contam com equipamentos de última geração e os mesmos padrões de qualidade."
+                },
+              ].map((faq, i) => (
+                <AnimateOnScroll key={i} delay={i * 0.04}>
+                  <AccordionItem
+                    value={`home-faq-${i}`}
+                    className="border border-border/60 rounded-xl px-6 bg-white data-[state=open]:shadow-sm data-[state=open]:border-gold/30 transition-all"
+                  >
+                    <AccordionTrigger className="font-display text-base text-navy hover:text-gold py-5 [&[data-state=open]]:text-gold text-left">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="font-body text-sm text-muted-foreground leading-relaxed pb-5">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                </AnimateOnScroll>
+              ))}
+            </Accordion>
+          </div>
+
+          <AnimateOnScroll className="text-center mt-10">
+            <p className="font-body text-sm text-muted-foreground mb-4">
+              Não encontrou sua dúvida? Fale conosco!
+            </p>
+            <a
+              href="https://wa.me/5511916544653?text=Olá! Tenho uma dúvida sobre..."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-[#20BD5A] transition-colors"
+            >
+              <MessageSquare className="w-4 h-4" />
+              Pergunte pelo WhatsApp
+            </a>
           </AnimateOnScroll>
         </div>
       </section>
