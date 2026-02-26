@@ -20,6 +20,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Convenios = lazy(() => import("./pages/Convenios"));
+const Agendamento = lazy(() => import("./pages/Agendamento"));
 
 function PageLoader() {
   return (
@@ -48,6 +49,7 @@ function Router() {
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/convenios" component={Convenios} />
+          <Route path="/agendamento" component={Agendamento} />
           <Route path="/contato" component={Contato} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

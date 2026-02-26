@@ -139,14 +139,12 @@ export default function Header() {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/agendamento"
               className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy-light transition-colors"
             >
               Agendar Consulta
-            </a>
+            </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 text-navy"
@@ -215,14 +213,12 @@ export default function Header() {
                 )
               )}
               <div className="pt-3 mt-2 border-t border-border">
-                <a
-                  href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/agendamento"
                   className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full"
                 >
                   Agendar Consulta
-                </a>
+                </Link>
               </div>
             </nav>
           </motion.div>
