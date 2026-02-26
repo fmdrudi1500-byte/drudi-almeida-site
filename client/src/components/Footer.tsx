@@ -82,6 +82,7 @@ export default function Footer() {
               {[
                 { name: "Sobre Nós", href: "/sobre" },
                 { name: "Tecnologia", href: "/tecnologia" },
+                { name: "Convênios", href: "/convenios" },
                 { name: "Blog", href: "/blog" },
                 { name: "Contato", href: "/contato" },
               ].map((item) => (

@@ -19,6 +19,7 @@ const InstitutoEstrabismo = lazy(() => import("./pages/InstitutoEstrabismo"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contato = lazy(() => import("./pages/Contato"));
+const Convenios = lazy(() => import("./pages/Convenios"));
 
 function PageLoader() {
   return (
@@ -46,6 +47,7 @@ function Router() {
           <Route path="/instituto/estrabismo" component={InstitutoEstrabismo} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
+          <Route path="/convenios" component={Convenios} />
           <Route path="/contato" component={Contato} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

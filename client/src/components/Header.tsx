@@ -22,6 +22,7 @@ const navLinks = [
   { name: "Sobre Nós", href: "/sobre" },
   { name: "Institutos", href: "#", children: institutos },
   { name: "Tecnologia", href: "/tecnologia" },
+  { name: "Convênios", href: "/convenios" },
   { name: "Blog", href: "/blog" },
   { name: "Contato", href: "/contato" },
 ];

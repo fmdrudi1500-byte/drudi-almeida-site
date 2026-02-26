@@ -42,6 +42,10 @@ A clínica investe continuamente em equipamentos de última geração:
 - Localização: São Paulo - SP, Brasil
 - Horário: Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h
 
+## Convênios Aceitos
+
+A Drudi e Almeida atende os seguintes convênios: Prevent Senior, Bradesco Saúde, Mediservice, PROPM, Amil, Unimed Seguros e Ameplam. Todos os convênios cobrem consultas, exames diagnósticos e procedimentos cirúrgicos nos 5 institutos especializados.
+
 ## Links
 
 - [Página Inicial](/)
@@ -53,4 +57,5 @@ A clínica investe continuamente em equipamentos de última geração:
 - [Instituto de Estrabismo](/instituto/estrabismo)
 - [Tecnologia](/tecnologia)
 - [Blog](/blog)
+- [Convênios](/convenios)
 - [Contato](/contato)
