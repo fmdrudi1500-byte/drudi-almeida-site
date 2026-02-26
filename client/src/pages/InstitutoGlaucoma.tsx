@@ -26,7 +26,7 @@ const faqItems = [
 export default function InstitutoGlaucoma() {
   return (
     <>
-      <InstitutoHero title="Instituto do Glaucoma" subtitle="Preservando sua visão com cuidado e tecnologia de ponta." imageUrl={IMAGES.hero.technology} breadcrumb="Instituto do Glaucoma" />
+      <InstitutoHero title="Instituto do Glaucoma" subtitle="Preservando sua visão com cuidado e tecnologia de ponta." imageUrl={IMAGES.hero.technology} breadcrumb="Instituto do Glaucoma" logoUrl={IMAGES.institutoLogos.glaucoma} />
 
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">

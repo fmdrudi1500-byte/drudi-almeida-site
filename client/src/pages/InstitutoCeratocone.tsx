@@ -26,7 +26,7 @@ const faqItems = [
 export default function InstitutoCeratocone() {
   return (
     <>
-      <InstitutoHero title="Instituto do Ceratocone" subtitle="Tecnologia e cuidado para a estabilidade da sua visão." imageUrl={IMAGES.hero.eyeAbstract} breadcrumb="Instituto do Ceratocone" />
+      <InstitutoHero title="Instituto do Ceratocone" subtitle="Tecnologia e cuidado para a estabilidade da sua visão." imageUrl={IMAGES.hero.eyeAbstract} breadcrumb="Instituto do Ceratocone" logoUrl={IMAGES.institutoLogos.ceratocone} />
 
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">

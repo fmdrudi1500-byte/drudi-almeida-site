@@ -32,7 +32,7 @@ const faqItems = [
 export default function InstitutoEstrabismo() {
   return (
     <>
-      <InstitutoHero title="Instituto de Estrabismo" subtitle="Alinhamento ocular para crianças e adultos com técnicas modernas e cuidado humanizado." imageUrl={IMAGES.hero.happyFamily} breadcrumb="Instituto de Estrabismo" />
+      <InstitutoHero title="Instituto de Estrabismo" subtitle="Alinhamento ocular para crianças e adultos com técnicas modernas e cuidado humanizado." imageUrl={IMAGES.hero.happyFamily} breadcrumb="Instituto de Estrabismo" logoUrl={IMAGES.institutoLogos.estrabismo} />
 
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">

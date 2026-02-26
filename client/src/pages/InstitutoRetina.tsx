@@ -32,7 +32,7 @@ const faqItems = [
 export default function InstitutoRetina() {
   return (
     <>
-      <InstitutoHero title="Instituto da Retina" subtitle="Alta tecnologia para o cuidado do coração do seu olho." imageUrl={IMAGES.hero.eyeAbstract} breadcrumb="Instituto da Retina" />
+      <InstitutoHero title="Instituto da Retina" subtitle="Alta tecnologia para o cuidado do coração do seu olho." imageUrl={IMAGES.hero.eyeAbstract} breadcrumb="Instituto da Retina" logoUrl={IMAGES.institutoLogos.retina} />
 
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">

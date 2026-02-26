@@ -41,6 +41,7 @@ export default function InstitutoCatarata() {
         subtitle="Recupere a clareza e as cores da vida com cirurgia a laser de última geração."
         imageUrl={IMAGES.hero.doctorConsultation}
         breadcrumb="Instituto da Catarata"
+        logoUrl={IMAGES.institutoLogos.catarata}
       />
 
       {/* O que é */}

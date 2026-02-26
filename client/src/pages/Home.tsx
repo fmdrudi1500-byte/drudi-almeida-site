@@ -16,6 +16,7 @@ const institutos = [
     desc: "Cirurgia de catarata a laser com tecnologia de ponta para restaurar a clareza da sua visão.",
     icon: Eye,
     color: "from-blue-500/10 to-blue-600/5",
+    logo: IMAGES.institutoLogos.catarata,
   },
   {
     name: "Instituto do Ceratocone",
@@ -23,6 +24,7 @@ const institutos = [
     desc: "Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.",
     icon: Shield,
     color: "from-emerald-500/10 to-emerald-600/5",
+    logo: IMAGES.institutoLogos.ceratocone,
   },
   {
     name: "Instituto do Glaucoma",
@@ -30,6 +32,7 @@ const institutos = [
     desc: "Diagnóstico precoce e tratamento contínuo para preservar sua visão do glaucoma.",
     icon: Eye,
     color: "from-amber-500/10 to-amber-600/5",
+    logo: IMAGES.institutoLogos.glaucoma,
   },
   {
     name: "Instituto da Retina",
@@ -37,6 +40,7 @@ const institutos = [
     desc: "Tratamento especializado para doenças da retina com tecnologia de última geração.",
     icon: Heart,
     color: "from-rose-500/10 to-rose-600/5",
+    logo: IMAGES.institutoLogos.retina,
   },
   {
     name: "Instituto de Estrabismo",
@@ -44,6 +48,7 @@ const institutos = [
     desc: "Alinhamento ocular para crianças e adultos com técnicas cirúrgicas modernas.",
     icon: Users,
     color: "from-violet-500/10 to-violet-600/5",
+    logo: IMAGES.institutoLogos.estrabismo,
   },
 ];
 
@@ -167,9 +172,11 @@ export default function Home() {
               <AnimateOnScroll key={inst.href} delay={i * 0.08}>
                 <Link href={inst.href} className="group block">
                   <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-lg hover:border-gold/30 transition-all duration-300`}>
-                    <div className="w-11 h-11 rounded-lg bg-navy/5 flex items-center justify-center mb-4 group-hover:bg-gold/10 transition-colors">
-                      <inst.icon className="w-5 h-5 text-navy group-hover:text-gold transition-colors" />
-                    </div>
+                    <img
+                      src={inst.logo}
+                      alt={inst.name}
+                      className="w-16 h-16 object-contain mb-4 rounded-lg"
+                    />
                     <h3 className="font-display text-xl text-navy mb-2 group-hover:text-gold transition-colors">
                       {inst.name}
                     </h3>
