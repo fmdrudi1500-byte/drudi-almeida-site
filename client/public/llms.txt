@@ -39,8 +39,15 @@ A clínica investe continuamente em equipamentos de última geração:
 - Telefone: (11) 91654-4653
 - E-mail: contato@drudialmeida.com.br
 - WhatsApp: https://wa.me/5511916544653
-- Localização: São Paulo - SP, Brasil
 - Horário: Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h
+
+## Unidades
+
+- Unidade Santana: Rua Dr. César, 130 — Santana, São Paulo - SP
+- Unidade Tatuapé: Rua Tuiuti, 2429 — Tatuapé, São Paulo - SP
+- Unidade Lapa: Rua Barão de Jundiaí, 221 — Lapa, São Paulo - SP
+- Unidade São Miguel: Rua Bernardo Marcondes, 108 — São Miguel Paulista, São Paulo - SP
+- Unidade Guarulhos: Rua Sete de Setembro, 375 — Centro, Guarulhos - SP
 
 ## Convênios Aceitos
 

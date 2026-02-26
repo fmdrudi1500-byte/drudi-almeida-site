@@ -1,11 +1,19 @@
 /* ============================================================
    Footer — Drudi e Almeida
-   Navy background with gold accents, links, and contact info
+   Navy background with gold accents, 5 units, links, and contact
    ============================================================ */
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/jXphKGejnsXpoASn.jpg";
+
+const unidades = [
+  { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
+  { name: "Tatuapé", address: "Rua Tuiuti, 2429", city: "São Paulo - SP" },
+  { name: "Lapa", address: "Rua Barão de Jundiaí, 221", city: "São Paulo - SP" },
+  { name: "São Miguel", address: "Rua Bernardo Marcondes, 108", city: "São Paulo - SP" },
+  { name: "Guarulhos", address: "Rua Sete de Setembro, 375", city: "Guarulhos - SP" },
+];
 
 export default function Footer() {
   return (
@@ -14,7 +22,8 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-gold/0 via-gold to-gold/0" />
 
       <div className="container section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
@@ -23,8 +32,7 @@ export default function Footer() {
               className="h-14 w-auto mb-5 brightness-0 invert opacity-90"
             />
             <p className="font-body text-sm leading-relaxed text-cream/70 max-w-xs">
-              Referência em oftalmologia com 5 institutos especializados. 
-              Tecnologia de ponta e cuidado humanizado para a sua visão.
+              Referência em oftalmologia com 5 institutos especializados e 5 unidades na Grande São Paulo.
             </p>
             <div className="flex gap-3 mt-5">
               <a
@@ -46,6 +54,24 @@ export default function Footer() {
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
+          </div>
+
+          {/* Unidades */}
+          <div className="lg:col-span-1">
+            <h4 className="font-ui text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+              Nossas Unidades
+            </h4>
+            <ul className="space-y-3">
+              {unidades.map((u) => (
+                <li key={u.name} className="flex items-start gap-2">
+                  <MapPin className="w-3 h-3 mt-1 text-gold/60 shrink-0" />
+                  <div>
+                    <p className="font-ui text-xs font-semibold text-cream/90">{u.name}</p>
+                    <p className="font-body text-xs text-cream/50">{u.address}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Institutos */}
@@ -115,12 +141,6 @@ export default function Footer() {
                 <a href="mailto:contato@drudialmeida.com.br" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
                   contato@drudialmeida.com.br
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                <span className="font-body text-sm text-cream/70">
-                  São Paulo - SP
-                </span>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 mt-0.5 text-gold shrink-0" />

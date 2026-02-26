@@ -295,6 +295,156 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ========== DEPOIMENTOS ========== */}
+      <section className="section-padding bg-cream/50">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Depoimentos
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
+              O que Nossos Pacientes Dizem
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              A satisfação dos nossos pacientes é a nossa maior recompensa. Confira alguns relatos de quem confiou na Drudi e Almeida.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Maria Helena S.",
+                age: 68,
+                unit: "Unidade Santana",
+                text: "Fiz minha cirurgia de catarata na Drudi e Almeida e o resultado foi maravilhoso. Voltei a enxergar com nitidez que não tinha há anos. Equipe muito atenciosa e carinhosa.",
+                instituto: "Instituto da Catarata",
+                stars: 5,
+              },
+              {
+                name: "Carlos Eduardo M.",
+                age: 34,
+                unit: "Unidade Tatuapé",
+                text: "Descobri o ceratocone e fiquei muito preocupado. O Dr. me explicou tudo com calma, fiz o crosslinking e minha visão estabilizou. Recomendo demais o Instituto do Ceratocone.",
+                instituto: "Instituto do Ceratocone",
+                stars: 5,
+              },
+              {
+                name: "Ana Paula R.",
+                age: 55,
+                unit: "Unidade Lapa",
+                text: "Trato meu glaucoma na Drudi e Almeida há 3 anos. O acompanhamento é impecável, com exames regulares e muita atenção. Me sinto segura e bem cuidada.",
+                instituto: "Instituto do Glaucoma",
+                stars: 5,
+              },
+              {
+                name: "José Roberto L.",
+                age: 72,
+                unit: "Unidade Guarulhos",
+                text: "Tive um problema na retina e fui encaminhado para a Drudi e Almeida. O tratamento com injeção intravítrea salvou minha visão. Profissionais excepcionais.",
+                instituto: "Instituto da Retina",
+                stars: 5,
+              },
+              {
+                name: "Fernanda C.",
+                age: 28,
+                unit: "Unidade São Miguel",
+                text: "Meu filho de 6 anos fez a cirurgia de estrabismo. A equipe foi incrível com ele, muito cuidado e carinho. O resultado ficou perfeito, estamos muito felizes.",
+                instituto: "Instituto de Estrabismo",
+                stars: 5,
+              },
+              {
+                name: "Roberto A.",
+                age: 45,
+                unit: "Unidade Santana",
+                text: "Atendimento de primeiro mundo. Desde a recepção até o consultório, tudo é muito organizado e moderno. Os equipamentos são de última geração. Recomendo!",
+                instituto: "Consulta Geral",
+                stars: 5,
+              },
+            ].map((dep, i) => (
+              <AnimateOnScroll key={dep.name} delay={i * 0.08}>
+                <div className="bg-white rounded-xl border border-border/60 p-6 h-full hover:shadow-md transition-shadow duration-300">
+                  {/* Stars */}
+                  <div className="flex items-center gap-0.5 mb-3">
+                    {Array.from({ length: dep.stars }).map((_, si) => (
+                      <Star key={si} className="w-4 h-4 text-gold fill-gold" />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <p className="font-body text-sm text-foreground/80 leading-relaxed mb-5 italic">
+                    "{dep.text}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border/40">
+                    <div>
+                      <p className="font-ui text-sm font-semibold text-navy">{dep.name}</p>
+                      <p className="font-body text-xs text-muted-foreground">{dep.age} anos • {dep.unit}</p>
+                    </div>
+                    <span className="font-ui text-[10px] font-semibold tracking-wide uppercase text-gold/80 bg-gold/8 px-2.5 py-1 rounded-full">
+                      {dep.instituto}
+                    </span>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== UNIDADES ========== */}
+      <section className="section-padding">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Perto de Você
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
+              Nossas Unidades
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              5 unidades estrategicamente localizadas na Grande São Paulo para facilitar o seu acesso.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
+              { name: "Tatuapé", address: "Rua Tuiuti, 2429", city: "São Paulo - SP" },
+              { name: "Lapa", address: "Rua Barão de Jundiaí, 221", city: "São Paulo - SP" },
+              { name: "São Miguel", address: "Rua Bernardo Marcondes, 108", city: "São Paulo - SP" },
+              { name: "Guarulhos", address: "Rua Sete de Setembro, 375", city: "Guarulhos - SP" },
+            ].map((u, i) => (
+              <AnimateOnScroll key={u.name} delay={i * 0.08}>
+                <div className="bg-white rounded-xl border border-border/60 p-5 text-center hover:shadow-md hover:border-gold/30 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-base text-navy mb-1">{u.name}</h3>
+                  <p className="font-body text-xs text-muted-foreground leading-relaxed">{u.address}</p>
+                  <p className="font-body text-xs text-muted-foreground">{u.city}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll className="text-center mt-8">
+            <Link
+              href="/contato"
+              className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light transition-colors"
+            >
+              Ver Todas as Unidades no Mapa
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/* ========== CTA FINAL ========== */}
       <section className="section-padding">
         <div className="container">

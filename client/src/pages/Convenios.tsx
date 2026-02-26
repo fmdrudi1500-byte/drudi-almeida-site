@@ -1,6 +1,6 @@
 /* ============================================================
    Convênios — Drudi e Almeida
-   Insurance plans accepted, with logos and details
+   Insurance plans accepted, with real logos and details
    Design: Neoclassical Medical Luminance
    ============================================================ */
 import { CheckCircle, Phone, MessageCircle, Shield, Heart, Users } from "lucide-react";
@@ -13,6 +13,7 @@ interface Convenio {
   name: string;
   description: string;
   color: string;
+  logo?: string;
   initial: string;
 }
 
@@ -20,19 +21,22 @@ const convenios: Convenio[] = [
   {
     name: "Prevent Senior",
     description: "Plano de saúde referência para a terceira idade, com ampla cobertura em consultas, exames e cirurgias oftalmológicas.",
-    color: "#E8432E",
+    color: "#1B3A6B",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ULBqqsZkuiKBoDrv.png",
     initial: "PS",
   },
   {
     name: "Bradesco Saúde",
     description: "Um dos maiores planos de saúde do Brasil, oferecendo cobertura completa para todos os procedimentos oftalmológicos.",
     color: "#CC092F",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/iwnJMoCNnwopchUF.png",
     initial: "BS",
   },
   {
     name: "Mediservice",
     description: "Plano corporativo do Bradesco com atendimento diferenciado e cobertura abrangente em oftalmologia.",
     color: "#0066B3",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/rPLmRznRbIQEDeuV.png",
     initial: "MS",
   },
   {
@@ -44,19 +48,22 @@ const convenios: Convenio[] = [
   {
     name: "Amil",
     description: "Rede nacional com cobertura ampla em oftalmologia, incluindo consultas, exames de alta complexidade e cirurgias.",
-    color: "#4A148C",
+    color: "#1A237E",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/vRtJJHZyrxFGQNnx.png",
     initial: "AM",
   },
   {
     name: "Unimed Seguros",
     description: "Maior sistema cooperativo de saúde do mundo, com cobertura completa para cuidados oftalmológicos.",
-    color: "#00A651",
+    color: "#00653A",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/mvWRpZFYQZpqvVDK.png",
     initial: "US",
   },
   {
     name: "Ameplam",
     description: "Plano de saúde com atendimento personalizado e cobertura para consultas e procedimentos em oftalmologia.",
-    color: "#1565C0",
+    color: "#E53935",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ZZpmIoRpTNvSnOWl.jpg",
     initial: "AP",
   },
 ];
@@ -117,13 +124,23 @@ export default function Convenios() {
                   />
 
                   <div className="flex items-start gap-4 mt-2">
-                    {/* Logo placeholder with brand initial */}
-                    <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0 text-white font-display text-lg font-bold shadow-sm"
-                      style={{ backgroundColor: conv.color }}
-                    >
-                      {conv.initial}
-                    </div>
+                    {/* Logo or fallback initial */}
+                    {conv.logo ? (
+                      <div className="w-16 h-16 rounded-xl bg-white border border-border/40 flex items-center justify-center shrink-0 p-2 shadow-sm">
+                        <img
+                          src={conv.logo}
+                          alt={`Logo ${conv.name}`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0 text-white font-display text-lg font-bold shadow-sm"
+                        style={{ backgroundColor: conv.color }}
+                      >
+                        {conv.initial}
+                      </div>
+                    )}
                     <div className="flex-1">
                       <h3 className="font-display text-lg text-navy mb-1.5 group-hover:text-gold transition-colors">
                         {conv.name}
