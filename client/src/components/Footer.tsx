@@ -5,7 +5,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/jXphKGejnsXpoASn.jpg";
+const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png";
 
 const unidades = [
   { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
@@ -26,11 +26,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img
-              src={LOGO_URL}
-              alt="Drudi e Almeida"
-              className="h-14 w-auto mb-5 brightness-0 invert opacity-90"
-            />
+            <div className="bg-white/95 rounded-lg p-2 inline-block mb-5">
+              <img
+                src={LOGO_URL}
+                alt="Drudi e Almeida"
+                className="h-14 w-auto object-contain"
+              />
+            </div>
             <p className="font-body text-sm leading-relaxed text-cream/70 max-w-xs">
               Referência em oftalmologia com 5 institutos especializados e 5 unidades na Grande São Paulo.
             </p>

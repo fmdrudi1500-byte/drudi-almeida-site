@@ -5,8 +5,8 @@
 
 export const IMAGES = {
   logo: {
-    horizontal: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/jXphKGejnsXpoASn.jpg",
-    circular: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/NcKTHHyzRMEAtXbR.jpg",
+    horizontal: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png",
+    circular: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png",
   },
   hero: {
     main: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/BEHovkSnxAUjKJEd.jpg",

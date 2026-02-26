@@ -8,7 +8,7 @@ import { Menu, X, ChevronDown, Phone, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/jXphKGejnsXpoASn.jpg";
+const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png";
 
 const institutos = [
   { name: "Instituto da Catarata", href: "/instituto/catarata" },
@@ -77,7 +77,7 @@ export default function Header() {
             <img
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
-              className={`h-12 md:h-14 w-auto ${theme === "dark" ? "brightness-0 invert opacity-90" : ""}`}
+              className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
 
