@@ -5,7 +5,7 @@
    ============================================================ */
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette } from "lucide-react";
+import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
 
@@ -296,6 +296,92 @@ export default function Home() {
               className="inline-flex items-center gap-2 border border-gold/40 text-gold font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-gold/10 transition-colors"
             >
               Ver Todos os Equipamentos
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ========== CORPO CLÍNICO ========== */}
+      <section className="section-padding">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-14">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              Corpo Clínico
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
+              Nossos Especialistas
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Profissionais com formação de excelência e compromisso com o cuidado humanizado.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Dr. Fernando Macei Drudi",
+                role: "Diretor Clínico",
+                specialty: "Catarata e Retina Cirúrgica",
+                crm: "CRM-SP 139.300",
+                image: IMAGES.doctors.drFernando,
+                highlight: "Condecoração \"Amigo da Marinha\" — Projeto Amazônia",
+              },
+              {
+                name: "Dra. Priscilla R. de Almeida",
+                role: "Diretora Técnica",
+                specialty: "Segmento Anterior e Lentes de Contato",
+                crm: "CRM-SP 148.173",
+                image: IMAGES.doctors.draPriscilla,
+                highlight: "Fellowship em Córnea — EPM/UNIFESP",
+              },
+              {
+                name: "Dra. Maria Amélia V. de Melo",
+                role: "Cirurgiã de Estrabismo",
+                specialty: "Estrabismo e Oftalmologia Pediátrica",
+                crm: "CRM-SP 199.188",
+                image: IMAGES.doctors.draMariaAmelia,
+                highlight: "Especialização em Estrabismo",
+              },
+            ].map((doc, i) => (
+              <AnimateOnScroll key={doc.name} delay={i * 0.12}>
+                <div className="group bg-white rounded-xl border border-border/60 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all duration-300">
+                  {/* Photo */}
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={doc.image}
+                      alt={doc.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <span className="inline-block bg-gold/90 text-navy font-ui text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full">
+                        {doc.role}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Info */}
+                  <div className="p-5">
+                    <h3 className="font-display text-lg text-navy mb-0.5">{doc.name}</h3>
+                    <p className="font-ui text-xs text-gold font-semibold mb-1">{doc.specialty}</p>
+                    <p className="font-body text-[11px] text-muted-foreground mb-3">{doc.crm}</p>
+                    <div className="flex items-start gap-2 bg-cream/60 rounded-lg p-2.5 border border-gold/10">
+                      <Award className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                      <p className="font-ui text-[11px] text-navy leading-snug">{doc.highlight}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll className="text-center mt-10">
+            <Link
+              href="/sobre#corpo-clinico"
+              className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light transition-colors"
+            >
+              Conheça Nossos Especialistas
               <ArrowRight className="w-4 h-4" />
             </Link>
           </AnimateOnScroll>

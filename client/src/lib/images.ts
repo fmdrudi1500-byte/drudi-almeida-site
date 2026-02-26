@@ -33,6 +33,12 @@ export const IMAGES = {
     daVinciStrabismus: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/tjFAKPBlHLVpdwvV.jpg",
     rembrandtSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/EuPODdxSBIgDitkq.jpg",
   },
+  // Corpo Clínico — Fotos profissionais dos médicos
+  doctors: {
+    drFernando: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/dMCAJeYRVKlvSJwN.png",
+    draPriscilla: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/PwPgfiBCkPSOGMHx.png",
+    draMariaAmelia: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/nNfvXsUoQXCkKIBI.png",
+  },
   // Unsplash images for less prominent sections
   unsplash: {
     elderlySmiling: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",
