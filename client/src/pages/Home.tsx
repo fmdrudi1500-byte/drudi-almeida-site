@@ -317,25 +317,25 @@ export default function Home() {
         <div className="container">
           <AnimateOnScroll className="text-center mb-14">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-              Corpo Clínico
+              Fundadores
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
-              Nossos Especialistas
+              Nossos Fundadores
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Profissionais com formação de excelência e compromisso com o cuidado humanizado.
+              Um casal de oftalmologistas unidos pela paixão em oferecer o melhor cuidado para a sua visão.
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {[
               {
                 name: "Dr. Fernando Macei Drudi",
                 role: "Diretor Clínico",
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
-                image: IMAGES.doctors.drFernando,
+                image: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/boBu2YFUIpC4Mg45ztPnz5-img-1_1772146534000_na1fn_ZHItZmVybmFuZG8tcHJvZmlzc2lvbmFs.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2JvQnUyWUZVSXBDNE1nNDV6dFBuejUtaW1nLTFfMTc3MjE0NjUzNDAwMF9uYTFmbl9aSEl0Wm1WeWJtRnVaRzh0Y0hKdlptbHpjMmx2Ym1Gcy5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=g-GqTn0IYod3SxM1KL6scGj8HrYjLwtbpOj47vEbTqmm9DX0L-4oq99Pur62lsgXfYfE8myXczrsGFbqbnZEr-L8zbcDlVv17eWYJNadpAclks3WJiW8BcnuK0p6Z9Hj4yOkHhuS0HiWJmzdqTAd89veLtrf3sBg0LhJ65SPsgyM6eN7RXUhA~tplpzvXPN0Q-txAiR0TLgh3IGOwNHktSa8~5-fwXG5kiNPZ8ti~PdJh8n1dBo4yBLIpD17-B8qFJ3jpyIcrRLnGoHeM5kmiQuFMqFOn--P65UeQ35R4rVMg4xtv72IjATWhPtzbNkyopZpDWXW5Z7HK4EGLDQPBw__",
                 highlights: [
                   "Especialista em Catarata e Retina Cirúrgica",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -348,7 +348,7 @@ export default function Home() {
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173",
-                image: IMAGES.doctors.draPriscilla,
+                image: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/boBu2YFUIpC4Mg45ztPnz5-img-2_1772146534000_na1fn_ZHJhLXByaXNjaWxsYS1wcm9maXNzaW9uYWw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2JvQnUyWUZVSXBDNE1nNDV6dFBuejUtaW1nLTJfMTc3MjE0NjUzNDAwMF9uYTFmbl9aSEpoTFhCeWFYTmphV3hzWVMxd2NtOW1hWE56YVc5dVlXdy5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=sLdVbwJoM8uWB36HdP~GzuqJc0Cfz0tNDZWIOSm2MMIYcxLkVHJ-PT9ALNnHJ5SprjqdMMQAWA1td0Vssc~rXJRLbKUyDTfuHxca2QTVLSctaN3udSYwCbgOSd~xB5LiLSa2xocs~uQo66EV75qEtB9cDYeYFDGT63jWqpS~GfO8nQdHKFDrnBYLiWxSEZ3Spl~o0tcZrriPVM85GHzZbitsrCNjEeTHQetSv4-3XehcBzQn8YEW2Ojh-oyB~YmwTuoyr~oQKcngOdtQQfAUpQVrIKDuBRxYCYxVmUMJ22~qdovt3yOlyT1DSrNALoUrAAqZhT3a7aRxuHRx4BxcBw__",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -356,46 +356,33 @@ export default function Home() {
                   "Especialista em Adaptação de Lentes de Contato Especiais",
                 ],
               },
-              {
-                name: "Dra. Maria Amélia V. de Melo",
-                role: "Cirurgiã de Estrabismo",
-                specialty: "Estrabismo e Oftalmologia Pediátrica",
-                crm: "CRM-SP 199.188",
-                image: IMAGES.doctors.draMariaAmelia,
-                highlights: [
-                  "Especialização em Estrabismo — Instituto Luiz Braille / FMJ",
-                  "Graduação em Medicina pela Faculdade de Medicina de Jundiaí",
-                  "Trabalhos apresentados no Congresso Brasileiro de Oftalmologia",
-                  "Experiência em Cirurgia de Estrabismo Infantil e Adulto",
-                ],
-              },
             ].map((doc, i) => (
-              <AnimateOnScroll key={doc.name} delay={i * 0.12}>
-                <div className="group bg-white rounded-xl border border-border/60 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all duration-300">
+              <AnimateOnScroll key={doc.name} delay={i * 0.15}>
+                <div className="group bg-white rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-gold/30 transition-all duration-300">
                   {/* Photo */}
-                  <div className="relative h-72 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     <img
                       src={doc.image}
                       alt={doc.name}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <span className="inline-block bg-gold/90 text-navy font-ui text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full">
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <span className="inline-block bg-gold/90 text-navy font-ui text-[10px] font-bold tracking-wider uppercase px-3 py-1.5 rounded-full">
                         {doc.role}
                       </span>
                     </div>
                   </div>
                   {/* Info */}
-                  <div className="p-5">
-                    <h3 className="font-display text-lg text-navy mb-0.5">{doc.name}</h3>
-                    <p className="font-ui text-xs text-gold font-semibold mb-1">{doc.specialty}</p>
-                    <p className="font-body text-[11px] text-muted-foreground mb-3">{doc.crm}</p>
-                    <div className="space-y-1.5">
+                  <div className="p-6">
+                    <h3 className="font-display text-xl text-navy mb-1">{doc.name}</h3>
+                    <p className="font-ui text-sm text-gold font-semibold mb-1">{doc.specialty}</p>
+                    <p className="font-body text-xs text-muted-foreground mb-4">{doc.crm}</p>
+                    <div className="space-y-2">
                       {doc.highlights.map((h, idx) => (
-                        <div key={idx} className="flex items-start gap-2 bg-cream/60 rounded-lg px-2.5 py-1.5 border border-gold/10">
-                          <Award className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                          <p className="font-ui text-[11px] text-navy leading-snug">{h}</p>
+                        <div key={idx} className="flex items-start gap-2.5 bg-cream/60 rounded-lg px-3 py-2 border border-gold/10">
+                          <Award className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                          <p className="font-ui text-xs text-navy leading-snug">{h}</p>
                         </div>
                       ))}
                     </div>
@@ -410,7 +397,7 @@ export default function Home() {
               href="/sobre#corpo-clinico"
               className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light transition-colors"
             >
-              Conheça Nossos Especialistas
+              Conheça Nossa História
               <ArrowRight className="w-4 h-4" />
             </Link>
           </AnimateOnScroll>
