@@ -217,7 +217,7 @@ export default function Home() {
               <div className="relative">
                 <img
                   src={IMAGES.hero.doctorConsultation}
-                  alt="Consulta oftalmológica na Drudi e Almeida"
+                  alt="Pintura impressionista de óculos dourados sobre livro médico com ninfeias — Drudi e Almeida"
                   className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
                 />
                 {/* Floating card */}
