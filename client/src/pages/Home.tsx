@@ -210,58 +210,102 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== SOBRE NÓS (PREVIEW) ========== */}
-      <section className="section-padding bg-cream/50">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <AnimateOnScroll direction="left">
-              <div className="relative">
-                <img
-                  src={IMAGES.hero.doctorConsultation}
-                  alt="Pintura impressionista de óculos dourados sobre livro médico com ninfeias — Drudi e Almeida"
-                  className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
-                />
-                {/* Floating card */}
-                <div className="absolute -bottom-6 -right-4 md:right-6 glass rounded-lg shadow-lg p-4 max-w-[200px]">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                  </div>
-                  <p className="font-ui text-xs text-navy font-semibold">Avaliação 5 estrelas</p>
-                  <p className="font-body text-[11px] text-muted-foreground">Google Reviews</p>
-                </div>
-              </div>
-            </AnimateOnScroll>
+      {/* ========== QUEM SOMOS ========== */}
+      <section className="relative overflow-hidden">
+        {/* Full-width layout: image left, content right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+          {/* Left: Dra. Priscilla image — full bleed */}
+          <AnimateOnScroll direction="left" className="relative">
+            <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
+              <img
+                src="https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/G9Tpw7zLvTmvEI9gUisRl0-img-1_1772121965000_na1fn_ZHJhLXByaXNjaWxsYS1jb25zdWx0b3Jpbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0c5VHB3N3pMdlRtdkVJOWdVaXNSbDAtaW1nLTFfMTc3MjEyMTk2NTAwMF9uYTFmbl9aSEpoTFhCeWFYTmphV3hzWVMxamIyNXpkV3gwYjNKcGJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=TTPlEJe6xmx3JcptNhtg1qrEtUbjuKUKa~KI7tuZqDumLMDmDQdnlKVKd1KY-IEDDybrJ1d8fWI7I12FSMXnFCcA~R7GWjp~XmlIsd4OO3hqE8rslDm4CSFl9AxnQeX2JOTrdvcY19Fs5QwBqcvRzFqGvp9V4TPXktsThC2CZyCYjTNtlEpPFlTAXqj3aCz3FY~eUKvjc0Vkjo7zTODXESLEuIlMYP1Vq9NbgPjbroq-FGYG49cbVrRDF6w2SOuJSEUSyCi~TVz6xaUNv6-xBlGlrVz-0yWiN~B7Zq3pStqLZ9ZYrr7sgT2JCERT8tUBpC41UJk8YtAET-lIwTOKIQ__"
+                alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+              {/* Subtle gradient overlay on right edge for blending */}
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-cream/80 to-transparent hidden lg:block" />
+              {/* Bottom gradient for mobile */}
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-cream/90 to-transparent lg:hidden" />
 
-            <AnimateOnScroll direction="right">
-              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+              {/* Floating credential card */}
+              <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 bg-white/95 backdrop-blur-md rounded-xl shadow-xl p-4 max-w-[220px] border border-gold/20">
+                <div className="flex items-center gap-1.5 mb-2">
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                </div>
+                <p className="font-ui text-xs text-navy font-bold">Avaliação 5 estrelas</p>
+                <p className="font-body text-[11px] text-muted-foreground">+200 avaliações no Google</p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Right: Content */}
+          <AnimateOnScroll direction="right" className="relative">
+            <div className="flex flex-col justify-center h-full bg-gradient-to-br from-cream/60 via-background to-cream/40 px-8 py-14 md:px-14 lg:px-16 lg:py-20">
+              {/* Decorative accent */}
+              <div className="absolute top-8 right-8 w-24 h-24 rounded-full bg-gold/5 blur-2xl" />
+              <div className="absolute bottom-12 right-16 w-32 h-32 rounded-full bg-navy/3 blur-3xl" />
+
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold relative z-10">
                 Quem Somos
               </span>
-              <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-5">
-                Tradição e Inovação em Oftalmologia
+              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.6rem] text-navy mt-3 mb-6 leading-tight relative z-10">
+                Cuidar da sua visão é a nossa <em className="text-gold not-italic">vocação</em>
               </h2>
-              <p className="font-body text-base text-muted-foreground leading-relaxed mb-4">
-                A Drudi e Almeida Clínicas Oftalmológicas é referência em saúde ocular, 
-                combinando a experiência de profissionais altamente qualificados com a 
-                tecnologia mais avançada disponível no mercado.
-              </p>
-              <p className="font-body text-base text-muted-foreground leading-relaxed mb-6">
-                Nossos 5 institutos especializados foram criados com o propósito de trazer 
-                acessibilidade e excelência no tratamento das principais doenças oculares, 
-                garantindo que cada paciente receba um cuidado personalizado e humanizado.
-              </p>
-              <Link
-                href="/sobre"
-                className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light transition-colors"
-              >
-                Conheça Nossa História
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </AnimateOnScroll>
-          </div>
+
+              <div className="space-y-4 relative z-10">
+                <p className="font-body text-base text-muted-foreground leading-relaxed">
+                  A <strong className="text-navy">Drudi e Almeida Oftalmologia</strong> nasceu do encontro
+                  entre a tradição cirúrgica do Dr. Fernando Drudi e a dedicação clínica da
+                  Dra. Priscilla de Almeida — um casal unido pelo propósito de transformar
+                  a forma como as pessoas cuidam dos olhos.
+                </p>
+                <p className="font-body text-base text-muted-foreground leading-relaxed">
+                  Com <strong className="text-navy">5 institutos especializados</strong> e uma equipe
+                  multidisciplinar, oferecemos desde consultas de rotina até cirurgias de alta
+                  complexidade, sempre com acolhimento e excelência.
+                </p>
+              </div>
+
+              {/* Key differentials */}
+              <div className="grid grid-cols-3 gap-4 mt-8 relative z-10">
+                <div className="text-center">
+                  <div className="w-10 h-10 mx-auto rounded-lg bg-navy/8 flex items-center justify-center mb-2">
+                    <Eye className="w-5 h-5 text-navy" />
+                  </div>
+                  <div className="font-display text-lg text-navy font-bold">5</div>
+                  <div className="font-ui text-[10px] text-muted-foreground tracking-wide leading-tight">Institutos<br/>Especializados</div>
+                </div>
+                <div className="text-center">
+                  <div className="w-10 h-10 mx-auto rounded-lg bg-navy/8 flex items-center justify-center mb-2">
+                    <Shield className="w-5 h-5 text-navy" />
+                  </div>
+                  <div className="font-display text-lg text-navy font-bold">14</div>
+                  <div className="font-ui text-[10px] text-muted-foreground tracking-wide leading-tight">Equipamentos<br/>de Ponta</div>
+                </div>
+                <div className="text-center">
+                  <div className="w-10 h-10 mx-auto rounded-lg bg-navy/8 flex items-center justify-center mb-2">
+                    <Heart className="w-5 h-5 text-navy" />
+                  </div>
+                  <div className="font-display text-lg text-navy font-bold">100%</div>
+                  <div className="font-ui text-[10px] text-muted-foreground tracking-wide leading-tight">Cuidado<br/>Humanizado</div>
+                </div>
+              </div>
+
+              <div className="mt-8 relative z-10">
+                <Link
+                  href="/sobre"
+                  className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-lg hover:bg-navy-light transition-all shadow-md hover:shadow-lg"
+                >
+                  Conheça Nossa História
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
