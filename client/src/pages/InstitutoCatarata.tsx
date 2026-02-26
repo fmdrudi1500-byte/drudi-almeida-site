@@ -3,7 +3,7 @@
    Réplica fiel da estrutura da Central da Visão, adaptada ao
    estilo navy/gold da Drudi e Almeida.
    ============================================================ */
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import {
   Eye, ChevronRight, ArrowRight, Phone, MessageCircle,
@@ -11,14 +11,14 @@ import {
   Droplets, Activity, Heart, AlertTriangle, DollarSign,
   Star, MapPin, Users, Stethoscope, CircleDot
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 
 /* ---- Constants ---- */
-const DRA_PRISCILLA_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/BKojDZOSoovJIhfq.webp";
-const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta no Instituto da Catarata.";
+const HERO_ART_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/u4g0I4h1IGUE9ABNeQTXpr-img-1_1772141937000_na1fn_Y2F0YXJhdGEtaGVyby1hcnQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L3U0ZzBJNGgxSUdVRTlBQk5lUVRYcHItaW1nLTFfMTc3MjE0MTkzNzAwMF9uYTFmbl9ZMkYwWVhKaGRHRXRhR1Z5YnkxaGNuUS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=C8TKw5YeNCoUokrvSuPBz6Hj1MIx4tVE6IYk5DTYvn6rPvMqchkPn-3uuCPPLmJmrGy3NPpjynhj3fIZcjK9fVK3LVGQVQCgIn0NzAVmpp9zwHKvgsLNMUCIcUBA1D9wosZHVjau~h-gmDPG704XUVxICzjpvyVDNR33BGF7jZCi-zgq4rBWIokUWsvh5QdD-e67Lm7Wp4fnP~S2EfWzJWfVp8Ct77u-xjsqZm0tASPy~xQlvHN~GaGzbR3OT954lxLGsY3rFj7II4MLpGQP1rv5dkkVY-ZA2RcDW47c1JfxTvBYaVMwp6gApMJXRGgMaMCUhNmVWfNmtT7Bdblo5A__";
+const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber o preço da cirurgia de catarata.";
 const PHONE = "(11) 91654-4653";
 
 /* ---- Unidades ---- */
@@ -262,90 +262,106 @@ function SectionDivider() {
    ============================================================ */
 export default function InstitutoCatarata() {
   const [selectedUnidade, setSelectedUnidade] = useState("");
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
 
   return (
     <>
-      {/* ========== 1. HERO ========== */}
-      <section className="relative bg-navy overflow-hidden">
-        <div className="container py-16 md:py-20 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left: Text + Form */}
+      {/* ========== 1. HERO WITH PARALLAX ========== */}
+      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
+        {/* Parallax Background — Obra de Arte Impressionista */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{
+            backgroundImage: `url(${HERO_ART_IMG})`,
+            y: heroImageY,
+            scale: heroImageScale,
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
+          style={{ opacity: heroOverlayOpacity }}
+        />
+
+        {/* Content */}
+        <div className="relative container py-20">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
             >
-              <nav className="flex items-center gap-1.5 text-cream/60 font-ui text-xs tracking-wide mb-6">
-                <Link href="/" className="hover:text-gold transition-colors">Início</Link>
-                <ChevronRight className="w-3 h-3" />
-                <span className="text-gold">Instituto da Catarata</span>
-              </nav>
-
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-cream leading-tight mb-5">
-                Cirurgia de Catarata com <span className="text-gold">tecnologia de ponta</span> e cuidado humanizado
-              </h1>
-
-              <p className="font-body text-base md:text-lg text-cream/80 leading-relaxed mb-8">
-                Agende sua consulta avaliativa. Selecione a unidade mais próxima:
-              </p>
-
-              {/* Form */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10">
-                <div className="space-y-4">
-                  <div>
-                    <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">
-                      Unidade
-                    </label>
-                    <select
-                      value={selectedUnidade}
-                      onChange={(e) => setSelectedUnidade(e.target.value)}
-                      className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold"
-                    >
-                      <option value="">Selecione a unidade</option>
-                      {unidades.map((u) => (
-                        <option key={u.id} value={u.id}>{u.name} — {u.address}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    Agendar Consulta
-                  </a>
-                </div>
-              </div>
+              <Eye className="w-3.5 h-3.5 text-gold" />
+              <span className="font-ui text-xs font-semibold text-gold tracking-wide">
+                INSTITUTO DA CATARATA
+              </span>
             </motion.div>
 
-            {/* Right: Photo */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative"
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={DRA_PRISCILLA_IMG}
-                  alt="Dra. Priscilla R. de Almeida — Especialista em Catarata"
-                  className="w-full h-[400px] md:h-[500px] object-cover object-top"
-                />
-                {/* Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                      <Stethoscope className="w-5 h-5 text-gold" />
-                    </div>
-                    <div>
-                      <p className="font-display text-sm text-navy font-semibold">Dra. Priscilla R. de Almeida</p>
-                      <p className="font-body text-xs text-muted-foreground">Especialista em Córnea — EPM/UNIFESP · CRM-SP 148.173</p>
-                    </div>
-                  </div>
+              Cirurgia de Catarata com{" "}
+              <span className="text-gold italic">tecnologia</span> e{" "}
+              <span className="text-gold italic">cuidado</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
+            >
+              Selecione a unidade mais próxima e receba o preço da sua cirurgia de catarata com os melhores especialistas.
+            </motion.p>
+
+            {/* Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md"
+            >
+              <div className="space-y-4">
+                <div>
+                  <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">
+                    Unidade
+                  </label>
+                  <select
+                    value={selectedUnidade}
+                    onChange={(e) => setSelectedUnidade(e.target.value)}
+                    className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold"
+                  >
+                    <option value="">Selecione a unidade</option>
+                    {unidades.map((u) => (
+                      <option key={u.id} value={u.id}>{u.name} — {u.address}</option>
+                    ))}
+                  </select>
                 </div>
+
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
+                >
+                  <DollarSign className="w-4 h-4" />
+                  Receber Preço
+                </a>
+
+                <a
+                  href={`tel:+55${PHONE.replace(/\D/g, "")}`}
+                  className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all"
+                >
+                  <Phone className="w-4 h-4" />
+                  Ligar: {PHONE}
+                </a>
               </div>
             </motion.div>
           </div>
