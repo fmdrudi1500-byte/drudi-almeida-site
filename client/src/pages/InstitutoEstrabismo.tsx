@@ -1,7 +1,7 @@
 /* ============================================================
    Instituto de Estrabismo — Drudi e Almeida
    ============================================================ */
-import { AlertCircle, CheckCircle } from "lucide-react";
+import { AlertCircle, CheckCircle, Palette } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import FAQSection from "@/components/FAQSection";
@@ -82,6 +82,67 @@ export default function InstitutoEstrabismo() {
               </AnimateOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ========== ARTE E VISÃO — DA VINCI & REMBRANDT ========== */}
+      <section className="section-padding bg-navy text-cream relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
+        <div className="container relative">
+          <AnimateOnScroll className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
+              <Palette className="w-4 h-4 text-gold" />
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Arte e Visão</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-cream mt-2">Gênios com Estrabismo</h2>
+            <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Estudos científicos recentes revelam que dois dos maiores gênios da história da arte tinham estrabismo — e isso pode ter contribuído para sua genialidade.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            {/* Da Vinci */}
+            <AnimateOnScroll direction="left">
+              <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
+                <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Análise do estrabismo em suas obras" className="w-full h-64 object-cover object-top" />
+              </div>
+              <div className="mt-5">
+                <h3 className="font-display text-2xl text-cream mb-3">Leonardo da Vinci</h3>
+                <p className="font-body text-sm text-cream/70 leading-relaxed mb-3">
+                  Um estudo publicado no <strong className="text-gold">JAMA Ophthalmology</strong> (2018) analisou seis obras atribuídas a Da Vinci e concluiu que ele tinha <strong className="text-gold">exotropia intermitente</strong> — um tipo de estrabismo divergente.
+                </p>
+                <p className="font-body text-sm text-cream/70 leading-relaxed">
+                  Pesquisadores sugerem que essa condição pode ter dado a Da Vinci uma vantagem: a capacidade de alternar entre visão binocular (3D) e monocular (2D), facilitando a representação de profundidade em suas pinturas.
+                </p>
+              </div>
+            </AnimateOnScroll>
+
+            {/* Rembrandt */}
+            <AnimateOnScroll direction="right">
+              <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
+                <img src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato mostrando estrabismo" className="w-full h-64 object-cover object-top" />
+              </div>
+              <div className="mt-5">
+                <h3 className="font-display text-2xl text-cream mb-3">Rembrandt van Rijn</h3>
+                <p className="font-body text-sm text-cream/70 leading-relaxed mb-3">
+                  Rembrandt pintou mais de 90 autorretratos ao longo da vida. Em muitos deles, é possível notar um <strong className="text-gold">desalinhamento ocular</strong> — um olho olha diretamente para o espectador enquanto o outro desvia.
+                </p>
+                <p className="font-body text-sm text-cream/70 leading-relaxed">
+                  Assim como Da Vinci, acredita-se que o estrabismo de Rembrandt tenha contribuído para sua maestria em representar luz, sombra e profundidade, já que a visão monocular facilita a transposição do mundo 3D para a tela 2D.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          <AnimateOnScroll delay={0.2}>
+            <div className="max-w-3xl mx-auto mt-12 text-center">
+              <div className="bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 rounded-2xl p-8 border border-gold/20">
+                <p className="font-body text-sm text-cream/80 leading-relaxed max-w-xl mx-auto">
+                  O estrabismo não define limites — pode até revelar talentos. Mas o tratamento adequado é essencial para garantir saúde visual, conforto e qualidade de vida, especialmente em crianças em fase de desenvolvimento.
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 

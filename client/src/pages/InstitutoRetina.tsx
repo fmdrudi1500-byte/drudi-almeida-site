@@ -1,7 +1,7 @@
 /* ============================================================
    Instituto da Retina — Drudi e Almeida
    ============================================================ */
-import { AlertCircle, CheckCircle } from "lucide-react";
+import { AlertCircle, CheckCircle, Palette } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import FAQSection from "@/components/FAQSection";
@@ -81,6 +81,57 @@ export default function InstitutoRetina() {
                 </div>
               </AnimateOnScroll>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== ARTE E VISÃO — DEGAS & PONTILHISMO ========== */}
+      <section className="section-padding bg-navy text-cream relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"2\"/%3E%3Ccircle cx=\"33\" cy=\"33\" r=\"2\"/%3E%3Ccircle cx=\"18\" cy=\"48\" r=\"1.5\"/%3E%3Ccircle cx=\"48\" cy=\"18\" r=\"1.5\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
+        <div className="container relative">
+          <AnimateOnScroll className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
+              <Palette className="w-4 h-4 text-gold" />
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Arte e Visão</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-cream mt-2">Degas, Seurat e a Retina</h2>
+            <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4 leading-relaxed">
+              A história da arte está repleta de exemplos de como a visão influencia a criação artística. Dois grandes mestres nos ajudam a entender a retina.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            {/* Degas */}
+            <AnimateOnScroll direction="left">
+              <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
+                <img src={IMAGES.art.degasDancers} alt="Edgar Degas - Bailarinas, afetado por doença retiniana" className="w-full h-64 object-cover" />
+              </div>
+              <div className="mt-5">
+                <h3 className="font-display text-2xl text-cream mb-3">Edgar Degas</h3>
+                <p className="font-body text-sm text-cream/70 leading-relaxed mb-3">
+                  O mestre das bailarinas sofria de <strong className="text-gold">degeneração macular</strong>, uma doença da retina que destrói a visão central. Ao longo dos anos, suas pinturas passaram de detalhes nítidos para formas cada vez mais borradas e pastosas.
+                </p>
+                <p className="font-body text-sm text-cream/70 leading-relaxed">
+                  Degas migrou da pintura a óleo para o pastel e a escultura justamente porque sua retina já não permitia o trabalho de precisão que a pintura exigia.
+                </p>
+              </div>
+            </AnimateOnScroll>
+
+            {/* Seurat / Pontilhismo */}
+            <AnimateOnScroll direction="right">
+              <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
+                <img src={IMAGES.art.seuratGrandeJatte} alt="Georges Seurat - Um Domingo na Grande Jatte, pontilhismo" className="w-full h-64 object-cover" />
+              </div>
+              <div className="mt-5">
+                <h3 className="font-display text-2xl text-cream mb-3">Pontilhismo e a Retina</h3>
+                <p className="font-body text-sm text-cream/70 leading-relaxed mb-3">
+                  Georges Seurat criou o <strong className="text-gold">pontilhismo</strong> — uma técnica que usa milhares de pontos coloridos que se misturam na retina do observador. É a própria retina que faz a "mistura" das cores.
+                </p>
+                <p className="font-body text-sm text-cream/70 leading-relaxed">
+                  Esta técnica demonstra como a retina é essencial para a percepção visual: ela não apenas capta a luz, mas interpreta e combina informações para formar as imagens que vemos.
+                </p>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>

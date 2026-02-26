@@ -23,6 +23,16 @@ export const IMAGES = {
     retina: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242975_na1fn_bG9nby1pbnN0aXR1dG8tcmV0aW5h.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3NV9uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dGNtVjBhVzVoLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=EYuibTJ3-E0xc9InY~9i1g5QhZX3u2c6rVsFMSSE~iplK4zJoplG6gWrSAVd8RdaGWJX3jSuTDI~w5zh~h93rNe1v3REA8Q3S56WOg7bygU45lLG6yqyRJNhnAbAj7lBgxX4WmK8lN9wrs6~0whF4m3P2NEeAQ~jddjGA-rRu71E~CTvGfqRzkC3ZSbwKq1715BBt-cnx3UjTIRu3KmrXD7F09OffyYciJKkOgcodE1bdDC1TKTaX7h2WaiX9nFfLT67vzJNw7fmkei22NWqYtHZWvDen9QBoPOQYPK1C~8hgipChGobUgrWiiaWDkeGTMZbwUEPhzbTgWRfINMDvQ__",
     estrabismo: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242976_na1fn_bG9nby1pbnN0aXR1dG8tZXN0cmFiaXNtbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3Nl9uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dFpYTjBjbUZpYVhOdGJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=LLDJBZcz~VpGa~W4QPUHu60Yq0zEKw4GmqdkcOHY2yuz5GDBgvnUOm3fBns53ysvC83YL73cnKrYJIGKhOhQQEiJbMSkZ-n4AMREP2qhDRJKUX-i5spQJ1EIjz7si~sY~H4btzyB~UsiEOsC-GrPs-grNC7BppliqRnUe15vqTfOvT27sY-dMCYgeG~qJbNc6M8LHN79POZG5mlmXIPsJG~A8n4dpcNGh1ol569vorvVAJablDLGWihytUPuFO~R~ZeWS3aHKu26QA6IysiPD061c9Z0vrgFJN5OCDY9jn1o1MeQybS8voazBBAHoKntlMmr0BChAdQp0GjxRTa2-w__",
   },
+  // Art & Vision — Famous paintings connected to eye conditions
+  art: {
+    monetBeforeAfter: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/wbNddNYgwjrdnWbs.jpg",
+    monetJapaneseBridge: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/JOOmfherpxYDKbvj.png",
+    seuratGrandeJatte: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/oPEFYPdixVsjysRg.jpg",
+    degasDancers: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/WzCAlEOMPvceYawr.png",
+    elGrecoToledo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/CyllqkwfVkxboVaD.jpg",
+    daVinciStrabismus: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/tjFAKPBlHLVpdwvV.jpg",
+    rembrandtSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/EuPODdxSBIgDitkq.jpg",
+  },
   // Unsplash images for less prominent sections
   unsplash: {
     elderlySmiling: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",

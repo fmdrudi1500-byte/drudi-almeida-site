@@ -5,7 +5,7 @@
    ============================================================ */
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star } from "lucide-react";
+import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
 
@@ -396,6 +396,75 @@ export default function Home() {
                 </div>
               </AnimateOnScroll>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== ARTE E VISÃO ========== */}
+      <section className="section-padding bg-navy text-cream relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
+        <div className="container relative">
+          <AnimateOnScroll className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
+              <Palette className="w-4 h-4 text-gold" />
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Arte e Visão</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-cream mt-2">
+              Quando a Arte Revela a Visão
+            </h2>
+            <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Grandes mestres da pintura tinham condições oculares que transformaram suas obras. Na Drudi e Almeida, usamos essas histórias para conectar arte, ciência e cuidado com a visão.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Monet */}
+            <AnimateOnScroll delay={0}>
+              <Link href="/instituto/catarata" className="group block">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
+                  <div className="h-48 overflow-hidden">
+                    <img src={IMAGES.art.monetJapaneseBridge} alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                    <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Catarata</span>
+                    <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Claude Monet</h3>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">A catarata transformou as cores vibrantes de Monet em tons amarelados e borrados — visível em suas pinturas.</p>
+                  </div>
+                </div>
+              </Link>
+            </AnimateOnScroll>
+
+            {/* Degas */}
+            <AnimateOnScroll delay={0.1}>
+              <Link href="/instituto/retina" className="group block">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
+                  <div className="h-48 overflow-hidden">
+                    <img src={IMAGES.art.degasDancers} alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                    <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Retina</span>
+                    <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Edgar Degas</h3>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">A degeneração macular de Degas fez suas bailarinas ficarem cada vez mais borradas e pastosas.</p>
+                  </div>
+                </div>
+              </Link>
+            </AnimateOnScroll>
+
+            {/* Da Vinci */}
+            <AnimateOnScroll delay={0.2}>
+              <Link href="/instituto/estrabismo" className="group block">
+                <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300">
+                  <div className="h-48 overflow-hidden">
+                    <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="p-5 bg-cream/5 backdrop-blur-sm">
+                    <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Estrabismo</span>
+                    <h3 className="font-display text-lg text-cream mt-1 mb-2 group-hover:text-gold transition-colors">Leonardo da Vinci</h3>
+                    <p className="font-body text-xs text-cream/60 leading-relaxed">Estudos revelam que Da Vinci tinha exotropia intermitente, o que pode ter contribuído para sua genialidade.</p>
+                  </div>
+                </div>
+              </Link>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
