@@ -25,14 +25,23 @@ Especializado em doenças da retina, incluindo retinopatia diabética, degenera�
 ### Instituto de Estrabismo
 Dedicado ao diagnóstico e tratamento do estrabismo em crianças e adultos. Oferece correção com óculos, tampão ocular (oclusão), toxina botulínica e cirurgia de estrabismo para ajuste dos músculos extraoculares.
 
-## Tecnologia
+## Tecnologia — 14 Equipamentos de Última Geração
 
 A clínica investe continuamente em equipamentos de última geração:
-- Femto Laser para cirurgia de catarata
-- Tomógrafo de Coerência Óptica (OCT) de alta resolução
-- Crosslinking acelerado para ceratocone
-- Mapeamento Ultra-Widefield da retina
-- Biômetro Óptico para cálculo de lente intraocular
+- OCT com Angio-OCT Maestro 2 (Topcon) — tomografia e angiografia retiniana automatizada
+- OPD-Scan III (Nidek) — 5 exames em 1: aberrometria, topografia, autorrefração, ceratometria, pupilometria
+- Biometria Óptica Nidek AL-Scan — cálculo de lente intraocular em 10 segundos
+- Pentacam AXL (Oculus) — tomografia completa do segmento anterior
+- Microscopia Especular Nidek CEM-530 — avaliação celular do endotélio corneano
+- Ultrassom Ocular Nidek US-500 — biometria e paquimetria ultrassônica
+- Campo Visual Humphrey 750i (Zeiss) — padrão-ouro para diagnóstico de glaucoma
+- Retinógrafo Eyer II (Phelcom) — portátil, sem dilatação da pupila
+- Laser de Argônio Multipoint Vitra 2 (Quantel) — fotocoagulação retiniana multispot
+- Yag Laser Optimis II (Quantel) — capsulotomia e iridotomia de alta precisão
+- Topografia de Córnea Eyer (Phelcom) — mapeamento 3D da córnea
+- OCT Nidek RS-3000 Advance 2 — tomografia de alta resolução da retina
+- Biometria Óptica Topcon Aladdin — 9 medições em um único dispositivo
+- Tonômetro de Sopro Topcon CT-80 — medição de pressão intraocular sem contato
 
 ## Contato
 
