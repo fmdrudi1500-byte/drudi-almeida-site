@@ -1,12 +1,27 @@
 /* ============================================================
    Instituto de Estrabismo — Drudi e Almeida
+   Hero parallax com obra de arte + Receber Preço + CTA final
    ============================================================ */
-import { AlertCircle, CheckCircle, Palette } from "lucide-react";
+import { useState, useRef } from "react";
+import {
+  Eye, ChevronRight, Phone, MessageCircle, DollarSign,
+  AlertCircle, CheckCircle, Palette, Star, MapPin, Users
+} from "lucide-react";
+import { Link } from "wouter";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import InstitutoHero from "@/components/InstitutoHero";
 import FAQSection from "@/components/FAQSection";
-import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
+
+/* ---- Constants ---- */
+const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ibNQCeyYILJFGyuH.png";
+const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de estrabismo.";
+const PHONE = "(11) 91654-4653";
+
+const unidades = [
+  { id: "jundiai", name: "Jundiaí", address: "Jundiaí - SP" },
+  { id: "santana", name: "Santana (São Paulo)", address: "São Paulo - SP" },
+];
 
 const tipos = [
   { title: "Esotropia", desc: "Desvio convergente — um ou ambos os olhos se voltam para dentro (em direção ao nariz)." },
@@ -30,10 +45,136 @@ const faqItems = [
 ];
 
 export default function InstitutoEstrabismo() {
+  const [selectedUnidade, setSelectedUnidade] = useState("");
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
+
   return (
     <>
-      <InstitutoHero title="Instituto de Estrabismo" subtitle="Alinhamento ocular para crianças e adultos com técnicas modernas e cuidado humanizado." imageUrl={IMAGES.hero.happyFamily} breadcrumb="Instituto de Estrabismo" logoUrl={IMAGES.institutoLogos.estrabismo} />
+      {/* ========== 1. HERO WITH PARALLAX ========== */}
+      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
+          style={{ opacity: heroOverlayOpacity }}
+        />
 
+        <div className="relative container py-20">
+          <div className="max-w-2xl">
+            <motion.nav
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="flex items-center gap-1.5 text-cream/60 font-ui text-xs tracking-wide mb-6"
+            >
+              <Link href="/" className="hover:text-gold transition-colors">Início</Link>
+              <ChevronRight className="w-3 h-3" />
+              <span className="text-gold">Instituto de Estrabismo</span>
+            </motion.nav>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
+            >
+              <Eye className="w-3.5 h-3.5 text-gold" />
+              <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DE ESTRABISMO</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
+            >
+              Estrabismo infantil e adulto com{" "}
+              <span className="text-gold italic">cuidado</span> e{" "}
+              <span className="text-gold italic">precisão</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
+            >
+              Selecione a unidade mais próxima e receba informações sobre o tratamento de estrabismo com os melhores especialistas.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md"
+            >
+              <div className="space-y-4">
+                <div>
+                  <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">Unidade</label>
+                  <select
+                    value={selectedUnidade}
+                    onChange={(e) => setSelectedUnidade(e.target.value)}
+                    className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold"
+                  >
+                    <option value="">Selecione a unidade</option>
+                    {unidades.map((u) => (
+                      <option key={u.id} value={u.id}>{u.name} — {u.address}</option>
+                    ))}
+                  </select>
+                </div>
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
+                >
+                  <DollarSign className="w-4 h-4" />
+                  Receber Preço
+                </a>
+                <a
+                  href={`tel:+55${PHONE.replace(/\D/g, "")}`}
+                  className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all"
+                >
+                  <Phone className="w-4 h-4" />
+                  Ligar: {PHONE}
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 2. AVALIAÇÕES ========== */}
+      <section className="py-8 bg-white border-b border-border/40">
+        <div className="container">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                ))}
+              </div>
+              <span className="font-body text-sm text-muted-foreground">Avaliação Google</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-gold" />
+              <span className="font-body text-sm text-navy font-semibold">2 Unidades</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-gold" />
+              <span className="font-body text-sm text-navy font-semibold">Especialista em Estrabismo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 3. O QUE É ========== */}
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">
           <AnimateOnScroll>
@@ -45,6 +186,7 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
 
+      {/* ========== 4. TIPOS ========== */}
       <section className="section-padding bg-cream/50">
         <div className="container">
           <AnimateOnScroll className="text-center mb-12">
@@ -66,6 +208,7 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
 
+      {/* ========== 5. TRATAMENTOS ========== */}
       <section className="section-padding">
         <div className="container max-w-3xl mx-auto">
           <AnimateOnScroll>
@@ -85,7 +228,7 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
 
-      {/* ========== ARTE E VISÃO — DA VINCI & REMBRANDT ========== */}
+      {/* ========== 6. ARTE E VISÃO — DA VINCI & REMBRANDT ========== */}
       <section className="section-padding bg-navy text-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
         <div className="container relative">
@@ -101,10 +244,9 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            {/* Da Vinci */}
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Análise do estrabismo em suas obras" className="w-full h-64 object-cover object-top" />
+                <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Análise do estrabismo" className="w-full h-64 object-cover object-top" />
               </div>
               <div className="mt-5">
                 <h3 className="font-display text-2xl text-cream mb-3">Leonardo da Vinci</h3>
@@ -112,23 +254,22 @@ export default function InstitutoEstrabismo() {
                   Um estudo publicado no <strong className="text-gold">JAMA Ophthalmology</strong> (2018) analisou seis obras atribuídas a Da Vinci e concluiu que ele tinha <strong className="text-gold">exotropia intermitente</strong> — um tipo de estrabismo divergente.
                 </p>
                 <p className="font-body text-sm text-cream/70 leading-relaxed">
-                  Pesquisadores sugerem que essa condição pode ter dado a Da Vinci uma vantagem: a capacidade de alternar entre visão binocular (3D) e monocular (2D), facilitando a representação de profundidade em suas pinturas.
+                  Pesquisadores sugerem que essa condição pode ter dado a Da Vinci uma vantagem: a capacidade de alternar entre visão binocular (3D) e monocular (2D), facilitando a representação de profundidade.
                 </p>
               </div>
             </AnimateOnScroll>
 
-            {/* Rembrandt */}
             <AnimateOnScroll direction="right">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato mostrando estrabismo" className="w-full h-64 object-cover object-top" />
+                <img src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato" className="w-full h-64 object-cover object-top" />
               </div>
               <div className="mt-5">
                 <h3 className="font-display text-2xl text-cream mb-3">Rembrandt van Rijn</h3>
                 <p className="font-body text-sm text-cream/70 leading-relaxed mb-3">
-                  Rembrandt pintou mais de 90 autorretratos ao longo da vida. Em muitos deles, é possível notar um <strong className="text-gold">desalinhamento ocular</strong> — um olho olha diretamente para o espectador enquanto o outro desvia.
+                  Rembrandt pintou mais de 90 autorretratos ao longo da vida. Em muitos deles, é possível notar um <strong className="text-gold">desalinhamento ocular</strong>.
                 </p>
                 <p className="font-body text-sm text-cream/70 leading-relaxed">
-                  Assim como Da Vinci, acredita-se que o estrabismo de Rembrandt tenha contribuído para sua maestria em representar luz, sombra e profundidade, já que a visão monocular facilita a transposição do mundo 3D para a tela 2D.
+                  Assim como Da Vinci, acredita-se que o estrabismo de Rembrandt tenha contribuído para sua maestria em representar luz, sombra e profundidade.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -146,8 +287,67 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
 
+      {/* ========== 7. FAQ ========== */}
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre o estrabismo." />
-      <InstitutoCTA text="Agende uma avaliação com nossos especialistas em estrabismo." />
+
+      {/* ========== 8. CTA FINAL ========== */}
+      <section className="section-padding bg-navy">
+        <div className="container">
+          <AnimateOnScroll>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">
+                Agende sua <span className="text-gold">consulta avaliativa</span>
+              </h2>
+              <p className="font-body text-base text-cream/70 mb-8 leading-relaxed">
+                Nossos especialistas em estrabismo estão prontos para avaliar seu caso. Alinhamento ocular para crianças e adultos com técnicas modernas.
+              </p>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md mx-auto mb-8">
+                <div className="space-y-4">
+                  <select
+                    value={selectedUnidade}
+                    onChange={(e) => setSelectedUnidade(e.target.value)}
+                    className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold"
+                  >
+                    <option value="">Selecione a unidade</option>
+                    {unidades.map((u) => (
+                      <option key={u.id} value={u.id}>{u.name} — {u.address}</option>
+                    ))}
+                  </select>
+                  <a
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
+                  >
+                    <DollarSign className="w-4 h-4" />
+                    Receber Preço
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gold font-ui text-sm font-semibold hover:text-gold-light transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Agende pelo WhatsApp
+                </a>
+                <a
+                  href={`tel:+55${PHONE.replace(/\D/g, "")}`}
+                  className="inline-flex items-center gap-2 text-cream/70 font-ui text-sm font-semibold hover:text-cream transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Ligar: {PHONE}
+                </a>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
     </>
   );
 }

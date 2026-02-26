@@ -947,10 +947,10 @@ export default function InstitutoCatarata() {
                     href={WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    Agendar Consulta
+                    <DollarSign className="w-4 h-4" />
+                    Receber Preço
                   </a>
                 </div>
               </div>
