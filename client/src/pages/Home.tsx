@@ -16,7 +16,7 @@ const institutos = [
   {
     name: "Instituto da Catarata",
     href: "/instituto/catarata",
-    desc: "Cirurgia de catarata a laser com tecnologia de ponta para restaurar a clareza da sua visão.",
+    desc: "Cirurgia de catarata, especialistas renomados, tecnologia de ponta para restaurar a clareza da sua visão.",
     icon: Eye,
     color: "from-blue-500/10 to-blue-600/5",
     logo: IMAGES.institutoLogos.catarata,
@@ -24,7 +24,7 @@ const institutos = [
   {
     name: "Instituto do Ceratocone",
     href: "/instituto/ceratocone",
-    desc: "Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.",
+    desc: "Adaptação de lente de contato, Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.",
     icon: Shield,
     color: "from-emerald-500/10 to-emerald-600/5",
     logo: IMAGES.institutoLogos.ceratocone,
@@ -48,7 +48,7 @@ const institutos = [
   {
     name: "Instituto de Estrabismo",
     href: "/instituto/estrabismo",
-    desc: "Alinhamento ocular para crianças e adultos com técnicas cirúrgicas modernas.",
+    desc: "Cirurgia para correção do estrabismo para crianças e adultos com técnicas modernas.",
     icon: Users,
     color: "from-violet-500/10 to-violet-600/5",
     logo: IMAGES.institutoLogos.estrabismo,
@@ -56,7 +56,7 @@ const institutos = [
 ];
 
 const stats = [
-  { value: "25+", label: "Anos de Experiência" },
+  { value: "10+", label: "Anos de Experiência" },
   { value: "50.000+", label: "Pacientes Atendidos" },
   { value: "5", label: "Institutos Especializados" },
   { value: "100%", label: "Compromisso com Você" },
@@ -259,8 +259,8 @@ export default function Home() {
               <div className="space-y-4 relative z-10">
                 <p className="font-body text-base text-muted-foreground leading-relaxed">
                   A <strong className="text-navy">Drudi e Almeida Oftalmologia</strong> nasceu do encontro
-                  entre a tradição cirúrgica do Dr. Fernando Drudi e a dedicação clínica da
-                  Dra. Priscilla de Almeida — um casal unido pelo propósito de transformar
+                  entre a tradição cirúrgica do Dr. Fernando Drudi e a dedicação da
+                  Dra. Priscilla de Almeida — Unido pelo propósito de transformar
                   a forma como as pessoas cuidam dos olhos.
                 </p>
                 <p className="font-body text-base text-muted-foreground leading-relaxed">
@@ -933,44 +933,40 @@ export default function Home() {
       </section>
 
       {/* ========== CTA FINAL ========== */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="relative rounded-2xl overflow-hidden">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${IMAGES.hero.happyFamily})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/75 to-navy/50" />
+      <section className="relative min-h-[500px] flex items-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${IMAGES.hero.happyFamily})` }}
+        />
+        <div className="absolute inset-0 bg-navy/70" />
 
-            <div className="relative px-8 py-16 md:px-16 md:py-20">
-              <AnimateOnScroll>
-                <h2 className="font-display text-3xl md:text-4xl text-cream max-w-lg leading-tight mb-4">
-                  Cuide da sua visão com quem é referência
-                </h2>
-                <p className="font-body text-base text-cream/80 max-w-md leading-relaxed mb-8">
-                  Agende sua consulta e descubra como podemos ajudar você a enxergar 
-                  o mundo com mais clareza e qualidade de vida.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold-light transition-colors"
-                  >
-                    Agendar pelo WhatsApp
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="tel:+5511916544653"
-                    className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
-                  >
-                    Ligar Agora
-                  </a>
-                </div>
-              </AnimateOnScroll>
+        <div className="relative container py-24 md:py-32">
+          <AnimateOnScroll className="text-center max-w-2xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-cream leading-tight mb-6">
+              Cuide da sua visão com quem é referência
+            </h2>
+            <p className="font-body text-lg text-cream/80 leading-relaxed mb-10">
+              Agende sua consulta e descubra como podemos ajudar você a enxergar 
+              o mundo com mais clareza e qualidade de vida.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-8 py-4 rounded-md hover:bg-gold-light transition-colors"
+              >
+                Agendar pelo WhatsApp
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="tel:+5511916544653"
+                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-8 py-4 rounded-md hover:bg-cream/10 transition-colors"
+              >
+                Ligar Agora
+              </a>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>
