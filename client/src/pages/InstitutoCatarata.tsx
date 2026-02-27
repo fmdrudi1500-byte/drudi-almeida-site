@@ -93,12 +93,12 @@ const etapasCirurgia = [
   {
     step: 2,
     title: "Incisão mínima",
-    description: "O cirurgião realiza uma microincisão de aproximadamente 2mm na córnea. Essa incisão é tão pequena que geralmente não necessita de pontos e cicatriza naturalmente.",
+    description: "O cirurgião realiza uma microincisão de aproximadamente 2,4 mm na córnea. Essa incisão é tão pequena que geralmente não necessita de pontos e cicatriza naturalmente.",
   },
   {
     step: 3,
     title: "Fragmentação e remoção do cristalino",
-    description: "Através da técnica de facoemulsificação, o cristalino opaco é fragmentado por ultrassom de alta frequência e aspirado. Todo o material opaco é removido com precisão, preservando a cápsula que sustentará a nova lente.",
+    description: "Através da técnica de facoemulsificação, o cristalino opaco é fragmentado por ultrassom e aspirado. Todo o material opaco é removido com precisão, preservando a cápsula que sustentará a nova lente.",
   },
   {
     step: 4,
@@ -326,7 +326,7 @@ export default function InstitutoCatarata() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-lg font-bold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-[23px] font-extrabold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
                 >
                   <DollarSign className="w-5 h-5" />
                   Receber Preço
@@ -348,7 +348,7 @@ export default function InstitutoCatarata() {
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-8 bg-white border-b border-border/40">
         <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex items-center justify-between gap-4 overflow-x-auto">
             <div className="flex items-center gap-3">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
