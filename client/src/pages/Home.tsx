@@ -134,7 +134,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold-light transition-colors"
               >
-                Agendar Consulta
+                Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
@@ -412,7 +412,7 @@ export default function Home() {
               Depoimentos
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
-              O que Nossos Pacientes Dizem
+              O que Nossos Pacientes Dizem dos nossos Institutos
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               A satisfação dos nossos pacientes é a nossa maior recompensa. Confira alguns relatos de quem confiou na Drudi e Almeida.
@@ -655,7 +655,7 @@ export default function Home() {
               Avaliações Reais
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">
-              O que Dizem no Google
+              O que Dizem no Google sobre nossas Clínicas
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Avaliações verificadas de pacientes reais no Google Maps. A confiança dos nossos pacientes é o nosso maior orgulho.
