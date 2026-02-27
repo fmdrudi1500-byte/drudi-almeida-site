@@ -28,8 +28,11 @@ const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de recebe
 const PHONE = "(11) 91654-4653";
 
 const unidades = [
-  { id: "jundiai", name: "Jundiaí", address: "Jundiaí - SP" },
-  { id: "santana", name: "Santana (São Paulo)", address: "São Paulo - SP" },
+  { id: "guarulhos-centro", name: "Guarulhos Centro", address: "Guarulhos - SP" },
+  { id: "lapa", name: "Lapa", address: "São Paulo - SP" },
+  { id: "santana", name: "Santana", address: "São Paulo - SP" },
+  { id: "sao-miguel", name: "São Miguel", address: "São Paulo - SP" },
+  { id: "tatupe", name: "Tatuapé", address: "São Paulo - SP" },
 ];
 
 /* ---- Sintomas com fotos (zigzag) ---- */
@@ -220,26 +223,41 @@ export default function InstitutoCeratocone() {
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-8 bg-white border-b border-border/40">
         <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex items-center justify-between gap-4 overflow-x-auto">
             <div className="flex items-center gap-3">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                 ))}
               </div>
-              <span className="font-body text-sm text-muted-foreground">Avaliação Google</span>
+              <div>
+                <p className="font-display text-sm text-navy font-semibold">4,9 no Google</p>
+                <p className="font-body text-xs text-muted-foreground">Avaliações reais de pacientes</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gold" />
-              <span className="font-body text-sm text-navy font-semibold">2 Unidades</span>
+            <div className="hidden md:block w-px h-10 bg-border" />
+            <div className="flex items-center gap-3">
+              <MapPin className="w-6 h-6 text-gold" />
+              <div>
+                <p className="font-display text-sm text-navy font-semibold">5 Unidades</p>
+                <p className="font-body text-xs text-muted-foreground">Guarulhos, Lapa, Santana, São Miguel e Tatuapé</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-gold" />
-              <span className="font-body text-sm text-navy font-semibold">Especialistas em Córnea</span>
+            <div className="hidden md:block w-px h-10 bg-border" />
+            <div className="flex items-center gap-3">
+              <Users className="w-6 h-6 text-gold" />
+              <div>
+                <p className="font-display text-sm text-navy font-semibold">Especialistas em Córnea</p>
+                <p className="font-body text-xs text-muted-foreground">Equipe altamente qualificada</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-gold" />
-              <span className="font-body text-sm text-navy font-semibold">Membro do CBO</span>
+            <div className="hidden md:block w-px h-10 bg-border" />
+            <div className="flex items-center gap-3">
+              <Shield className="w-6 h-6 text-gold" />
+              <div>
+                <p className="font-display text-sm text-navy font-semibold">Membro do CBO</p>
+                <p className="font-body text-xs text-muted-foreground">Conselho Brasileiro de Oftalmologia</p>
+              </div>
             </div>
           </div>
         </div>
@@ -257,9 +275,9 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               {[
-                { n: "1", title: "Selecione a unidade", desc: "Escolha entre nossas unidades em Jundiaí ou Santana (São Paulo)." },
+                { n: "1", title: "Selecione a unidade", desc: "Escolha entre nossas 5 unidades: Guarulhos Centro, Lapa, Santana, São Miguel ou Tatuapé." },
                 { n: "2", title: "Receba o atendimento", desc: "Nossa equipe entrará em contato para agendar sua consulta avaliativa." },
-                { n: "3", title: "Avaliação completa", desc: "Realizamos exames de Pentacam, topografia e OCT para diagnóstico preciso." },
+                { n: "3", title: "Avaliação completa", desc: "Realizamos exames de Pentacam, topografia e OPD para diagnóstico preciso." },
                 { n: "4", title: "Plano de tratamento", desc: "Definimos o melhor tratamento: crosslinking, lentes especiais, anel ou transplante." },
               ].map((step, i) => (
                 <AnimateOnScroll key={i} delay={i * 0.1}>
@@ -431,29 +449,29 @@ export default function InstitutoCeratocone() {
       </section>
 
       {/* ========== 7. CLASSIFICAÇÃO ========== */}
-      <section className="section-padding">
-        <div className="container max-w-4xl mx-auto">
-          <AnimateOnScroll className="text-center mb-12">
+      <section className="section-padding bg-navy">
+        <div className="container max-w-5xl mx-auto">
+          <AnimateOnScroll className="text-center mb-14">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Estadiamento</span>
-            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Classificação do Ceratocone</h2>
-            <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Classificação do Ceratocone</h2>
+            <p className="font-body text-base text-cream/70 mt-4 max-w-2xl mx-auto">
               A classificação de Amsler-Krumeich divide o ceratocone em 4 graus, orientando o tratamento mais adequado para cada estágio.
             </p>
-            <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {classificacao.map((c, i) => (
               <AnimateOnScroll key={i} delay={i * 0.1}>
-                <div className={`rounded-xl border-2 p-6 ${c.cor}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-display text-2xl font-bold">Grau {c.grau}</span>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 p-6 hover:bg-white/15 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center mb-4">
+                    <span className="font-display text-xl text-gold font-bold">{c.grau}</span>
                   </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between"><span className="font-semibold">Ceratometria:</span><span>{c.k}</span></div>
-                    <div className="flex justify-between"><span className="font-semibold">Miopia/Astig.:</span><span>{c.refr}</span></div>
-                    <div className="flex justify-between"><span className="font-semibold">Cicatriz:</span><span>{c.cicatriz}</span></div>
-                    <div className="flex justify-between"><span className="font-semibold">Paquimetria:</span><span>{c.paq}</span></div>
+                  <h3 className="font-display text-lg text-cream mb-4">Grau {c.grau}</h3>
+                  <div className="space-y-3 text-sm">
+                    <div><span className="font-body text-xs text-cream/50 block">Ceratometria</span><span className="font-display text-sm text-cream">{c.k}</span></div>
+                    <div><span className="font-body text-xs text-cream/50 block">Miopia/Astig.</span><span className="font-display text-sm text-cream">{c.refr}</span></div>
+                    <div><span className="font-body text-xs text-cream/50 block">Cicatriz</span><span className="font-display text-sm text-cream">{c.cicatriz}</span></div>
+                    <div><span className="font-body text-xs text-cream/50 block">Paquimetria</span><span className="font-display text-sm text-cream">{c.paq}</span></div>
                   </div>
                 </div>
               </AnimateOnScroll>
@@ -552,6 +570,16 @@ export default function InstitutoCeratocone() {
                   A córnea deve ter espessura mínima de 400µm para a realização segura do crosslinking. Por isso, o diagnóstico precoce é fundamental — quanto antes tratar, melhores as condições corneanas.
                 </p>
               </div>
+
+              <a
+                href="https://wa.me/5511916544653?text=Olá! Gostaria de receber o preço do crosslinking corneano."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-lg font-extrabold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5 mt-6 w-full"
+              >
+                <DollarSign className="w-5 h-5" />
+                Receber Preço do Crosslinking
+              </a>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={0.15} direction="right">
