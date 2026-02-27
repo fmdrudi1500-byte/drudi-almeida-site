@@ -356,7 +356,7 @@ export default function InstitutoCatarata() {
                 ))}
               </div>
               <div>
-                <p className="font-display text-sm text-navy font-semibold">5,0 no Google</p>
+                <p className="font-display text-sm text-navy font-semibold">4,9 no Google</p>
                 <p className="font-body text-xs text-muted-foreground">Avaliações reais de pacientes</p>
               </div>
             </div>
@@ -364,7 +364,7 @@ export default function InstitutoCatarata() {
             <div className="flex items-center gap-3">
               <Users className="w-6 h-6 text-gold" />
               <div>
-                <p className="font-display text-sm text-navy font-semibold">+15 anos de experiência</p>
+                <p className="font-display text-sm text-navy font-semibold">+10 anos de experiência</p>
                 <p className="font-body text-xs text-muted-foreground">Equipe altamente qualificada</p>
               </div>
             </div>
@@ -438,31 +438,31 @@ export default function InstitutoCatarata() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                name: "Drudi e Almeida — Guarulhos Centro",
+                name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos Centro oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
                 image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80",
               },
               {
-                name: "Drudi e Almeida — Lapa",
+                name: "Lapa",
                 city: "São Paulo - SP",
                 description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
                 image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
               },
               {
-                name: "Drudi e Almeida — Santana",
+                name: "Santana",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece atendimento humanizado com equipamentos de ponta e fácil acesso pelo metrô.",
                 image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
               },
               {
-                name: "Drudi e Almeida — São Miguel",
+                name: "São Miguel",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em São Miguel Paulista atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.",
                 image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80",
               },
               {
-                name: "Drudi e Almeida — Tatuapé",
+                name: "Tatuapé",
                 city: "São Paulo - SP",
                 description: "Nossa unidade no Tatuapé oferece atendimento especializado em catarata com infraestrutura completa e equipe altamente qualificada.",
                 image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
