@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <>
       {/* ========== HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
         {/* Parallax Background Image */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center will-change-transform"
@@ -137,12 +137,12 @@ export default function Home() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link
-                href="/sobre"
+              <a
+                href="tel:+551150268521"
                 className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
               >
-                Conheça a Clínica
-              </Link>
+                Ligar Agora
+              </a>
             </motion.div>
           </div>
         </div>

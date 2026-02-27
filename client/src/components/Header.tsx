@@ -4,7 +4,7 @@
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Moon, Sun, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -55,8 +55,13 @@ export default function Header() {
             <span>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+5511916544653" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href="tel:+551150268521" className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3 h-3" />
+              (11) 5026-8521
+            </a>
+            <span className="text-cream/40">|</span>
+            <a href="https://wa.me/5511916544653" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+              <MessageSquare className="w-3 h-3" />
               (11) 91654-4653
             </a>
           </div>
