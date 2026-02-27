@@ -138,34 +138,8 @@ const sintomasPos = [
   },
 ];
 
-/* ---- Tipos de Lente ---- */
-const tiposLente = [
-  {
-    name: "Lente monofocal tórica",
-    description: "Ideal para quem tem astigmatismo médio ou alto. Essa lente é ajustada para corrigir a visão de longe, mas pode ser necessário usar óculos para enxergar de perto.",
-    color: "bg-sky-50 border-sky-200",
-  },
-  {
-    name: "Lente monofocal não tórica",
-    description: "Recomendada para pacientes com astigmatismo de até 1 grau ou com graus baixos de miopia ou hipermetropia (até 6 graus). Apesar de corrigir a visão de longe, o uso de óculos para perto ainda pode ser necessário.",
-    color: "bg-emerald-50 border-emerald-200",
-  },
-  {
-    name: "Lente multifocal tórica",
-    description: "Indicada para quem deseja corrigir astigmatismo e também os problemas de visão para longe e perto. Essa lente reduz em até 90% a dependência de óculos após a cirurgia.",
-    color: "bg-amber-50 border-amber-200",
-  },
-  {
-    name: "Lente multifocal não tórica",
-    description: "Projetada para corrigir visão de longe e de perto, mas indicada para pacientes com astigmatismo baixo, pois não possui ajuste para corrigir esse problema.",
-    color: "bg-sky-50 border-sky-200",
-  },
-  {
-    name: "Lente multifocal acomodativa",
-    description: "Imita o movimento natural do cristalino, simulando o foco tanto para longe quanto para perto. O músculo ciliar movimenta a lente, oferecendo maior adaptabilidade às diferentes distâncias.",
-    color: "bg-rose-50 border-rose-200",
-  },
-];
+/* ---- Portal das Lentes URL ---- */
+const PORTAL_LENTES_URL = "https://lentesapp-pikmz7he.manus.space";
 
 /* ---- Riscos ---- */
 const riscos = [
@@ -214,7 +188,7 @@ const faqItems = [
   { question: "Quando poderei voltar às atividades normais?", answer: "A recuperação é rápida. A maioria dos pacientes retoma atividades como ler e assistir TV já no dia seguinte. Atividades físicas intensas e natação devem aguardar de 2 a 4 semanas, conforme orientação médica." },
   { question: "Qual a idade ideal para operar a catarata?", answer: "Não existe uma idade específica. A cirurgia é indicada quando a catarata começa a comprometer a qualidade de vida e as atividades diárias do paciente. Quanto mais cedo o diagnóstico, melhor o planejamento cirúrgico." },
   { question: "Posso operar os dois olhos no mesmo dia?", answer: "Geralmente, os olhos são operados em dias diferentes, com intervalo de 1 a 2 semanas entre cada procedimento. Isso permite acompanhar a recuperação do primeiro olho antes de operar o segundo." },
-  { question: "Qual tipo de lente intraocular é melhor para mim?", answer: "A escolha da lente depende de diversos fatores: estilo de vida, atividades profissionais, presença de astigmatismo e expectativas do paciente. Na consulta pré-operatória, nossos especialistas avaliam cada caso individualmente para recomendar a melhor opção." },
+  { question: "Qual tipo de lente intraocular é melhor para mim?", answer: "A escolha da lente depende de diversos fatores: estilo de vida, atividades profissionais, presença de astigmatismo e expectativas do paciente. Para ajudá-lo nessa decisão, desenvolvemos o Portal de Lentes Intraoculares — um questionário personalizado que analisa seu perfil e sugere as melhores opções. Acesse nosso Portal de Lentes nesta mesma página para descobrir qual tecnologia pode ser mais adequada para você. Na consulta pré-operatória, nossos especialistas avaliam cada caso individualmente para a recomendação final." },
   { question: "A cirurgia é coberta pelo plano de saúde?", answer: "Sim. A cirurgia de catarata por facoemulsificação é coberta pelos planos de saúde. As lentes premium (multifocais, trifocais, tóricas) podem ter cobertura parcial, com complementação pelo paciente. Consulte seu plano para detalhes." },
 ];
 
@@ -692,40 +666,111 @@ export default function InstitutoCatarata() {
         </div>
       </section>
 
-      {/* ========== 11. TIPOS DE LENTE ========== */}
-      <section className="section-padding bg-white">
-        <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+      {/* ========== 11. LENTES INTRAOCULARES — PORTAL DAS LENTES ========== */}
+      <section className="section-padding bg-gradient-to-br from-navy via-[#1a3a5c] to-navy relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-gold/30 blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-sky-400/20 blur-3xl" />
+        </div>
+
+        <div className="container relative z-10">
+          <AnimateOnScroll className="text-center mb-12">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Lentes Intraoculares</span>
-            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
-              Quais são os <span className="text-gold">tipos de lente</span> para a cirurgia de catarata?
+            <h2 className="font-display text-3xl md:text-4xl text-white mt-3">
+              Qual a <span className="text-gold">melhor lente</span> para você?
             </h2>
-            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">
-              Existem diferentes tipos de lentes intraoculares para atender às necessidades de cada pessoa, e cada uma delas é projetada para corrigir problemas específicos de visão.
+            <p className="font-body text-base text-white/70 max-w-2xl mx-auto mt-4 leading-relaxed">
+              A escolha da lente intraocular é uma das decisões mais importantes da cirurgia de catarata. Ela define como você vai enxergar pelo resto da vida.
             </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {tiposLente.map((lente, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.08}>
-                <div className={`rounded-2xl p-6 border ${lente.color} h-full`}>
-                  <h3 className="font-display text-base text-navy mb-3">{lente.name}</h3>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{lente.description}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
+          <div className="max-w-4xl mx-auto">
+            <AnimateOnScroll>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  {/* Left — Text */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center">
+                        <Sparkles className="w-6 h-6 text-gold" />
+                      </div>
+                      <h3 className="font-display text-xl text-white">Portal de Lentes Intraoculares</h3>
+                    </div>
 
-          <AnimateOnScroll>
-            <div className="text-center mt-10 max-w-2xl mx-auto">
-              <p className="font-body text-sm text-navy leading-relaxed">
-                No final das contas, <strong>quem vai ajudar você a escolher a melhor lente é o seu oftalmologista.</strong>
-              </p>
-              <p className="font-body text-sm text-muted-foreground mt-2 leading-relaxed">
-                Ele vai considerar não só as suas necessidades visuais, mas também o seu estilo de vida, para garantir que você tenha uma visão clara e confortável após a cirurgia.
-              </p>
-            </div>
-          </AnimateOnScroll>
+                    <p className="font-body text-sm text-white/80 leading-relaxed">
+                      Existem diversos tipos de lentes intraoculares — <strong className="text-white">monofocais, multifocais, trifocais, tóricas, EDOF</strong> — e cada uma é projetada para corrigir necessidades visuais diferentes.
+                    </p>
+
+                    <p className="font-body text-sm text-white/80 leading-relaxed">
+                      Para ajudá-lo a entender qual tecnologia pode ser mais adequada ao seu estilo de vida, desenvolvemos um <strong className="text-white">questionário personalizado de 10 perguntas</strong> que analisa suas atividades diárias, hobbies e expectativas visuais.
+                    </p>
+
+                    <div className="space-y-3">
+                      {[
+                        "Questionário personalizado baseado no seu estilo de vida",
+                        "Recomendações detalhadas por categoria de lente",
+                        "Informações completas sobre cada tecnologia",
+                        "Apresentações visuais profissionais de cada lente",
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                          <span className="font-body text-sm text-white/80">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <a
+                      href={PORTAL_LENTES_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-navy font-display font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5 text-base"
+                    >
+                      <Eye className="w-5 h-5" />
+                      Descobrir Minha Lente Ideal
+                      <ArrowRight className="w-5 h-5" />
+                    </a>
+                  </div>
+
+                  {/* Right — Visual card */}
+                  <div className="space-y-4">
+                    <div className="bg-white/10 rounded-2xl p-6 border border-white/10">
+                      <div className="text-center mb-6">
+                        <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+                          <Eye className="w-10 h-10 text-gold" />
+                        </div>
+                        <h4 className="font-display text-lg text-white">Como funciona?</h4>
+                      </div>
+
+                      <div className="space-y-4">
+                        {[
+                          { step: "1", title: "Responda o questionário", desc: "10 perguntas sobre seu estilo de vida e atividades diárias" },
+                          { step: "2", title: "Receba suas recomendações", desc: "Análise personalizada com scores para cada categoria de lente" },
+                          { step: "3", title: "Compartilhe com seu médico", desc: "Código exclusivo para o oftalmologista acessar seus resultados" },
+                        ].map((item, i) => (
+                          <div key={i} className="flex items-start gap-4">
+                            <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                              <span className="font-display text-sm text-gold font-bold">{item.step}</span>
+                            </div>
+                            <div>
+                              <p className="font-display text-sm text-white">{item.title}</p>
+                              <p className="font-body text-xs text-white/60 mt-0.5">{item.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-amber-500/10 rounded-xl p-4 border border-amber-500/20">
+                      <p className="font-body text-xs text-amber-200/80 leading-relaxed">
+                        <strong className="text-amber-200">Importante:</strong> Este questionário é uma ferramenta educacional. A escolha final da lente deve ser feita em consulta com seu oftalmologista, considerando exames clínicos completos.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          </div>
         </div>
       </section>
 
