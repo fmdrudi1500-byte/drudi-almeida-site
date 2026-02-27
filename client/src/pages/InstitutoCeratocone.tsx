@@ -167,16 +167,6 @@ export default function InstitutoCeratocone() {
 
         <div className="relative container py-20">
           <div className="max-w-2xl">
-            <motion.nav
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="flex items-center gap-1.5 text-cream/60 font-ui text-xs tracking-wide mb-6"
-            >
-              <Link href="/" className="hover:text-gold transition-colors">Início</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-gold">Instituto do Ceratocone</span>
-            </motion.nav>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -634,7 +624,7 @@ export default function InstitutoCeratocone() {
                 href="https://wa.me/5511916544653?text=Olá! Gostaria de receber o preço do crosslinking corneano."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-lg font-extrabold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5 mt-6 w-full"
+                className="inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-[15px] font-extrabold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5 mt-6 w-full"
               >
                 <DollarSign className="w-5 h-5" />
                 Receber Preço do Crosslinking
@@ -898,24 +888,7 @@ export default function InstitutoCeratocone() {
                 <UnitSelect id="cta-final" />
               </div>
 
-              <div className="flex flex-wrap justify-center gap-4">
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gold font-ui text-sm font-semibold hover:text-gold-light transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Agende pelo WhatsApp
-                </a>
-                <a
-                  href={`tel:+55${PHONE.replace(/\D/g, "")}`}
-                  className="inline-flex items-center gap-2 text-cream/70 font-ui text-sm font-semibold hover:text-cream transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  Ligar: {PHONE}
-                </a>
-              </div>
+
             </div>
           </AnimateOnScroll>
         </div>
