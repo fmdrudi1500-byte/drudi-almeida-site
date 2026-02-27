@@ -449,34 +449,93 @@ export default function InstitutoCeratocone() {
       </section>
 
       {/* ========== 7. CLASSIFICAÇÃO ========== */}
-      <section className="section-padding bg-navy">
+      <section className="section-padding">
         <div className="container max-w-5xl mx-auto">
           <AnimateOnScroll className="text-center mb-14">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Estadiamento</span>
-            <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Classificação do Ceratocone</h2>
-            <p className="font-body text-base text-cream/70 mt-4 max-w-2xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Classificação do Ceratocone</h2>
+            <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
               A classificação de Amsler-Krumeich divide o ceratocone em 4 graus, orientando o tratamento mais adequado para cada estágio.
             </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {classificacao.map((c, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 p-6 hover:bg-white/15 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center mb-4">
-                    <span className="font-display text-xl text-gold font-bold">{c.grau}</span>
+          {/* Barra de progressão visual */}
+          <div className="relative mb-10">
+            <div className="absolute top-5 left-0 right-0 h-1 bg-border/40 rounded-full" />
+            <div className="flex justify-between relative">
+              {classificacao.map((c, i) => {
+                const colors = [
+                  "bg-emerald-500",
+                  "bg-amber-500",
+                  "bg-orange-500",
+                  "bg-red-500",
+                ];
+                return (
+                  <div key={i} className="flex flex-col items-center">
+                    <div className={`w-10 h-10 rounded-full ${colors[i]} flex items-center justify-center text-white font-display font-bold text-sm shadow-lg z-10`}>
+                      {c.grau}
+                    </div>
+                    <span className="font-ui text-xs text-muted-foreground mt-2">Grau {c.grau}</span>
                   </div>
-                  <h3 className="font-display text-lg text-cream mb-4">Grau {c.grau}</h3>
-                  <div className="space-y-3 text-sm">
-                    <div><span className="font-body text-xs text-cream/50 block">Ceratometria</span><span className="font-display text-sm text-cream">{c.k}</span></div>
-                    <div><span className="font-body text-xs text-cream/50 block">Miopia/Astig.</span><span className="font-display text-sm text-cream">{c.refr}</span></div>
-                    <div><span className="font-body text-xs text-cream/50 block">Cicatriz</span><span className="font-display text-sm text-cream">{c.cicatriz}</span></div>
-                    <div><span className="font-body text-xs text-cream/50 block">Paquimetria</span><span className="font-display text-sm text-cream">{c.paq}</span></div>
-                  </div>
-                </div>
-              </AnimateOnScroll>
-            ))}
+                );
+              })}
+            </div>
+            <div className="flex justify-between mt-1">
+              <span className="font-body text-xs text-emerald-600">Leve</span>
+              <span className="font-body text-xs text-red-600">Avançado</span>
+            </div>
           </div>
+
+          {/* Tabela elegante */}
+          <AnimateOnScroll>
+            <div className="overflow-hidden rounded-2xl border border-border/40 shadow-sm">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-navy">
+                    <th className="font-display text-sm text-cream text-left px-6 py-4">Parâmetro</th>
+                    {classificacao.map((c, i) => {
+                      const headerColors = [
+                        "text-emerald-300",
+                        "text-amber-300",
+                        "text-orange-300",
+                        "text-red-300",
+                      ];
+                      return (
+                        <th key={i} className={`font-display text-sm ${headerColors[i]} text-center px-4 py-4`}>
+                          Grau {c.grau}
+                        </th>
+                      );
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { label: "Ceratometria", key: "k" as const },
+                    { label: "Miopia / Astigmatismo", key: "refr" as const },
+                    { label: "Cicatriz corneana", key: "cicatriz" as const },
+                    { label: "Paquimetria", key: "paq" as const },
+                  ].map((row, ri) => (
+                    <tr key={ri} className={ri % 2 === 0 ? "bg-white" : "bg-cream/30"}>
+                      <td className="font-display text-sm text-navy px-6 py-4 font-semibold">{row.label}</td>
+                      {classificacao.map((c, ci) => (
+                        <td key={ci} className="font-body text-sm text-center text-muted-foreground px-4 py-4">
+                          {c[row.key]}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                  <tr className="bg-gold/10">
+                    <td className="font-display text-sm text-navy px-6 py-4 font-semibold">Tratamento indicado</td>
+                    <td className="font-body text-xs text-center text-navy px-4 py-4">Crosslinking + Lentes</td>
+                    <td className="font-body text-xs text-center text-navy px-4 py-4">Crosslinking + Anéis</td>
+                    <td className="font-body text-xs text-center text-navy px-4 py-4">Anéis + Transplante</td>
+                    <td className="font-body text-xs text-center text-navy px-4 py-4">Transplante de Córnea</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
