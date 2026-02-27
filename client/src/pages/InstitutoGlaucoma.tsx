@@ -25,8 +25,11 @@ const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de recebe
 const PHONE = "(11) 91654-4653";
 
 const unidades = [
-  { id: "jundiai", name: "Jundiaí", address: "Jundiaí - SP" },
-  { id: "santana", name: "Santana (São Paulo)", address: "São Paulo - SP" },
+  { id: "guarulhos-centro", name: "Guarulhos Centro" },
+  { id: "lapa", name: "Lapa" },
+  { id: "santana", name: "Santana" },
+  { id: "sao-miguel", name: "São Miguel" },
+  { id: "tatuape", name: "Tatuapé" },
 ];
 
 /* ---- Tipos de Glaucoma ---- */
@@ -222,11 +225,7 @@ export default function InstitutoGlaucoma() {
         />
         <div className="relative container py-20">
           <div className="max-w-2xl">
-            <motion.nav initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="flex items-center gap-1.5 text-cream/60 font-ui text-xs tracking-wide mb-6">
-              <Link href="/" className="hover:text-gold transition-colors">Início</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-gold">Instituto do Glaucoma</span>
-            </motion.nav>
+
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
               <Eye className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DO GLAUCOMA</span>
@@ -244,7 +243,7 @@ export default function InstitutoGlaucoma() {
                   <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">Unidade</label>
                   <select value={selectedUnidade} onChange={(e) => setSelectedUnidade(e.target.value)} className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold">
                     <option value="">Selecione a unidade</option>
-                    {unidades.map((u) => (<option key={u.id} value={u.id}>{u.name} — {u.address}</option>))}
+                    {unidades.map((u) => (<option key={u.id} value={u.id}>{u.name}</option>))}
                   </select>
                 </div>
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20">
@@ -265,9 +264,13 @@ export default function InstitutoGlaucoma() {
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <div className="flex items-center gap-3">
               <div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="w-5 h-5 fill-gold text-gold" />))}</div>
-              <span className="font-body text-sm text-muted-foreground">Avaliação Google</span>
+              <span className="font-body text-sm text-navy font-semibold">4,9 no Google</span>
             </div>
-            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-gold" /><span className="font-body text-sm text-navy font-semibold">2 Unidades</span></div>
+            <div className="h-5 w-px bg-border/60" />
+            <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-gold" /><span className="font-body text-sm text-navy font-semibold">5 Unidades</span></div>
+            <div className="h-5 w-px bg-border/60" />
+            <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-gold" /><span className="font-body text-sm text-navy font-semibold">+10 anos de experiência</span></div>
+            <div className="h-5 w-px bg-border/60" />
             <div className="flex items-center gap-2"><Users className="w-4 h-4 text-gold" /><span className="font-body text-sm text-navy font-semibold">Especialistas em Glaucoma</span></div>
           </div>
         </div>
@@ -628,7 +631,7 @@ export default function InstitutoGlaucoma() {
                 <div className="space-y-4">
                   <select value={selectedUnidade} onChange={(e) => setSelectedUnidade(e.target.value)} className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold">
                     <option value="">Selecione a unidade</option>
-                    {unidades.map((u) => (<option key={u.id} value={u.id}>{u.name} — {u.address}</option>))}
+                    {unidades.map((u) => (<option key={u.id} value={u.id}>{u.name}</option>))}
                   </select>
                   <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20">
                     <DollarSign className="w-4 h-4" />Receber Preço

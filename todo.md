@@ -1,13 +1,16 @@
-# Edições InstitutoCatarata.tsx
+# Atualização de Unidades e Avaliações - Institutos
 
-- [ ] 1. Atualizar unidades no select (GUARULHOS CENTRO, LAPA, SANTANA, SÃO MIGUEL, TATUAPÉ) - ordem alfabética
-- [ ] 2. Destacar botão "Receber Preço" - maior, mais proeminente
-- [ ] 3. Barra de avaliações em uma linha - corrigir nº unidades (5) e nomes
-- [ ] 4. "Agende uma consulta avaliativa" → "Agende uma consulta de avaliação"
-- [ ] 5. Deletar imagem da seção "Como funciona" (item 5 - div com gradient overlay)
-- [ ] 6. Corrigir unidades na seção "Nossas Unidades" - 5 unidades
-- [ ] 7. Trocar foto da seção "O que é catarata" por foto de olho com catarata
-- [ ] 8. "Anestesia tópica" → "Anestesia tópica + Sedação Venosa"
-- [ ] 9. Deletar card visual do Portal de Lentes (lado direito)
-- [ ] 10. Melhorar estilo da seção Portal de Lentes - botão maior, centralizado
-- [ ] 11. "consulta avaliativa" → "consulta de avaliação." no CTA final
+## Para cada página (Glaucoma, Retina, Estrabismo):
+- [ ] Atualizar unidades no select para: Guarulhos Centro, Lapa, Santana, São Miguel, Tatuapé
+- [ ] Atualizar nota Google de 5,0 para 4,9
+- [ ] Atualizar experiência de +15 para +10 anos
+- [ ] Atualizar número de unidades de 2 para 5
+- [ ] Simplificar nomes das unidades (remover prefixo "Drudi e Almeida —")
+- [ ] Reestruturar barra de avaliações em uma linha horizontal
+- [ ] Atualizar textos que mencionam unidades antigas
+- [ ] Remover breadcrumb nav se existir
+
+## Páginas:
+- [ ] InstitutoGlaucoma.tsx
+- [ ] InstitutoRetina.tsx
+- [ ] InstitutoEstrabismo.tsx
