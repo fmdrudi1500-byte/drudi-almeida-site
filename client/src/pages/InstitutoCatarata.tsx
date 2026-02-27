@@ -23,15 +23,18 @@ const PHONE = "(11) 91654-4653";
 
 /* ---- Unidades ---- */
 const unidades = [
-  { id: "jundiai", name: "Jundiaí", address: "Jundiaí - SP" },
-  { id: "santana", name: "Santana (São Paulo)", address: "São Paulo - SP" },
+  { id: "guarulhos-centro", name: "Guarulhos Centro", address: "Guarulhos - SP" },
+  { id: "lapa", name: "Lapa", address: "São Paulo - SP" },
+  { id: "santana", name: "Santana", address: "São Paulo - SP" },
+  { id: "sao-miguel", name: "São Miguel", address: "São Paulo - SP" },
+  { id: "tatupe", name: "Tatuapé", address: "São Paulo - SP" },
 ];
 
 /* ---- Como funciona ---- */
 const comoFunciona = [
   {
     step: 1,
-    title: "Agende uma consulta avaliativa",
+    title: "Agende uma consulta de avaliação",
     description: "Entre em contato pelo WhatsApp ou telefone e agende sua consulta com um de nossos especialistas em catarata.",
   },
   {
@@ -84,7 +87,7 @@ const sintomasZigzag = [
 const etapasCirurgia = [
   {
     step: 1,
-    title: "Anestesia tópica",
+    title: "Anestesia tópica + Sedação Venosa",
     description: "A cirurgia começa com a aplicação de colírios anestésicos, eliminando qualquer dor ou desconforto. Não é necessária anestesia geral, o que torna o procedimento mais seguro e com recuperação mais rápida.",
   },
   {
@@ -323,9 +326,9 @@ export default function InstitutoCatarata() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-lg font-bold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
                 >
-                  <DollarSign className="w-4 h-4" />
+                  <DollarSign className="w-5 h-5" />
                   Receber Preço
                 </a>
 
@@ -369,8 +372,8 @@ export default function InstitutoCatarata() {
             <div className="flex items-center gap-3">
               <MapPin className="w-6 h-6 text-gold" />
               <div>
-                <p className="font-display text-sm text-navy font-semibold">2 unidades</p>
-                <p className="font-body text-xs text-muted-foreground">Jundiaí e Santana (SP)</p>
+                <p className="font-display text-sm text-navy font-semibold">5 unidades</p>
+                <p className="font-body text-xs text-muted-foreground">Guarulhos, Lapa, Santana, São Miguel e Tatuapé</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-border" />
@@ -388,8 +391,7 @@ export default function InstitutoCatarata() {
       {/* ========== 3. COMO FUNCIONA ========== */}
       <section className="section-padding bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Steps */}
+          <div className="max-w-3xl mx-auto">
             <div>
               <AnimateOnScroll>
                 <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Passo a Passo</span>
@@ -421,18 +423,6 @@ export default function InstitutoCatarata() {
                 </div>
               </AnimateOnScroll>
             </div>
-
-            {/* Right: Photo */}
-            <AnimateOnScroll>
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80"
-                  alt="Paciente sorrindo após consulta oftalmológica"
-                  className="w-full h-[450px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-              </div>
-            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -445,19 +435,37 @@ export default function InstitutoCatarata() {
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Conheça nossas unidades</h2>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                name: "Drudi e Almeida — Jundiaí",
-                city: "Jundiaí - SP",
-                description: "Nossa unidade principal em Jundiaí conta com infraestrutura completa, equipamentos de última geração e equipe especializada para cirurgias de catarata com excelência.",
+                name: "Drudi e Almeida — Guarulhos Centro",
+                city: "Guarulhos - SP",
+                description: "Nossa unidade em Guarulhos Centro oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
                 image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80",
+              },
+              {
+                name: "Drudi e Almeida — Lapa",
+                city: "São Paulo - SP",
+                description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
+                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
               },
               {
                 name: "Drudi e Almeida — Santana",
                 city: "São Paulo - SP",
-                description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece o mesmo padrão de qualidade e atendimento humanizado, com fácil acesso pelo metrô.",
-                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+                description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece atendimento humanizado com equipamentos de ponta e fácil acesso pelo metrô.",
+                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
+              },
+              {
+                name: "Drudi e Almeida — São Miguel",
+                city: "São Paulo - SP",
+                description: "Nossa unidade em São Miguel Paulista atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.",
+                image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80",
+              },
+              {
+                name: "Drudi e Almeida — Tatuapé",
+                city: "São Paulo - SP",
+                description: "Nossa unidade no Tatuapé oferece atendimento especializado em catarata com infraestrutura completa e equipe altamente qualificada.",
+                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
               },
             ].map((clinica, i) => (
               <AnimateOnScroll key={i} delay={i * 0.15}>
@@ -505,8 +513,8 @@ export default function InstitutoCatarata() {
             <AnimateOnScroll delay={0.2}>
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=800&q=80"
-                  alt="Casal de idosos caminhando felizes"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/cataract-eye_22b95078.jpg"
+                  alt="Olho com catarata - opacificação do cristalino"
                   className="w-full h-[400px] object-cover"
                 />
               </div>
@@ -685,89 +693,50 @@ export default function InstitutoCatarata() {
             </p>
           </AnimateOnScroll>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <AnimateOnScroll>
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  {/* Left — Text */}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center">
-                        <Sparkles className="w-6 h-6 text-gold" />
-                      </div>
-                      <h3 className="font-display text-xl text-white">Portal de Lentes Intraoculares</h3>
-                    </div>
-
-                    <p className="font-body text-sm text-white/80 leading-relaxed">
-                      Existem diversos tipos de lentes intraoculares — <strong className="text-white">monofocais, multifocais, trifocais, tóricas, EDOF</strong> — e cada uma é projetada para corrigir necessidades visuais diferentes.
-                    </p>
-
-                    <p className="font-body text-sm text-white/80 leading-relaxed">
-                      Para ajudá-lo a entender qual tecnologia pode ser mais adequada ao seu estilo de vida, desenvolvemos um <strong className="text-white">questionário personalizado de 10 perguntas</strong> que analisa suas atividades diárias, hobbies e expectativas visuais.
-                    </p>
-
-                    <div className="space-y-3">
-                      {[
-                        "Questionário personalizado baseado no seu estilo de vida",
-                        "Recomendações detalhadas por categoria de lente",
-                        "Informações completas sobre cada tecnologia",
-                        "Apresentações visuais profissionais de cada lente",
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-gold mt-0.5 shrink-0" />
-                          <span className="font-body text-sm text-white/80">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <a
-                      href={PORTAL_LENTES_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-navy font-display font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5 text-base"
-                    >
-                      <Eye className="w-5 h-5" />
-                      Descobrir Minha Lente Ideal
-                      <ArrowRight className="w-5 h-5" />
-                    </a>
-                  </div>
-
-                  {/* Right — Visual card */}
-                  <div className="space-y-4">
-                    <div className="bg-white/10 rounded-2xl p-6 border border-white/10">
-                      <div className="text-center mb-6">
-                        <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                          <Eye className="w-10 h-10 text-gold" />
-                        </div>
-                        <h4 className="font-display text-lg text-white">Como funciona?</h4>
-                      </div>
-
-                      <div className="space-y-4">
-                        {[
-                          { step: "1", title: "Responda o questionário", desc: "10 perguntas sobre seu estilo de vida e atividades diárias" },
-                          { step: "2", title: "Receba suas recomendações", desc: "Análise personalizada com scores para cada categoria de lente" },
-                          { step: "3", title: "Compartilhe com seu médico", desc: "Código exclusivo para o oftalmologista acessar seus resultados" },
-                        ].map((item, i) => (
-                          <div key={i} className="flex items-start gap-4">
-                            <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                              <span className="font-display text-sm text-gold font-bold">{item.step}</span>
-                            </div>
-                            <div>
-                              <p className="font-display text-sm text-white">{item.title}</p>
-                              <p className="font-body text-xs text-white/60 mt-0.5">{item.desc}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="bg-amber-500/10 rounded-xl p-4 border border-amber-500/20">
-                      <p className="font-body text-xs text-amber-200/80 leading-relaxed">
-                        <strong className="text-amber-200">Importante:</strong> Este questionário é uma ferramenta educacional. A escolha final da lente deve ser feita em consulta com seu oftalmologista, considerando exames clínicos completos.
-                      </p>
-                    </div>
-                  </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 md:p-14 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-gold/20 flex items-center justify-center mx-auto mb-6">
+                  <Sparkles className="w-8 h-8 text-gold" />
                 </div>
+                <h3 className="font-display text-2xl md:text-3xl text-white mb-4">Portal de Lentes Intraoculares</h3>
+
+                <p className="font-body text-base text-white/80 leading-relaxed mb-4 max-w-2xl mx-auto">
+                  Existem diversos tipos de lentes intraoculares — <strong className="text-white">monofocais, multifocais, trifocais, tóricas, EDOF</strong> — e cada uma é projetada para corrigir necessidades visuais diferentes.
+                </p>
+
+                <p className="font-body text-base text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+                  Para ajudá-lo a entender qual tecnologia pode ser mais adequada ao seu estilo de vida, desenvolvemos um <strong className="text-white">questionário personalizado de 10 perguntas</strong> que analisa suas atividades diárias, hobbies e expectativas visuais.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-2xl mx-auto">
+                  {[
+                    "Questionário personalizado",
+                    "Recomendações por categoria",
+                    "Informações completas",
+                    "Apresentações visuais",
+                  ].map((item, i) => (
+                    <div key={i} className="flex flex-col items-center gap-2 bg-white/5 rounded-xl p-4 border border-white/10">
+                      <CheckCircle className="w-5 h-5 text-gold" />
+                      <span className="font-body text-xs text-white/80 text-center">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href={PORTAL_LENTES_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-gold hover:bg-gold/90 text-navy font-display text-lg font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-xl shadow-gold/30 hover:shadow-2xl hover:shadow-gold/40 hover:-translate-y-1"
+                >
+                  <Eye className="w-6 h-6" />
+                  Descobrir Minha Lente Ideal
+                  <ArrowRight className="w-6 h-6" />
+                </a>
+
+                <p className="font-body text-xs text-white/50 mt-6 leading-relaxed max-w-lg mx-auto">
+                  <strong className="text-white/60">Importante:</strong> Este questionário é uma ferramenta educacional. A escolha final da lente deve ser feita em consulta com seu oftalmologista.
+                </p>
               </div>
             </AnimateOnScroll>
           </div>
@@ -969,7 +938,7 @@ export default function InstitutoCatarata() {
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">
-                Agende sua <span className="text-gold">consulta avaliativa</span>
+                Agende sua <span className="text-gold">consulta de avaliação</span>
               </h2>
               <p className="font-body text-base text-cream/70 mb-8 leading-relaxed">
                 Nossos especialistas em catarata estão prontos para avaliar seu caso e indicar o melhor tratamento. Recupere a clareza da sua visão com quem entende.
