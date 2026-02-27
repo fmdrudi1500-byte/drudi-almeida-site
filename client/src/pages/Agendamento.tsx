@@ -11,6 +11,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import { toast } from "sonner";
+import SEOHead from "@/components/SEOHead";
 
 const institutos = [
   { value: "consulta-geral", label: "Consulta Geral" },
@@ -119,6 +120,12 @@ export default function Agendamento() {
   if (submitted) {
     return (
       <>
+      <SEOHead
+        title="Agendar Consulta — Marque sua Avaliação"
+        description="Agende sua consulta oftalmológica na Drudi e Almeida. Escolha a unidade mais próxima e o instituto especializado. Atendimento rápido e humanizado."
+        keywords="agendar consulta oftalmologista SP, marcar consulta olhos, agendamento oftalmologia São Paulo"
+        canonicalPath="/agendamento"
+      />
         <InstitutoHero
           title="Agendamento Online"
           subtitle="Agende sua consulta de forma rápida e prática."

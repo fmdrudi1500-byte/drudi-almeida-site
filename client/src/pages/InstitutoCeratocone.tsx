@@ -14,6 +14,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/FNcnFFJFKrDuNgLS.png";
@@ -154,6 +155,12 @@ export default function InstitutoCeratocone() {
 
   return (
     <>
+      <SEOHead
+        title="Instituto do Ceratocone — Crosslinking e Tratamentos em SP"
+        description="Tratamento especializado de ceratocone: crosslinking, anel de Ferrara, lentes de contato especiais. Diagnóstico com Pentacam e OPD. 5 unidades em SP."
+        keywords="ceratocone tratamento SP, crosslinking São Paulo, anel de Ferrara, lente de contato ceratocone, Pentacam, oftalmologista ceratocone"
+        canonicalPath="/instituto/ceratocone"
+      />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div

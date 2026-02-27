@@ -14,6 +14,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/WDorIHhiaQuwCSEJ.png";
@@ -213,6 +214,12 @@ export default function InstitutoGlaucoma() {
 
   return (
     <>
+      <SEOHead
+        title="Instituto do Glaucoma — Diagnóstico e Tratamento em SP"
+        description="Diagnóstico precoce e tratamento do glaucoma com tecnologia de última geração. Tonometria, campo visual, OCT. 5 unidades em São Paulo e Guarulhos."
+        keywords="glaucoma tratamento SP, glaucoma especialista São Paulo, pressão ocular, tonometria, campo visual, oftalmologista glaucoma"
+        canonicalPath="/instituto/glaucoma"
+      />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div

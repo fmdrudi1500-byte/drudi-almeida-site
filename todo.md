@@ -1,16 +1,32 @@
-# Atualização de Unidades e Avaliações - Institutos
+# Evolução do Site - SEO, Áudios e Tecnologias
 
-## Para cada página (Glaucoma, Retina, Estrabismo):
-- [ ] Atualizar unidades no select para: Guarulhos Centro, Lapa, Santana, São Miguel, Tatuapé
-- [ ] Atualizar nota Google de 5,0 para 4,9
-- [ ] Atualizar experiência de +15 para +10 anos
-- [ ] Atualizar número de unidades de 2 para 5
-- [ ] Simplificar nomes das unidades (remover prefixo "Drudi e Almeida —")
-- [ ] Reestruturar barra de avaliações em uma linha horizontal
-- [ ] Atualizar textos que mencionam unidades antigas
-- [ ] Remover breadcrumb nav se existir
+## Fase 1: SEO Técnico
+- [ ] Meta tags (title, description) para cada página
+- [ ] Open Graph tags para compartilhamento em redes sociais
+- [ ] Schema.org JSON-LD (MedicalClinic, Physician, MedicalProcedure)
+- [ ] Sitemap.xml
+- [ ] robots.txt
+- [ ] Canonical URLs
+- [ ] Alt text em todas as imagens
+- [ ] Heading hierarchy (H1 único por página)
 
-## Páginas:
-- [ ] InstitutoGlaucoma.tsx
-- [ ] InstitutoRetina.tsx
-- [ ] InstitutoEstrabismo.tsx
+## Fase 2: Otimização de Conteúdo SEO
+- [ ] Títulos otimizados para palavras-chave de cada instituto
+- [ ] Meta descriptions persuasivas com CTA
+- [ ] Breadcrumb Schema.org
+- [ ] FAQ Schema.org nas seções de perguntas
+
+## Fase 3: Áudios ElevenLabs
+- [ ] Áudio Instituto da Catarata
+- [ ] Áudio Instituto do Ceratocone
+- [ ] Áudio Instituto do Glaucoma
+- [ ] Áudio Instituto da Retina
+- [ ] Áudio Instituto do Estrabismo
+
+## Fase 4: Integração de Áudios no Site
+- [ ] Player de áudio elegante em cada página de instituto
+
+## Fase 5: Guia de Orientação
+- [ ] Guia para registro de domínio
+- [ ] Guia para chatbot WhatsApp
+- [ ] Recomendações de próximos passos tecnológicos

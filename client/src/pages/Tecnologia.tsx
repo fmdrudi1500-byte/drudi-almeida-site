@@ -8,6 +8,7 @@ import { ArrowRight, Search, Filter, Eye, Scan, Crosshair, Activity, Microscope,
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 type Category = "Todos" | "Diagnóstico" | "Tratamento" | "Cirúrgico";
 
@@ -197,6 +198,12 @@ export default function Tecnologia() {
 
   return (
     <>
+      <SEOHead
+        title="Tecnologia — Equipamentos de Última Geração"
+        description="Conheça os equipamentos e tecnologias utilizados na Drudi e Almeida: Pentacam, OCT, laser femtossegundo, facoemulsificação e mais."
+        keywords="tecnologia oftalmológica, Pentacam, OCT, laser femtossegundo, equipamentos oftalmologia, Drudi e Almeida tecnologia"
+        canonicalPath="/tecnologia"
+      />
       <InstitutoHero
         title="Tecnologia de Ponta"
         subtitle="Investimos continuamente nos equipamentos mais modernos para garantir diagnósticos precisos e tratamentos seguros."

@@ -11,6 +11,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
 import { useRef, useEffect, useCallback, useState } from "react";
+import SEOHead from "@/components/SEOHead";
 
 const institutos = [
   {
@@ -70,6 +71,12 @@ export default function Home() {
   const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
   return (
     <>
+      <SEOHead
+        title="Clínica de Olhos em São Paulo e Guarulhos"
+        description="Drudi e Almeida Oftalmologia: 5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades em SP. Agende: (11) 5026-8521."
+        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata, ceratocone, glaucoma, retina, estrabismo, Drudi e Almeida"
+        canonicalPath="/"
+      />
       {/* ========== HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
         {/* Parallax Background Image */}

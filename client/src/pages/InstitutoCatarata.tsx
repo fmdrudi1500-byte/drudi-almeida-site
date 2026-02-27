@@ -14,7 +14,9 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
+import AudioPlayer from "@/components/AudioPlayer";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 /* ---- Constants ---- */
 const HERO_ART_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/u4g0I4h1IGUE9ABNeQTXpr-img-1_1772141937000_na1fn_Y2F0YXJhdGEtaGVyby1hcnQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L3U0ZzBJNGgxSUdVRTlBQk5lUVRYcHItaW1nLTFfMTc3MjE0MTkzNzAwMF9uYTFmbl9ZMkYwWVhKaGRHRXRhR1Z5YnkxaGNuUS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=C8TKw5YeNCoUokrvSuPBz6Hj1MIx4tVE6IYk5DTYvn6rPvMqchkPn-3uuCPPLmJmrGy3NPpjynhj3fIZcjK9fVK3LVGQVQCgIn0NzAVmpp9zwHKvgsLNMUCIcUBA1D9wosZHVjau~h-gmDPG704XUVxICzjpvyVDNR33BGF7jZCi-zgq4rBWIokUWsvh5QdD-e67Lm7Wp4fnP~S2EfWzJWfVp8Ct77u-xjsqZm0tASPy~xQlvHN~GaGzbR3OT954lxLGsY3rFj7II4MLpGQP1rv5dkkVY-ZA2RcDW47c1JfxTvBYaVMwp6gApMJXRGgMaMCUhNmVWfNmtT7Bdblo5A__";
@@ -247,6 +249,12 @@ export default function InstitutoCatarata() {
 
   return (
     <>
+      <SEOHead
+        title="Instituto da Catarata — Cirurgia de Catarata em SP"
+        description="Cirurgia de catarata com facoemulsificação e lentes premium. Especialistas renomados, tecnologia de ponta. 5 unidades em São Paulo e Guarulhos. Agende sua avaliação."
+        keywords="cirurgia de catarata SP, catarata tratamento, facoemulsificação, lente intraocular, oftalmologista catarata São Paulo, preço cirurgia catarata"
+        canonicalPath="/instituto/catarata"
+      />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Parallax Background — Obra de Arte Impressionista */}
@@ -420,6 +428,17 @@ export default function InstitutoCatarata() {
               <AnimateOnScroll delay={0.5}>
                 <div className="mt-8">
                   <CTAButtons />
+                </div>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll delay={0.6} className="mt-10">
+                <div className="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                  <h3 className="font-display text-lg text-navy mb-4">Ouça nossa mensagem de boas-vindas</h3>
+                  <AudioPlayer
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/boas-vindas-catarata_cf3cce61.mp3"
+                    title="Instituto da Catarata"
+                    subtitle="Mensagem de boas-vindas do Dr. Fernando Drudi"
+                  />
                 </div>
               </AnimateOnScroll>
             </div>

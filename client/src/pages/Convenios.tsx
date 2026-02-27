@@ -8,6 +8,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 interface Convenio {
   name: string;
@@ -89,6 +90,12 @@ const beneficios = [
 export default function Convenios() {
   return (
     <>
+      <SEOHead
+        title="Convênios — Planos de Saúde Aceitos"
+        description="Confira os convênios e planos de saúde aceitos na Drudi e Almeida Oftalmologia. Atendemos os principais planos de São Paulo."
+        keywords="convênios oftalmologia SP, planos de saúde aceitos, oftalmologista convênio São Paulo, Drudi e Almeida convênios"
+        canonicalPath="/convenios"
+      />
       <InstitutoHero
         title="Convênios"
         subtitle="Atendemos os principais planos de saúde para facilitar o seu acesso à oftalmologia de excelência."

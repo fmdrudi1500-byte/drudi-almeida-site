@@ -14,6 +14,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ibNQCeyYILJFGyuH.png";
@@ -167,6 +168,12 @@ export default function InstitutoEstrabismo() {
 
   return (
     <>
+      <SEOHead
+        title="Instituto de Estrabismo — Cirurgia para Crianças e Adultos em SP"
+        description="Cirurgia de estrabismo para crianças e adultos. Diagnóstico preciso e técnicas modernas de correção. 5 unidades em São Paulo e Guarulhos."
+        keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
+        canonicalPath="/instituto/estrabismo"
+      />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />

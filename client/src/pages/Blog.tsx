@@ -8,6 +8,7 @@ import { useState, useMemo } from "react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 export interface BlogArticle {
   slug: string;
@@ -160,6 +161,12 @@ export default function Blog() {
 
   return (
     <>
+      <SEOHead
+        title="Blog — Artigos sobre Saúde Ocular"
+        description="Artigos educativos sobre catarata, ceratocone, glaucoma, retina, estrabismo e saúde ocular. Informação de qualidade para cuidar da sua visão."
+        keywords="blog oftalmologia, artigos saúde ocular, catarata blog, glaucoma informações, ceratocone artigos"
+        canonicalPath="/blog"
+      />
       <InstitutoHero
         title="Blog Informativo"
         subtitle="Conteúdo confiável e atualizado sobre saúde ocular para você e sua família."

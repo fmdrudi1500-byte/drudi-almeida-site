@@ -8,6 +8,7 @@ import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Gl
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
+import SEOHead from "@/components/SEOHead";
 
 const values = [
   { icon: Heart, title: "Cuidado Humanizado", desc: "Cada paciente é único. Oferecemos atendimento personalizado e acolhedor." },
@@ -76,6 +77,12 @@ A Dra. Maria Amélia é reconhecida por sua abordagem acolhedora com pacientes p
 export default function SobreNos() {
   return (
     <>
+      <SEOHead
+        title="Sobre Nós — Nossa História e Equipe"
+        description="Conheça a história da Drudi e Almeida Oftalmologia, fundada pelo Dr. Fernando Drudi e Dra. Priscilla de Almeida. +10 anos de experiência em saúde ocular."
+        keywords="Drudi e Almeida história, Dr Fernando Drudi, Dra Priscilla Almeida, clínica oftalmológica São Paulo, equipe médica"
+        canonicalPath="/sobre"
+      />
       <InstitutoHero
         title="Sobre a Drudi e Almeida"
         subtitle="Tradição, inovação e compromisso com a saúde ocular de cada paciente."

@@ -10,6 +10,7 @@ import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
 import { useState } from "react";
 import { toast } from "sonner";
+import SEOHead from "@/components/SEOHead";
 
 interface Unidade {
   name: string;
@@ -70,6 +71,12 @@ export default function Contato() {
 
   return (
     <>
+      <SEOHead
+        title="Contato — Fale Conosco"
+        description="Entre em contato com a Drudi e Almeida Oftalmologia. Telefone: (11) 5026-8521. WhatsApp: (11) 91654-4653. 5 unidades em SP e Guarulhos."
+        keywords="contato Drudi e Almeida, telefone clínica oftalmológica, WhatsApp oftalmologista, endereço clínica olhos SP"
+        canonicalPath="/contato"
+      />
       <InstitutoHero
         title="Entre em Contato"
         subtitle="Estamos prontos para atender você. Agende sua consulta ou tire suas dúvidas em qualquer uma das nossas 5 unidades."
