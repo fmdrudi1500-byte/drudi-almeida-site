@@ -620,7 +620,41 @@ export default function InstitutoGlaucoma() {
         </div>
       </section>
 
-      {/* ========== 13. FAQ ========== */}
+      {/* ========== 13. NOSSAS CLÍNICAS ========== */}
+      <section className="section-padding">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Perto de Você</span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-4">Nossas Clínicas</h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              5 unidades na Grande São Paulo com o mesmo padrão de excelência e tecnologia de ponta.
+            </p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
+              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
+              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
+              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
+            ].map((clinica, i) => (
+              <AnimateOnScroll key={i} delay={i * 0.1}>
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
+                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
+                  <div className="p-6">
+                    <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
+                    <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>
+                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 14. FAQ ========== */}
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre o glaucoma e seus tratamentos." />
 
       {/* ========== 14. CTA FINAL ========== */}
