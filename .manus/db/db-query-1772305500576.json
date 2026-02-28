@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-blog-capa_527afd61.png' WHERE slug LIKE '%ceratocone%' OR title LIKE '%eratocone%' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute UPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-blog-capa_527afd61.png' WHERE slug LIKE '%ceratocone%' OR title LIKE '%eratocone%' LIMIT 1;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 159
+}

@@ -41,27 +41,27 @@ const sintomasZigzag = [
   {
     title: "Visão Embaçada e Distorcida",
     desc: "A visão fica progressivamente borrada e as imagens parecem onduladas ou distorcidas. Linhas retas podem parecer curvas. É o sintoma mais comum e geralmente o primeiro a ser percebido.",
-    img: "https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-visao-emba_2ddb7aa2.png",
   },
   {
     title: "Sensibilidade à Luz (Fotofobia)",
     desc: "Pacientes com ceratocone frequentemente apresentam desconforto intenso com luzes fortes, brilho excessivo e reflexos. Dirigir à noite torna-se especialmente difícil devido aos halos ao redor dos faróis.",
-    img: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-fotofobia_61063d7f.png",
   },
   {
     title: "Troca Frequente de Óculos",
     desc: "Como a córnea muda de formato progressivamente, o grau dos óculos precisa ser alterado com frequência — às vezes a cada poucos meses. Mesmo com óculos novos, a visão pode não ficar totalmente nítida.",
-    img: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-oculos_6db1f062.png",
   },
   {
     title: "Visão Dupla e Halos",
     desc: "Imagens fantasmas ou duplicadas em um mesmo olho (diplopia monocular) e halos luminosos ao redor das luzes são sinais característicos do astigmatismo irregular causado pelo ceratocone.",
-    img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-halos_2ab35670.png",
   },
   {
     title: "Coceira Persistente nos Olhos",
     desc: "Muitos pacientes com ceratocone têm histórico de alergia ocular e coceira crônica. O ato de coçar os olhos vigorosamente é um dos principais fatores de risco para o desenvolvimento e progressão da doença.",
-    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-coceira_6ad37407.png",
   },
 ];
 

@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, title, slug, LEFT(coverImageUrl, 80) as coverImageUrl FROM blog_posts WHERE title LIKE '%eratocone%' OR slug LIKE '%ceratocone%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, slug, LEFT(coverImageUrl, 80) as coverImageUrl FROM blog_posts WHERE title LIKE '%eratocone%' OR slug LIKE '%ceratocone%';",
+  "rows": [
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tslug\tcoverImageUrl\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}
