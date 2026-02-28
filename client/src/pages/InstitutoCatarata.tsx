@@ -61,27 +61,27 @@ const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
     description: "Um dos primeiros sinais da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, reconhecer rostos ou assistir televisão.",
-    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=700&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visaoemba%C3%A7ada_c12f98d4.png",
   },
   {
     title: "Maior sensibilidade à luz",
     description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz do sol podem causar desconforto e até dor nos olhos. Dirigir à noite também se torna mais difícil, pois os faróis de outros veículos podem causar ofuscamento intenso.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidadealuz_9e2c2355.png",
   },
   {
     title: "Dificuldade de enxergar à noite",
     description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata.",
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldadedeenxergaranoite_f2a9f190.png",
   },
   {
     title: "Visão dupla em um dos olhos",
     description: "Em alguns casos, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas.",
-    image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=700&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia_75d41ba4.png",
   },
   {
     title: "Cores parecem desbotadas",
     description: "As cores podem parecer mais amareladas, desbotadas ou menos vibrantes do que o normal. Isso ocorre porque o cristalino opaco filtra a luz de forma irregular, alterando a percepção cromática. Muitos pacientes só percebem essa mudança após a cirurgia, quando voltam a ver cores vivas.",
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/coresdesbotadas_3f160022.png",
   },
 ];
 
