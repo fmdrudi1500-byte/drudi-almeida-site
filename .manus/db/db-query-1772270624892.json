@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, title, LEFT(coverImageUrl, 80) as coverImageUrl FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, LEFT(coverImageUrl, 80) as coverImageUrl FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "coverImageUrl": "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbo"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "coverImageUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcoverImageUrl\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\thttps://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbo\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tNULL\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tNULL\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tNULL\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}
