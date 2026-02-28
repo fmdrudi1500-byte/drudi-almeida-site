@@ -47,7 +47,7 @@ const comoFunciona = [
   {
     step: 3,
     title: "Realize exames pré-operatórios",
-    description: "Exames completos com equipamentos de última geração para garantir o melhor planejamento cirúrgico para o seu caso.",
+    description: "Exames completos com equipamentos de última geração para garantir o melhor planejamento cirúrgico para o seu caso. Os exames muitas vezes podem ser realizado no mesmo dia da consulta.",
   },
   {
     step: 4,
@@ -60,27 +60,27 @@ const comoFunciona = [
 const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
-    description: "Um dos primeiros sinais da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, reconhecer rostos ou assistir televisão.",
+    description: "Um dos primeiros sintomas da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, usar o celular, assitir televisão.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visaoemba%C3%A7ada_c12f98d4.png",
   },
   {
     title: "Maior sensibilidade à luz",
-    description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz do sol podem causar desconforto e até dor nos olhos. Dirigir à noite também se torna mais difícil, pois os faróis de outros veículos podem causar ofuscamento intenso.",
+    description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz solarl podem causar desconforto intenso. Dirigir à noite também se torna mais difícil pela diminuição da sensibilidade ao contraste.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidadealuz_9e2c2355.png",
   },
   {
     title: "Dificuldade de enxergar à noite",
-    description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata.",
+    description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata. O paciente passa a ter dificuldade em situações cotidianas.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldadedeenxergaranoite_f2a9f190.png",
   },
   {
     title: "Visão dupla em um dos olhos",
-    description: "Em alguns casos, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas.",
+    description: "Em alguns casos, embora raro, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas. Esse sintoma é mais comum quando existe associação com luxação ou subluxação do cristalino.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia_75d41ba4.png",
   },
   {
     title: "Cores parecem desbotadas",
-    description: "As cores podem parecer mais amareladas, desbotadas ou menos vibrantes do que o normal. Isso ocorre porque o cristalino opaco filtra a luz de forma irregular, alterando a percepção cromática. Muitos pacientes só percebem essa mudança após a cirurgia, quando voltam a ver cores vivas.",
+    description: "As cores podem parecer mais amareladas, desbotadas ou menos vibrantes do que o normal. Isso ocorre porque o cristalino opaco filtra a luz de forma irregular, alterando a percepção cromática. Muitos pacientes só percebem essa mudança após a cirurgia, quando voltam a ver cores vivas. Esse pode ser um dos primeiros sintomas da catarata, muitas vezes antes da diminuição da acuidade visual notamos perda da sensibilidade ao contraste.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/coresdesbotadas_3f160022.png",
   },
 ];
@@ -90,22 +90,22 @@ const etapasCirurgia = [
   {
     step: 1,
     title: "Anestesia tópica + Sedação Venosa",
-    description: "A cirurgia começa com a aplicação de colírios anestésicos, eliminando qualquer dor ou desconforto. Não é necessária anestesia geral, o que torna o procedimento mais seguro e com recuperação mais rápida.",
+    description: "A cirurgia começa com a aplicação de colírios anestésicos, eliminando qualquer dor ou desconforto. Não é necessária anestesia geral, o que torna o procedimento mais seguro e com recuperação mais rápida. Hoje raramente precisamos de anestesia com agulhas.",
   },
   {
     step: 2,
     title: "Incisão mínima",
-    description: "O cirurgião realiza uma microincisão de aproximadamente 2,4 mm na córnea. Essa incisão é tão pequena que geralmente não necessita de pontos e cicatriza naturalmente.",
+    description: "O cirurgião realiza uma microincisão de aproximadamente 2,4 mm na córnea. Essa incisão é tão pequena que geralmente não necessita de pontos e cicatriza naturalmente. São utilizados bisturis especiais.",
   },
   {
     step: 3,
     title: "Fragmentação e remoção do cristalino",
-    description: "Através da técnica de facoemulsificação, o cristalino opaco é fragmentado por ultrassom e aspirado. Todo o material opaco é removido com precisão, preservando a cápsula que sustentará a nova lente.",
+    description: "Através da técnica de facoemulsificação, o cristalino opaco é fragmentado por ultrassom e aspirado. Todo o material opaco é removido com precisão, preservando a cápsula do cristalino que sustentará a a lente intraocular.",
   },
   {
     step: 4,
     title: "Implante da lente intraocular (LIO)",
-    description: "Uma lente intraocular artificial é implantada no lugar do cristalino removido. A lente é dobrada e inserida pela mesma microincisão, onde se desdobra e se posiciona perfeitamente dentro do olho.",
+    description: "Uma lente intraocular artificial é implantada no lugar do cristalino removido. A lente é dobrada e inserida pela mesma microincisão, onde se desdobra e se posiciona perfeitamente dentro do olho. Com o avanço tecnológico dispomos hoje de uma vasta opção de lentes que podem corrigir além da catarata os erros refracionais do paciente.",
   },
 ];
 
@@ -120,7 +120,7 @@ const sintomasPos = [
   {
     title: "Sensibilidade à luz",
     description: "É comum sentir uma maior sensibilidade à luz nos primeiros dias. Use óculos escuros ao sair de casa e evite ambientes com iluminação muito forte.",
-    tip: "Use óculos escuros sempre que sair de casa nos primeiros dias.",
+    tip: "Use óculos escuros sempre que sair de casa nos primeiros dias. Isso trará mais conforto ao pós operatório",
     color: "bg-amber-50 border-amber-200",
   },
   {
@@ -597,7 +597,7 @@ export default function InstitutoCatarata() {
               Como é feita a <span className="text-gold">cirurgia de catarata</span>?
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">
-              A técnica utilizada na Drudi e Almeida é a <strong className="text-navy">facoemulsificação</strong>, o procedimento mais moderno e seguro para a cirurgia de catarata. O procedimento geralmente ocorre em 4 etapas.
+              A técnica utilizada na Drudi e Almeida é a <strong className="text-navy">facoemulsificação com implante da lente intraocular</strong>, o procedimento mais moderno e seguro para a cirurgia de catarata. O procedimento geralmente ocorre em 4 etapas.
             </p>
           </AnimateOnScroll>
 
