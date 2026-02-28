@@ -787,8 +787,8 @@ export default function InstitutoCatarata() {
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=700&q=80"
-                    alt="Pessoa feliz com visão restaurada"
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/recupera%C3%A7%C3%A3odavisao_1bedcd75.png"
+                    alt="Pessoa feliz lendo no parque após recuperação da visão"
                     className="w-full h-[280px] object-cover"
                   />
                 </div>
@@ -801,8 +801,8 @@ export default function InstitutoCatarata() {
                 <div className="md:[direction:ltr]">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80"
-                      alt="Pessoa no mercado escolhendo frutas"
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/maiorautonomia_64500f0d.png"
+                      alt="Casal de idosos com maior autonomia e qualidade de vida"
                       className="w-full h-[280px] object-cover"
                     />
                   </div>
