@@ -630,55 +630,78 @@ export default function Home() {
                 address: "Rua Sete de Setembro, 375",
                 city: "Guarulhos - SP",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
+                mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375",
               },
               {
                 name: "Lapa",
                 address: "Rua Barão de Jundiaí, 221",
                 city: "São Paulo - SP",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
+                mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Lapa+Rua+Barao+de+Jundiai+221",
               },
               {
                 name: "Santana",
                 address: "Rua Dr. César, 130",
                 city: "São Paulo - SP",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
+                mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Santana+Rua+Dr+Cesar+130",
               },
               {
                 name: "São Miguel",
                 address: "Rua Bernardo Marcondes, 108",
                 city: "São Paulo - SP",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png",
+                mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Sao+Miguel+Rua+Bernardo+Marcondes+108",
               },
               {
                 name: "Tatuápé",
                 address: "Rua Tuiuti, 2429",
                 city: "São Paulo - SP",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
+                mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Tatua+pe+Rua+Tuiuti+2429",
               },
             ].map((u, i) => (
               <AnimateOnScroll key={u.name} delay={i * 0.08}>
-                <div className="bg-white rounded-2xl overflow-hidden border border-border/60 shadow-sm hover:shadow-md hover:border-gold/30 transition-all duration-300">
-                  <div className="h-48 overflow-hidden">
+                <a
+                  href={u.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white rounded-2xl overflow-hidden border border-border/60 shadow-sm hover:shadow-md hover:border-gold/30 transition-all duration-300"
+                >
+                  <div className="h-48 overflow-hidden relative">
                     <img
                       src={u.image}
                       alt={`Unidade ${u.name} — Drudi e Almeida`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-start gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                      <div>
-                        <h3 className="font-display text-base text-navy mb-0.5">{u.name}</h3>
-                        <p className="font-body text-xs text-muted-foreground">{u.address}</p>
-                        <p className="font-body text-xs text-gold font-semibold">{u.city}</p>
-                      </div>
+                    <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                        </svg>
+                        Ver no Google Maps
+                      </span>
                     </div>
                   </div>
-                </div>
+                  <div className="p-5">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex items-start gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                        </svg>
+                        <div>
+                          <h3 className="font-display text-base text-navy mb-0.5 group-hover:text-gold transition-colors">{u.name}</h3>
+                          <p className="font-body text-xs text-muted-foreground">{u.address}</p>
+                          <p className="font-body text-xs text-gold font-semibold">{u.city}</p>
+                        </div>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-muted-foreground/40 group-hover:text-gold transition-colors shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
               </AnimateOnScroll>
             ))}
           </div>

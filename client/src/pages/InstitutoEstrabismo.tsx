@@ -610,8 +610,14 @@ export default function InstitutoEstrabismo() {
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
 
       {/* ========== 12. CTA FINAL ========== */}
-      <section className="section-padding bg-navy">
-        <div className="container">
+      <section className="relative min-h-[500px] flex items-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${IMAGES.hero.happyFamily})` }}
+        />
+        <div className="absolute inset-0 bg-navy/70" />
+
+        <div className="relative container py-24 md:py-32">
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">
