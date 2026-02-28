@@ -46,3 +46,8 @@
 ## Fase 7: Substituição de Imagens
 - [x] Upload das 4 imagens da sala de espera para CDN
 - [x] Substituir imagens na galeria do Instituto da Catarata
+
+## Fase 8: Melhorias de Conversão e SEO
+- [x] Botão flutuante do WhatsApp com ícone verde e animação de pulso
+- [x] Schema.org MedicalBusiness e Physician via JSON-LD no SEOHead
+- [x] Sitemap XML dinâmico e robots.txt otimizados
