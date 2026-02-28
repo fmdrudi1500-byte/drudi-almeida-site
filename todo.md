@@ -64,3 +64,4 @@
 ## Fase 10: Correções de UX
 - [x] Scroll automático para o topo ao navegar entre páginas
 - [x] Redesenhar botão flutuante do WhatsApp: maior, com texto visível, posicionado mais alto no canto direito
+- [x] Tooltip do WhatsApp reaparecer em cada troca de página (especialmente nos institutos)

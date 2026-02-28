@@ -176,11 +176,25 @@ export default function WhatsAppButton() {
     };
   }, []);
 
-  // Update tooltip message when route changes
+  // On every route change: update tooltip message and show it again after a short delay
   useEffect(() => {
+    // Update tooltip message for the new page
     if (tooltipMsgRef.current) {
       tooltipMsgRef.current.textContent = getCurrentTooltip(location);
     }
+
+    // Reset closed state so tooltip can appear again on the new page
+    stateRef.current.tooltipClosed = false;
+
+    // Hide tooltip immediately (in case it was showing from previous page)
+    tooltipRef.current?.classList.remove("show");
+
+    // Show tooltip after a short delay on the new page
+    const timer = setTimeout(() => {
+      showTooltip();
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, [location]);
 
   return (
