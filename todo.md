@@ -60,3 +60,6 @@
 - [x] Endpoint tRPC `blog.getRelated` para buscar artigos relacionados por categoria
 - [x] Seção "Artigos Relacionados" no final de cada artigo dinâmico do blog (3 cards com imagem, título, excerpt e link)
 - [x] Testes vitest para o novo endpoint getRelated
+
+## Fase 10: Correções de UX
+- [x] Scroll automático para o topo ao navegar entre páginas
