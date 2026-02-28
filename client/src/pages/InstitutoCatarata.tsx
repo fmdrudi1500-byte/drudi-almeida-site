@@ -472,7 +472,7 @@ export default function InstitutoCatarata() {
                 name: "Santana",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece atendimento humanizado com equipamentos de ponta e fácil acesso pelo metrô.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
               },
               {
                 name: "São Miguel",
@@ -484,7 +484,7 @@ export default function InstitutoCatarata() {
                 name: "Tatuapé",
                 city: "São Paulo - SP",
                 description: "Nossa unidade no Tatuapé oferece atendimento especializado em catarata com infraestrutura completa e equipe altamente qualificada.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
               },
             ].map((clinica, i) => (
               <AnimateOnScroll key={i} delay={i * 0.15}>
