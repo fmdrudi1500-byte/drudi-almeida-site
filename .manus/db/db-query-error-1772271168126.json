@@ -1,0 +1,8 @@
+{
+  "query": "UPDATE blog_posts SET cover_image_url = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-cover-catarata-v2-2JexNpsTUZpdSdapSvEERQ.png' WHERE slug = 'catarata-sintomas-diagnostico-cirurgia-facoemulsificacao';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute UPDATE blog_posts SET cover_image_url = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-cover-catarata-v2-2JexNpsTUZpdSdapSvEERQ.png' WHERE slug = 'catarata-sintomas-diagnostico-cirurgia-facoemulsificacao';",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'cover_image_url' in 'field list'"
+  ]
+}

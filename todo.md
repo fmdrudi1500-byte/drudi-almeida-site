@@ -51,3 +51,10 @@
 - [x] Botão flutuante do WhatsApp com ícone verde e animação de pulso
 - [x] Schema.org MedicalBusiness e Physician via JSON-LD no SEOHead
 - [x] Sitemap XML dinâmico e robots.txt otimizados
+
+## Fase 9: Blog — Imagens e Artigos Relacionados
+- [x] Imagem de capa fotorrealista para artigo da Catarata (paciente + médica, tom claro, texto em PT)
+- [x] Atualizar artigo da Catarata no banco com a nova imagem de capa
+- [x] Endpoint tRPC `blog.getRelated` para buscar artigos relacionados por categoria
+- [x] Seção "Artigos Relacionados" no final de cada artigo dinâmico do blog (3 cards com imagem, título, excerpt e link)
+- [x] Testes vitest para o novo endpoint getRelated

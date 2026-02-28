@@ -16,12 +16,13 @@ import {
   getAllCommentsAdmin,
   getAllMedia,
   getAllPostsAdmin,
-  getApprovedComments,
-  getMediaByPost,
   getPendingCommentsCount,
   getPostById,
   getPostBySlug,
   getPublishedPosts,
+  getRelatedPosts,
+  getApprovedComments,
+  getMediaByPost,
   incrementViewCount,
   updateCategory,
   updateCommentStatus,
@@ -146,6 +147,13 @@ export const blogRouter = router({
   listCategories: publicProcedure.query(async () => {
     return getAllCategories();
   }),
+
+  /** Get related posts for a given post */
+  getRelated: publicProcedure
+    .input(z.object({ postId: z.number(), categoryId: z.number().nullable().optional(), limit: z.number().min(1).max(6).default(3) }))
+    .query(async ({ input }) => {
+      return getRelatedPosts(input.postId, input.categoryId ?? null, input.limit);
+    }),
 
   /** Submit a public comment (goes to pending) */
   submitComment: publicProcedure

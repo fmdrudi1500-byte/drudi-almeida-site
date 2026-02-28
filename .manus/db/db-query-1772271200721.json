@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, slug, coverImageUrl IS NOT NULL as has_cover FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, coverImageUrl IS NOT NULL as has_cover FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "slug": "catarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r",
+      "has_cover": "1"
+    },
+    {
+      "id": "30001",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c",
+      "has_cover": "0"
+    },
+    {
+      "id": "30002",
+      "slug": "glaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c",
+      "has_cover": "0"
+    },
+    {
+      "id": "30003",
+      "slug": "doencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c",
+      "has_cover": "0"
+    },
+    {
+      "id": "30004",
+      "slug": "estrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c",
+      "has_cover": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\thas_cover\n1\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\t1\n30001\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\t0\n30002\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\t0\n30003\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\t0\n30004\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\t0\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

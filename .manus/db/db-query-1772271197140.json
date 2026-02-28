@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, slug, LEFT(title, 60) as title, LEFT(IFNULL(coverImageUrl,'NULL'), 80) as cover FROM blog_posts WHERE title LIKE '%atarata%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, LEFT(title, 60) as title, LEFT(IFNULL(coverImageUrl,'NULL'), 80) as cover FROM blog_posts WHERE title LIKE '%atarata%';",
+  "rows": [
+    {
+      "id": "1",
+      "slug": "catarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de",
+      "cover": "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbo"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tcover\n1\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de\thttps://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbo\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

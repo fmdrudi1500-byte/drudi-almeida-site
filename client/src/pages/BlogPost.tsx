@@ -81,6 +81,12 @@ function DynamicBlogPost({ slug }: { slug: string }) {
   const { data, isLoading, error } = trpc.blog.getBySlug.useQuery({ slug });
   const submitComment = trpc.blog.submitComment.useMutation();
 
+  // Fetch related posts once we have the current post data
+  const { data: relatedPosts } = trpc.blog.getRelated.useQuery(
+    { postId: data?.post.id ?? 0, categoryId: data?.post.categoryId ?? null, limit: 3 },
+    { enabled: !!data?.post.id }
+  );
+
   const handleSubmitComment = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!commentName.trim() || !commentContent.trim()) {
@@ -287,6 +293,50 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                         </span>
                       </Link>
                     ))}
+                  </div>
+                </AnimateOnScroll>
+              )}
+
+              {/* Related Articles */}
+              {relatedPosts && relatedPosts.length > 0 && (
+                <AnimateOnScroll className="mt-12">
+                  <div className="border-t border-border pt-10">
+                    <h3 className="font-display text-2xl text-navy mb-6">Artigos Relacionados</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {relatedPosts.map((related) => (
+                        <Link key={related.id} href={`/blog/${related.slug}`} className="group block">
+                          <div className="rounded-xl border border-border/60 overflow-hidden hover:shadow-md hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
+                            {related.coverImageUrl ? (
+                              <div className="aspect-[16/10] overflow-hidden">
+                                <img
+                                  src={related.coverImageUrl}
+                                  alt={related.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </div>
+                            ) : (
+                              <div className="aspect-[16/10] bg-gradient-to-br from-navy/10 to-gold/10 flex items-center justify-center">
+                                <Eye className="w-8 h-8 text-navy/30" />
+                              </div>
+                            )}
+                            <div className="p-4 flex-1 flex flex-col">
+                              <h4 className="font-display text-sm text-navy group-hover:text-gold transition-colors leading-snug line-clamp-2 mb-2">
+                                {related.title}
+                              </h4>
+                              {related.excerpt && (
+                                <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2 flex-1">
+                                  {related.excerpt}
+                                </p>
+                              )}
+                              <div className="flex items-center gap-1 mt-3 font-ui text-xs font-semibold text-gold">
+                                Ler artigo
+                                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </AnimateOnScroll>
               )}

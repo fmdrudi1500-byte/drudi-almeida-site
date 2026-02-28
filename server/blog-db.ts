@@ -270,3 +270,44 @@ export async function getPendingCommentsCount(): Promise<number> {
     .where(eq(blogComments.status, "pending"));
   return Number(result[0]?.count ?? 0);
 }
+
+/** Get related posts: same category, excluding current post, max 3 */
+export async function getRelatedPosts(currentPostId: number, categoryId: number | null, limit = 3): Promise<BlogPost[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  const conditions = [
+    eq(blogPosts.status, "published"),
+    sql`${blogPosts.id} != ${currentPostId}`,
+  ];
+
+  if (categoryId) {
+    conditions.push(eq(blogPosts.categoryId, categoryId));
+  }
+
+  const posts = await db
+    .select()
+    .from(blogPosts)
+    .where(and(...conditions))
+    .orderBy(desc(blogPosts.publishedAt))
+    .limit(limit);
+
+  // If not enough same-category posts, fill with any other published posts
+  if (posts.length < limit) {
+    const existingIds = [currentPostId, ...posts.map((p) => p.id)];
+    const fallback = await db
+      .select()
+      .from(blogPosts)
+      .where(
+        and(
+          eq(blogPosts.status, "published"),
+          sql`${blogPosts.id} NOT IN (${sql.join(existingIds.map((id) => sql`${id}`), sql`, `)})`
+        )
+      )
+      .orderBy(desc(blogPosts.publishedAt))
+      .limit(limit - posts.length);
+    posts.push(...fallback);
+  }
+
+  return posts;
+}
