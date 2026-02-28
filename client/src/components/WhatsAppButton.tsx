@@ -1,6 +1,6 @@
 /* ============================================================
    WhatsApp FAB — Drudi e Almeida
-   Floating action button with real WhatsApp icon and pulse animation
+   Pill button with icon + text, positioned higher on the right
    ============================================================ */
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -24,60 +24,73 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export default function WhatsAppButton() {
-  const [showTooltip, setShowTooltip] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [expanded, setExpanded] = useState(true);
 
-  // Show button after 1.5s delay for better UX
+  // Show button after 1.5s delay
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
+  // Collapse to icon-only on scroll down, expand on scroll up
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 300) {
+        setExpanded(false);
+      } else {
+        setExpanded(true);
+      }
+      lastY = currentY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-      {/* Tooltip */}
-      <AnimatePresence>
-        {showTooltip && (
-          <motion.div
-            initial={{ opacity: 0, x: 10, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 10, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="bg-white text-navy font-ui text-xs font-semibold px-3 py-2 rounded-lg shadow-lg border border-border/40 whitespace-nowrap"
-          >
-            Agende pelo WhatsApp
-            <div className="absolute right-3 bottom-[-5px] w-2.5 h-2.5 bg-white border-r border-b border-border/40 rotate-45" />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="fixed bottom-24 right-5 z-50">
+      {/* Pulse rings — only visible when expanded */}
+      {expanded && (
+        <>
+          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-ping" />
+          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-15 animate-ping [animation-delay:0.6s]" />
+        </>
+      )}
 
-      {/* Button with pulse ring */}
-      <div className="relative">
-        {/* Pulse rings */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping" />
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-ping [animation-delay:0.5s]" />
+      <motion.a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-xl hover:shadow-2xl transition-colors overflow-hidden"
+        style={{ paddingTop: "14px", paddingBottom: "14px", paddingLeft: "18px", paddingRight: expanded ? "22px" : "18px" }}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.94 }}
+        aria-label="Agende uma consulta pelo WhatsApp"
+      >
+        <WhatsAppIcon className="w-6 h-6 shrink-0" />
 
-        <motion.a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl transition-colors"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.92 }}
-          onHoverStart={() => setShowTooltip(true)}
-          onHoverEnd={() => setShowTooltip(false)}
-          onFocus={() => setShowTooltip(true)}
-          onBlur={() => setShowTooltip(false)}
-          aria-label="Agende uma consulta pelo WhatsApp"
-        >
-          <WhatsAppIcon className="w-7 h-7" />
-        </motion.a>
-      </div>
+        <AnimatePresence>
+          {expanded && (
+            <motion.span
+              key="label"
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "auto" }}
+              exit={{ opacity: 0, width: 0 }}
+              transition={{ duration: 0.2 }}
+              className="font-ui text-sm font-bold whitespace-nowrap overflow-hidden"
+            >
+              Agendar pelo WhatsApp
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </motion.a>
     </div>
   );
 }
