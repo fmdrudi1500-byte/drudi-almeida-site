@@ -460,7 +460,7 @@ export default function InstitutoCatarata() {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos Centro oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
               },
               {
                 name: "Lapa",
