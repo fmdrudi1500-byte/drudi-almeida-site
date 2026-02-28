@@ -1,14 +1,13 @@
 /* ============================================================
    WhatsApp FAB — Drudi e Almeida
-   Pill button with icon + text, positioned higher on the right
+   Icon-only button, vertically centered on the right edge
    ============================================================ */
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const WHATSAPP_URL =
   "https://wa.me/5511916544653?text=Ol%C3%A1%21+Gostaria+de+agendar+uma+consulta+na+Drudi+e+Almeida.";
 
-// Official WhatsApp SVG icon
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -25,71 +24,33 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
-  const [expanded, setExpanded] = useState(true);
 
-  // Show button after 1.5s delay
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Collapse to icon-only on scroll down, expand on scroll up
-  useEffect(() => {
-    let lastY = window.scrollY;
-    const onScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY > lastY && currentY > 300) {
-        setExpanded(false);
-      } else {
-        setExpanded(true);
-      }
-      lastY = currentY;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-24 right-5 z-50">
-      {/* Pulse rings — only visible when expanded */}
-      {expanded && (
-        <>
-          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 animate-ping" />
-          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-15 animate-ping [animation-delay:0.6s]" />
-        </>
-      )}
+    <div className="fixed right-5 top-1/2 -translate-y-1/2 z-50">
+      {/* Pulse rings */}
+      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-25 animate-ping" />
+      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-15 animate-ping [animation-delay:0.6s]" />
 
       <motion.a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-xl hover:shadow-2xl transition-colors overflow-hidden"
-        style={{ paddingTop: "14px", paddingBottom: "14px", paddingLeft: "18px", paddingRight: expanded ? "22px" : "18px" }}
+        className="relative flex items-center justify-center w-16 h-16 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-xl hover:shadow-2xl transition-colors"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.94 }}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.92 }}
         aria-label="Agende uma consulta pelo WhatsApp"
       >
-        <WhatsAppIcon className="w-6 h-6 shrink-0" />
-
-        <AnimatePresence>
-          {expanded && (
-            <motion.span
-              key="label"
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "auto" }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{ duration: 0.2 }}
-              className="font-ui text-sm font-bold whitespace-nowrap overflow-hidden"
-            >
-              Agendar pelo WhatsApp
-            </motion.span>
-          )}
-        </AnimatePresence>
+        <WhatsAppIcon className="w-8 h-8" />
       </motion.a>
     </div>
   );
