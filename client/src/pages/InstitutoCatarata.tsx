@@ -334,7 +334,7 @@ export default function InstitutoCatarata() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-[23px] font-extrabold px-8 py-5 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-[23px] font-extrabold px-8 py-2 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
                 >
                   <DollarSign className="w-5 h-5" />
                   Receber Preço
@@ -459,7 +459,7 @@ export default function InstitutoCatarata() {
               {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
-                description: "Nossa unidade em Guarulhos Centro oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
+                description: "Nossa unidade em Guarulhos oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
               },
               {
