@@ -23,6 +23,9 @@ const Contato = lazy(() => import("./pages/Contato"));
 const Convenios = lazy(() => import("./pages/Convenios"));
 const Agendamento = lazy(() => import("./pages/Agendamento"));
 const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
+const BlogListing = lazy(() => import("./pages/BlogListing"));
+const BlogAdmin = lazy(() => import("./pages/admin/BlogAdmin"));
+const BlogPostEditor = lazy(() => import("./pages/admin/BlogPostEditor"));
 
 function PageLoader() {
   return (
@@ -34,8 +37,8 @@ function PageLoader() {
     </div>
   );
 }
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Layout>
       <Suspense fallback={<PageLoader />}>
@@ -48,12 +51,16 @@ function Router() {
           <Route path="/instituto/glaucoma" component={InstitutoGlaucoma} />
           <Route path="/instituto/retina" component={InstitutoRetina} />
           <Route path="/instituto/estrabismo" component={InstitutoEstrabismo} />
-          <Route path="/blog" component={Blog} />
+          <Route path="/blog" component={BlogListing} />
+          <Route path="/blog-legado" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/convenios" component={Convenios} />
           <Route path="/agendamento" component={Agendamento} />
           <Route path="/contato" component={Contato} />
           <Route path="/trabalhe-conosco" component={TrabalheConosco} />
+          <Route path="/admin/blog" component={BlogAdmin} />
+          <Route path="/admin/blog/novo">{() => <BlogPostEditor />}</Route>
+          <Route path="/admin/blog/editar/:id">{(params) => <BlogPostEditor postId={params.id ? parseInt(params.id, 10) : undefined} />}</Route>
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>

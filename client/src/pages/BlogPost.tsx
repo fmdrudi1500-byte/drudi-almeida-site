@@ -1,13 +1,24 @@
 /* ============================================================
    BlogPost — Individual article page with rich content
-   Optimized for AI reading with structured data
+   Supports both static legacy articles and dynamic DB posts
    ============================================================ */
+import { useState } from "react";
 import { useParams, Link } from "wouter";
-import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Share2, Eye, Tag, MessageSquare, Send, Loader2, FileText, Video, Music, GalleryHorizontal, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { blogArticles } from "./Blog";
+import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import SEOHead from "@/components/SEOHead";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
-// Full article content mapped by slug
+// Full article content mapped by slug (legacy static content)
 const articleContent: Record<string, string[]> = {
   "catarata-sintomas-tratamento-guia-completo": [
     "A catarata é a principal causa de cegueira reversível no mundo, afetando milhões de pessoas, especialmente acima dos 60 anos. Trata-se da opacificação progressiva do cristalino, a lente natural do olho responsável por focar a luz na retina.",
@@ -31,15 +42,15 @@ const articleContent: Record<string, string[]> = {
     "Os principais fatores de risco incluem idade acima de 40 anos, histórico familiar, pressão intraocular elevada, descendência africana ou asiática, miopia elevada e diabetes.",
     "O tratamento visa controlar a pressão intraocular e pode incluir colírios, laser (trabeculoplastia seletiva) ou cirurgia. O glaucoma não tem cura, mas o tratamento adequado pode estabilizar a doença.",
     "A melhor forma de prevenção é realizar exames oftalmológicos regulares, especialmente após os 40 anos. A detecção precoce é fundamental para preservar a visão.",
-    "Curiosamente, alguns historiadores da arte sugerem que El Greco pode ter tido glaucoma, o que explicaria as figuras alongadas e a perspectiva peculiar de suas pinturas — uma visão artística que pode ter sido influenciada pela perda de campo visual periférico.",
+    "Curiosamente, alguns historiadores da arte sugerem que El Greco pode ter tido glaucoma, o que explicaria as figuras alongadas e a perspectiva peculiar de suas pinturas.",
   ],
   "retinopatia-diabetica-prevencao-tratamento": [
     "A retinopatia diabética é uma complicação do diabetes que afeta os vasos sanguíneos da retina. É a principal causa de cegueira em adultos em idade produtiva nos países desenvolvidos.",
     "Nas fases iniciais, a doença é assintomática. Por isso, todo paciente diabético deve realizar exame de fundo de olho pelo menos uma vez por ano, mesmo sem queixas visuais.",
     "O controle rigoroso da glicemia, pressão arterial e colesterol é fundamental para prevenir e retardar a progressão da retinopatia diabética.",
     "Os tratamentos modernos incluem injeções intravítreas de anti-VEGF, que bloqueiam o crescimento de vasos anormais, e fotocoagulação a laser para tratar áreas de isquemia na retina.",
-    "Na Drudi e Almeida, o Dr. Fernando Macei Drudi é especialista em retina cirúrgica e conta com OCT de alta resolução e mapeamento ultra-widefield para diagnóstico precoce e acompanhamento preciso da evolução da doença.",
-    "A retinopatia diabética pode ser classificada em não-proliferativa (estágios iniciais) e proliferativa (estágio avançado com neovascularização). O edema macular diabético pode ocorrer em qualquer estágio e é a principal causa de baixa visual nesses pacientes.",
+    "Na Drudi e Almeida, o Dr. Fernando Macei Drudi é especialista em retina cirúrgica e conta com OCT de alta resolução e mapeamento ultra-widefield para diagnóstico precoce.",
+    "A retinopatia diabética pode ser classificada em não-proliferativa (estágios iniciais) e proliferativa (estágio avançado com neovascularização). O edema macular diabético pode ocorrer em qualquer estágio.",
   ],
   "estrabismo-infantil-quando-procurar-oftalmologista": [
     "O estrabismo é uma condição em que os olhos não estão alinhados na mesma direção. Afeta cerca de 4% da população e é mais comum na infância, embora possa surgir em qualquer idade.",
@@ -52,76 +63,342 @@ const articleContent: Record<string, string[]> = {
   "importancia-exame-oftalmologico-regular": [
     "Muitas doenças oculares graves, como glaucoma, retinopatia diabética e degeneração macular, são silenciosas em suas fases iniciais. Quando os sintomas aparecem, a perda de visão pode já ser significativa e irreversível.",
     "O exame oftalmológico completo vai muito além de medir o grau dos óculos. Inclui a medição da pressão intraocular, exame de fundo de olho, avaliação do campo visual e análise da córnea.",
-    "A recomendação geral é realizar um exame oftalmológico completo pelo menos uma vez por ano. Pessoas com fatores de risco, como diabetes, histórico familiar de glaucoma ou idade acima de 40 anos, podem precisar de acompanhamento mais frequente.",
-    "Crianças devem ter sua primeira avaliação oftalmológica até os 3 anos de idade, ou antes se houver qualquer sinal de problema visual, como estrabismo ou dificuldade para enxergar.",
-    "Na Drudi e Almeida, nossos 5 institutos especializados garantem que cada paciente receba uma avaliação completa e personalizada, com acesso à tecnologia mais avançada para diagnóstico precoce.",
+    "A recomendação geral é realizar um exame oftalmológico completo pelo menos uma vez por ano. Pessoas com fatores de risco precisam de acompanhamento mais frequente.",
+    "Crianças devem ter sua primeira avaliação oftalmológica até os 3 anos de idade, ou antes se houver qualquer sinal de problema visual.",
+    "Na Drudi e Almeida, nossos 5 institutos especializados garantem que cada paciente receba uma avaliação completa e personalizada.",
     "Além dos exames de rotina, é importante procurar um oftalmologista imediatamente em caso de perda súbita de visão, flashes de luz, aumento repentino de moscas volantes, dor ocular intensa ou trauma nos olhos.",
-  ],
-  // === 6 NOVOS ARTIGOS ===
-  "quando-levar-crianca-ao-oftalmologista": [
-    "A saúde ocular da criança começa a ser avaliada logo nos primeiros dias de vida, com o teste do olhinho (teste do reflexo vermelho). Esse exame simples e indolor detecta alterações graves como catarata congênita, glaucoma congênito e retinoblastoma.",
-    "Entre 6 meses e 1 ano de idade, recomenda-se a primeira consulta com o oftalmologista pediátrico. Nessa fase, o médico avalia o alinhamento dos olhos, a capacidade de fixação e seguimento visual, e possíveis erros refrativos.",
-    "Aos 3 anos, a criança já consegue colaborar com testes de acuidade visual usando figuras. Essa é uma idade crucial para detectar ambliopia (olho preguiçoso), que tem tratamento muito mais eficaz quando iniciado precocemente.",
-    "Na idade escolar (6-7 anos), problemas visuais podem se manifestar como dificuldade de aprendizado, dor de cabeça, aproximar-se demais da TV ou do caderno, e desinteresse pela leitura. Muitas crianças não reclamam porque não sabem que enxergam diferente.",
-    "Sinais de alerta em qualquer idade: olhos desviados ou desalinhados, lacrimejamento excessivo, sensibilidade à luz, pupilas de tamanhos diferentes, reflexo branco na pupila (em fotos com flash), e hábito de apertar ou coçar os olhos frequentemente.",
-    "Na Drudi e Almeida, a Dra. Maria Amélia Valladares de Melo é especialista em oftalmologia pediátrica e estrabismo, oferecendo um atendimento acolhedor e especializado para crianças de todas as idades. Agende a consulta do seu filho.",
-  ],
-  "cuidados-pos-cirurgia-catarata": [
-    "A cirurgia de catarata é um dos procedimentos mais seguros da medicina moderna, com taxa de sucesso superior a 98%. No entanto, os cuidados pós-operatórios são essenciais para garantir a melhor recuperação visual possível.",
-    "Nas primeiras 24 horas após a cirurgia, é normal sentir leve desconforto, sensação de areia nos olhos e visão embaçada. Evite coçar ou pressionar o olho operado. Use o protetor ocular (tampão) para dormir durante a primeira semana.",
-    "Os colírios prescritos pelo médico são fundamentais: geralmente incluem um antibiótico (para prevenir infecções), um anti-inflamatório (para controlar a inflamação) e um lubrificante. Siga rigorosamente os horários e a duração do tratamento.",
-    "Nas primeiras duas semanas, evite: esforço físico intenso, abaixar a cabeça por períodos prolongados, nadar ou frequentar piscinas/praias, maquiagem nos olhos, e ambientes com muita poeira ou fumaça.",
-    "A visão melhora progressivamente nos primeiros dias e estabiliza em 2 a 4 semanas. A prescrição de óculos definitivos (se necessária) geralmente é feita após 30 dias, quando a cicatrização está completa.",
-    "Na Drudi e Almeida, o Dr. Fernando Macei Drudi realiza o acompanhamento pós-operatório com consultas de revisão no dia seguinte, após 1 semana e após 1 mês. Qualquer sintoma incomum — como dor intensa, perda súbita de visão ou vermelhidão acentuada — deve ser comunicado imediatamente.",
-  ],
-  "lentes-intraoculares-tipos-diferenca": [
-    "Durante a cirurgia de catarata, o cristalino opaco é removido e substituído por uma lente intraocular (LIO) artificial. A escolha da lente é uma das decisões mais importantes do processo, pois influencia diretamente a qualidade visual pós-operatória.",
-    "A lente monofocal é a mais tradicional e corrige a visão para uma única distância — geralmente longe. O paciente precisará de óculos para leitura e atividades de perto. É uma excelente opção para quem busca simplicidade e já está habituado ao uso de óculos para perto.",
-    "A lente multifocal (bifocal) corrige a visão para longe e perto simultaneamente, reduzindo significativamente a dependência de óculos. Utiliza anéis concêntricos que dividem a luz em diferentes focos. Pode causar halos ao redor de luzes à noite em alguns pacientes.",
-    "A lente trifocal é a tecnologia mais avançada disponível, corrigindo a visão para longe, intermediário (computador) e perto (leitura). Oferece a maior independência de óculos, sendo ideal para pacientes com estilo de vida ativo.",
-    "Lentes tóricas são projetadas para corrigir o astigmatismo durante a cirurgia de catarata. Podem ser combinadas com tecnologia monofocal, multifocal ou trifocal, proporcionando uma correção visual mais completa.",
-    "Na Drudi e Almeida, o Dr. Fernando Macei Drudi realiza uma avaliação detalhada do estilo de vida, necessidades visuais e saúde ocular de cada paciente para recomendar a lente mais adequada. A biometria óptica de alta precisão garante o cálculo correto do grau da lente.",
-  ],
-  "olho-seco-causas-tratamento": [
-    "A síndrome do olho seco é uma das queixas mais comuns nos consultórios oftalmológicos, afetando até 30% da população adulta. Ocorre quando os olhos não produzem lágrimas suficientes ou quando a lágrima evapora rapidamente.",
-    "Os sintomas incluem sensação de areia ou corpo estranho nos olhos, ardência, vermelhidão, visão embaçada que melhora ao piscar, lacrimejamento excessivo (paradoxalmente, o olho seco pode causar lacrimejamento reflexo) e fadiga ocular.",
-    "As causas mais comuns incluem: uso prolongado de telas (computador, celular, tablet), ar-condicionado e ambientes secos, uso de lentes de contato, medicamentos (antidepressivos, anti-hipertensivos, anticoncepcionais), alterações hormonais (menopausa) e doenças autoimunes.",
-    "O tratamento começa com medidas simples: a regra 20-20-20 (a cada 20 minutos, olhe para algo a 20 pés/6 metros por 20 segundos), piscar conscientemente ao usar telas, usar umidificador de ar e manter boa hidratação.",
-    "Colírios lubrificantes (lágrimas artificiais) são a primeira linha de tratamento medicamentoso. Em casos moderados a graves, podem ser indicados colírios anti-inflamatórios, plugs lacrimais (para reter a lágrima por mais tempo) ou tratamento com luz pulsada intensa (IPL).",
-    "Na Drudi e Almeida, a Dra. Priscilla Rodrigues de Almeida é especialista em superfície ocular e pode avaliar a qualidade e quantidade da sua lágrima com exames específicos, indicando o tratamento mais adequado para o seu caso.",
-  ],
-  "arte-e-visao-monet-catarata-historia": [
-    "Claude Monet (1840-1926) é um dos pintores mais amados da história, fundador do Impressionismo e mestre das paisagens de luz e cor. O que muitos não sabem é que sua obra foi profundamente transformada por uma doença ocular: a catarata.",
-    "A partir de 1905, Monet começou a notar que as cores pareciam mais amareladas e turvas. Ele escreveu em cartas: 'As cores não têm mais a mesma intensidade para mim. Os vermelhos parecem lamacentos. Minha pintura está ficando cada vez mais escura.'",
-    "Comparando suas pinturas da Ponte Japonesa de Giverny ao longo dos anos, a transformação é impressionante. A versão de 1899, pintada com visão saudável, mostra cores vibrantes e detalhes nítidos. A versão de 1922, pintada com catarata avançada, apresenta tons avermelhados, formas borradas e perda de detalhes.",
-    "Monet resistiu à cirurgia por anos, temendo perder sua capacidade artística. Finalmente, em 1923, aos 82 anos, operou o olho direito. Após a cirurgia, ficou chocado ao perceber que via tons azulados que antes não enxergava — e repintou várias obras que considerava 'erradas'.",
-    "A história de Monet ilustra perfeitamente como a catarata altera a percepção visual: as cores ficam amareladas (porque o cristalino opaco filtra as ondas curtas de luz azul), os contrastes diminuem e os detalhes se perdem. É exatamente o que nossos pacientes descrevem antes da cirurgia.",
-    "Na Drudi e Almeida, temos quadros de Monet em nossas clínicas para mostrar aos pacientes, de forma visual e emocionante, como a catarata afeta a visão — e como a cirurgia pode devolver a clareza e a riqueza de cores que a doença roubou. Agende sua avaliação no Instituto da Catarata.",
-  ],
-  "arte-visao-doencas-oculares-historia-arte": [
-    "A relação entre arte e visão é tão antiga quanto a própria história da pintura. Ao longo dos séculos, grandes mestres da arte criaram obras-primas que, sem que soubessem, documentavam alterações visuais causadas por doenças oculares. Na Drudi e Almeida, usamos essas conexões fascinantes entre arte e oftalmologia para conscientizar nossos pacientes.",
-    "Claude Monet e a Catarata: Monet (1840–1926), fundador do Impressionismo, pintou por décadas com catarata progressiva. Comparando sua Ponte Japonesa de 1899 (visão saudável) com a versão de 1922 (catarata avançada), a transformação é dramática: cores vibrantes dão lugar a tons avermelhados e turvas, formas nítidas se dissolvem em borrões. Após operar o olho direito em 1923, Monet ficou chocado ao perceber tons azulados que não via há anos.",
-    "Vincent van Gogh e o Ceratocone: As pinceladas vigorosas, espirais dramáticas e halos ao redor das estrelas em \"Noite Estrelada\" intrigam pesquisadores. Estudos sugerem que Van Gogh pode ter sofrido de astigmatismo irregular — exatamente o que ocorre no ceratocone, onde a córnea deformada faz com que as luzes pareçam esticadas e as formas se distorçam. Seus autorretratos também revelam assimetrias sutis nos olhos.",
-    "El Greco e o Glaucoma: Domenikos Theotokopoulos, o El Greco (1541–1614), é famoso por suas figuras extraordinariamente alongadas e perspectivas distorcidas. Historiadores da arte e oftalmologistas sugerem que ele pode ter sofrido de glaucoma, que causa perda progressiva da visão periférica. Sua \"Vista de Toledo\" apresenta uma distorção característica compatível com a visão tubular do glaucoma avançado.",
-    "Leonardo da Vinci e Rembrandt — Estrabismo: Estudos publicados no JAMA Ophthalmology analisaram os olhos em autorretratos e retratos de Da Vinci e Rembrandt, encontrando evidências de exotropia intermitente (estrabismo divergente). Paradoxalmente, essa condição pode ter sido uma vantagem artística: a supressão de um olho facilita a percepção de profundidade em superfícies planas, como uma tela.",
-    "Georges Seurat e Edgar Degas — Doenças da Retina: Seurat criou o Pontilhismo, pintando com milhares de pontos de cor pura que se fundem na retina do observador — uma técnica que antecipou a compreensão moderna de como a retina processa a cor. Degas, por sua vez, sofria de degenerescência macular, e suas obras tardias mostram figuras cada vez mais desfocadas e cores mais intensas, refletindo sua perda de visão central.",
-    "Na Drudi e Almeida, temos quadros desses artistas em nossas clínicas. Usamos a arte como ferramenta de conscientização: mostrar a um paciente como Monet via o mundo com catarata é muito mais poderoso do que descrever sintomas em termos médicos. A arte humaniza a oftalmologia e cria uma conexão emocional com o cuidado da visão.",
-    "Cada um dos nossos 5 institutos — Catarata, Ceratocone, Glaucoma, Retina e Estrabismo — tem uma seção dedicada a \"Arte e Visão\" em suas páginas, onde você pode explorar essas conexões fascinantes em profundidade. Agende sua consulta e descubra como cuidamos da sua visão com ciência, tecnologia e sensibilidade artística.",
-  ],
-  "miopia-infantil-epidemia-digital": [
-    "A miopia em crianças está crescendo em ritmo alarmante em todo o mundo. Estudos recentes mostram que até 50% dos jovens em países desenvolvidos são míopes, contra 25% há 30 anos. A Organização Mundial da Saúde projeta que metade da população mundial será míope até 2050.",
-    "O principal fator de risco identificado pela ciência é o tempo excessivo em atividades de perto (telas, leitura, tarefas manuais) combinado com pouco tempo ao ar livre. A luz natural estimula a liberação de dopamina na retina, que inibe o crescimento excessivo do globo ocular.",
-    "A recomendação da Sociedade Brasileira de Oftalmologia Pediátrica é que crianças passem pelo menos 2 horas por dia ao ar livre. Estudos mostram que essa simples medida pode reduzir o risco de desenvolver miopia em até 50%.",
-    "Para crianças que já são míopes, existem tratamentos para controlar a progressão: colírios de atropina em baixa concentração, lentes de contato especiais (ortoceratologia ou lentes multifocais) e lentes oftálmicas com tecnologia de desfoco periférico.",
-    "Limites de tela recomendados por idade: até 2 anos, evitar telas; 2-5 anos, máximo 1 hora/dia; 6-12 anos, máximo 2 horas/dia de tela recreativa; adolescentes, pausas frequentes e regra 20-20-20.",
-    "Na Drudi e Almeida, oferecemos avaliação completa para crianças com miopia progressiva e orientamos as famílias sobre as melhores estratégias de controle. Quanto mais cedo o tratamento começa, melhores são os resultados a longo prazo.",
   ],
 };
 
-export default function BlogPost() {
-  const { slug } = useParams<{ slug: string }>();
+// ─── Dynamic DB Post Component ───────────────────────────────────────────────
+
+function DynamicBlogPost({ slug }: { slug: string }) {
+  const [commentName, setCommentName] = useState("");
+  const [commentEmail, setCommentEmail] = useState("");
+  const [commentContent, setCommentContent] = useState("");
+  const [commentSubmitted, setCommentSubmitted] = useState(false);
+
+  const { data, isLoading, error } = trpc.blog.getBySlug.useQuery({ slug });
+  const submitComment = trpc.blog.submitComment.useMutation();
+
+  const handleSubmitComment = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!commentName.trim() || !commentContent.trim()) {
+      toast.error("Nome e comentário são obrigatórios.");
+      return;
+    }
+    try {
+      await submitComment.mutateAsync({
+        postId: data!.post.id,
+        authorName: commentName,
+        authorEmail: commentEmail || undefined,
+        content: commentContent,
+      });
+      setCommentSubmitted(true);
+      setCommentName("");
+      setCommentEmail("");
+      setCommentContent("");
+      toast.success("Comentário enviado! Aguardando moderação.");
+    } catch {
+      toast.error("Erro ao enviar comentário.");
+    }
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: data?.post.title, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      toast.success("Link copiado!");
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 animate-spin text-gold" />
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="container py-20 text-center">
+        <h2 className="font-display text-2xl text-navy mb-4">Artigo não encontrado</h2>
+        <Link href="/blog">
+          <Button className="bg-navy text-cream mt-4">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Voltar ao Blog
+          </Button>
+        </Link>
+      </div>
+    );
+  }
+
+  const { post, media, comments, category } = data;
+  const images = media.filter((m) => m.mediaType === "image");
+  const videos = media.filter((m) => m.mediaType === "video");
+  const audios = media.filter((m) => m.mediaType === "audio");
+  const documents = media.filter((m) => m.mediaType === "document");
+
+  return (
+    <>
+      <SEOHead
+        title={post.seoTitle ?? post.title}
+        description={post.seoDescription ?? post.excerpt ?? ""}
+        keywords={post.seoKeywords ?? ""}
+        canonicalPath={`/blog/${post.slug}`}
+        ogImage={post.coverImageUrl ?? undefined}
+      />
+
+      {/* Breadcrumb */}
+      <div className="border-b border-border bg-muted/30">
+        <div className="container py-3">
+          <div className="flex items-center gap-2 font-ui text-xs text-muted-foreground">
+            <Link href="/" className="hover:text-navy transition-colors">Início</Link>
+            <ChevronRight className="w-3 h-3" />
+            <Link href="/blog" className="hover:text-navy transition-colors">Blog</Link>
+            {category && (
+              <>
+                <ChevronRight className="w-3 h-3" />
+                <span style={{ color: category.color ?? undefined }}>{category.name}</span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <article className="section-padding">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Main content */}
+            <div className="lg:col-span-2">
+              <AnimateOnScroll>
+                <div className="mb-6">
+                  {category && (
+                    <Badge
+                      className="text-[10px] font-ui font-semibold text-white mb-3"
+                      style={{ backgroundColor: category.color ?? "#1a2e4a" }}
+                    >
+                      {category.name}
+                    </Badge>
+                  )}
+                  <h1 className="font-display text-3xl md:text-4xl text-navy leading-tight mb-4">
+                    {post.title}
+                  </h1>
+                  {post.excerpt && (
+                    <p className="font-body text-lg text-muted-foreground leading-relaxed mb-4">
+                      {post.excerpt}
+                    </p>
+                  )}
+                  <div className="flex items-center gap-4 text-xs text-muted-foreground font-body flex-wrap">
+                    <span className="font-semibold text-navy">{post.authorName ?? "Drudi e Almeida"}</span>
+                    {post.publishedAt && (
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {format(new Date(post.publishedAt), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                      </span>
+                    )}
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      {post.readingTimeMin} min de leitura
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5" />
+                      {post.viewCount} visualizações
+                    </span>
+                    <button onClick={handleShare} className="flex items-center gap-1 hover:text-navy transition-colors">
+                      <Share2 className="w-3.5 h-3.5" /> Compartilhar
+                    </button>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+
+              {post.coverImageUrl && (
+                <AnimateOnScroll className="mb-8">
+                  <img src={post.coverImageUrl} alt={post.title} className="w-full rounded-xl object-cover max-h-[500px]" />
+                </AnimateOnScroll>
+              )}
+
+              {videos.length > 0 && (
+                <AnimateOnScroll className="mb-8">
+                  {videos.map((v) => (
+                    <div key={v.id} className="rounded-xl overflow-hidden bg-black mb-4">
+                      <video controls className="w-full max-h-[400px]" src={v.url} />
+                      {v.caption && <p className="font-body text-xs text-muted-foreground text-center py-2 px-4">{v.caption}</p>}
+                    </div>
+                  ))}
+                </AnimateOnScroll>
+              )}
+
+              {audios.length > 0 && (
+                <AnimateOnScroll className="mb-8">
+                  {audios.map((a) => (
+                    <div key={a.id} className="bg-muted/30 rounded-xl p-4 border border-border mb-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <Music className="w-5 h-5 text-gold" />
+                        <span className="font-ui text-sm font-semibold text-navy">{a.caption ?? a.fileName ?? "Áudio"}</span>
+                      </div>
+                      <audio controls className="w-full" src={a.url} />
+                    </div>
+                  ))}
+                </AnimateOnScroll>
+              )}
+
+              <AnimateOnScroll>
+                <div
+                  className="prose prose-navy max-w-none font-body [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_h1]:text-navy [&_h2]:text-navy [&_h3]:text-navy [&_a]:text-gold [&_a:hover]:text-gold/80 [&_blockquote]:border-l-gold [&_blockquote]:bg-gold/5 [&_blockquote]:rounded-r-lg [&_blockquote]:py-1"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+              </AnimateOnScroll>
+
+              {images.length > 0 && (
+                <AnimateOnScroll className="mt-8">
+                  <h3 className="font-display text-xl text-navy mb-4">Galeria de Imagens</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {images.map((img) => (
+                      <a key={img.id} href={img.url} target="_blank" rel="noopener noreferrer">
+                        <img src={img.url} alt={img.altText ?? img.fileName ?? ""} className="w-full h-40 object-cover rounded-lg hover:opacity-90 transition-opacity" />
+                      </a>
+                    ))}
+                  </div>
+                </AnimateOnScroll>
+              )}
+
+              {documents.length > 0 && (
+                <AnimateOnScroll className="mt-8">
+                  <h3 className="font-display text-xl text-navy mb-4">Documentos</h3>
+                  {documents.map((doc) => (
+                    <a key={doc.id} href={doc.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-muted/30 rounded-lg px-4 py-3 border border-border hover:border-gold/30 hover:bg-gold/5 transition-all mb-2">
+                      <FileText className="w-5 h-5 text-gold shrink-0" />
+                      <span className="font-ui text-sm text-navy">{doc.caption ?? doc.fileName ?? "Documento"}</span>
+                    </a>
+                  ))}
+                </AnimateOnScroll>
+              )}
+
+              {post.tags && (
+                <AnimateOnScroll className="mt-8">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <Tag className="w-4 h-4 text-muted-foreground" />
+                    {post.tags.split(",").map((tag) => (
+                      <Link key={tag} href={`/blog?search=${encodeURIComponent(tag.trim())}`}>
+                        <span className="font-ui text-xs bg-muted hover:bg-gold/10 hover:text-gold px-3 py-1 rounded-full cursor-pointer transition-colors">
+                          {tag.trim()}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </AnimateOnScroll>
+              )}
+
+              {/* Comments */}
+              <AnimateOnScroll className="mt-12">
+                <div className="border-t border-border pt-10">
+                  <h3 className="font-display text-2xl text-navy mb-6 flex items-center gap-2">
+                    <MessageSquare className="w-6 h-6 text-gold" />
+                    Comentários ({comments.length})
+                  </h3>
+
+                  {comments.length > 0 ? (
+                    <div className="space-y-4 mb-8">
+                      {comments.map((comment) => (
+                        <div key={comment.id} className="bg-white border border-border rounded-xl p-5">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="w-9 h-9 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
+                              <span className="font-display text-sm text-navy font-bold">{comment.authorName.charAt(0).toUpperCase()}</span>
+                            </div>
+                            <div>
+                              <p className="font-ui text-sm font-semibold text-navy">{comment.authorName}</p>
+                              <p className="font-body text-[11px] text-muted-foreground">
+                                {format(new Date(comment.createdAt), "dd 'de' MMM 'de' yyyy", { locale: ptBR })}
+                              </p>
+                            </div>
+                          </div>
+                          <p className="font-body text-sm text-foreground/80 leading-relaxed">{comment.content}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="font-body text-sm text-muted-foreground mb-8">Seja o primeiro a comentar neste artigo.</p>
+                  )}
+
+                  {commentSubmitted ? (
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
+                      <p className="font-ui text-sm font-semibold text-emerald-700">Comentário enviado com sucesso!</p>
+                      <p className="font-body text-xs text-emerald-600 mt-1">Aguardando moderação.</p>
+                      <Button variant="outline" size="sm" className="mt-3" onClick={() => setCommentSubmitted(false)}>
+                        Escrever outro comentário
+                      </Button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmitComment} className="space-y-4">
+                      <h4 className="font-display text-lg text-navy">Deixe seu comentário</h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="font-ui text-xs font-semibold text-muted-foreground uppercase tracking-wide">Nome *</label>
+                          <Input value={commentName} onChange={(e) => setCommentName(e.target.value)} placeholder="Seu nome" required className="mt-1" />
+                        </div>
+                        <div>
+                          <label className="font-ui text-xs font-semibold text-muted-foreground uppercase tracking-wide">E-mail (opcional)</label>
+                          <Input type="email" value={commentEmail} onChange={(e) => setCommentEmail(e.target.value)} placeholder="seu@email.com" className="mt-1" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="font-ui text-xs font-semibold text-muted-foreground uppercase tracking-wide">Comentário *</label>
+                        <Textarea value={commentContent} onChange={(e) => setCommentContent(e.target.value)} placeholder="Escreva seu comentário..." rows={4} required className="mt-1 resize-none" />
+                      </div>
+                      <p className="font-body text-[11px] text-muted-foreground">Seu comentário será revisado antes de ser publicado.</p>
+                      <Button type="submit" disabled={submitComment.isPending} className="bg-navy text-cream hover:bg-navy-light">
+                        {submitComment.isPending ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+                        Enviar Comentário
+                      </Button>
+                    </form>
+                  )}
+                </div>
+              </AnimateOnScroll>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="space-y-6">
+              <div className="bg-navy text-cream rounded-2xl p-6">
+                <h3 className="font-display text-xl mb-2">Cuide da sua visão</h3>
+                <p className="font-body text-sm text-cream/70 leading-relaxed mb-4">Agende uma consulta com nossos especialistas.</p>
+                <a href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-5 py-3 rounded-lg hover:bg-gold/90 transition-colors w-full">
+                  Agendar pelo WhatsApp
+                </a>
+                <a href="tel:+551150268521" className="flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-cream/10 transition-colors w-full mt-2">
+                  Ligar: (11) 5026-8521
+                </a>
+              </div>
+              <Link href="/blog">
+                <div className="flex items-center gap-2 text-navy hover:text-gold transition-colors font-ui text-sm font-semibold cursor-pointer">
+                  <ArrowLeft className="w-4 h-4" /> Voltar ao Blog
+                </div>
+              </Link>
+              <div className="bg-muted/30 rounded-xl p-4 border border-border">
+                <p className="font-ui text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Compartilhar</p>
+                <div className="flex gap-2">
+                  <a href={`https://wa.me/?text=${encodeURIComponent(post.title + " " + window.location.href)}`} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-xs font-semibold py-2 rounded-lg hover:bg-[#20BD5A] transition-colors">
+                    WhatsApp
+                  </a>
+                  <button onClick={handleShare} className="flex-1 flex items-center justify-center gap-2 bg-muted text-navy font-ui text-xs font-semibold py-2 rounded-lg hover:bg-muted/70 transition-colors">
+                    <Share2 className="w-3.5 h-3.5" /> Copiar link
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </article>
+    </>
+  );
+}
+
+// ─── Legacy Static Post Component ────────────────────────────────────────────
+
+function StaticBlogPost({ slug }: { slug: string }) {
   const article = blogArticles.find((a) => a.slug === slug);
-  const content = slug ? articleContent[slug] : undefined;
+  const content = articleContent[slug];
 
   if (!article || !content) {
     return (
@@ -134,12 +411,7 @@ export default function BlogPost() {
     );
   }
 
-  // Related articles (same category, excluding current)
-  const related = blogArticles
-    .filter((a) => a.category === article.category && a.slug !== article.slug)
-    .slice(0, 3);
-
-  // Article schema.org
+  const related = blogArticles.filter((a) => a.category === article.category && a.slug !== article.slug).slice(0, 3);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -155,8 +427,6 @@ export default function BlogPost() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-
-      {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] max-h-[450px] overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${article.image})` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/70 to-navy/40" />
@@ -175,52 +445,26 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* Content */}
       <article className="section-padding">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             {content.map((paragraph, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className="font-body text-base text-foreground/80 leading-[1.8] mb-6"
-              >
+              <motion.p key={i} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }} className="font-body text-base text-foreground/80 leading-[1.8] mb-6">
                 {paragraph}
               </motion.p>
             ))}
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="mt-10 p-8 rounded-xl bg-navy/5 border border-border/60"
-            >
+            <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-10 p-8 rounded-xl bg-navy/5 border border-border/60">
               <h3 className="font-display text-xl text-navy mb-3">Precisa de uma avaliação?</h3>
-              <p className="font-body text-sm text-muted-foreground mb-5">
-                Nossos especialistas estão prontos para cuidar da sua visão. Agende sua consulta.
-              </p>
+              <p className="font-body text-sm text-muted-foreground mb-5">Nossos especialistas estão prontos para cuidar da sua visão. Agende sua consulta.</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/agendamento"
-                  className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-gold-light transition-colors"
-                >
+                <Link href="/agendamento" className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-gold-light transition-colors">
                   Agendar Consulta
                 </Link>
-                <a
-                  href={`https://wa.me/5511916544653?text=${encodeURIComponent(`Olá! Li o artigo "${article.title}" e gostaria de agendar uma consulta.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#20BD5A] transition-colors"
-                >
+                <a href={`https://wa.me/5511916544653?text=${encodeURIComponent(`Olá! Li o artigo "${article.title}" e gostaria de agendar uma consulta.`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#20BD5A] transition-colors">
                   Falar pelo WhatsApp
                 </a>
               </div>
             </motion.div>
-
-            {/* Related Articles */}
             {related.length > 0 && (
               <div className="mt-12 pt-8 border-t border-border/40">
                 <h3 className="font-display text-xl text-navy mb-6">Artigos Relacionados</h3>
@@ -240,16 +484,11 @@ export default function BlogPost() {
                 </div>
               </div>
             )}
-
-            {/* Share */}
             <div className="mt-8 pt-6 border-t border-border/40 flex items-center justify-between">
               <Link href="/blog" className="inline-flex items-center gap-1.5 font-ui text-sm text-navy hover:text-gold transition-colors">
                 <ArrowLeft className="w-4 h-4" /> Todos os artigos
               </Link>
-              <button
-                onClick={() => navigator.clipboard?.writeText(window.location.href)}
-                className="inline-flex items-center gap-1.5 font-ui text-sm text-muted-foreground hover:text-gold transition-colors"
-              >
+              <button onClick={() => navigator.clipboard?.writeText(window.location.href)} className="inline-flex items-center gap-1.5 font-ui text-sm text-muted-foreground hover:text-gold transition-colors">
                 <Share2 className="w-4 h-4" /> Compartilhar
               </button>
             </div>
@@ -258,4 +497,20 @@ export default function BlogPost() {
       </article>
     </>
   );
+}
+
+// ─── Router: decide which component to render ────────────────────────────────
+
+// Slugs that exist as legacy static articles
+const STATIC_SLUGS = new Set(Object.keys(articleContent));
+
+export default function BlogPost() {
+  const { slug } = useParams<{ slug: string }>();
+  if (!slug) return null;
+
+  if (STATIC_SLUGS.has(slug)) {
+    return <StaticBlogPost slug={slug} />;
+  }
+
+  return <DynamicBlogPost slug={slug} />;
 }

@@ -30,3 +30,15 @@
 - [ ] Guia para registro de domínio
 - [ ] Guia para chatbot WhatsApp
 - [ ] Recomendações de próximos passos tecnológicos
+
+## Fase 6: Sistema de Blog com CMS
+- [x] Schema do banco de dados (posts, categorias, comentários, mídias)
+- [x] API backend (CRUD completo via tRPC)
+- [x] Painel admin em /admin/blog (gerenciar posts, comentários, categorias)
+- [x] Editor rich text (TipTap) com formatação completa
+- [x] Upload de mídias: imagens, vídeos, áudios, documentos (S3)
+- [x] Página pública de blog /blog com listagem, busca e filtros
+- [x] Página de artigo /blog/:slug com comentários públicos
+- [x] SEO automático por IA (título, description, keywords) ao criar/publicar
+- [x] Sistema de comentários com moderação no painel admin
+- [x] Categorias coloridas com gerenciamento no painel admin

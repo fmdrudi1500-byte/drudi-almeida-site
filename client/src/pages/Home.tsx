@@ -12,6 +12,7 @@ import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
 import { useRef, useEffect, useCallback, useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 const institutos = [
   {
@@ -64,6 +65,10 @@ const stats = [
 ];
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
