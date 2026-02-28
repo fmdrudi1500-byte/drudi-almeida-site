@@ -131,3 +131,20 @@ export const blogComments = mysqlTable("blog_comments", {
 
 export type BlogComment = typeof blogComments.$inferSelect;
 export type InsertBlogComment = typeof blogComments.$inferInsert;
+
+/**
+ * SEO settings per page — editable via /admin/seo
+ */
+export const seoSettings = mysqlTable("seo_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  // Unique identifier for the page, e.g. "/", "/instituto/catarata"
+  pagePath: varchar("pagePath", { length: 200 }).notNull().unique(),
+  pageLabel: varchar("pageLabel", { length: 100 }).notNull(),
+  title: varchar("title", { length: 60 }),
+  description: varchar("description", { length: 160 }),
+  keywords: text("keywords"),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type SeoSetting = typeof seoSettings.$inferSelect;
+export type InsertSeoSetting = typeof seoSettings.$inferInsert;

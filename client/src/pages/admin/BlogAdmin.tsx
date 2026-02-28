@@ -151,13 +151,22 @@ export default function BlogAdmin() {
                 Drudi e Almeida Oftalmologia
               </p>
             </div>
-            <Button
-              onClick={() => navigate("/admin/blog/novo")}
-              className="bg-gold text-navy hover:bg-gold/90 font-ui font-semibold"
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              Novo Artigo
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => navigate("/admin/seo")}
+                className="border-cream/30 text-cream hover:bg-cream/10 font-ui font-semibold"
+              >
+                Painel SEO
+              </Button>
+              <Button
+                onClick={() => navigate("/admin/blog/novo")}
+                className="bg-gold text-navy hover:bg-gold/90 font-ui font-semibold"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Novo Artigo
+              </Button>
+            </div>
           </div>
 
           {/* Stats */}

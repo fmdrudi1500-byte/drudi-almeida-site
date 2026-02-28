@@ -7,7 +7,7 @@ import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { registerSitemapRoutes } from "../sitemap";
+import { registerSitemapRoutes } from "../sitemap.js";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {

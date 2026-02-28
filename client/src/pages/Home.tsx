@@ -79,7 +79,7 @@ export default function Home() {
       <SEOHead
         title="Oftalmologista em São Paulo"
         description="5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades na Grande SP. Agende sua consulta."
-        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata, ceratocone, glaucoma"
+        keywords="Oftalmologista, Cirurgia de Catarata, Cirurgia Estrabismo, Cirurgia Retina, Cirurgia de Glaucoma, Especialista Retina, Cirurgia Glaucoma, Ceratocone"
         canonicalPath="/"
       />
       {/* ========== HERO WITH PARALLAX ========== */}

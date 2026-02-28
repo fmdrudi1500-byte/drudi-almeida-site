@@ -26,6 +26,7 @@ const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
 const BlogListing = lazy(() => import("./pages/BlogListing"));
 const BlogAdmin = lazy(() => import("./pages/admin/BlogAdmin"));
 const BlogPostEditor = lazy(() => import("./pages/admin/BlogPostEditor"));
+const AdminSEO = lazy(() => import("./pages/AdminSEO"));
 
 function PageLoader() {
   return (
@@ -61,6 +62,7 @@ function Router() {
           <Route path="/admin/blog" component={BlogAdmin} />
           <Route path="/admin/blog/novo">{() => <BlogPostEditor />}</Route>
           <Route path="/admin/blog/editar/:id">{(params) => <BlogPostEditor postId={params.id ? parseInt(params.id, 10) : undefined} />}</Route>
+          <Route path="/admin/seo" component={AdminSEO} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>
