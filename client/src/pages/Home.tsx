@@ -623,25 +623,61 @@ export default function Home() {
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
-              { name: "Tatuapé", address: "Rua Tuiuti, 2429", city: "São Paulo - SP" },
-              { name: "Lapa", address: "Rua Barão de Jundiaí, 221", city: "São Paulo - SP" },
-              { name: "São Miguel", address: "Rua Bernardo Marcondes, 108", city: "São Paulo - SP" },
-              { name: "Guarulhos", address: "Rua Sete de Setembro, 375", city: "Guarulhos - SP" },
+              {
+                name: "Guarulhos",
+                address: "Rua Sete de Setembro, 375",
+                city: "Guarulhos - SP",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
+              },
+              {
+                name: "Lapa",
+                address: "Rua Barão de Jundiaí, 221",
+                city: "São Paulo - SP",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
+              },
+              {
+                name: "Santana",
+                address: "Rua Dr. César, 130",
+                city: "São Paulo - SP",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
+              },
+              {
+                name: "São Miguel",
+                address: "Rua Bernardo Marcondes, 108",
+                city: "São Paulo - SP",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png",
+              },
+              {
+                name: "Tatuápé",
+                address: "Rua Tuiuti, 2429",
+                city: "São Paulo - SP",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
+              },
             ].map((u, i) => (
               <AnimateOnScroll key={u.name} delay={i * 0.08}>
-                <div className="bg-white rounded-xl border border-border/60 p-5 text-center hover:shadow-md hover:border-gold/30 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
+                <div className="bg-white rounded-2xl overflow-hidden border border-border/60 shadow-sm hover:shadow-md hover:border-gold/30 transition-all duration-300">
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={u.image}
+                      alt={`Unidade ${u.name} — Drudi e Almeida`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <h3 className="font-display text-base text-navy mb-1">{u.name}</h3>
-                  <p className="font-body text-xs text-muted-foreground leading-relaxed">{u.address}</p>
-                  <p className="font-body text-xs text-muted-foreground">{u.city}</p>
+                  <div className="p-5">
+                    <div className="flex items-start gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                      </svg>
+                      <div>
+                        <h3 className="font-display text-base text-navy mb-0.5">{u.name}</h3>
+                        <p className="font-body text-xs text-muted-foreground">{u.address}</p>
+                        <p className="font-body text-xs text-gold font-semibold">{u.city}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
