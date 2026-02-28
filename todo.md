@@ -42,3 +42,7 @@
 - [x] SEO automático por IA (título, description, keywords) ao criar/publicar
 - [x] Sistema de comentários com moderação no painel admin
 - [x] Categorias coloridas com gerenciamento no painel admin
+
+## Fase 7: Substituição de Imagens
+- [x] Upload das 4 imagens da sala de espera para CDN
+- [x] Substituir imagens na galeria do Instituto da Catarata

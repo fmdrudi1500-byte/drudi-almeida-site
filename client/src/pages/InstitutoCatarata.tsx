@@ -460,31 +460,31 @@ export default function InstitutoCatarata() {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos Centro oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
-                image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
               },
               {
                 name: "Lapa",
                 city: "São Paulo - SP",
                 description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
-                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v2_6cb18abf.png",
               },
               {
                 name: "Santana",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece atendimento humanizado com equipamentos de ponta e fácil acesso pelo metrô.",
-                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
               },
               {
                 name: "São Miguel",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em São Miguel Paulista atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.",
-                image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png",
               },
               {
                 name: "Tatuapé",
                 city: "São Paulo - SP",
                 description: "Nossa unidade no Tatuapé oferece atendimento especializado em catarata com infraestrutura completa e equipe altamente qualificada.",
-                image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png",
               },
             ].map((clinica, i) => (
               <AnimateOnScroll key={i} delay={i * 0.15}>
