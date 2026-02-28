@@ -77,9 +77,9 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Clínica de Olhos em São Paulo e Guarulhos"
-        description="Drudi e Almeida Oftalmologia: 5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades em SP. Agende: (11) 5026-8521."
-        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata, ceratocone, glaucoma, retina, estrabismo, Drudi e Almeida"
+        title="Oftalmologista em São Paulo"
+        description="5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades na Grande SP. Agende sua consulta."
+        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata, ceratocone, glaucoma"
         canonicalPath="/"
       />
       {/* ========== HERO WITH PARALLAX ========== */}
