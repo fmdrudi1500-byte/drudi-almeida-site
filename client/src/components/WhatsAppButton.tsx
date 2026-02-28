@@ -108,15 +108,23 @@ export default function WhatsAppButton() {
     tooltipRef.current?.classList.add("show");
     setTimeout(() => {
       if (!stateRef.current.tooltipClosed) closeTooltip();
-    }, 12000);
+    }, 5000);
   }
 
-  function openChat() {
+  function openChat(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
     const message = encodeURIComponent(getCurrentMessage(location));
     const url = `https://wa.me/${CONFIG.phone}?text=${message}`;
     if (badgeRef.current) badgeRef.current.style.display = "none";
     closeTooltip();
-    window.open(url, "_blank");
+    // Use anchor click to reliably open WhatsApp in new tab
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
 
   // Expose openChat globally for the inline onclick (kept for safety)
