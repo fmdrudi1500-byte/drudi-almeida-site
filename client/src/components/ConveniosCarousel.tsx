@@ -277,13 +277,10 @@ export default function ConveniosCarousel() {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
-          filter: grayscale(100%) opacity(0.5);
-          transition: filter 0.3s ease;
+          filter: none;
+          transition: transform 0.3s ease;
           pointer-events: none;
           -webkit-user-drag: none;
-        }
-        .conv-logo-card:hover img {
-          filter: grayscale(0%) opacity(1);
         }
 
         .conv-count {
