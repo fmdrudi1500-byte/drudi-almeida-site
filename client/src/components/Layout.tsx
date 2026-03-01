@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import MobileCTABar from "./MobileCTABar";
 import SchemaOrg from "./SchemaOrg";
 
 interface LayoutProps {
@@ -19,7 +20,12 @@ export default function Layout({ children }: LayoutProps) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
-      <WhatsAppButton />
+      {/* FAB circular — hidden on mobile (replaced by sticky bar) */}
+      <div className="hidden md:block">
+        <WhatsAppButton />
+      </div>
+      {/* Sticky CTA bar — mobile only */}
+      <MobileCTABar />
     </div>
   );
 }

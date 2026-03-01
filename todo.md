@@ -65,3 +65,7 @@
 - [x] Scroll automático para o topo ao navegar entre páginas
 - [x] Redesenhar botão flutuante do WhatsApp: maior, com texto visível, posicionado mais alto no canto direito
 - [x] Tooltip do WhatsApp reaparecer em cada troca de página (especialmente nos institutos)
+
+## Fase 11: Conversão Mobile
+- [x] Sticky CTA Bar mobile: barra fixa "Agendar pelo WhatsApp" sempre visível no rodapé em telas pequenas
+- [x] Ocultar botão flutuante circular no mobile (redundante com a barra sticky)
