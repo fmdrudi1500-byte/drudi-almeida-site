@@ -69,3 +69,8 @@
 ## Fase 11: Conversão Mobile
 - [x] Sticky CTA Bar mobile: barra fixa "Agendar pelo WhatsApp" sempre visível no rodapé em telas pequenas
 - [x] Ocultar botão flutuante circular no mobile (redundante com a barra sticky)
+
+## Fase 12: Seção Convênios na Home
+- [x] Criar componente ConveniosCarousel com carrossel de logos reais
+- [x] Atualizar logo da PROPM na página de convênios existente
+- [x] Inserir seção de convênios na home entre stats e institutos

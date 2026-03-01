@@ -41,9 +41,10 @@ const convenios: Convenio[] = [
     initial: "MS",
   },
   {
-    name: "PROPM",
+    name: "Instituto Pró-PM",
     description: "Plano de saúde com cobertura para consultas especializadas, exames diagnósticos e procedimentos cirúrgicos.",
-    color: "#2E7D32",
+    color: "#1B3A6B",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-propm_eea209fd.png",
     initial: "PR",
   },
   {

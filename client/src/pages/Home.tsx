@@ -12,6 +12,7 @@ import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
 import { useRef, useEffect, useCallback, useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import ConveniosCarousel from "@/components/ConveniosCarousel";
 import { useAuth } from "@/_core/hooks/useAuth";
 
 const institutos = [
@@ -176,6 +177,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ========== CONVENIOS ========== */}
+      <ConveniosCarousel />
 
       {/* ========== NOSSOS INSTITUTOS ========== */}
       <section className="section-padding">
