@@ -75,3 +75,4 @@
 - [x] Atualizar logo da PROPM na página de convênios existente
 - [x] Inserir seção de convênios na home entre stats e institutos
 - [x] Carrossel de convênios: suporte a drag/swipe do usuário com retomada automática do loop após pausa
+- [x] Mover seção de convênios para depois da seção de institutos na home

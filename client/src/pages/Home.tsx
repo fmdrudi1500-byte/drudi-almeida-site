@@ -178,9 +178,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== CONVENIOS ========== */}
-      <ConveniosCarousel />
-
       {/* ========== NOSSOS INSTITUTOS ========== */}
       <section className="section-padding">
         <div className="container">
@@ -225,6 +222,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ========== CONVENIOS ========== */}
+      <ConveniosCarousel />
 
       {/* ========== QUEM SOMOS ========== */}
       <section className="relative overflow-hidden">
