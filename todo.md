@@ -76,3 +76,8 @@
 - [x] Inserir seção de convênios na home entre stats e institutos
 - [x] Carrossel de convênios: suporte a drag/swipe do usuário com retomada automática do loop após pausa
 - [x] Mover seção de convênios para depois da seção de institutos na home
+
+## Fase 13: Gatilhos de Urgência
+- [x] Módulo 1: Micro-copy dinâmico nos CTAs do hero (por horário do dia)
+- [x] Módulo 2: Barra contextual de urgência por instituto (UrgencyBar)
+- [x] Módulo 3: Social proof toasts de agendamento (SocialProofToasts)

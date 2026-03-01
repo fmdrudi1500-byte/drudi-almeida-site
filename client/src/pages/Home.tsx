@@ -10,7 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback, useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -69,6 +69,14 @@ export default function Home() {
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
+
+  // Micro-copy: pick a message based on time of day
+  const microcopyMsg = useMemo(() => {
+    const h = new Date().getHours();
+    if (h >= 6 && h < 12) return { dot: "green", text: "Bom dia! Horários disponíveis hoje" };
+    if (h >= 12 && h < 18) return { dot: "green", text: "Respondemos em até 5 min pelo WhatsApp" };
+    return { dot: "amber", text: "Atendimento imediato pelo WhatsApp" };
+  }, []);
 
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -157,9 +165,30 @@ export default function Home() {
                 Ligar Agora
               </a>
             </motion.div>
+
+            {/* Micro-copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.5 }}
+              className="flex items-center gap-2 mt-4"
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                style={{
+                  background: microcopyMsg.dot === "green" ? "#25D366" : "#F59E0B",
+                  boxShadow: microcopyMsg.dot === "green"
+                    ? "0 0 6px rgba(37,211,102,0.5)"
+                    : "0 0 6px rgba(245,158,11,0.5)",
+                  animation: "mc-pulse 2.5s ease infinite",
+                }}
+              />
+              <span className="font-ui text-xs text-cream/60 font-medium">
+                {microcopyMsg.text}
+              </span>
+            </motion.div>
           </div>
         </div>
-
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </section>

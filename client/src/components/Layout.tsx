@@ -8,6 +8,8 @@ import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
 import MobileCTABar from "./MobileCTABar";
 import SchemaOrg from "./SchemaOrg";
+import UrgencyBar from "./UrgencyBar";
+import SocialProofToasts from "./SocialProofToasts";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,6 +19,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <SchemaOrg />
+      <UrgencyBar />
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
@@ -26,6 +29,8 @@ export default function Layout({ children }: LayoutProps) {
       </div>
       {/* Sticky CTA bar — mobile only */}
       <MobileCTABar />
+      {/* Social proof toasts — bottom left */}
+      <SocialProofToasts />
     </div>
   );
 }
