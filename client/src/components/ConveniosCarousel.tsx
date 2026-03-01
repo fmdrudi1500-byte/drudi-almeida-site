@@ -1,18 +1,16 @@
 /* ============================================================
    ConveniosCarousel — Seção de convênios para a home
-   Baseado no modelo do Claude:
-   • Fundo #FAFBFC com bordas douradas sutis
-   • Carrossel infinito com logos reais
+   • Carrossel infinito com drag/swipe do usuário
+   • Retoma loop automático 2s após soltar
    • Logo em grayscale → colorido no hover
-   • Badge contador + links para lista completa e WhatsApp
    ============================================================ */
+import { useRef, useEffect, useCallback, useState } from "react";
 import { Link } from "wouter";
 
 const PHONE = "5511916544653";
 const WA_MSG = encodeURIComponent("Olá! Gostaria de saber se meu convênio é aceito.");
 const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 
-// Lista de convênios com logos reais
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
@@ -44,10 +42,149 @@ const CONVENIOS = [
   },
 ];
 
-// Duplicar para scroll infinito contínuo
+// Triplicar para scroll infinito contínuo
 const ALL_ITEMS = [...CONVENIOS, ...CONVENIOS, ...CONVENIOS];
 
+// Largura de cada card (incluindo margin)
+const CARD_WIDTH_DESKTOP = 170 + 28; // 198px
+const CARD_WIDTH_MOBILE = 120 + 16;  // 136px
+const AUTO_SPEED = 0.6; // px por frame (~36px/s a 60fps)
+const RESUME_DELAY = 2000; // ms após soltar para retomar
+
 export default function ConveniosCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(0);
+  const rafRef = useRef<number>(0);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragStartPosRef = useRef(0);
+  const isAutoPlayingRef = useRef(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const getCardWidth = useCallback(() => {
+    return isMobile ? CARD_WIDTH_MOBILE : CARD_WIDTH_DESKTOP;
+  }, [isMobile]);
+
+  // Largura total de um bloco (7 convênios)
+  const getBlockWidth = useCallback(() => {
+    return CONVENIOS.length * getCardWidth();
+  }, [getCardWidth]);
+
+  const applyTransform = useCallback(() => {
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${posRef.current}px)`;
+    }
+  }, []);
+
+  const normalizePos = useCallback(() => {
+    const blockWidth = getBlockWidth();
+    // Mantém posição dentro do bloco do meio (índice 1)
+    if (posRef.current <= -blockWidth * 2) {
+      posRef.current += blockWidth;
+    } else if (posRef.current >= 0) {
+      posRef.current -= blockWidth;
+    }
+  }, [getBlockWidth]);
+
+  const startAutoPlay = useCallback(() => {
+    isAutoPlayingRef.current = true;
+    const tick = () => {
+      if (!isAutoPlayingRef.current) return;
+      posRef.current -= AUTO_SPEED;
+      normalizePos();
+      applyTransform();
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+  }, [normalizePos, applyTransform]);
+
+  const stopAutoPlay = useCallback(() => {
+    isAutoPlayingRef.current = false;
+    cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const scheduleResume = useCallback(() => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      startAutoPlay();
+    }, RESUME_DELAY);
+  }, [startAutoPlay]);
+
+  // Inicializa posição no bloco do meio
+  useEffect(() => {
+    const blockWidth = getBlockWidth();
+    posRef.current = -blockWidth;
+    applyTransform();
+    startAutoPlay();
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 769);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      stopAutoPlay();
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Recalcula posição ao mudar de mobile/desktop
+  useEffect(() => {
+    const blockWidth = getBlockWidth();
+    posRef.current = -blockWidth;
+    applyTransform();
+  }, [isMobile, getBlockWidth, applyTransform]);
+
+  /* ---- Mouse drag ---- */
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    stopAutoPlay();
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    isDraggingRef.current = true;
+    dragStartXRef.current = e.clientX;
+    dragStartPosRef.current = posRef.current;
+    if (trackRef.current) trackRef.current.style.cursor = "grabbing";
+  }, [stopAutoPlay]);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    const delta = e.clientX - dragStartXRef.current;
+    posRef.current = dragStartPosRef.current + delta;
+    normalizePos();
+    applyTransform();
+  }, [normalizePos, applyTransform]);
+
+  const onMouseUp = useCallback(() => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    if (trackRef.current) trackRef.current.style.cursor = "grab";
+    scheduleResume();
+  }, [scheduleResume]);
+
+  /* ---- Touch drag ---- */
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    stopAutoPlay();
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    isDraggingRef.current = true;
+    dragStartXRef.current = e.touches[0].clientX;
+    dragStartPosRef.current = posRef.current;
+  }, [stopAutoPlay]);
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!isDraggingRef.current) return;
+    const delta = e.touches[0].clientX - dragStartXRef.current;
+    posRef.current = dragStartPosRef.current + delta;
+    normalizePos();
+    applyTransform();
+  }, [normalizePos, applyTransform]);
+
+  const onTouchEnd = useCallback(() => {
+    isDraggingRef.current = false;
+    scheduleResume();
+  }, [scheduleResume]);
+
   return (
     <>
       <style>{`
@@ -77,6 +214,7 @@ export default function ConveniosCarousel() {
         .conv-carousel-wrapper {
           position: relative;
           margin-bottom: 28px;
+          user-select: none;
         }
         .conv-carousel-wrapper::before,
         .conv-carousel-wrapper::after {
@@ -104,16 +242,12 @@ export default function ConveniosCarousel() {
         .conv-track {
           display: flex;
           gap: 0;
-          animation: conv-scroll 40s linear infinite;
           width: max-content;
+          cursor: grab;
+          will-change: transform;
         }
-        .conv-track:hover {
-          animation-play-state: paused;
-        }
-
-        @keyframes conv-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
+        .conv-track:active {
+          cursor: grabbing;
         }
 
         .conv-logo-card {
@@ -128,8 +262,11 @@ export default function ConveniosCarousel() {
           border-radius: 12px;
           border: 1px solid rgba(0,0,0,0.05);
           padding: 12px 16px;
-          transition: all 0.25s ease;
-          cursor: default;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+          pointer-events: none;
+        }
+        .conv-track:not(:active) .conv-logo-card {
+          pointer-events: auto;
         }
         .conv-logo-card:hover {
           border-color: rgba(201,168,108,0.35);
@@ -142,6 +279,8 @@ export default function ConveniosCarousel() {
           object-fit: contain;
           filter: grayscale(100%) opacity(0.5);
           transition: filter 0.3s ease;
+          pointer-events: none;
+          -webkit-user-drag: none;
         }
         .conv-logo-card:hover img {
           filter: grayscale(0%) opacity(1);
@@ -204,10 +343,20 @@ export default function ConveniosCarousel() {
         {/* Carrossel */}
         <div className="conv-carousel-wrapper">
           <div className="conv-track-container">
-            <div className="conv-track">
+            <div
+              ref={trackRef}
+              className="conv-track"
+              onMouseDown={onMouseDown}
+              onMouseMove={onMouseMove}
+              onMouseUp={onMouseUp}
+              onMouseLeave={onMouseUp}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {ALL_ITEMS.map((conv, i) => (
                 <div key={i} className="conv-logo-card" title={conv.nome}>
-                  <img src={conv.logo} alt={conv.nome} loading="lazy" />
+                  <img src={conv.logo} alt={conv.nome} loading="lazy" draggable={false} />
                 </div>
               ))}
             </div>
@@ -217,7 +366,6 @@ export default function ConveniosCarousel() {
         {/* Footer */}
         <div className="text-center px-6">
           <div className="conv-count">
-            {/* star icon */}
             <svg viewBox="0 0 24 24" className="w-4 h-4" style={{ fill: "#C9A86C" }}>
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
             </svg>
@@ -227,7 +375,6 @@ export default function ConveniosCarousel() {
           </div>
 
           <div className="flex items-center justify-center gap-5 flex-wrap mt-1">
-            {/* Ver lista completa */}
             <Link
               href="/convenios"
               className="font-ui text-[13px] font-semibold inline-flex items-center gap-1.5 transition-colors hover:text-gold"
@@ -241,7 +388,6 @@ export default function ConveniosCarousel() {
 
             <span className="w-1 h-1 rounded-full bg-gray-300" />
 
-            {/* WhatsApp */}
             <a
               href={WA_URL}
               target="_blank"
