@@ -87,8 +87,8 @@ export default function Home() {
     <>
       <SEOHead
         title="Oftalmologista em São Paulo"
-        description="5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades na Grande SP. Agende sua consulta."
-        keywords="Oftalmologista, Cirurgia de Catarata, Cirurgia Estrabismo, Cirurgia Retina, Cirurgia de Glaucoma, Especialista Retina, Cirurgia Glaucoma, Ceratocone"
+        description="Drudi e Almeida: oftalmologista em SP com 5 institutos especializados. Catarata, ceratocone, glaucoma, retina e estrabismo. WhatsApp: (11) 91654-4653."
+        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata SP, ceratocone tratamento, crosslinking, glaucoma especialista, retina cirúrgica, estrabismo cirurgia, oftalmologista Bradesco, oftalmologista Prevent, oftalmologista perto de mim"
         canonicalPath="/"
       />
       {/* ========== HERO WITH PARALLAX ========== */}

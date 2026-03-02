@@ -100,3 +100,7 @@
 - [x] Compressão gzip/brotli no servidor Express
 - [x] Cache de respostas tRPC públicas (blog posts, SEO data)
 - [x] ETag e Cache-Control para o HTML principal
+
+## Fase 16: Correções de SEO
+- [x] Reduzir meta description para até 160 caracteres com WhatsApp
+- [x] Ajustar palavras-chave para no máximo 10 (remover 3, adicionar 3 novas)
