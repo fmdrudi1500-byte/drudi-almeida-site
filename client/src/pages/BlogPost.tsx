@@ -507,7 +507,7 @@ function StaticBlogPost({ slug }: { slug: string }) {
               <h3 className="font-display text-xl text-navy mb-3">Precisa de uma avaliação?</h3>
               <p className="font-body text-sm text-muted-foreground mb-5">Nossos especialistas estão prontos para cuidar da sua visão. Agende sua consulta.</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/agendamento" className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-gold-light transition-colors">
+                <Link href="/agendar" className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-gold-light transition-colors">
                   Agendar Consulta
                 </Link>
                 <a href={`https://wa.me/5511916544653?text=${encodeURIComponent(`Olá! Li o artigo "${article.title}" e gostaria de agendar uma consulta.`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#20BD5A] transition-colors">

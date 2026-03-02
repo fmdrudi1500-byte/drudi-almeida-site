@@ -148,3 +148,49 @@ export const seoSettings = mysqlTable("seo_settings", {
 
 export type SeoSetting = typeof seoSettings.$inferSelect;
 export type InsertSeoSetting = typeof seoSettings.$inferInsert;
+
+/**
+ * Appointments — patient scheduling system
+ * Rules: Mon-Fri 9h-17h, Sat 9h-12h, 1 slot per hour per unit
+ */
+export const appointments = mysqlTable("appointments", {
+  id: int("id").autoincrement().primaryKey(),
+
+  // Patient info
+  patientName: varchar("patientName", { length: 200 }).notNull(),
+  patientPhone: varchar("patientPhone", { length: 30 }).notNull(),
+  patientEmail: varchar("patientEmail", { length: 320 }),
+
+  // Scheduling
+  unit: mysqlEnum("unit", [
+    "Santana",
+    "Guarulhos",
+    "Tatuapé",
+    "São Miguel",
+    "Lapa",
+  ]).notNull(),
+
+  // Date stored as YYYY-MM-DD string for simplicity
+  appointmentDate: varchar("appointmentDate", { length: 10 }).notNull(),
+  // Hour stored as integer 9-17 (9 = 9h, 17 = 17h)
+  appointmentHour: int("appointmentHour").notNull(),
+
+  // Status flow: pending → confirmed | cancelled
+  status: mysqlEnum("status", ["pending", "confirmed", "cancelled"]).default("pending").notNull(),
+
+  // Optional notes from patient
+  notes: text("notes"),
+
+  // Unique token for cancellation link in email
+  cancelToken: varchar("cancelToken", { length: 64 }).notNull().unique(),
+
+  // Email notification tracking
+  emailSentToPatient: boolean("emailSentToPatient").default(false),
+  emailSentToClinic: boolean("emailSentToClinic").default(false),
+
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Appointment = typeof appointments.$inferSelect;
+export type InsertAppointment = typeof appointments.$inferInsert;

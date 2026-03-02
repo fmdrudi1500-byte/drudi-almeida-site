@@ -81,3 +81,16 @@
 - [x] Módulo 1: Micro-copy dinâmico nos CTAs do hero (por horário do dia)
 - [x] Módulo 2: Barra contextual de urgência por instituto (UrgencyBar)
 - [x] Módulo 3: Social proof toasts de agendamento (SocialProofToasts)
+
+## Fase 14: Sistema de Agendamento
+- [x] Configurar Resend API key e instalar dependência
+- [x] Schema de agendamentos no banco de dados (tabela appointments)
+- [x] Helper de e-mail: confirmação ao paciente (acolhedor, sem confirmação definitiva)
+- [x] Helper de e-mail: notificação para contato@drudiealmeida.com.br
+- [x] tRPC: getAvailableSlots (horários livres por unidade/data)
+- [x] tRPC: createAppointment (com validação de conflito)
+- [x] tRPC: listAppointments + updateStatus (para painel admin)
+- [x] Página /agendar: formulário multi-step (unidade → data/hora → dados → confirmação)
+- [x] Página /cancelar-agendamento para autocancelamento via link do e-mail
+- [x] Painel admin /admin/agendamentos para secretaria
+- [x] 13 testes vitest para validação da lógica de agendamento (18 testes no total passando)

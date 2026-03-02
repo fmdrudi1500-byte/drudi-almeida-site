@@ -178,7 +178,7 @@ export default function Header() {
             </button>
 
             <Link
-              href="/agendamento"
+              href="/agendar"
               className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light"
             >
               Agendar Consulta
@@ -252,7 +252,7 @@ export default function Header() {
               )}
               <div className="pt-3 mt-2 border-t border-border">
                 <Link
-                  href="/agendamento"
+                  href="/agendar"
                   className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full dark:bg-gold dark:text-navy"
                 >
                   Agendar Consulta

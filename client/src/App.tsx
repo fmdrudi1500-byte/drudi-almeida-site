@@ -28,6 +28,9 @@ const BlogListing = lazy(() => import("./pages/BlogListing"));
 const BlogAdmin = lazy(() => import("./pages/admin/BlogAdmin"));
 const BlogPostEditor = lazy(() => import("./pages/admin/BlogPostEditor"));
 const AdminSEO = lazy(() => import("./pages/AdminSEO"));
+const Agendar = lazy(() => import("./pages/Agendar"));
+const CancelarAgendamento = lazy(() => import("./pages/CancelarAgendamento"));
+const AdminAgendamentos = lazy(() => import("./pages/admin/AdminAgendamentos"));
 
 function PageLoader() {
   return (
@@ -64,6 +67,9 @@ function Router() {
           <Route path="/admin/blog" component={BlogAdmin} />
           <Route path="/admin/blog/novo">{() => <BlogPostEditor />}</Route>
           <Route path="/admin/blog/editar/:id">{(params) => <BlogPostEditor postId={params.id ? parseInt(params.id, 10) : undefined} />}</Route>
+          <Route path="/agendar" component={Agendar} />
+          <Route path="/cancelar-agendamento" component={CancelarAgendamento} />
+          <Route path="/admin/agendamentos" component={AdminAgendamentos} />
           <Route path="/admin/seo" component={AdminSEO} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

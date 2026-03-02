@@ -363,7 +363,7 @@ export default function Tecnologia() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/agendamento"
+                href="/agendar"
                 className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold-light transition-colors"
               >
                 Agendar Consulta

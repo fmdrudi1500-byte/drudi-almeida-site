@@ -31,7 +31,7 @@ const MENSAGENS: Record<string, string> = {
   "/convenios": "Olá! Gostaria de saber se meu convênio é aceito.",
   "/contato": "Olá! Qual unidade é mais próxima de mim para agendar?",
   "/tecnologia": "Olá! Gostaria de saber mais sobre os exames disponíveis.",
-  "/agendamento": "Olá! Gostaria de agendar uma consulta.",
+  "/agendar": "Olá! Gostaria de agendar uma consulta.",
 };
 
 const HEADLINES: Record<string, string> = {

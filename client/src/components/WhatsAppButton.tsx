@@ -29,7 +29,7 @@ const CONFIG = {
     "/contato": "Olá! Qual unidade é mais próxima de mim para agendar?",
     "/tecnologia": "Olá! Gostaria de saber mais sobre os exames disponíveis.",
     "/sobre": "Olá! Gostaria de conhecer melhor a clínica e agendar uma consulta.",
-    "/agendamento": "Olá! Gostaria de agendar uma consulta.",
+    "/agendar": "Olá! Gostaria de agendar uma consulta.",
     "/blog": "Olá! Li um artigo do blog e gostaria de tirar uma dúvida.",
   } as Record<string, string>,
   mensagemPadrao: "Olá! Gostaria de agendar uma consulta.",
