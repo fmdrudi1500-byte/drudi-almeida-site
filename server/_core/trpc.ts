@@ -10,6 +10,23 @@ const t = initTRPC.context<TrpcContext>().create({
 export const router = t.router;
 export const publicProcedure = t.procedure;
 
+// Middleware that adds Cache-Control headers to public GET responses
+const withPublicCache = (maxAgeSeconds: number) =>
+  t.middleware(async ({ ctx, next }) => {
+    const result = await next();
+    // Only cache successful query responses
+    if (result.ok) {
+      ctx.res.setHeader(
+        "Cache-Control",
+        `public, max-age=${maxAgeSeconds}, stale-while-revalidate=${maxAgeSeconds * 2}`
+      );
+    }
+    return result;
+  });
+
+// Public procedure with 5-minute cache (for blog posts, SEO data, etc.)
+export const cachedPublicProcedure = t.procedure.use(withPublicCache(300));
+
 const requireUser = t.middleware(async opts => {
   const { ctx, next } = opts;
 

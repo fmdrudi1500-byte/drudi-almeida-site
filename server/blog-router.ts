@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
+import { cachedPublicProcedure, protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
 import { storagePut } from "./storage";
 import {
@@ -111,7 +111,7 @@ export const blogRouter = router({
   // ── PUBLIC ENDPOINTS ──────────────────────────────────────────────────────
 
   /** List published posts with pagination, filtering, search */
-  listPublished: publicProcedure
+  listPublished: cachedPublicProcedure
     .input(
       z.object({
         limit: z.number().min(1).max(50).default(9),
@@ -144,12 +144,12 @@ export const blogRouter = router({
     }),
 
   /** List all categories */
-  listCategories: publicProcedure.query(async () => {
+  listCategories: cachedPublicProcedure.query(async () => {
     return getAllCategories();
   }),
 
   /** Get related posts for a given post */
-  getRelated: publicProcedure
+  getRelated: cachedPublicProcedure
     .input(z.object({ postId: z.number(), categoryId: z.number().nullable().optional(), limit: z.number().min(1).max(6).default(3) }))
     .query(async ({ input }) => {
       return getRelatedPosts(input.postId, input.categoryId ?? null, input.limit);

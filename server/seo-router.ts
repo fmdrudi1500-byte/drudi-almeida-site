@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { router, publicProcedure, protectedProcedure } from "./_core/trpc";
+import { router, publicProcedure, protectedProcedure, cachedPublicProcedure } from "./_core/trpc";
 import {
   getAllSeoSettings,
   getSeoSettingByPath,
@@ -9,7 +9,7 @@ import {
 
 export const seoRouter = router({
   // Public: get SEO settings for a specific page (used by frontend to override hardcoded values)
-  getByPath: publicProcedure
+  getByPath: cachedPublicProcedure
     .input(z.object({ path: z.string() }))
     .query(async ({ input }) => {
       return getSeoSettingByPath(input.path);

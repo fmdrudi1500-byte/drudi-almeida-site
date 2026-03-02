@@ -94,3 +94,9 @@
 - [x] Página /cancelar-agendamento para autocancelamento via link do e-mail
 - [x] Painel admin /admin/agendamentos para secretaria
 - [x] 13 testes vitest para validação da lógica de agendamento (18 testes no total passando)
+
+## Fase 15: Otimização de Cache e Performance
+- [x] Cache de assets estáticos com headers de longa duração (immutable)
+- [x] Compressão gzip/brotli no servidor Express
+- [x] Cache de respostas tRPC públicas (blog posts, SEO data)
+- [x] ETag e Cache-Control para o HTML principal
