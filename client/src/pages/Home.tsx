@@ -340,7 +340,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 relative z-10">
+              <div className="mt-8 relative z-10 flex justify-center">
                 <Link
                   href="/sobre"
                   className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-lg hover:bg-navy-light transition-all shadow-md hover:shadow-lg"

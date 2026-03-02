@@ -245,7 +245,7 @@ export default function TecnologiaCarousel() {
 
         {/* Stats + CTA */}
         <AnimateOnScroll className="mt-10">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col items-center gap-6">
             <div className="flex items-center gap-8 text-center">
               <div>
                 <div className="font-display text-2xl text-navy dark:text-cream font-bold">14</div>

@@ -327,7 +327,7 @@ export default function ConveniosCarousel() {
             <span className="w-5 h-px bg-gold/50" />
           </div>
           <h2
-            className="font-display text-2xl md:text-[30px] font-normal leading-snug mb-2"
+            className="font-display text-2xl md:text-[36px] font-semibold leading-snug mb-2"
             style={{ color: "#0A1628" }}
           >
             Seu plano de saúde é aceito aqui
