@@ -66,22 +66,22 @@ const sintomasZigzag = [
   {
     title: "Perda Gradual da Visão Periférica",
     desc: "O glaucoma ataca primeiro a visão lateral (periférica). O paciente começa a perder a capacidade de enxergar objetos ao lado sem virar a cabeça. Essa perda é tão gradual que muitos só percebem quando já é significativa.",
-    img: "https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-periferica_a5cfb684.png",
   },
   {
     title: "Visão em Túnel",
     desc: "Em estágios avançados, o campo visual se estreita progressivamente, como se o paciente olhasse através de um tubo. A visão central pode estar preservada, mas tudo ao redor desaparece. Atividades como dirigir e caminhar tornam-se perigosas.",
-    img: "https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-tunel_c5479043.png",
   },
   {
     title: "Dor Ocular e Vermelhidão (Ângulo Fechado)",
     desc: "No glaucoma de ângulo fechado agudo, a pressão sobe rapidamente causando dor intensa no olho, vermelhidão, visão embaçada e halos coloridos ao redor de luzes. Pode ser acompanhado de náusea e vômito. É uma emergência médica.",
-    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-angulo-fechado_cc720421.png",
   },
   {
     title: "Dificuldade de Adaptação ao Escuro",
     desc: "Pacientes com glaucoma podem notar dificuldade para se adaptar a ambientes com pouca iluminação. A transição de ambientes claros para escuros torna-se mais lenta, e a visão noturna fica comprometida.",
-    img: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-noturna_7548d5b5.png",
   },
 ];
 
