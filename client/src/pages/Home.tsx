@@ -380,7 +380,7 @@ export default function Home() {
                 role: "Diretor Clínico",
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
-                image: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/boBu2YFUIpC4Mg45ztPnz5-img-1_1772146534000_na1fn_ZHItZmVybmFuZG8tcHJvZmlzc2lvbmFs.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2JvQnUyWUZVSXBDNE1nNDV6dFBuejUtaW1nLTFfMTc3MjE0NjUzNDAwMF9uYTFmbl9aSEl0Wm1WeWJtRnVaRzh0Y0hKdlptbHpjMmx2Ym1Gcy5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=g-GqTn0IYod3SxM1KL6scGj8HrYjLwtbpOj47vEbTqmm9DX0L-4oq99Pur62lsgXfYfE8myXczrsGFbqbnZEr-L8zbcDlVv17eWYJNadpAclks3WJiW8BcnuK0p6Z9Hj4yOkHhuS0HiWJmzdqTAd89veLtrf3sBg0LhJ65SPsgyM6eN7RXUhA~tplpzvXPN0Q-txAiR0TLgh3IGOwNHktSa8~5-fwXG5kiNPZ8ti~PdJh8n1dBo4yBLIpD17-B8qFJ3jpyIcrRLnGoHeM5kmiQuFMqFOn--P65UeQ35R4rVMg4xtv72IjATWhPtzbNkyopZpDWXW5Z7HK4EGLDQPBw__",
+                image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/dMCAJeYRVKlvSJwN.png",
                 highlights: [
                   "Especialista em Catarata e Retina Cirúrgica",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -393,7 +393,7 @@ export default function Home() {
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173",
-                image: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/boBu2YFUIpC4Mg45ztPnz5-img-2_1772146534000_na1fn_ZHJhLXByaXNjaWxsYS1wcm9maXNzaW9uYWw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2JvQnUyWUZVSXBDNE1nNDV6dFBuejUtaW1nLTJfMTc3MjE0NjUzNDAwMF9uYTFmbl9aSEpoTFhCeWFYTmphV3hzWVMxd2NtOW1hWE56YVc5dVlXdy5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=sLdVbwJoM8uWB36HdP~GzuqJc0Cfz0tNDZWIOSm2MMIYcxLkVHJ-PT9ALNnHJ5SprjqdMMQAWA1td0Vssc~rXJRLbKUyDTfuHxca2QTVLSctaN3udSYwCbgOSd~xB5LiLSa2xocs~uQo66EV75qEtB9cDYeYFDGT63jWqpS~GfO8nQdHKFDrnBYLiWxSEZ3Spl~o0tcZrriPVM85GHzZbitsrCNjEeTHQetSv4-3XehcBzQn8YEW2Ojh-oyB~YmwTuoyr~oQKcngOdtQQfAUpQVrIKDuBRxYCYxVmUMJ22~qdovt3yOlyT1DSrNALoUrAAqZhT3a7aRxuHRx4BxcBw__",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
