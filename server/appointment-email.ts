@@ -139,7 +139,7 @@ export async function sendPatientConfirmation(data: AppointmentEmailData): Promi
           <tr>
             <td style="background:#f8f9fa;padding:20px 40px;text-align:center;border-top:1px solid #eee;">
               <p style="margin:0 0 4px 0;font-size:12px;color:#999;">Drudi e Almeida Clínicas Oftalmológicas</p>
-              <p style="margin:0;font-size:12px;color:#bbb;">Tel: (11) 5026-8521 | WhatsApp: (11) 91654-4653</p>
+              <p style="margin:0;font-size:12px;color:#bbb;">Tel: (11) 5430-2421 | WhatsApp: (11) 91654-4653</p>
             </td>
           </tr>
         </table>

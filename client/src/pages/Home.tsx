@@ -165,7 +165,7 @@ export default function Home() {
                 Agendar Online
               </Link>
               <a
-                href="tel:+551150268521"
+                href="tel:+551154302421"
                 className="inline-flex items-center gap-2 border border-cream/20 text-cream/70 font-ui text-sm font-medium px-5 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
               >
                 Ligar Agora

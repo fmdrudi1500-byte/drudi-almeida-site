@@ -337,7 +337,7 @@ export default function MobileCTABar() {
 
             {/* Ligar */}
             <a
-              href="tel:+551150268521"
+              href="tel:+551154302421"
               className="sticky-btn-call"
               title="Ligar para a clínica"
             >

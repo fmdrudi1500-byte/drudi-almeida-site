@@ -9,7 +9,7 @@
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone, Moon, Sun, MessageSquare, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
@@ -160,9 +160,9 @@ export default function Header() {
             )}
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+551150268521" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href="tel:+551154302421" className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3 h-3" />
-              (11) 5026-8521
+              (11) 5430-2421
             </a>
             <span className="text-cream/40">|</span>
             <a href="https://wa.me/5511916544653" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-gold transition-colors">
@@ -318,29 +318,29 @@ export default function Header() {
               className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
               aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {theme === "dark" ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Sun className="w-4 h-4" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Moon className="w-4 h-4" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <motion.div
+                key={theme}
+                initial={{ rotate: -30, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 30, opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.25 }}
+              >
+                {/* Contrast / half-circle icon */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" stroke="none" />
+                </svg>
+              </motion.div>
             </button>
 
             <Link

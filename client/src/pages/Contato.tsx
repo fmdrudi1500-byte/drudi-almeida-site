@@ -73,7 +73,7 @@ export default function Contato() {
     <>
       <SEOHead
         title="Contato — Fale Conosco"
-        description="Entre em contato com a Drudi e Almeida Oftalmologia. Telefone: (11) 5026-8521. WhatsApp: (11) 91654-4653. 5 unidades em SP e Guarulhos."
+        description="Entre em contato com a Drudi e Almeida Oftalmologia. Telefone: (11) 5430-2421. WhatsApp: (11) 91654-4653. 5 unidades em SP e Guarulhos."
         keywords="contato Drudi e Almeida, telefone clínica oftalmológica, WhatsApp oftalmologista, endereço clínica olhos SP"
         canonicalPath="/contato"
       />

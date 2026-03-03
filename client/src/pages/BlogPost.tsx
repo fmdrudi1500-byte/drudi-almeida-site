@@ -416,8 +416,8 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                 <a href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-5 py-3 rounded-lg hover:bg-gold/90 transition-colors w-full">
                   Agendar pelo WhatsApp
                 </a>
-                <a href="tel:+551150268521" className="flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-cream/10 transition-colors w-full mt-2">
-                  Ligar: (11) 5026-8521
+                <a href="tel:+551154302421" className="flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-cream/10 transition-colors w-full mt-2">
+                  Ligar: (11) 5430-2421
                 </a>
               </div>
               <Link href="/blog">
