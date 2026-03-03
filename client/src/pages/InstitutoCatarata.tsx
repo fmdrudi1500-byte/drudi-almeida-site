@@ -255,6 +255,8 @@ export default function InstitutoCatarata() {
         description="Cirurgia de catarata com facoemulsificação e lentes premium em SP. Especialistas renomados, 5 unidades em São Paulo e Guarulhos. Agende sua avaliação."
         keywords="cirurgia de catarata SP, catarata tratamento, facoemulsificação, lente intraocular, oftalmologista catarata São Paulo, preço cirurgia catarata"
         canonicalPath="/instituto/catarata"
+        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png"
+        ogType="website"
       />
       <InstitutoSchema instituto="catarata" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
@@ -494,7 +496,7 @@ export default function InstitutoCatarata() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

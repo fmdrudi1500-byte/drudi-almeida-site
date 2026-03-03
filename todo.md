@@ -150,5 +150,5 @@
 - [x] Substituir contato@drudiealmeida.com.br por contato@drudiealmeida.com em todo o site
 
 ## Fase 26: Performance e redes sociais
-- [ ] Adicionar loading="lazy" nas imagens das páginas de instituto e componentes
-- [ ] Implementar Open Graph e Twitter Card com imagem específica por página no SEOHead
+- [x] Adicionar loading="lazy" nas imagens das páginas de instituto e componentes
+- [x] Implementar Open Graph e Twitter Card com imagem específica por página no SEOHead
