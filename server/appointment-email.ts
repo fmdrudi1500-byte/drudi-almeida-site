@@ -36,6 +36,14 @@ function formatHour(hour: number): string {
   return `${String(hour).padStart(2, "0")}h00`;
 }
 
+const UNIT_ADDRESSES: Record<string, string> = {
+  Santana: "Rua Dr. César, 130 — Santana, São Paulo",
+  Guarulhos: "Rua Sete de Setembro, 375 — Centro, Guarulhos",
+  "Tatuápé": "Rua Tuiuti, 2429 — Tatuápé, São Paulo",
+  "São Miguel": "Rua Bernardo Marcondes, 108 — São Miguel Paulista, São Paulo",
+  Lapa: "Rua Barão de Jundiaí, 221 — Lapa, São Paulo",
+};
+
 interface AppointmentEmailData {
   patientName: string;
   patientEmail?: string | null;
@@ -97,6 +105,10 @@ export async function sendPatientConfirmation(data: AppointmentEmailData): Promi
                       <tr>
                         <td style="padding:4px 0;font-size:14px;color:#888;width:120px;">📍 Unidade</td>
                         <td style="padding:4px 0;font-size:14px;color:#2c3e50;font-weight:600;">Unidade ${data.unit}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:4px 0;font-size:14px;color:#888;width:120px;">📌 Endereço</td>
+                        <td style="padding:4px 0;font-size:14px;color:#2c3e50;">${UNIT_ADDRESSES[data.unit] ?? 'Consulte o site para o endereço'}</td>
                       </tr>
                       <tr>
                         <td style="padding:4px 0;font-size:14px;color:#888;">📅 Data</td>

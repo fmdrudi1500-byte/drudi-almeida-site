@@ -19,11 +19,11 @@ const UNITS = ["Santana", "Guarulhos", "Tatuapé", "São Miguel", "Lapa"] as con
 type Unit = (typeof UNITS)[number];
 
 const UNIT_ADDRESSES: Record<Unit, string> = {
-  Santana: "Av. Braz Leme, 1000 — Santana, São Paulo",
-  Guarulhos: "Av. Salgado Filho, 500 — Centro, Guarulhos",
-  Tatuapé: "R. Serra de Juréa, 200 — Tatuapé, São Paulo",
-  "São Miguel": "Av. Marechal Tito, 3500 — São Miguel Paulista, São Paulo",
-  Lapa: "R. Guaicurus, 1200 — Lapa, São Paulo",
+  Santana: "Rua Dr. César, 130 — Santana, São Paulo",
+  Guarulhos: "Rua Sete de Setembro, 375 — Centro, Guarulhos",
+  Tatuapé: "Rua Tuiuti, 2429 — Tatuápé, São Paulo",
+  "São Miguel": "Rua Bernardo Marcondes, 108 — São Miguel Paulista, São Paulo",
+  Lapa: "Rua Barão de Jundiaí, 221 — Lapa, São Paulo",
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

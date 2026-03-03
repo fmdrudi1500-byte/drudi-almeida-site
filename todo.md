@@ -138,3 +138,7 @@
 
 ## Fase 22: Correção do menu mobile
 - [x] Remover duplicação de itens no menu mobile (links principais + âncoras "Ir para seção" separados)
+
+## Fase 23: Correção de endereços e e-mail de agendamento
+- [x] Corrigir endereços das unidades na página de agendamento (igualar à home)
+- [x] Atualizar destinatário do e-mail de agendamento para contato@drudiealmeida.com.br (já estava correto)
