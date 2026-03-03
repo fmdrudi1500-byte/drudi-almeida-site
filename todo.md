@@ -145,3 +145,6 @@
 
 ## Fase 24: Acessibilidade — atributos alt descritivos
 - [x] Auditar e corrigir todos os atributos alt genéricos em imagens do site
+
+## Fase 25: Correção do e-mail de contato
+- [x] Substituir contato@drudiealmeida.com.br por contato@drudiealmeida.com em todo o site

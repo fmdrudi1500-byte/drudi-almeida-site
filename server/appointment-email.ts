@@ -2,7 +2,7 @@
  * appointment-email.ts
  * Sends transactional emails for the scheduling system via Resend.
  * - Patient: warm confirmation that team will contact them
- * - Clinic:  internal notification to contato@drudiealmeida.com.br
+ * - Clinic:  internal notification to contato@drudiealmeida.com
  */
 
 import { Resend } from "resend";
@@ -12,7 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Sender address — must be a verified domain in Resend.
 // While the domain is not verified, Resend allows sending from onboarding@resend.dev (test only).
 const FROM_ADDRESS = "Drudi e Almeida <onboarding@resend.dev>";
-const CLINIC_EMAIL = "contato@drudiealmeida.com.br";
+const CLINIC_EMAIL = "contato@drudiealmeida.com";
 
 const WEEKDAY_NAMES: Record<number, string> = {
   0: "domingo",
