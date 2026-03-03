@@ -4,7 +4,7 @@
    Design: Neoclassical Medical Luminance
    ============================================================ */
 import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
@@ -100,7 +100,7 @@ export default function Contato() {
             {/* Unit Cards */}
             <div className="space-y-3">
               {unidades.map((unit, i) => (
-                <AnimateOnScroll key={unit.name} delay={i * 0.05}>
+                <StaggerItem key={unit.name}>
                   <button
                     onClick={() => setActiveUnit(i)}
                     className={`w-full text-left p-5 rounded-xl border transition-all duration-300 ${
@@ -145,7 +145,7 @@ export default function Contato() {
                       </a>
                     </div>
                   </button>
-                </AnimateOnScroll>
+                </StaggerItem>
               ))}
             </div>
 

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import {
   Search,
   Clock,
@@ -242,7 +242,7 @@ export default function BlogListing() {
               {/* Regular posts grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularPosts.map((post, i) => (
-                  <AnimateOnScroll key={post.id} delay={i * 0.06}>
+                  <StaggerItem key={post.id}>
                     <Link href={`/blog/${post.slug}`} className="group block h-full">
                       <article className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                         {/* Cover */}
@@ -318,7 +318,7 @@ export default function BlogListing() {
                         </div>
                       </article>
                     </Link>
-                  </AnimateOnScroll>
+                  </StaggerItem>
                 ))}
               </div>
 

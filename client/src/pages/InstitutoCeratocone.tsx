@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -284,7 +284,8 @@ export default function InstitutoCeratocone() {
                 { n: "3", title: "Avaliação completa", desc: "Realizamos exames de Pentacam, topografia e OPD para diagnóstico preciso." },
                 { n: "4", title: "Plano de tratamento", desc: "Definimos o melhor tratamento: crosslinking, lentes especiais, anel ou transplante." },
               ].map((step, i) => (
-                <AnimateOnScroll key={i} delay={i * 0.1}>
+                <StaggerItem key={i}>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                   <div className="flex gap-4 items-start">
                     <div className="w-10 h-10 rounded-full bg-gold text-navy font-display text-lg font-bold flex items-center justify-center shrink-0">
                       {step.n}
@@ -294,7 +295,8 @@ export default function InstitutoCeratocone() {
                       <p className="font-body text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
-                </AnimateOnScroll>
+                  </motion.div>
+                </StaggerItem>
               ))}
 
               <AnimateOnScroll delay={0.4}>
@@ -417,7 +419,8 @@ export default function InstitutoCeratocone() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {exames.map((ex, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm border border-cream/10 rounded-xl p-6 hover:border-gold/30 transition-all h-full">
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-lg bg-gold/15 flex items-center justify-center shrink-0">
@@ -429,7 +432,8 @@ export default function InstitutoCeratocone() {
                     </div>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
 
@@ -898,7 +902,8 @@ export default function InstitutoCeratocone() {
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -907,7 +912,8 @@ export default function InstitutoCeratocone() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>

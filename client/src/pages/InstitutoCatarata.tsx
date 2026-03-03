@@ -12,7 +12,7 @@ import {
   Star, MapPin, Users, Stethoscope, CircleDot, Calendar
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import AudioPlayer from "@/components/AudioPlayer";
 import { IMAGES } from "@/lib/images";
@@ -411,7 +411,8 @@ export default function InstitutoCatarata() {
 
               <div className="space-y-6">
                 {comoFunciona.map((item) => (
-                  <AnimateOnScroll key={item.step} delay={item.step * 0.1}>
+                  <StaggerItem key={item.step}>
+                    <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                     <div className="flex gap-4">
                       <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center shrink-0 font-display text-sm font-bold">
                         {item.step}
@@ -421,7 +422,8 @@ export default function InstitutoCatarata() {
                         <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                       </div>
                     </div>
-                  </AnimateOnScroll>
+                    </motion.div>
+                  </StaggerItem>
                 ))}
               </div>
 
@@ -487,7 +489,8 @@ export default function InstitutoCatarata() {
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png",
               },
             ].map((clinica, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.15}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -496,7 +499,8 @@ export default function InstitutoCatarata() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -603,7 +607,8 @@ export default function InstitutoCatarata() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {etapasCirurgia.map((etapa) => (
-              <AnimateOnScroll key={etapa.step} delay={etapa.step * 0.1}>
+              <StaggerItem key={etapa.step}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-slate-50 rounded-2xl p-6 border border-border/40 h-full">
                   <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-display text-sm font-bold mb-4">
                     {etapa.step}
@@ -611,7 +616,8 @@ export default function InstitutoCatarata() {
                   <h3 className="font-display text-base text-navy mb-2">{etapa.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{etapa.description}</p>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -647,7 +653,8 @@ export default function InstitutoCatarata() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {sintomasPos.map((sintoma, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.08}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className={`rounded-2xl p-6 border ${sintoma.color} h-full`}>
                   <h3 className="font-display text-base text-navy mb-3">{sintoma.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{sintoma.description}</p>
@@ -657,7 +664,8 @@ export default function InstitutoCatarata() {
                     </p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -837,12 +845,14 @@ export default function InstitutoCatarata() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {riscos.map((risco, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className={`rounded-2xl p-6 border ${risco.color} h-full`}>
                   <h3 className="font-display text-base text-navy mb-3">{risco.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{risco.description}</p>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
 
@@ -910,11 +920,13 @@ export default function InstitutoCatarata() {
 
             <div className="space-y-4">
               {cuidados.map((cuidado, i) => (
-                <AnimateOnScroll key={i} delay={i * 0.1}>
+                <StaggerItem key={i}>
+                  <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                   <div className={`rounded-xl p-5 border ${cuidado.color}`}>
                     <p className="font-body text-sm text-navy/80 leading-relaxed">{cuidado.text}</p>
                   </div>
-                </AnimateOnScroll>
+                  </motion.div>
+                </StaggerItem>
               ))}
             </div>
           </div>

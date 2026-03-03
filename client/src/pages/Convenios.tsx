@@ -4,7 +4,7 @@
    Design: Neoclassical Medical Luminance
    ============================================================ */
 import { CheckCircle, Phone, MessageCircle, Shield, Heart, Users } from "lucide-react";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
@@ -123,7 +123,7 @@ export default function Convenios() {
         <div className="container">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {convenios.map((conv, i) => (
-              <AnimateOnScroll key={conv.name} delay={i * 0.07}>
+              <StaggerItem key={conv.name}>
                 <div className="group relative bg-white rounded-xl border border-border/60 p-6 h-full hover:shadow-lg hover:border-gold/30 transition-all duration-300 overflow-hidden">
                   {/* Accent top bar */}
                   <div
@@ -172,7 +172,7 @@ export default function Convenios() {
                     ))}
                   </div>
                 </div>
-              </AnimateOnScroll>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function Convenios() {
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {beneficios.map((b, i) => (
-              <AnimateOnScroll key={b.title} delay={i * 0.1}>
+              <StaggerItem key={b.title}>
                 <div className="text-center p-6">
                   <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                     <b.icon className="w-6 h-6 text-gold" />
@@ -197,7 +197,7 @@ export default function Convenios() {
                   <h3 className="font-display text-lg text-navy mb-2">{b.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
-              </AnimateOnScroll>
+              </StaggerItem>
             ))}
           </div>
         </div>

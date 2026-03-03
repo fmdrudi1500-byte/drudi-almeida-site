@@ -5,7 +5,7 @@
    ============================================================ */
 import { Link } from "wouter";
 import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe } from "lucide-react";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -135,7 +135,7 @@ export default function SobreNos() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-              <AnimateOnScroll key={v.title} delay={i * 0.1}>
+              <StaggerItem key={v.title}>
                 <div className="bg-white rounded-xl border border-border/60 p-6 h-full text-center hover:shadow-md transition-shadow">
                   <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
                     <v.icon className="w-5 h-5 text-gold" />
@@ -143,7 +143,7 @@ export default function SobreNos() {
                   <h3 className="font-display text-lg text-navy mb-2">{v.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
                 </div>
-              </AnimateOnScroll>
+              </StaggerItem>
             ))}
           </div>
         </div>

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -277,7 +277,8 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {tiposEstrabismo.map((t, i) => (
-              <AnimateOnScroll key={t.title} delay={i * 0.08} className={i >= 3 ? "lg:col-span-1" : ""}>
+              <StaggerItem key={t.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center shrink-0">
@@ -289,7 +290,8 @@ export default function InstitutoEstrabismo() {
                   <p className="font-ui text-xs text-gold mb-2">{t.subtitle}</p>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed flex-1">{t.desc}</p>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -377,13 +379,15 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {exames.map((e, i) => (
-              <AnimateOnScroll key={e.title} delay={i * 0.06}>
+              <StaggerItem key={e.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-cream/10 hover:border-gold/30 transition-all h-full">
                   <e.icon className="w-5 h-5 text-gold mb-3" />
                   <h4 className="font-display text-base text-cream mb-2">{e.title}</h4>
                   <p className="font-body text-sm text-cream/60 leading-relaxed">{e.desc}</p>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -400,7 +404,8 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <div className="space-y-6 max-w-4xl mx-auto">
             {tratamentos.map((t, i) => (
-              <AnimateOnScroll key={t.title} delay={i * 0.1}>
+              <StaggerItem key={t.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all p-6">
                   <div className="flex items-start gap-5">
                     <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
@@ -418,7 +423,8 @@ export default function InstitutoEstrabismo() {
                     </div>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -434,7 +440,8 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {etapasCirurgia.map((e, i) => (
-              <AnimateOnScroll key={e.step} delay={i * 0.1}>
+              <StaggerItem key={e.step}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 text-center h-full relative">
                   <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center mx-auto mb-4">
                     <span className="font-display text-lg text-gold font-bold">{e.step}</span>
@@ -443,7 +450,8 @@ export default function InstitutoEstrabismo() {
                   <p className="font-body text-xs text-muted-foreground leading-relaxed">{e.desc}</p>
                   {i < 3 && <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gold z-10" />}
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
           {/* Técnicas Cirúrgicas */}
@@ -595,7 +603,8 @@ export default function InstitutoEstrabismo() {
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -604,7 +613,8 @@ export default function InstitutoEstrabismo() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>

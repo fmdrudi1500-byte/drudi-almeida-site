@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -325,7 +325,8 @@ export default function InstitutoRetina() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {doencas.map((d, i) => (
-              <AnimateOnScroll key={d.title} delay={i * 0.08}>
+              <StaggerItem key={d.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
@@ -339,7 +340,8 @@ export default function InstitutoRetina() {
                     <p className="font-body text-xs text-navy/70 font-medium">{d.detail}</p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -410,13 +412,15 @@ export default function InstitutoRetina() {
           {/* Outros exames */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {examesDiagnosticos.slice(1).map((exame, i) => (
-              <AnimateOnScroll key={exame.title} delay={i * 0.05}>
+              <StaggerItem key={exame.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-cream/10 hover:border-gold/30 transition-all h-full">
                   <exame.icon className="w-5 h-5 text-gold mb-3" />
                   <h4 className="font-display text-sm text-cream mb-2">{exame.title}</h4>
                   <p className="font-body text-xs text-cream/60 leading-relaxed">{exame.desc}</p>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -433,7 +437,8 @@ export default function InstitutoRetina() {
           </AnimateOnScroll>
           <div className="space-y-8 max-w-5xl mx-auto">
             {tratamentos.map((t, i) => (
-              <AnimateOnScroll key={t.title} delay={i * 0.1}>
+              <StaggerItem key={t.title}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all overflow-hidden">
                   <div className={`grid grid-cols-1 ${t.hasImg ? "md:grid-cols-5" : ""} gap-0`}>
                     {t.hasImg && <img src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" />}
@@ -453,7 +458,8 @@ export default function InstitutoRetina() {
                     </div>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>
@@ -521,7 +527,8 @@ export default function InstitutoRetina() {
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
+              <StaggerItem key={i}>
+                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -530,7 +537,8 @@ export default function InstitutoRetina() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-              </AnimateOnScroll>
+                </motion.div>
+              </StaggerItem>
             ))}
           </div>
         </div>

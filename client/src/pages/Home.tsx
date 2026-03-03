@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
 import { useRef, useEffect, useCallback, useState, useMemo } from "react";
@@ -230,31 +230,38 @@ export default function Home() {
             <div className="gold-line max-w-[80px] mx-auto mt-6" />
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {institutos.map((inst, i) => (
-              <AnimateOnScroll key={inst.href} delay={i * 0.08}>
-                <Link href={inst.href} className="group block">
-                  <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-lg hover:border-gold/30 transition-all duration-300`}>
-                    <img
-                      src={inst.logo}
-                      alt={inst.name}
-                      className="w-16 h-16 object-contain mb-4 rounded-lg"
-                    />
-                    <h3 className="font-display text-xl text-navy mb-2 group-hover:text-gold transition-colors">
-                      {inst.name}
-                    </h3>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
-                      {inst.desc}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 font-ui text-xs font-semibold text-navy group-hover:text-gold transition-colors">
-                      Saiba mais
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </Link>
-              </AnimateOnScroll>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1} initialDelay={0.1}>
+            {institutos.map((inst) => (
+              <StaggerItem key={inst.href}>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="h-full"
+                >
+                  <Link href={inst.href} className="group block h-full">
+                    <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-xl hover:border-gold/40 transition-shadow duration-300`}>
+                      <img
+                        src={inst.logo}
+                        alt={inst.name}
+                        className="w-16 h-16 object-contain mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <h3 className="font-display text-xl text-navy mb-2 group-hover:text-gold transition-colors">
+                        {inst.name}
+                      </h3>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
+                        {inst.desc}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 font-ui text-xs font-semibold text-navy group-hover:text-gold transition-colors">
+                        Saiba mais
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

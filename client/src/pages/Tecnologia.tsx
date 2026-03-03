@@ -5,7 +5,7 @@
    ============================================================ */
 import { useState } from "react";
 import { ArrowRight, Search, Filter, Eye, Scan, Crosshair, Activity, Microscope, Waves, Target, Camera, Zap, Radio, CircleDot, Wind } from "lucide-react";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -286,7 +286,7 @@ export default function Tecnologia() {
           {/* Equipment Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((eq, i) => (
-              <AnimateOnScroll key={eq.name + eq.fullName} delay={i * 0.05}>
+              <StaggerItem key={eq.name + eq.fullName}>
                 <div className="group bg-white dark:bg-card rounded-xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   {/* Image */}
                   <div className="relative h-52 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-navy/20 dark:to-navy/40 overflow-hidden flex items-center justify-center p-4">
@@ -338,7 +338,7 @@ export default function Tecnologia() {
                     </div>
                   </div>
                 </div>
-              </AnimateOnScroll>
+              </StaggerItem>
             ))}
           </div>
 
