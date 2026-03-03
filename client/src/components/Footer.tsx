@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="bg-white/95 rounded-lg p-2 inline-block mb-5">
               <img
                 src={LOGO_URL}
-                alt="Drudi e Almeida"
+                alt="Logotipo Drudi e Almeida Clínicas Oftalmológicas — olho em azul marinho e dourado"
                 className="h-14 w-auto object-contain"
               />
             </div>

@@ -142,3 +142,6 @@
 ## Fase 23: Correção de endereços e e-mail de agendamento
 - [x] Corrigir endereços das unidades na página de agendamento (igualar à home)
 - [x] Atualizar destinatário do e-mail de agendamento para contato@drudiealmeida.com.br (já estava correto)
+
+## Fase 24: Acessibilidade — atributos alt descritivos
+- [x] Auditar e corrigir todos os atributos alt genéricos em imagens do site

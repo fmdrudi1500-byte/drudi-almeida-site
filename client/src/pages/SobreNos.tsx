@@ -175,7 +175,7 @@ export default function SobreNos() {
                       <div className="relative overflow-hidden rounded-xl shadow-lg">
                         <img
                           src={doc.image}
-                          alt={doc.name}
+                          alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
                           className="w-full aspect-[3/4] object-cover object-top"
                         />
                         {/* Overlay gradient */}

@@ -229,7 +229,7 @@ export default function Blog() {
                     <div className="aspect-[16/10] lg:aspect-auto overflow-hidden">
                       <img
                         src={filtered[0].image}
-                        alt={filtered[0].title}
+                        alt={`${filtered[0].title} — artigo em destaque no blog Drudi e Almeida`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

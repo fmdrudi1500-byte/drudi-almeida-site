@@ -49,7 +49,7 @@ export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, l
             >
               <img
                 src={logoUrl}
-                alt={title}
+                alt={`Logotipo ${title} — Drudi e Almeida Clínicas Oftalmológicas`}
                 className="w-24 h-24 lg:w-28 lg:h-28 object-contain rounded-xl bg-white/10 backdrop-blur-sm p-2 border border-cream/10"
               />
             </motion.div>

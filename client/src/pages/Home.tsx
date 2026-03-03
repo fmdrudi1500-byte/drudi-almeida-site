@@ -421,7 +421,7 @@ export default function Home() {
                   <div className="relative h-80 overflow-hidden">
                     <img
                       src={doc.image}
-                      alt={doc.name}
+                      alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />

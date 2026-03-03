@@ -261,7 +261,7 @@ export default function Header() {
                                 >
                                   <img
                                     src={inst.logo}
-                                    alt={inst.name}
+                                    alt={`Logotipo ${inst.name} — Drudi e Almeida`}
                                     className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
                                   />
                                   <div className="min-w-0">
@@ -397,7 +397,7 @@ export default function Header() {
                               href={inst.href}
                               className="flex items-center gap-3 pl-6 pr-3 py-2.5 hover:bg-muted/50 rounded-md transition-colors"
                             >
-                              <img src={inst.logo} alt={inst.name} className="w-8 h-8 object-contain rounded" />
+                              <img src={inst.logo} alt={`Logotipo ${inst.name} — Drudi e Almeida`} className="w-8 h-8 object-contain rounded" />
                               <div>
                                 <p className="font-ui text-sm text-foreground">{inst.name}</p>
                                 <p className="font-body text-xs text-muted-foreground line-clamp-1">{inst.desc}</p>
