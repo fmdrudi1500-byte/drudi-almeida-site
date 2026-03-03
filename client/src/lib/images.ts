@@ -38,7 +38,7 @@ export const IMAGES = {
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {
     drFernando: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/dMCAJeYRVKlvSJwN.png",
-    draPriscilla: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/PwPgfiBCkPSOGMHx.png",
+    draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
     draMariaAmelia: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/nNfvXsUoQXCkKIBI.png",
   },
   // Unsplash images for less prominent sections

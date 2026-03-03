@@ -43,17 +43,19 @@ Co-fundador da Drudi e Almeida Oftalmologia, lidera a clínica com a missão de 
     specialty: "Especialista em Segmento Anterior e Lentes de Contato",
     image: IMAGES.doctors.draPriscilla,
     institutes: ["Instituto do Ceratocone"],
-    bio: `Construiu sua trajetória na oftalmologia a partir de uma formação sólida e vivência intensa em ambientes de alta complexidade. Formou-se em Medicina e realizou Residência em Oftalmologia pelo Hospital do Servidor Público do Estado de São Paulo (HSPE), onde atuou ativamente em atendimentos clínicos e cirúrgicos, realizando centenas de cirurgias de catarata e procedimentos para glaucoma.
+    bio: `Construiu sua trajetória na oftalmologia a partir de uma formação sólida e vivência intensa em ambientes de alta complexidade. Formou-se em Medicina e realizou Residência em Oftalmologia pelo Hospital do Servidor Público do Estado de São Paulo (HSPE), onde atuou ativamente em atendimentos clínicos e cirúrgicos, realizando centenas de cirurgias de catarata.
 
 Após a residência, aprofundou seus conhecimentos com Fellowship em Doenças Oculares Externas e Córnea Cirúrgica pela Escola Paulista de Medicina (EPM/UNIFESP), referência nacional em ensino e pesquisa, com atuação em cirurgias de córnea, acompanhamento de transplantes penetrantes e lamelares e manejo de doenças da superfície ocular.
 
 Mantém participação constante em congressos nacionais e internacionais, cursos de atualização e produção científica, reforçando o compromisso com uma medicina baseada em evidência, técnica e segurança.`,
     highlights: [
       { icon: GraduationCap, text: "Fellowship em Córnea — EPM/UNIFESP" },
-      { icon: Stethoscope, text: "Centenas de cirurgias de catarata e glaucoma" },
+      { icon: Stethoscope, text: "Centenas de cirurgias de córnea." },
       { icon: Globe, text: "Congressos nacionais e internacionais" },
     ],
   },
+  // Dra. Maria Amélia removida — apenas fundadores
+  /*
   {
     name: "Dra. Maria Amélia Valladares de Melo",
     crm: "CRM-SP 199.188 | RQE 102.980",
@@ -72,6 +74,7 @@ A Dra. Maria Amélia é reconhecida por sua abordagem acolhedora com pacientes p
       { icon: Heart, text: "Atendimento pediátrico humanizado" },
     ],
   },
+  */
 ];
 
 export default function SobreNos() {
