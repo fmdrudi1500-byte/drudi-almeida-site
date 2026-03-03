@@ -8,7 +8,7 @@ import { Menu, X, ChevronDown, Phone, Moon, Sun, MessageSquare } from "lucide-re
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png";
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png";
 
 const institutos = [
   { name: "Instituto da Catarata", href: "/instituto/catarata" },

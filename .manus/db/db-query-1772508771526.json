@@ -1,0 +1,37 @@
+{
+  "query": "SELECT id, name FROM blog_categories; SELECT id, title, status, categoryId FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, name FROM blog_categories; SELECT id, title, status, categoryId FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Catarata"
+    },
+    {
+      "id": "30001",
+      "name": "Ceratocone"
+    },
+    {
+      "id": "30002",
+      "name": "Glaucoma"
+    },
+    {
+      "id": "30003",
+      "name": "Retina"
+    },
+    {
+      "id": "30004",
+      "name": "Estrabismo"
+    }
+  ],
+  "messages": [
+    "id\ttitle\tstatus\tcategoryId",
+    "1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tpublished\t1",
+    "30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tpublished\t30001",
+    "30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tpublished\t30002",
+    "30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tpublished\t30003",
+    "30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tpublished\t30004"
+  ],
+  "stdout": "id\tname\n1\tCatarata\n30001\tCeratocone\n30002\tGlaucoma\n30003\tRetina\n30004\tEstrabismo\nid\ttitle\tstatus\tcategoryId\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tpublished\t1\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tpublished\t30001\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tpublished\t30002\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tpublished\t30003\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tpublished\t30004\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

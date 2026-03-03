@@ -5,13 +5,13 @@
 
 export const IMAGES = {
   logo: {
-    horizontal: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png",
-    circular: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/RWurHUWujtEFRSAi.png",
+    horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png",
+    circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png",
   },
   hero: {
-    main: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/BEHovkSnxAUjKJEd.jpg",
+    main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/BEHovkSnxAUjKJEd_f1f1f1f1.jpg",
     eyeAbstract: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-2_1772069118000_na1fn_aGVyby1leWUtYWJzdHJhY3Q.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTJfMTc3MjA2OTExODAwMF9uYTFmbl9hR1Z5YnkxbGVXVXRZV0p6ZEhKaFkzUS5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=oi9AEzBPOuznaJ~iTZ3m7mXciZh7SCDl8gzsVJr8YMYiatIGrhMCOc8~fXu3gVGoPr2SWrTtSin6jvIFIwQaZf0mqsVcZB8~8kKmvBjWYcm8c6cyAXwVxG7~zqf6ElhHjsxQR0R~6dN-FC3kj5-29qIadX8bKMpf~Zoi58shDZF7QuzZK0Aoe3L70MZ5JKK~ZaypCPFbj4iAl3JVMgBOsTIi~967kQKUeXVOeVUO~UnygwG1S0GqwjhZaraP-7AIBj8xI0aF8JbmdAEiQK4nfF8J1jy0DbNL7MyVUK2h5rgia5kgwTO~ICnzMN8RfnoLTuToV8T6-~TT-v4n262~aw__",
-    doctorConsultation: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/AChRUprKUpxeRdhT.jpg",
+    doctorConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/AChRUprKUpxeRdhT_2e6e6c5a.jpg",
     technology: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-4_1772069128000_na1fn_dGVjaG5vbG9neS1lcXVpcG1lbnQ.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTRfMTc3MjA2OTEyODAwMF9uYTFmbl9kR1ZqYUc1dmJHOW5lUzFsY1hWcGNHMWxiblEuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=gKIug21UAzgCtgvavCIwfjCo3cSfkMo32yTG1~FFQwzx0TRR87P1vOc8rda2~ypPuA9yc64vH2LBGPH8JA6ZcBw2ept8-djLKTFLAWZkNumXh~bDPjEge8~s43y1pRym-a889Dt10-3jDZU4v7R1RBm51Fv6RVT3IFMB4tdXnKuF~0L5~gsCW8Cab1y8wF8TNRe6239kgNLx4QXLWdrWkvN4Pd9ShnulQSyIW3TvvJOOlORPqVtuE0-kRl6uMMVgOu10DYodSjoUb4kICLxyigOsyrd9MsFCmhdIIryM6XhWDzcOJo-9q5MG20BN2L6RaBPAVqVaBSErUJAaIf3gsw__",
     happyFamily: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-5_1772069128000_na1fn_aGFwcHktZmFtaWx5LXZpc2lvbg.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTVfMTc3MjA2OTEyODAwMF9uYTFmbl9hR0Z3Y0hrdFptRnRhV3g1TFhacGMybHZiZy5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Sjpe1vUAy4gALhe36FEJzB3K~-NS4QYipOoT4Jmgi8~-KLEoVcVmtZDNszkEaNUAoOFGoRsmIOHF4W5iw7SdDH2XZfYMRrHj3yaqJ2kwrAaBNGSfqVa8fl8svZ897~YNvgmE4JnGZELkKPuBcV-igVZi5WuquBpMyZnMdMnpvfus4fYjuvlCbGuKgRCO5RMYympBzHK-yi7X-aKViOaFkOt3rhTm2h8pqrvKrVONvxl0DgHsJqnAM1sh22bLwHBiy0qJbXzQe-GuuB5oy~SYHAoXh1K0GSqB4NC2Z~sKPxD0NkdGfQ0kTTO9D5kAW2GyP9y7o8ThiU5~idySzUlLmg__",
   },
@@ -25,21 +25,21 @@ export const IMAGES = {
   },
   // Art & Vision — Famous paintings connected to eye conditions
   art: {
-    monetBeforeAfter: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/wbNddNYgwjrdnWbs.jpg",
-    monetJapaneseBridge: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/JOOmfherpxYDKbvj.png",
-    seuratGrandeJatte: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/oPEFYPdixVsjysRg.jpg",
-    degasDancers: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/WzCAlEOMPvceYawr.png",
-    elGrecoToledo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/CyllqkwfVkxboVaD.jpg",
-    daVinciStrabismus: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/tjFAKPBlHLVpdwvV.jpg",
-    rembrandtSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/EuPODdxSBIgDitkq.jpg",
-    vanGoghStarryNight: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/nuRRrdSXTUGgVztf.jpg",
-    vanGoghSelfPortrait: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/SaVZZRtMuqleSZBC.jpg",
+    monetBeforeAfter: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/wbNddNYgwjrdnWbs_d1badfa4.jpg",
+    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png",
+    seuratGrandeJatte: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oPEFYPdixVsjysRg_8467105c.jpg",
+    degasDancers: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WzCAlEOMPvceYawr_3290caaa.png",
+    elGrecoToledo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/CyllqkwfVkxboVaD_21b7d2dd.jpg",
+    daVinciStrabismus: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tjFAKPBlHLVpdwvV_b1164d80.jpg",
+    rembrandtSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/EuPODdxSBIgDitkq_19758687.jpg",
+    vanGoghStarryNight: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nuRRrdSXTUGgVztf_78be1262.jpg",
+    vanGoghSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/SaVZZRtMuqleSZBC_cb3eabb8.jpg",
   },
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {
-    drFernando: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/dMCAJeYRVKlvSJwN.png",
+    drFernando: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dMCAJeYRVKlvSJwN_1eac77ec.png",
     draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
-    draMariaAmelia: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/nNfvXsUoQXCkKIBI.png",
+    draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nNfvXsUoQXCkKIBI_f5ffd24c.png",
   },
   // Unsplash images for less prominent sections
   unsplash: {

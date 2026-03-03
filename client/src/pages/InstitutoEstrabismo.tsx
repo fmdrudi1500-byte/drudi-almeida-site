@@ -17,8 +17,8 @@ import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ibNQCeyYILJFGyuH.png";
-const IMG_TESTE_COBERTURA = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/IVfNepWlZgwuKTFO.png";
+const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ibNQCeyYILJFGyuH_5048fcfc.png";
+const IMG_TESTE_COBERTURA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/IVfNepWlZgwuKTFO_f146cd75.png";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de estrabismo.";

@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, name, color FROM blog_categories ORDER BY id LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, name, color FROM blog_categories ORDER BY id LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Catarata",
+      "color": "#2c3e50"
+    },
+    {
+      "id": "30001",
+      "name": "Ceratocone",
+      "color": "#27ae60"
+    },
+    {
+      "id": "30002",
+      "name": "Glaucoma",
+      "color": "#e67e22"
+    },
+    {
+      "id": "30003",
+      "name": "Retina",
+      "color": "#e74c3c"
+    },
+    {
+      "id": "30004",
+      "name": "Estrabismo",
+      "color": "#8e44ad"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcolor\n1\tCatarata\t#2c3e50\n30001\tCeratocone\t#27ae60\n30002\tGlaucoma\t#e67e22\n30003\tRetina\t#e74c3c\n30004\tEstrabismo\t#8e44ad\n",
+  "stderr": "",
+  "execution_time_ms": 61
+}

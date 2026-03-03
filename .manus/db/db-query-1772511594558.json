@@ -1,0 +1,38 @@
+{
+  "query": "SELECT id, name FROM users; SELECT id, name FROM blog_categories;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, name FROM users; SELECT id, name FROM blog_categories;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Fernando Drudi"
+    },
+    {
+      "id": "id",
+      "name": "name"
+    },
+    {
+      "id": "1",
+      "name": "Catarata"
+    },
+    {
+      "id": "30001",
+      "name": "Ceratocone"
+    },
+    {
+      "id": "30002",
+      "name": "Glaucoma"
+    },
+    {
+      "id": "30003",
+      "name": "Retina"
+    },
+    {
+      "id": "30004",
+      "name": "Estrabismo"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\n1\tFernando Drudi\nid\tname\n1\tCatarata\n30001\tCeratocone\n30002\tGlaucoma\n30003\tRetina\n30004\tEstrabismo\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

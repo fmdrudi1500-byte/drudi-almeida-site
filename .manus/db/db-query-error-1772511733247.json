@@ -1,0 +1,8 @@
+{
+  "query": "\nINSERT INTO blog_categories (name, slug, description, createdAt, updatedAt) \nVALUES ('Saúde Ocular', 'saude-ocular', 'Artigos gerais sobre saúde ocular e prevenção', NOW(), NOW());\n\nUPDATE blog_posts SET categoryId = LAST_INSERT_ID() \nWHERE slug IN ('visao-embacada-sinais-alerta-oftalmologista', 'miopia-criancas-sinais-precoces-tratamento');\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \nINSERT INTO blog_categories (name, slug, description, createdAt, updatedAt) \nVALUES ('Saúde Ocular', 'saude-ocular', 'Artigos gerais sobre saúde ocular e prevenção', NOW(), NOW());\n\nUPDATE blog_posts SET categoryId = LAST_INSERT_ID() \nWHERE slug IN ('visao-embacada-sinais-alerta-oftalmologista', 'miopia-criancas-sinais-precoces-tratamento');\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 2: Unknown column 'updatedAt' in 'field list'"
+  ]
+}

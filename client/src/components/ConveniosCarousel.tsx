@@ -14,15 +14,15 @@ const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ULBqqsZkuiKBoDrv.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ULBqqsZkuiKBoDrv_04ecb42e.png",
   },
   {
     nome: "Bradesco Saúde",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/iwnJMoCNnwopchUF.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/iwnJMoCNnwopchUF_08f309cc.png",
   },
   {
     nome: "Mediservice",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/rPLmRznRbIQEDeuV.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/rPLmRznRbIQEDeuV_45e989f6.png",
   },
   {
     nome: "Instituto Pró-PM",
@@ -30,15 +30,15 @@ const CONVENIOS = [
   },
   {
     nome: "Amil",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/vRtJJHZyrxFGQNnx.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/vRtJJHZyrxFGQNnx_dba083d5.png",
   },
   {
     nome: "Unimed Seguros",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/mvWRpZFYQZpqvVDK.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/mvWRpZFYQZpqvVDK_42ae30c0.png",
   },
   {
     nome: "Ameplam",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ZZpmIoRpTNvSnOWl.jpg",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZZpmIoRpTNvSnOWl_9e98cf1c.jpg",
   },
 ];
 

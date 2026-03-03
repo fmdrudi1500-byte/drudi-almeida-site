@@ -104,3 +104,9 @@
 ## Fase 16: Correções de SEO
 - [x] Reduzir meta description para até 160 caracteres com WhatsApp
 - [x] Ajustar palavras-chave para no máximo 10 (remover 3, adicionar 3 novas)
+
+## Fase 17: Melhorias Planejadas (Mar 2026)
+
+- [ ] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
+- [ ] Ativar sistema de agendamento online com e-mail de confirmação e painel admin
+- [ ] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular

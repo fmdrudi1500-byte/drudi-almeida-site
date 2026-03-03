@@ -16,9 +16,9 @@ import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/MozNCXrPhMWauJmt.png";
-const IMG_OCT_SCAN = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/iARxgYZkdHGrBNyp.png";
-const IMG_INJECAO = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/ZUJAJUjiWWSeRqav.png";
+const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png";
+const IMG_OCT_SCAN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/iARxgYZkdHGrBNyp_9c2fcedc.png";
+const IMG_INJECAO = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZUJAJUjiWWSeRqav_154af844.png";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de retina.";

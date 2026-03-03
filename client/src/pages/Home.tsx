@@ -380,7 +380,7 @@ export default function Home() {
                 role: "Diretor Clínico",
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
-                image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/dMCAJeYRVKlvSJwN.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dMCAJeYRVKlvSJwN_1eac77ec.png",
                 highlights: [
                   "Especialista em Catarata e Retina Cirúrgica",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",

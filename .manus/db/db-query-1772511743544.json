@@ -1,0 +1,9 @@
+{
+  "query": "\nINSERT INTO blog_categories (name, slug, description, createdAt) \nVALUES ('Saúde Ocular', 'saude-ocular', 'Artigos gerais sobre saúde ocular e prevenção', NOW());\n\nUPDATE blog_posts SET categoryId = LAST_INSERT_ID() \nWHERE slug IN ('visao-embacada-sinais-alerta-oftalmologista', 'miopia-criancas-sinais-precoces-tratamento');\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \nINSERT INTO blog_categories (name, slug, description, createdAt) \nVALUES ('Saúde Ocular', 'saude-ocular', 'Artigos gerais sobre saúde ocular e prevenção', NOW());\n\nUPDATE blog_posts SET categoryId = LAST_INSERT_ID() \nWHERE slug IN ('visao-embacada-sinais-alerta-oftalmologista', 'miopia-criancas-sinais-precoces-tratamento');\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 123
+}

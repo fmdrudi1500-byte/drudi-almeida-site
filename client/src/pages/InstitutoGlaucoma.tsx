@@ -17,9 +17,9 @@ import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/WDorIHhiaQuwCSEJ.png";
-const IMG_TONOMETRIA = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/oqEhfqRixPfOhYlT.png";
-const IMG_CAMPO_VISUAL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/strSUfQfDmkrvSxb.png";
+const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WDorIHhiaQuwCSEJ_604c573f.png";
+const IMG_TONOMETRIA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oqEhfqRixPfOhYlT_0585ea5d.png";
+const IMG_CAMPO_VISUAL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/strSUfQfDmkrvSxb_9a859176.png";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de glaucoma.";
