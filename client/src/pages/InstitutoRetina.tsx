@@ -83,27 +83,27 @@ const sintomasZigzag = [
   {
     title: "Moscas Volantes (Floaters)",
     desc: "Pequenos pontos, manchas ou filamentos que parecem flutuar no campo visual, especialmente visíveis contra fundos claros. O aparecimento súbito de muitas moscas volantes pode indicar descolamento de retina.",
-    img: "https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-moscas-volantes_8f11004c.png",
   },
   {
     title: "Flashes de Luz (Fotopsias)",
     desc: "Percepção de clarões ou relâmpagos de luz, especialmente na visão periférica. Ocorrem quando o vítreo traciona a retina. Flashes novos e frequentes são um sinal de alerta importante para descolamento de retina.",
-    img: "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-flashes-luz_725cfe78.png",
   },
   {
     title: "Cortina Escura na Visão",
     desc: "Sensação de uma sombra ou cortina que se move sobre o campo visual. Este é o sintoma clássico do descolamento de retina e constitui uma emergência oftalmológica.",
-    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-cortina-escura_77b9ff18.png",
   },
   {
     title: "Distorção de Imagens (Metamorfopsia)",
     desc: "Linhas retas parecem onduladas ou tortas. É o sintoma característico de doenças maculares como DMRI úmida, membrana epirretiniana e edema macular. O teste da grade de Amsler ajuda na autoavaliação.",
-    img: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-distorcao-imagens_20680e84.png",
   },
   {
     title: "Perda Súbita de Visão",
     desc: "Perda repentina e indolor da visão em um olho pode indicar oclusão vascular retiniana ou hemorragia vítrea. É uma emergência médica — quanto mais rápido o tratamento, maiores as chances de recuperação.",
-    img: "https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?w=600&q=80",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-perda-visao_da853596.png",
   },
 ];
 
