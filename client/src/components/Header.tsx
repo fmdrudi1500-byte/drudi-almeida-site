@@ -1,21 +1,69 @@
 /* ============================================================
    Header — Drudi e Almeida
-   Fixed navigation with glass effect, logo, nav links, dark mode toggle, and CTA
+   Sticky navigation with:
+   - Scroll progress bar (gold, top of page)
+   - Mega-menu for Institutos with logo + name + description
+   - Home anchor links (Institutos, Tecnologia, Unidades)
+   - Glass effect on scroll
+   - Mobile drawer menu
    ============================================================ */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone, Moon, Sun, MessageSquare } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown, Phone, Moon, Sun, MessageSquare, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
+import { IMAGES } from "@/lib/images";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png";
 
 const institutos = [
-  { name: "Instituto da Catarata", href: "/instituto/catarata" },
-  { name: "Instituto do Ceratocone", href: "/instituto/ceratocone" },
-  { name: "Instituto do Glaucoma", href: "/instituto/glaucoma" },
-  { name: "Instituto da Retina", href: "/instituto/retina" },
-  { name: "Instituto de Estrabismo", href: "/instituto/estrabismo" },
+  {
+    name: "Instituto da Catarata",
+    href: "/instituto/catarata",
+    desc: "Cirurgia de catarata com facoemulsificação e lentes premium.",
+    logo: IMAGES.institutoLogos.catarata,
+    color: "from-blue-500/10 to-blue-600/5",
+    accent: "text-blue-600 dark:text-blue-400",
+  },
+  {
+    name: "Instituto do Ceratocone",
+    href: "/instituto/ceratocone",
+    desc: "Crosslinking, anel de Ferrara e lentes de contato especiais.",
+    logo: IMAGES.institutoLogos.ceratocone,
+    color: "from-emerald-500/10 to-emerald-600/5",
+    accent: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
+    name: "Instituto do Glaucoma",
+    href: "/instituto/glaucoma",
+    desc: "Diagnóstico precoce e tratamento contínuo do glaucoma.",
+    logo: IMAGES.institutoLogos.glaucoma,
+    color: "from-amber-500/10 to-amber-600/5",
+    accent: "text-amber-600 dark:text-amber-400",
+  },
+  {
+    name: "Instituto da Retina",
+    href: "/instituto/retina",
+    desc: "Vitrectomia, injeções intravítreas e retinopatia diabética.",
+    logo: IMAGES.institutoLogos.retina,
+    color: "from-rose-500/10 to-rose-600/5",
+    accent: "text-rose-600 dark:text-rose-400",
+  },
+  {
+    name: "Instituto de Estrabismo",
+    href: "/instituto/estrabismo",
+    desc: "Cirurgia de estrabismo para crianças e adultos.",
+    logo: IMAGES.institutoLogos.estrabismo,
+    color: "from-violet-500/10 to-violet-600/5",
+    accent: "text-violet-600 dark:text-violet-400",
+  },
+];
+
+// Anchor links — only shown on home page
+const anchorLinks = [
+  { name: "Institutos", anchor: "#institutos" },
+  { name: "Tecnologia", anchor: "#tecnologia" },
+  { name: "Unidades", anchor: "#unidades" },
 ];
 
 const navLinks = [
@@ -28,12 +76,31 @@ const navLinks = [
   { name: "Contato", href: "/contato" },
 ];
 
+function scrollToAnchor(anchor: string) {
+  const id = anchor.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) {
+    const headerOffset = 88; // sticky header height
+    const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileInstitutosOpen, setMobileInstitutosOpen] = useState(false);
   const [location] = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const isHome = location === "/";
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 400, damping: 40 });
+
+  // Close mega-menu timer ref (to allow mouse to travel to panel)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -44,15 +111,53 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setMobileInstitutosOpen(false);
   }, [location]);
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  const handleMouseEnterDropdown = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  };
 
   return (
     <>
-      {/* Top bar */}
+      {/* ── Scroll Progress Bar ─────────────────────────────── */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gold origin-left z-[60]"
+        style={{ scaleX }}
+      />
+
+      {/* ── Top Info Bar ────────────────────────────────────── */}
       <div className="bg-navy text-cream hidden md:block">
         <div className="container flex items-center justify-between py-2 text-xs font-ui tracking-wide">
           <div className="flex items-center gap-6">
             <span>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</span>
+            {/* Anchor quick-links — visible only on home */}
+            {isHome && (
+              <div className="flex items-center gap-4 text-cream/70">
+                <span className="text-cream/30">|</span>
+                {anchorLinks.map((a) => (
+                  <button
+                    key={a.anchor}
+                    onClick={() => scrollToAnchor(a.anchor)}
+                    className="hover:text-gold transition-colors font-ui text-xs tracking-wide"
+                  >
+                    {a.name}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <a href="tel:+551150268521" className="flex items-center gap-1.5 hover:text-gold transition-colors">
@@ -68,12 +173,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main header */}
+      {/* ── Main Header ─────────────────────────────────────── */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "glass shadow-sm"
-            : "bg-background/95 backdrop-blur-sm"
+          scrolled ? "glass shadow-sm" : "bg-background/95 backdrop-blur-sm"
         }`}
       >
         <div className="container flex items-center justify-between h-20">
@@ -90,11 +193,12 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) =>
               link.children ? (
+                /* ── Mega-menu trigger ── */
                 <div
                   key={link.name}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  onMouseEnter={handleMouseEnterDropdown}
+                  onMouseLeave={handleMouseLeaveDropdown}
                 >
                   <button
                     className={`font-ui text-sm font-medium px-4 py-2 rounded-md flex items-center gap-1 transition-colors hover:text-gold ${
@@ -102,29 +206,78 @@ export default function Header() {
                     }`}
                   >
                     {link.name}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
+
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 pt-2"
+                        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                        onMouseEnter={handleMouseEnterDropdown}
+                        onMouseLeave={handleMouseLeaveDropdown}
                       >
-                        <div className="glass rounded-lg shadow-lg border border-border/50 py-2 min-w-[240px]">
-                          {link.children.map((child) => (
+                        {/* Mega-menu panel */}
+                        <div className="glass rounded-2xl shadow-2xl border border-border/50 p-4 w-[680px]">
+                          {/* Header strip */}
+                          <div className="flex items-center justify-between mb-3 pb-3 border-b border-border/40">
+                            <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold">
+                              Nossos Institutos Especializados
+                            </span>
                             <Link
-                              key={child.href}
-                              href={child.href}
-                              className={`block px-4 py-2.5 font-ui text-sm transition-colors hover:bg-gold/10 hover:text-gold ${
-                                location === child.href ? "text-gold bg-gold/5" : "text-foreground"
-                              }`}
+                              href="/#institutos"
+                              onClick={() => { setDropdownOpen(false); setTimeout(() => scrollToAnchor("#institutos"), 100); }}
+                              className="font-ui text-xs text-muted-foreground hover:text-gold transition-colors flex items-center gap-1"
                             >
-                              {child.name}
+                              Ver todos
+                              <ArrowRight className="w-3 h-3" />
                             </Link>
-                          ))}
+                          </div>
+
+                          {/* 2-column grid of institute cards */}
+                          <div className="grid grid-cols-2 gap-2">
+                            {link.children.map((inst) => (
+                              <Link
+                                key={inst.href}
+                                href={inst.href}
+                                onClick={() => setDropdownOpen(false)}
+                                className={`group flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md hover:border-gold/20 border border-transparent transition-all duration-200`}
+                              >
+                                <img
+                                  src={inst.logo}
+                                  alt={inst.name}
+                                  className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
+                                />
+                                <div className="min-w-0">
+                                  <p className={`font-display text-sm font-semibold group-hover:text-gold transition-colors truncate ${inst.accent}`}>
+                                    {inst.name}
+                                  </p>
+                                  <p className="font-body text-xs text-muted-foreground leading-relaxed mt-0.5 line-clamp-2">
+                                    {inst.desc}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+
+                          {/* CTA strip */}
+                          <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between">
+                            <p className="font-body text-xs text-muted-foreground">
+                              Não sabe qual instituto é o ideal para você?
+                            </p>
+                            <a
+                              href="https://wa.me/5511916544653?text=Olá! Gostaria de saber qual instituto é indicado para meu caso."
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setDropdownOpen(false)}
+                              className="inline-flex items-center gap-1.5 bg-gold text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-md hover:bg-gold-light transition-colors shrink-0 ml-3"
+                            >
+                              Falar com especialista
+                            </a>
+                          </div>
                         </div>
                       </motion.div>
                     )}
@@ -146,7 +299,6 @@ export default function Header() {
 
           {/* CTA + Dark Mode Toggle + Mobile Toggle */}
           <div className="flex items-center gap-2">
-            {/* Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
               className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
@@ -197,7 +349,7 @@ export default function Header() {
         <div className="gold-line" />
       </header>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile Menu ─────────────────────────────────────── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -211,27 +363,31 @@ export default function Header() {
                 link.children ? (
                   <div key={link.name}>
                     <button
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      onClick={() => setMobileInstitutosOpen(!mobileInstitutosOpen)}
                       className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
                     >
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileInstitutosOpen ? "rotate-180" : ""}`} />
                     </button>
                     <AnimatePresence>
-                      {dropdownOpen && (
+                      {mobileInstitutosOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           className="overflow-hidden"
                         >
-                          {link.children.map((child) => (
+                          {link.children.map((inst) => (
                             <Link
-                              key={child.href}
-                              href={child.href}
-                              className="block pl-8 pr-3 py-2.5 font-ui text-sm text-muted-foreground hover:text-gold transition-colors"
+                              key={inst.href}
+                              href={inst.href}
+                              className="flex items-center gap-3 pl-6 pr-3 py-2.5 hover:bg-muted/50 rounded-md transition-colors"
                             >
-                              {child.name}
+                              <img src={inst.logo} alt={inst.name} className="w-8 h-8 object-contain rounded" />
+                              <div>
+                                <p className="font-ui text-sm text-foreground">{inst.name}</p>
+                                <p className="font-body text-xs text-muted-foreground line-clamp-1">{inst.desc}</p>
+                              </div>
                             </Link>
                           ))}
                         </motion.div>
@@ -250,6 +406,23 @@ export default function Header() {
                   </Link>
                 )
               )}
+
+              {/* Mobile anchor links (home only) */}
+              {isHome && (
+                <div className="pt-2 mt-1 border-t border-border/40">
+                  <p className="font-ui text-xs text-muted-foreground px-3 mb-1 tracking-wide uppercase">Ir para seção</p>
+                  {anchorLinks.map((a) => (
+                    <button
+                      key={a.anchor}
+                      onClick={() => { scrollToAnchor(a.anchor); setMobileOpen(false); }}
+                      className="w-full text-left font-ui text-sm text-foreground px-3 py-2.5 rounded-md hover:bg-muted transition-colors"
+                    >
+                      {a.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               <div className="pt-3 mt-2 border-t border-border">
                 <Link
                   href="/agendar"

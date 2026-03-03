@@ -214,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* ========== NOSSOS INSTITUTOS ========== */}
-      <section className="section-padding">
+      <section id="institutos" className="section-padding">
         <div className="container">
           <AnimateOnScroll className="text-center mb-14">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
@@ -654,7 +654,7 @@ export default function Home() {
       </section>
 
       {/* ========== UNIDADES ========== */}
-      <section className="section-padding">
+      <section id="unidades" className="section-padding">
         <div className="container">
           <AnimateOnScroll className="text-center mb-12">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">

@@ -495,6 +495,19 @@ function StaticBlogPost({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Breadcrumb */}
+      <div className="border-b border-border bg-muted/30">
+        <div className="container py-3">
+          <div className="flex items-center gap-2 font-ui text-xs text-muted-foreground">
+            <Link href="/" className="hover:text-gold transition-colors">Início</Link>
+            <ChevronRight className="w-3 h-3" />
+            <Link href="/blog" className="hover:text-gold transition-colors">Blog</Link>
+            <ChevronRight className="w-3 h-3" />
+            <span className="text-foreground font-medium line-clamp-1 max-w-[200px]">{article.title}</span>
+          </div>
+        </div>
+      </div>
+
       <article className="section-padding">
         <div className="container">
           <div className="max-w-3xl mx-auto">

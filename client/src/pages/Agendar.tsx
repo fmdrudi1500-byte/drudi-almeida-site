@@ -3,6 +3,7 @@
    Multi-step form: Unidade → Data/Hora → Dados → Confirmação
    ============================================================ */
 import { useState, useMemo } from "react";
+import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -180,6 +181,17 @@ export default function Agendar() {
           </p>
         </div>
       </section>
+
+      {/* Breadcrumb */}
+      <div className="border-b border-border bg-muted/30">
+        <div className="container py-3">
+          <div className="flex items-center gap-2 font-ui text-xs text-muted-foreground">
+            <Link href="/" className="hover:text-gold transition-colors">Início</Link>
+            <ChevronRight className="w-3 h-3" />
+            <span className="text-foreground font-medium">Agendar Consulta</span>
+          </div>
+        </div>
+      </div>
 
       {/* Form card */}
       <section className="section-padding bg-background">

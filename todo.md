@@ -117,3 +117,9 @@
 - [x] Implementar Schema Markup: MedicalOrganization, MedicalClinic, Physician, FAQPage
 - [x] Atualizar meta descriptions únicas por página (máx 160 chars com localização)
 - [x] Gerar sitemap XML dinâmico e expor em /sitemap.xml
+
+## Fase 19: Melhorias de Navegação
+- [x] Mega-menu com preview dos 5 institutos (ícone + nome + descrição curta)
+- [x] Sticky header com barra de progresso de scroll
+- [x] Âncoras internas na Home (Institutos, Tecnologia, Unidades)
+- [x] Breadcrumbs nas páginas internas

@@ -145,7 +145,7 @@ export default function TecnologiaCarousel() {
   }, [updateActiveIndex]);
 
   return (
-    <section className="section-padding bg-gradient-to-b from-background via-cream/30 to-background dark:via-navy/10">
+    <section id="tecnologia" className="section-padding bg-gradient-to-b from-background via-cream/30 to-background dark:via-navy/10">
       <div className="container">
         <AnimateOnScroll className="text-center mb-12">
           <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
