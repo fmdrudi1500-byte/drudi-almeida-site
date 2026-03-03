@@ -15,6 +15,7 @@ import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/Ani
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
+import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ibNQCeyYILJFGyuH_5048fcfc.png";
@@ -174,6 +175,7 @@ export default function InstitutoEstrabismo() {
         keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
         canonicalPath="/instituto/estrabismo"
       />
+      <InstitutoSchema instituto="estrabismo" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />

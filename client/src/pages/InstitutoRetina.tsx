@@ -14,6 +14,7 @@ import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/Ani
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
+import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png";
@@ -221,6 +222,7 @@ export default function InstitutoRetina() {
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"
       />
+      <InstitutoSchema instituto="retina" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />

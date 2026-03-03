@@ -433,7 +433,7 @@ export default function TrabalheConosco() {
                       Enviar Candidatura via WhatsApp
                     </button>
                     <a
-                      href="mailto:rh@drudialmeida.com.br?subject=Candidatura — Trabalhe Conosco"
+                      href="mailto:rh@drudiealmeida.com.br?subject=Candidatura — Trabalhe Conosco"
                       className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-navy text-navy font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy hover:text-cream transition-colors dark:border-gold dark:text-gold dark:hover:bg-gold dark:hover:text-navy"
                     >
                       Enviar por E-mail

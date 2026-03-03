@@ -405,7 +405,7 @@ export default function Home() {
                 name: "Dra. Priscilla R. de Almeida",
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
-                crm: "CRM-SP 148.173",
+                crm: "CRM-SP 148.173 | RQE 59.216",
                 image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",

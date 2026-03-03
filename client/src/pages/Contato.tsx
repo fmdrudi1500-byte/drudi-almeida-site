@@ -195,8 +195,8 @@ export default function Contato() {
                     </div>
                     <div>
                       <p className="font-ui text-xs font-semibold text-navy mb-0.5">E-mail</p>
-                      <a href="mailto:contato@drudialmeida.com.br" className="font-body text-sm text-muted-foreground hover:text-gold transition-colors">
-                        contato@drudialmeida.com.br
+                      <a href="mailto:contato@drudiealmeida.com.br" className="font-body text-sm text-muted-foreground hover:text-gold transition-colors">
+                        contato@drudiealmeida.com.br
                       </a>
                     </div>
                   </div>

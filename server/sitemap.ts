@@ -7,7 +7,7 @@ import { getDb } from "./db";
 import { blogPosts } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
-const BASE_URL = "https://drudialmeida.com.br";
+const BASE_URL = "https://drudiealmeida.com.br";
 
 // Static pages with their priorities and change frequencies
 const staticPages = [
@@ -99,7 +99,7 @@ export function registerSitemapRoutes(app: Express) {
   // ── robots.txt ───────────────────────────────────────────────
   app.get("/robots.txt", (_req, res) => {
     const robotsTxt = `# Drudi e Almeida Clínicas Oftalmológicas
-# https://drudialmeida.com.br
+# https://drudiealmeida.com.br
 
 User-agent: *
 Allow: /

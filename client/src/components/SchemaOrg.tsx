@@ -4,10 +4,10 @@
              WebSite, LocalBusiness (x5 units)
    ============================================================ */
 
-const BASE_URL = "https://drudialmeida.com.br";
+const BASE_URL = "https://drudiealmeida.com.br";
 const PHONE = "+5511916544653";
 const PHONE_LANDLINE = "+551150268521";
-const EMAIL = "contato@drudialmeida.com.br";
+const EMAIL = "contato@drudiealmeida.com.br";
 
 // ── Opening hours shared by all units ──────────────────────────
 const openingHours = [
@@ -131,11 +131,18 @@ const draPriscillaSchema = {
     "Keratoconus Treatment",
     "Contact Lens Fitting",
   ],
-  identifier: {
-    "@type": "PropertyValue",
-    name: "CRM-SP",
-    value: "148173",
-  },
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      name: "CRM-SP",
+      value: "148173",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "RQE",
+      value: "59216",
+    },
+  ],
   worksFor: {
     "@id": `${BASE_URL}/#organization`,
   },

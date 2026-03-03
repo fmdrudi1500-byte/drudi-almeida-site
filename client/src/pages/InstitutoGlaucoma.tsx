@@ -15,6 +15,7 @@ import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/Ani
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
+import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WDorIHhiaQuwCSEJ_604c573f.png";
@@ -220,6 +221,7 @@ export default function InstitutoGlaucoma() {
         keywords="glaucoma tratamento SP, glaucoma especialista São Paulo, pressão ocular, tonometria, campo visual, oftalmologista glaucoma"
         canonicalPath="/instituto/glaucoma"
       />
+      <InstitutoSchema instituto="glaucoma" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         <motion.div

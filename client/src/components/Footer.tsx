@@ -141,8 +141,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                <a href="mailto:contato@drudialmeida.com.br" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
-                  contato@drudialmeida.com.br
+                <a href="mailto:contato@drudiealmeida.com.br" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
+                  contato@drudiealmeida.com.br
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -163,7 +163,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Drudi e Almeida Clínicas Oftalmológicas. Todos os direitos reservados.
           </p>
           <p className="font-body text-xs text-cream/50">
-            CRM/SP 000000 | RQE 00000
+            Dra. Priscilla R. de Almeida — CRM-SP 148.173 | RQE 59.216
           </p>
         </div>
       </div>

@@ -38,7 +38,7 @@ Co-fundador da Drudi e Almeida Oftalmologia, lidera a clínica com a missão de 
   },
   {
     name: "Dra. Priscilla Rodrigues de Almeida",
-    crm: "CRM-SP 148.173",
+    crm: "CRM-SP 148.173 | RQE 59.216",
     role: "Diretora Técnica",
     specialty: "Especialista em Segmento Anterior e Lentes de Contato",
     image: IMAGES.doctors.draPriscilla,

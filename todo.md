@@ -110,3 +110,10 @@
 - [ ] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
 - [ ] Ativar sistema de agendamento online com e-mail de confirmação e painel admin
 - [ ] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular
+
+## Fase 18: SEO Técnico Avançado e Conformidade CFM
+- [x] Corrigir CRM/RQE reais da Dra. Priscilla no rodapé (CRM-SP 148.173 | RQE 59.216)
+- [x] Padronizar URLs dos institutos (garantir padrão /instituto/*)
+- [x] Implementar Schema Markup: MedicalOrganization, MedicalClinic, Physician, FAQPage
+- [x] Atualizar meta descriptions únicas por página (máx 160 chars com localização)
+- [x] Gerar sitemap XML dinâmico e expor em /sitemap.xml
