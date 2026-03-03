@@ -511,13 +511,22 @@ export default function Agendamento() {
                       >
                         Voltar
                       </button>
-                      <button
-                        onClick={handleSubmit}
-                        className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-sm font-bold px-8 py-3.5 rounded-md hover:bg-[#20BD5A] transition-colors shadow-md"
-                      >
-                        <MessageCircle className="w-4 h-4" />
-                        Enviar pelo WhatsApp
-                      </button>
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <button
+                          onClick={handleSubmit}
+                          className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-ui text-sm font-bold px-8 py-3.5 rounded-md hover:bg-[#20BD5A] transition-colors shadow-md"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          Enviar pelo WhatsApp
+                        </button>
+                        <Link
+                          href="/agendar"
+                          className="inline-flex items-center justify-center gap-2 border border-navy text-navy font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy/5 transition-colors"
+                        >
+                          <Calendar className="w-4 h-4" />
+                          Agendar Online
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 )}

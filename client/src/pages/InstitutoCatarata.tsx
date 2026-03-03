@@ -9,7 +9,7 @@ import {
   Eye, ChevronRight, ArrowRight, Phone, MessageCircle,
   CheckCircle, Clock, Shield, Sparkles, Sun, Moon, Glasses,
   Droplets, Activity, Heart, AlertTriangle, DollarSign,
-  Star, MapPin, Users, Stethoscope, CircleDot
+  Star, MapPin, Users, Stethoscope, CircleDot, Calendar
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
@@ -991,6 +991,13 @@ export default function InstitutoCatarata() {
                     <DollarSign className="w-4 h-4" />
                     Receber Preço
                   </a>
+                  <Link
+                    href="/agendar"
+                    className="w-full inline-flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-6 py-3 rounded-lg hover:bg-cream/10 transition-all"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    Agendar Online
+                  </Link>
                 </div>
               </div>
 

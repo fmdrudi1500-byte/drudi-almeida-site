@@ -7,7 +7,7 @@ import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
   Shield, Clock, Zap, Activity, Search, ArrowRight,
-  ChevronDown, Glasses, Droplets, Sun, CircleDot
+  ChevronDown, Glasses, Droplets, Sun, CircleDot, Calendar
 } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -143,6 +143,13 @@ export default function InstitutoCeratocone() {
         <DollarSign className="w-4 h-4" />
         Receber Preço
       </a>
+      <Link
+        href="/agendar"
+        className="w-full inline-flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-6 py-3 rounded-lg hover:bg-cream/10 transition-all"
+      >
+        <Calendar className="w-4 h-4" />
+        Agendar Online
+      </Link>
       <a
         href={`tel:+55${PHONE.replace(/\D/g, "")}`}
         className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all"

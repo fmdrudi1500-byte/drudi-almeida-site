@@ -158,9 +158,15 @@ export default function Home() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <Link
+                href="/agendar"
+                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
+              >
+                Agendar Online
+              </Link>
               <a
                 href="tel:+551150268521"
-                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-cream/20 text-cream/70 font-ui text-sm font-medium px-5 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
               >
                 Ligar Agora
               </a>
@@ -1063,9 +1069,15 @@ export default function Home() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <Link
+                href="/agendar"
+                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-8 py-4 rounded-md hover:bg-cream/10 transition-colors"
+              >
+                Agendar Online
+              </Link>
               <a
                 href="tel:+5511916544653"
-                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-8 py-4 rounded-md hover:bg-cream/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-cream/20 text-cream/70 font-ui text-sm font-medium px-6 py-4 rounded-md hover:bg-cream/10 transition-colors"
               >
                 Ligar Agora
               </a>
