@@ -421,20 +421,14 @@ export default function Header() {
                 )
               )}
 
-              {/* Mobile anchor links (home only) */}
+              {/* Âncoras de seção — apenas na home, como item extra "Unidades" */}
               {isHome && (
-                <div className="pt-2 mt-1 border-t border-border/40">
-                  <p className="font-ui text-xs text-muted-foreground px-3 mb-1 tracking-wide uppercase">Ir para seção</p>
-                  {anchorLinks.map((a) => (
-                    <button
-                      key={a.anchor}
-                      onClick={() => { scrollToAnchor(a.anchor); setMobileOpen(false); }}
-                      className="w-full text-left font-ui text-sm text-foreground px-3 py-2.5 rounded-md hover:bg-muted transition-colors"
-                    >
-                      {a.name}
-                    </button>
-                  ))}
-                </div>
+                <button
+                  onClick={() => { scrollToAnchor("#unidades"); setMobileOpen(false); }}
+                  className="w-full text-left font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted text-foreground"
+                >
+                  Unidades
+                </button>
               )}
 
               <div className="pt-3 mt-2 border-t border-border">

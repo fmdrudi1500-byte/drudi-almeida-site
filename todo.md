@@ -135,3 +135,6 @@
 ## Fase 21: Ícone de tema e atualização de telefone
 - [x] Trocar ícone do botão de tema para Contraste (half-circle)
 - [x] Atualizar telefone fixo para (11) 5430-2421 em todo o site
+
+## Fase 22: Correção do menu mobile
+- [x] Remover duplicação de itens no menu mobile (links principais + âncoras "Ir para seção" separados)
