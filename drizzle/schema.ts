@@ -194,3 +194,43 @@ export const appointments = mysqlTable("appointments", {
 
 export type Appointment = typeof appointments.$inferSelect;
 export type InsertAppointment = typeof appointments.$inferInsert;
+
+/**
+ * Job Applications — candidates who apply via Trabalhe Conosco page
+ */
+export const jobApplications = mysqlTable("job_applications", {
+  id: int("id").autoincrement().primaryKey(),
+
+  // Candidate info
+  name: varchar("name", { length: 200 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 30 }).notNull(),
+
+  // Position
+  position: varchar("position", { length: 200 }).notNull(),
+  unit: varchar("unit", { length: 100 }), // preferred unit or "Qualquer unidade"
+
+  // Professional background
+  experience: text("experience").notNull(), // brief description of experience
+  education: varchar("education", { length: 300 }), // highest education level
+
+  // Cover letter / motivation
+  motivation: text("motivation"),
+
+  // Resume file
+  resumeUrl: text("resumeUrl"),
+  resumeKey: text("resumeKey"),
+  resumeFileName: varchar("resumeFileName", { length: 300 }),
+
+  // Status flow: new → reviewing → interview | rejected | hired
+  status: mysqlEnum("status", ["new", "reviewing", "interview", "rejected", "hired"]).default("new").notNull(),
+
+  // Admin notes
+  adminNotes: text("adminNotes"),
+
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type JobApplication = typeof jobApplications.$inferSelect;
+export type InsertJobApplication = typeof jobApplications.$inferInsert;

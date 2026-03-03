@@ -237,31 +237,45 @@ export default function Header() {
                             </Link>
                           </div>
 
-                          {/* 2-column grid of institute cards */}
-                          <div className="grid grid-cols-2 gap-2">
-                            {link.children.map((inst) => (
-                              <Link
+                          {/* 2-column grid of institute cards — stagger animation */}
+                          <motion.div
+                            className="grid grid-cols-2 gap-2"
+                            variants={{
+                              show: { transition: { staggerChildren: 0.04 } },
+                            }}
+                            initial="hidden"
+                            animate="show"
+                          >
+                            {link.children.map((inst, idx) => (
+                              <motion.div
                                 key={inst.href}
-                                href={inst.href}
-                                onClick={() => setDropdownOpen(false)}
-                                className={`group flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md hover:border-gold/20 border border-transparent transition-all duration-200`}
+                                variants={{
+                                  hidden: { opacity: 0, y: 8, scale: 0.97 },
+                                  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.22, ease: "easeOut", delay: idx * 0.04 } },
+                                }}
                               >
-                                <img
-                                  src={inst.logo}
-                                  alt={inst.name}
-                                  className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
-                                />
-                                <div className="min-w-0">
-                                  <p className={`font-display text-sm font-semibold group-hover:text-gold transition-colors truncate ${inst.accent}`}>
-                                    {inst.name}
-                                  </p>
-                                  <p className="font-body text-xs text-muted-foreground leading-relaxed mt-0.5 line-clamp-2">
-                                    {inst.desc}
-                                  </p>
-                                </div>
-                              </Link>
+                                <Link
+                                  href={inst.href}
+                                  onClick={() => setDropdownOpen(false)}
+                                  className={`group flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md hover:border-gold/20 border border-transparent transition-all duration-200`}
+                                >
+                                  <img
+                                    src={inst.logo}
+                                    alt={inst.name}
+                                    className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
+                                  />
+                                  <div className="min-w-0">
+                                    <p className={`font-display text-sm font-semibold group-hover:text-gold transition-colors truncate ${inst.accent}`}>
+                                      {inst.name}
+                                    </p>
+                                    <p className="font-body text-xs text-muted-foreground leading-relaxed mt-0.5 line-clamp-2">
+                                      {inst.desc}
+                                    </p>
+                                  </div>
+                                </Link>
+                              </motion.div>
                             ))}
-                          </div>
+                          </motion.div>
 
                           {/* CTA strip */}
                           <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between">

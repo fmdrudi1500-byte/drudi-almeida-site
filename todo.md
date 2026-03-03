@@ -123,3 +123,11 @@
 - [x] Sticky header com barra de progresso de scroll
 - [x] Âncoras internas na Home (Institutos, Tecnologia, Unidades)
 - [x] Breadcrumbs nas páginas internas
+
+## Fase 20: Stagger mega-menu, scroll-to-top e Trabalhe Conosco
+- [x] Stagger animation nos cards do mega-menu (delay 40ms entre institutos)
+- [x] Botão flutuante scroll-to-top (aparece após 300px de scroll)
+- [x] Schema DB: tabela job_applications com campos de candidatura
+- [x] tRPC procedures: submitApplication (public) + listApplications (admin)
+- [x] Página Trabalhe Conosco com formulário de candidatura completo
+- [x] Painel admin para visualizar e gerenciar candidaturas

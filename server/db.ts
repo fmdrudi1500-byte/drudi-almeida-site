@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, InsertJobApplication, JobApplication, jobApplications, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,49 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// ─── Job Applications ──────────────────────────────────────────────────────
+
+export async function createJobApplication(
+  data: InsertJobApplication
+): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(jobApplications).values(data);
+  return (result[0] as { insertId: number }).insertId;
+}
+
+export async function listJobApplications(opts?: {
+  status?: JobApplication["status"];
+  limit?: number;
+  offset?: number;
+}): Promise<JobApplication[]> {
+  const db = await getDb();
+  if (!db) return [];
+  let query = db.select().from(jobApplications);
+  if (opts?.status) {
+    query = query.where(eq(jobApplications.status, opts.status)) as typeof query;
+  }
+  return query
+    .orderBy(jobApplications.createdAt)
+    .limit(opts?.limit ?? 100)
+    .offset(opts?.offset ?? 0);
+}
+
+export async function updateJobApplicationStatus(
+  id: number,
+  status: JobApplication["status"],
+  adminNotes?: string
+): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const updateData: Partial<InsertJobApplication> = { status };
+  if (adminNotes !== undefined) updateData.adminNotes = adminNotes;
+  await db.update(jobApplications).set(updateData).where(eq(jobApplications.id, id));
+}
+
+export async function getJobApplicationById(id: number): Promise<JobApplication | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(jobApplications).where(eq(jobApplications.id, id)).limit(1);
+  return result[0];
+}

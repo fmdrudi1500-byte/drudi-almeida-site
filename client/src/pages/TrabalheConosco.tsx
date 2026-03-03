@@ -1,8 +1,10 @@
 /* ============================================================
    Trabalhe Conosco — Drudi e Almeida
-   Career page with job openings and application form
+   Career page with job openings and application form.
+   Form submits via tRPC to the database (with optional
+   resume upload to S3 via the /api/upload-resume endpoint).
    ============================================================ */
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import {
   Briefcase,
@@ -17,11 +19,18 @@ import {
   Eye,
   GraduationCap,
   Star,
+  Upload,
+  X,
+  Loader2,
+  FileText,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
+import { trpc } from "@/lib/trpc";
+import SEOHead from "@/components/SEOHead";
 
 const benefits = [
   {
@@ -101,27 +110,51 @@ const openings = [
   },
 ];
 
+const UNITS = [
+  "Qualquer unidade",
+  "Santana",
+  "Guarulhos",
+  "Tatuapé",
+  "São Miguel",
+  "Lapa",
+];
+
+const EDUCATION_OPTIONS = [
+  "Ensino Médio Completo",
+  "Técnico / Tecnólogo",
+  "Graduação",
+  "Pós-Graduação / Especialização",
+  "Mestrado",
+  "Doutorado",
+];
+
+const MAX_RESUME_SIZE_MB = 5;
+const MAX_RESUME_SIZE_BYTES = MAX_RESUME_SIZE_MB * 1024 * 1024;
+
 export default function TrabalheConosco() {
   const [formData, setFormData] = useState({
-    nome: "",
+    name: "",
     email: "",
-    telefone: "",
-    cargo: "",
-    mensagem: "",
+    phone: "",
+    position: "",
+    unit: "Qualquer unidade",
+    experience: "",
+    education: "",
+    motivation: "",
   });
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = `*Candidatura — Trabalhe Conosco*%0A%0A` +
-      `*Nome:* ${formData.nome}%0A` +
-      `*E-mail:* ${formData.email}%0A` +
-      `*Telefone:* ${formData.telefone}%0A` +
-      `*Vaga de Interesse:* ${formData.cargo}%0A` +
-      `*Mensagem:* ${formData.mensagem}`;
-    window.open(`https://wa.me/5511916544653?text=${text}`, "_blank");
-    setSubmitted(true);
-  };
+  const submitMutation = trpc.careers.submit.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+    },
+    onError: (err) => {
+      toast.error("Erro ao enviar candidatura: " + err.message);
+    },
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -129,8 +162,80 @@ export default function TrabalheConosco() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > MAX_RESUME_SIZE_BYTES) {
+      toast.error(`O arquivo deve ter no máximo ${MAX_RESUME_SIZE_MB}MB.`);
+      return;
+    }
+    const allowed = ["application/pdf", "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+    if (!allowed.includes(file.type)) {
+      toast.error("Apenas arquivos PDF ou Word (.doc/.docx) são aceitos.");
+      return;
+    }
+    setResumeFile(file);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    let resumeUrl: string | undefined;
+    let resumeKey: string | undefined;
+    let resumeFileName: string | undefined;
+
+    // Upload resume if provided
+    if (resumeFile) {
+      setUploading(true);
+      try {
+        const formDataUpload = new FormData();
+        formDataUpload.append("file", resumeFile);
+        const res = await fetch("/api/upload-resume", {
+          method: "POST",
+          body: formDataUpload,
+          credentials: "include",
+        });
+        if (!res.ok) throw new Error("Falha no upload do currículo.");
+        const data = await res.json() as { url: string; key: string };
+        resumeUrl = data.url;
+        resumeKey = data.key;
+        resumeFileName = resumeFile.name;
+      } catch (err) {
+        toast.error("Erro ao enviar currículo. Tente novamente.");
+        setUploading(false);
+        return;
+      } finally {
+        setUploading(false);
+      }
+    }
+
+    submitMutation.mutate({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      position: formData.position,
+      unit: formData.unit,
+      experience: formData.experience,
+      education: formData.education || undefined,
+      motivation: formData.motivation || undefined,
+      resumeUrl,
+      resumeKey,
+      resumeFileName,
+    });
+  };
+
+  const isLoading = uploading || submitMutation.isPending;
+
   return (
     <Layout>
+      <SEOHead
+        title="Trabalhe Conosco — Vagas em Oftalmologia em São Paulo"
+        description="Faça parte da equipe Drudi e Almeida Oftalmologia. Vagas para oftalmologistas, ortoptistas, técnicos e recepcionistas em SP. Candidate-se online."
+        keywords="vagas oftalmologia São Paulo, trabalhe conosco clínica olhos, emprego oftalmologista SP"
+        canonicalPath="/trabalhe-conosco"
+      />
+
       {/* Hero */}
       <section className="relative bg-navy text-cream overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -297,7 +402,7 @@ export default function TrabalheConosco() {
       </section>
 
       {/* Formulário de Candidatura */}
-      <section className="section-padding bg-muted">
+      <section id="candidatura" className="section-padding bg-muted">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <AnimateOnScroll>
@@ -309,8 +414,8 @@ export default function TrabalheConosco() {
                   Candidate-se
                 </h2>
                 <p className="font-body text-muted-foreground leading-relaxed">
-                  Preencha o formulário abaixo e entraremos em contato. Você também pode
-                  enviar seu currículo diretamente pelo WhatsApp.
+                  Preencha o formulário abaixo e nossa equipe de RH entrará em contato.
+                  Você também pode enviar seu currículo diretamente pelo WhatsApp.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -329,7 +434,11 @@ export default function TrabalheConosco() {
                     Analisaremos seu perfil e entraremos em contato em breve.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({ name: "", email: "", phone: "", position: "", unit: "Qualquer unidade", experience: "", education: "", motivation: "" });
+                      setResumeFile(null);
+                    }}
                     className="font-ui text-sm text-gold hover:text-gold-dark transition-colors underline underline-offset-4"
                   >
                     Enviar outra candidatura
@@ -342,6 +451,7 @@ export default function TrabalheConosco() {
                   onSubmit={handleSubmit}
                   className="bg-card border border-border rounded-lg p-8 space-y-5"
                 >
+                  {/* Row 1: Name + Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
@@ -349,9 +459,9 @@ export default function TrabalheConosco() {
                       </label>
                       <input
                         type="text"
-                        name="nome"
+                        name="name"
                         required
-                        value={formData.nome}
+                        value={formData.name}
                         onChange={handleChange}
                         className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                         placeholder="Seu nome completo"
@@ -373,16 +483,17 @@ export default function TrabalheConosco() {
                     </div>
                   </div>
 
+                  {/* Row 2: Phone + Position */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
-                        Telefone *
+                        Telefone / WhatsApp *
                       </label>
                       <input
                         type="tel"
-                        name="telefone"
+                        name="phone"
                         required
-                        value={formData.telefone}
+                        value={formData.phone}
                         onChange={handleChange}
                         className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                         placeholder="(11) 99999-9999"
@@ -393,9 +504,9 @@ export default function TrabalheConosco() {
                         Vaga de Interesse *
                       </label>
                       <select
-                        name="cargo"
+                        name="position"
                         required
-                        value={formData.cargo}
+                        value={formData.position}
                         onChange={handleChange}
                         className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                       >
@@ -405,38 +516,141 @@ export default function TrabalheConosco() {
                             {job.title}
                           </option>
                         ))}
-                        <option value="Outra">Outra / Candidatura Espontânea</option>
+                        <option value="Candidatura Espontânea">Candidatura Espontânea</option>
                       </select>
                     </div>
                   </div>
 
+                  {/* Row 3: Unit + Education */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
+                        Unidade de Preferência
+                      </label>
+                      <select
+                        name="unit"
+                        value={formData.unit}
+                        onChange={handleChange}
+                        className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                      >
+                        {UNITS.map((u) => (
+                          <option key={u} value={u}>{u}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
+                        Escolaridade
+                      </label>
+                      <select
+                        name="education"
+                        value={formData.education}
+                        onChange={handleChange}
+                        className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                      >
+                        <option value="">Selecione</option>
+                        {EDUCATION_OPTIONS.map((e) => (
+                          <option key={e} value={e}>{e}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Experience */}
                   <div>
                     <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
-                      Mensagem / Resumo Profissional
+                      Resumo da Experiência Profissional *
                     </label>
                     <textarea
-                      name="mensagem"
+                      name="experience"
+                      required
                       rows={4}
-                      value={formData.mensagem}
+                      value={formData.experience}
                       onChange={handleChange}
                       className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
-                      placeholder="Conte-nos sobre sua experiência profissional, formação e por que deseja trabalhar na Drudi e Almeida..."
+                      placeholder="Descreva sua experiência profissional, formação e principais habilidades..."
                     />
                   </div>
 
+                  {/* Motivation */}
+                  <div>
+                    <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
+                      Por que deseja trabalhar na Drudi e Almeida?
+                    </label>
+                    <textarea
+                      name="motivation"
+                      rows={3}
+                      value={formData.motivation}
+                      onChange={handleChange}
+                      className="w-full font-body text-sm bg-background border border-input rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
+                      placeholder="Conte-nos sua motivação para fazer parte da nossa equipe..."
+                    />
+                  </div>
+
+                  {/* Resume Upload */}
+                  <div>
+                    <label className="block font-ui text-xs font-semibold text-card-foreground mb-1.5">
+                      Currículo (PDF ou Word — máx. {MAX_RESUME_SIZE_MB}MB)
+                    </label>
+                    {resumeFile ? (
+                      <div className="flex items-center gap-3 bg-gold/5 border border-gold/20 rounded-md px-4 py-3">
+                        <FileText className="w-5 h-5 text-gold shrink-0" />
+                        <span className="font-body text-sm text-foreground truncate flex-1">
+                          {resumeFile.name}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ""; }}
+                          className="text-muted-foreground hover:text-destructive transition-colors"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="w-full flex items-center justify-center gap-2 border-2 border-dashed border-border rounded-md px-4 py-4 text-muted-foreground hover:border-gold/40 hover:text-gold transition-colors font-body text-sm"
+                      >
+                        <Upload className="w-4 h-4" />
+                        Clique para anexar seu currículo
+                      </button>
+                    )}
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                  </div>
+
+                  {/* Submit */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button
                       type="submit"
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light"
+                      disabled={isLoading}
+                      className="flex-1 inline-flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-4 h-4" />
-                      Enviar Candidatura via WhatsApp
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          {uploading ? "Enviando currículo..." : "Enviando candidatura..."}
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Enviar Candidatura
+                        </>
+                      )}
                     </button>
                     <a
-                      href="mailto:rh@drudiealmeida.com.br?subject=Candidatura — Trabalhe Conosco"
+                      href="https://wa.me/5511916544653?text=Olá! Gostaria de enviar meu currículo para a Drudi e Almeida."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-navy text-navy font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy hover:text-cream transition-colors dark:border-gold dark:text-gold dark:hover:bg-gold dark:hover:text-navy"
                     >
-                      Enviar por E-mail
+                      Enviar pelo WhatsApp
                     </a>
                   </div>
 

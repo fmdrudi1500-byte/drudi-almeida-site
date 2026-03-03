@@ -8,6 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 // Lazy load pages for performance
 const Home = lazy(() => import("./pages/Home"));
@@ -31,6 +32,7 @@ const AdminSEO = lazy(() => import("./pages/AdminSEO"));
 const Agendar = lazy(() => import("./pages/Agendar"));
 const CancelarAgendamento = lazy(() => import("./pages/CancelarAgendamento"));
 const AdminAgendamentos = lazy(() => import("./pages/admin/AdminAgendamentos"));
+const AdminCandidaturas = lazy(() => import("./pages/admin/AdminCandidaturas"));
 
 function PageLoader() {
   return (
@@ -47,6 +49,7 @@ function Router() {
   return (
     <Layout>
       <ScrollToTop />
+      <ScrollToTopButton />
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" component={Home} />
@@ -70,6 +73,7 @@ function Router() {
           <Route path="/agendar" component={Agendar} />
           <Route path="/cancelar-agendamento" component={CancelarAgendamento} />
           <Route path="/admin/agendamentos" component={AdminAgendamentos} />
+          <Route path="/admin/candidaturas" component={AdminCandidaturas} />
           <Route path="/admin/seo" component={AdminSEO} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

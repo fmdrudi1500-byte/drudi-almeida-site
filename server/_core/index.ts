@@ -9,6 +9,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoutes } from "../sitemap.js";
+import { registerResumeUploadRoute } from "../upload-resume.js";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -41,6 +42,8 @@ async function startServer() {
   registerOAuthRoutes(app);
   // Sitemap and robots.txt
   registerSitemapRoutes(app);
+  // Resume upload endpoint
+  registerResumeUploadRoute(app);
   // tRPC API
   app.use(
     "/api/trpc",
