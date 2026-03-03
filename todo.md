@@ -152,3 +152,7 @@
 ## Fase 26: Performance e redes sociais
 - [x] Adicionar loading="lazy" nas imagens das páginas de instituto e componentes
 - [x] Implementar Open Graph e Twitter Card com imagem específica por página no SEOHead
+
+## Fase 27: Reposicionamento do botão scroll-to-top
+- [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
+- [x] Adicionar auto-ocultamento após alguns segundos de inatividade
