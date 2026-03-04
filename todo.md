@@ -234,6 +234,3 @@
 - [ ] CSS render-blocking (26.3 KiB, 790ms) — inline critical CSS
 - [ ] Imagens below-fold sem loading=lazy
 - [ ] Imagens CloudFront sem cache headers (Cache TTL = None)
-
-## Fase 44: Fix Cache Headers CDN (Mar 2026)
-- [x] Mover hero-monet-tablet e logo-opt para client/public/ com cache headers no Express (1y immutable para /img/)

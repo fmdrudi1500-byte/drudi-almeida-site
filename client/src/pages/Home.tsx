@@ -92,7 +92,7 @@ export default function Home() {
         {/* Hero Background Image — using <img> with srcset for responsive LCP */}
         <img
           src={IMAGES.hero.main}
-          srcSet="/img/hero-mobile-v2-480.webp 480w, /img/hero-mobile-v2-640.webp 640w, /img/hero-monet-tablet.webp 1280w, /img/hero-monet-bridge-optimized.webp 1920w"
+          srcSet="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-480_d5a97ad9.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-640_47731de7.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
           sizes="(max-width: 640px) 480px, (max-width: 1280px) 1280px, 1920px"
           alt="Drudi e Almeida Oftalmologia — Clínica de Olhos"
           className="absolute inset-0 w-full h-full object-cover object-center"

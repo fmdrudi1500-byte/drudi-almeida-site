@@ -1,17 +1,17 @@
 /* ============================================================
    Image Constants — Drudi e Almeida
    Central registry for all image URLs used across the site
-   Hero & logo served locally with cache headers; other images from CloudFront CDN
+   All images served from CloudFront CDN (optimized WebP)
    ============================================================ */
 
 export const IMAGES = {
   logo: {
     // Optimized: 4MB PNG -> 11KB WebP (99% reduction)
-    horizontal: "/img/logo-opt.webp",
-    circular: "/img/logo-opt.webp",
+    horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp",
+    circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp",
   },
   hero: {
-    main: "/img/hero-monet-bridge-optimized.webp",
+    main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp",
     eyeAbstract: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-eye-abstract-opt_93c6d332.webp",
     doctorConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/AChRUprKUpxeRdhT_2e6e6c5a.jpg",
     technology: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-technology-opt_69a1f34b.webp",
