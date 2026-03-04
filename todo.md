@@ -178,3 +178,18 @@
 - [x] Otimizar imagens das páginas internas (institutos) — manuscdn → CDN WebP
 - [x] Adicionar Service Worker para cache offline de assets estáticos
 - [x] Implementar SSR/SSG (pré-renderização) da Home page
+
+## Fase 31: Performance Mobile 90+ (Otimização Agressiva)
+- [x] Reduzir bundle JS inicial: separar Radix, Sonner, Helmet do chunk principal
+- [x] Lazy load de HelmetProvider, Sonner, TooltipProvider (não críticos para FCP)
+- [x] Remover imports desnecessários do bundle principal (lucide-react tree-shaking)
+- [x] Corrigir CLS: width/height em TODAS as imagens (convênios, logos, etc.)
+- [x] Reservar espaço CSS para UrgencyBar e Header para evitar layout shifts
+- [x] Otimizar imagens restantes (convênios carousel, logos)
+- [x] Melhorar cache headers no servidor Express (assets imutáveis, fontes)
+- [x] Reduzir TBT: defer inicialização de componentes não-críticos
+- [x] Inline critical CSS no HTML para FCP mais rápido
+- [x] Otimizar prerender SSG para incluir CSS inline
+- [x] Remover vendor-editor (381KB) do critical path da Home page (cross-dependency fix)
+- [x] Adicionar content-visibility: auto nas seções abaixo da dobra
+- [x] Preconnect para CDN de imagens no head

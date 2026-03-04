@@ -223,6 +223,12 @@
     padding-bottom: 5rem;
   }
 
+  /* Performance: skip rendering of off-screen sections */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+
   @media (min-width: 768px) {
     .section-padding {
       padding-top: 7rem;

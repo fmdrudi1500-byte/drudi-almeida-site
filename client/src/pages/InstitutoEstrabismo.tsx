@@ -259,7 +259,7 @@ export default function InstitutoEstrabismo() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_TESTE_COBERTURA} alt="Teste de cobertura em criança — diagnóstico de estrabismo" className="rounded-2xl shadow-xl w-full" />
+                <img loading="lazy" src={IMG_TESTE_COBERTURA} alt="Teste de cobertura em criança — diagnóstico de estrabismo" className="rounded-2xl shadow-xl w-full" width={600} height={400} />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[220px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">Diagnóstico Precoce</p>
                   <p className="font-body text-xs text-cream/80">Primeiro exame: entre 6 meses e 1 ano de idade</p>
@@ -556,7 +556,7 @@ export default function InstitutoEstrabismo() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato" className="w-full h-auto" width={600} height={400} />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -610,7 +610,7 @@ export default function InstitutoEstrabismo() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

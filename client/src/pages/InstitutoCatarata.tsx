@@ -496,7 +496,7 @@ export default function InstitutoCatarata() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>
@@ -542,7 +542,7 @@ export default function InstitutoCatarata() {
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/cataract-eye_22b95078.jpg"
                   alt="Olho com catarata - opacificação do cristalino"
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[400px] object-cover" width={600} height={400}
                 />
               </div>
             </AnimateOnScroll>
@@ -574,7 +574,7 @@ export default function InstitutoCatarata() {
                         <img
                           src={sintoma.image}
                           alt={sintoma.title}
-                          className="w-full h-[280px] object-cover"
+                          className="w-full h-[280px] object-cover" width={600} height={280}
                         />
                       </div>
                     </div>
@@ -801,7 +801,7 @@ export default function InstitutoCatarata() {
                   <img
                     src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/recupera%C3%A7%C3%A3odavisao_1bedcd75.png"
                     alt="Pessoa feliz lendo no parque após recuperação da visão"
-                    className="w-full h-[280px] object-cover"
+                    className="w-full h-[280px] object-cover" width={600} height={280}
                   />
                 </div>
               </div>
@@ -815,7 +815,7 @@ export default function InstitutoCatarata() {
                     <img
                       src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/maiorautonomia_64500f0d.png"
                       alt="Casal de idosos com maior autonomia e qualidade de vida"
-                      className="w-full h-[280px] object-cover"
+                      className="w-full h-[280px] object-cover" width={600} height={280}
                     />
                   </div>
                 </div>

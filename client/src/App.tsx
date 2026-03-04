@@ -1,11 +1,7 @@
-import { Toaster } from "@/components/ui/sonner";
-import { HelmetProvider } from "react-helmet-async";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -33,6 +29,11 @@ const Agendar = lazy(() => import("./pages/Agendar"));
 const CancelarAgendamento = lazy(() => import("./pages/CancelarAgendamento"));
 const AdminAgendamentos = lazy(() => import("./pages/admin/AdminAgendamentos"));
 const AdminCandidaturas = lazy(() => import("./pages/admin/AdminCandidaturas"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Lazy load non-critical providers and components
+const LazyToaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
+const LazyHelmetProvider = lazy(() => import("react-helmet-async").then(m => ({ default: m.HelmetProvider })));
 
 function PageLoader() {
   return (
@@ -44,6 +45,37 @@ function PageLoader() {
     </div>
   );
 }
+
+/** Deferred Toaster — loads after initial paint */
+function DeferredToaster() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const id = requestIdleCallback(() => setShow(true), { timeout: 3000 });
+    return () => cancelIdleCallback(id);
+  }, []);
+  if (!show) return null;
+  return (
+    <Suspense fallback={null}>
+      <LazyToaster />
+    </Suspense>
+  );
+}
+
+/** Deferred HelmetProvider — loads after initial paint */
+function DeferredHelmetProvider({ children }: { children: React.ReactNode }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const id = requestIdleCallback(() => setReady(true), { timeout: 2000 });
+    return () => cancelIdleCallback(id);
+  }, []);
+  if (!ready) return <>{children}</>;
+  return (
+    <Suspense fallback={<>{children}</>}>
+      <LazyHelmetProvider>{children}</LazyHelmetProvider>
+    </Suspense>
+  );
+}
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -85,16 +117,14 @@ function Router() {
 
 function App() {
   return (
-    <HelmetProvider>
+    <DeferredHelmetProvider>
       <ErrorBoundary>
         <ThemeProvider defaultTheme="light" switchable>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
+          <DeferredToaster />
+          <Router />
         </ThemeProvider>
       </ErrorBoundary>
-    </HelmetProvider>
+    </DeferredHelmetProvider>
   );
 }
 
