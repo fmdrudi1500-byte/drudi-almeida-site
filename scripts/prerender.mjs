@@ -111,32 +111,33 @@ const criticalHTML = `
 // Script to remove SSG shell once React hydrates
 const hydrationScript = `
 <script>
-  // Remove SSG shell once React renders
+  // Remove SSG shell ONLY when React has rendered content into #root
   (function() {
-    var observer = new MutationObserver(function(mutations) {
-      for (var i = 0; i < mutations.length; i++) {
-        if (mutations[i].addedNodes.length > 0) {
-          var shell = document.getElementById('ssg-shell');
-          if (shell && document.querySelector('[data-reactroot], [data-react-root]') || 
-              (shell && shell.nextElementSibling && shell.nextElementSibling.children.length > 0)) {
-            shell.style.display = 'none';
-            setTimeout(function() { shell.remove(); }, 100);
-            observer.disconnect();
-            return;
-          }
-        }
+    function removeShell() {
+      var shell = document.getElementById('ssg-shell');
+      if (shell) {
+        shell.style.opacity = '0';
+        shell.style.transition = 'opacity 0.2s';
+        setTimeout(function() {
+          var s = document.getElementById('ssg-shell');
+          if (s) s.remove();
+        }, 200);
+      }
+    }
+    var observer = new MutationObserver(function() {
+      var root = document.getElementById('root');
+      // Only remove shell when root has actual React content (children with real DOM nodes)
+      if (root && root.children.length > 0 && root.innerHTML.trim().length > 50) {
+        removeShell();
+        observer.disconnect();
       }
     });
     var root = document.getElementById('root');
     if (root) {
       observer.observe(root, { childList: true, subtree: true });
-      // Fallback: remove after 5 seconds regardless
-      setTimeout(function() {
-        var shell = document.getElementById('ssg-shell');
-        if (shell) shell.remove();
-        observer.disconnect();
-      }, 5000);
     }
+    // Safety: if React never mounts (JS error), keep shell visible forever
+    // Do NOT remove shell on timeout - better to show static content than blank page
   })();
 </script>
 `;

@@ -237,3 +237,6 @@
 
 ## Bug Fix: Tela branca (Mar 2026)
 - [x] Tela branca corrigida — react-helmet-async removido (React 19 incompatível) + SSG shell movido para fora do #root (createRoot apagava o conteúdo)
+
+## Bug: Tela branca (investigação profunda - Mar 2026)
+- [ ] Identificar causa definitiva da tela branca no site publicado
