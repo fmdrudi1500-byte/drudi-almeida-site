@@ -20,7 +20,7 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Constants ---- */
-const HERO_ART_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/u4g0I4h1IGUE9ABNeQTXpr-img-1_1772141937000_na1fn_Y2F0YXJhdGEtaGVyby1hcnQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L3U0ZzBJNGgxSUdVRTlBQk5lUVRYcHItaW1nLTFfMTc3MjE0MTkzNzAwMF9uYTFmbl9ZMkYwWVhKaGRHRXRhR1Z5YnkxaGNuUS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=C8TKw5YeNCoUokrvSuPBz6Hj1MIx4tVE6IYk5DTYvn6rPvMqchkPn-3uuCPPLmJmrGy3NPpjynhj3fIZcjK9fVK3LVGQVQCgIn0NzAVmpp9zwHKvgsLNMUCIcUBA1D9wosZHVjau~h-gmDPG704XUVxICzjpvyVDNR33BGF7jZCi-zgq4rBWIokUWsvh5QdD-e67Lm7Wp4fnP~S2EfWzJWfVp8Ct77u-xjsqZm0tASPy~xQlvHN~GaGzbR3OT954lxLGsY3rFj7II4MLpGQP1rv5dkkVY-ZA2RcDW47c1JfxTvBYaVMwp6gApMJXRGgMaMCUhNmVWfNmtT7Bdblo5A__";
+const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/catarata-hero-art-opt_d9627ee4.webp";
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber o preço da cirurgia de catarata.";
 const PHONE = "(11) 91654-4653";
 
@@ -496,7 +496,7 @@ export default function InstitutoCatarata() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>
@@ -542,7 +542,7 @@ export default function InstitutoCatarata() {
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/cataract-eye_22b95078.jpg"
                   alt="Olho com catarata - opacificação do cristalino"
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[400px] object-cover" width={600} height={400}
                 />
               </div>
             </AnimateOnScroll>
@@ -574,7 +574,7 @@ export default function InstitutoCatarata() {
                         <img
                           src={sintoma.image}
                           alt={sintoma.title}
-                          className="w-full h-[280px] object-cover"
+                          className="w-full h-[280px] object-cover" width={600} height={280}
                         />
                       </div>
                     </div>
@@ -801,7 +801,7 @@ export default function InstitutoCatarata() {
                   <img
                     src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/recupera%C3%A7%C3%A3odavisao_1bedcd75.png"
                     alt="Pessoa feliz lendo no parque após recuperação da visão"
-                    className="w-full h-[280px] object-cover"
+                    className="w-full h-[280px] object-cover" width={600} height={280}
                   />
                 </div>
               </div>
@@ -815,7 +815,7 @@ export default function InstitutoCatarata() {
                     <img
                       src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/maiorautonomia_64500f0d.png"
                       alt="Casal de idosos com maior autonomia e qualidade de vida"
-                      className="w-full h-[280px] object-cover"
+                      className="w-full h-[280px] object-cover" width={600} height={280}
                     />
                   </div>
                 </div>

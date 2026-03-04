@@ -19,11 +19,11 @@ import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/FNcnFFJFKrDuNgLS_4839850a.png";
-const IMG_PENTACAM = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/gXtebAmurXoaMwAtYLEW3l-img-1_1772153891000_na1fn_Y2VyYXRvY29uZS1wZW50YWNhbQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2dYdGViQW11clhvYU13QXRZTEVXM2wtaW1nLTFfMTc3MjE1Mzg5MTAwMF9uYTFmbl9ZMlZ5WVhSdlkyOXVaUzF3Wlc1MFlXTmhiUS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=cgfGusziB6SBeT4-Th55uGr9-MsoYIp1zsMXZjOBwQYzAvP55UY6MlFz2uJq1COtB1AWM-PQQLD5x6sV7yz8uf5oacvMS~5hs81rVnzdfYLzoCNlvtV~g1gMtjj~D0w1X6rtqEg0Si8lGUdqFkTAhl1yqfXMG5uKR21EwGi3tE0cdB2l9VzHZ-oyjIxa-aTnzBL2dZD3mcYKf0QgDiylYEYB8PJeaNsVo9K-yebPkeR4dLPr12CdJoF7FIniEocHNj7unVbzipLekmJCApUf5902M5M6DX6LmpXxsdnoQXYPA0t5fJ0FG138GNiniwCHWVkGiuqgR5yBQYZtngshYg__";
-const IMG_LENTES_ESCLERAIS = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/gXtebAmurXoaMwAtYLEW3l-img-2_1772153910000_na1fn_Y2VyYXRvY29uZS1sZW50ZXMtZXNjbGVyYWlz.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2dYdGViQW11clhvYU13QXRZTEVXM2wtaW1nLTJfMTc3MjE1MzkxMDAwMF9uYTFmbl9ZMlZ5WVhSdlkyOXVaUzFzWlc1MFpYTXRaWE5qYkdWeVlXbHoucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=BAPEE7de7UypEqcVOya8srrW-IhjbGNTLO79fRQC6SzlVFe5ivFQjctHk-1DauZbrCqT5VRLepL1gtuJcE47OSp5gmkV5u2AOcnE-4xW-rla6yJrQtOu-VYlR6KQS7m3t5DUkfWwQVJc53kR0Aj6NaCrHwnMTaYR69Fea3bmqLrbOk7eQQpcs64yXLItX43yq2GAuGHdfbp1zUxJcpWfmQhpfSaFux7XtTJ8xGlo-LM8Sn5cK8dNnnjfH7seLMr4u8DtSpHKvIHfcPdboVkA0EZSrU3-KqU6nArsv0Vtl7WaxVqPi2GeYblaLyIVdE1I3MgHgEDEgI67~St6-HidWQ__";
-const IMG_CROSSLINKING = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/gXtebAmurXoaMwAtYLEW3l-img-3_1772153904000_na1fn_Y2VyYXRvY29uZS1jcm9zc2xpbmtpbmc.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2dYdGViQW11clhvYU13QXRZTEVXM2wtaW1nLTNfMTc3MjE1MzkwNDAwMF9uYTFmbl9ZMlZ5WVhSdlkyOXVaUzFqY205emMyeHBibXRwYm1jLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=n038gK3Yql3ONF1MgGTxy6v6ov~blRRVEGKADUoJB5QbsRII3LwcKwnQa20~Lv6zk2UW5x7ZEtWRSRv9QKHaILxTg3dl--t9A-~zynBcTEHTqvRryl8xxteMFJbgMV6ZlioNaNciUe9Y5lTVmF1pAMJy~F2xMBxidxetnaEsypLZ-LO5nyQOpdrKuslwEn8YId7OJfu8zMc18kHlH0Ng028d7PP~BAv~EU8Z5Z2LuqSKFS6oO-g-PRyog-DbY0sQlD8n69-P9vPgtxkn2EAcA2DYQZKVVnsH8k~OlHMe68qZYRftoy9Lk9KEK6dmPoNyla2xdn0BGT7Zsh5JSgcc6w__";
-const IMG_ANEL_FERRARA = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/gXtebAmurXoaMwAtYLEW3l-img-4_1772153910000_na1fn_Y2VyYXRvY29uZS1hbmVsLWZlcnJhcmE.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2dYdGViQW11clhvYU13QXRZTEVXM2wtaW1nLTRfMTc3MjE1MzkxMDAwMF9uYTFmbl9ZMlZ5WVhSdlkyOXVaUzFoYm1Wc0xXWmxjbkpoY21FLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Uc9nIiSpe3xyJ97Md8r6HJwX4TuxP1tTnFlggpO8PtymEjHVIsHeW3s5HOKPiZGpwbOiZxdOjkqDcS5xizUGtq8Bil7iFKJoYQgAGRPAfavPcEKmosHgn4Ijaa9LC2YPw3krwrPicIHUhuKe0ra9kmu4R0aW0WViBGCMM9ycFRpue97Mo6xy~7rJKVYeWQfHbD~rXg5u-IWXlm3HVH5mpvncy5D61lKlRTSV7yeY9RPcOTUqmXbSgpsoP5z4v6agcBg~qr1R65-CADhVVNW841d-5fFZck01swBYXiQ7RD1wu-nsEPcXjlgCK3JShARqLwJcy9VvaNpXciUd-0iPhA__";
-const IMG_TRANSPLANTE = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/gXtebAmurXoaMwAtYLEW3l-img-5_1772153911000_na1fn_Y2VyYXRvY29uZS10cmFuc3BsYW50ZQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2dYdGViQW11clhvYU13QXRZTEVXM2wtaW1nLTVfMTc3MjE1MzkxMTAwMF9uYTFmbl9ZMlZ5WVhSdlkyOXVaUzEwY21GdWMzQnNZVzUwWlEucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=h0OSOYw2kViS3YiL~klQ0rJ991tpbIcq7dwIVLr21AHqmJzILghjJGcTvY~aEwg5auqDtxJRJiXBmM229eIASkBvBPQWs~fTeI4g6QBff6ipa0vGe61-YD27km7H8nxE0pkrkP1cl4E4Mb3Ld5iukucagl1p4FH45wTB4tQZCtOSFqlJb6zQoftt6HMHiZEpQ-TkqrwQLeeTNwRJZqhEvOTz92OKN1QFAeSDJOKnZdedrizA56gq1fPN0npytJoGvDtXdrFsk~LFVpWV0Bsh7Sh0MnUM-EAZ0lCHt2zcGLIOMYR23tpikG-m1fnEvSM97s9bcIHW5cf-quesM9MD~w__";
+const IMG_PENTACAM = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-pentacam-opt_56ea2a72.webp";
+const IMG_LENTES_ESCLERAIS = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-lentes-esclerais-opt_c45b4f53.webp";
+const IMG_CROSSLINKING = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-crosslinking-opt_0fd9a2ca.webp";
+const IMG_ANEL_FERRARA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-anel-ferrara-opt_a08c5580.webp";
+const IMG_TRANSPLANTE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-transplante-opt_d18a0897.webp";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de ceratocone.";
@@ -320,7 +320,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll delay={0.2} direction="right">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam para diagnóstico de ceratocone" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam para diagnóstico de ceratocone" className="w-full h-auto" width={600} height={400} />
               </div>
             </AnimateOnScroll>
           </div>
@@ -355,7 +355,7 @@ export default function InstitutoCeratocone() {
             <AnimateOnScroll delay={0.15} direction="right">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <img loading="lazy" src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80" alt="Exame oftalmológico" className="w-full h-auto" />
+                  <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/eye-exam-ceratocone_43808e00.jpg" alt="Exame oftalmológico" className="w-full h-auto" width={600} height={400} />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-border/60">
                   <div className="flex items-center gap-3">
@@ -400,7 +400,7 @@ export default function InstitutoCeratocone() {
                     <p className="font-body text-base text-muted-foreground leading-relaxed">{s.desc}</p>
                   </div>
                   <div className={`rounded-2xl overflow-hidden shadow-lg ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" />
+                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" width={600} height={256} />
                   </div>
                 </div>
               </AnimateOnScroll>
@@ -453,7 +453,7 @@ export default function InstitutoCeratocone() {
                 </p>
               </div>
               <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam com mapa topográfico" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam com mapa topográfico" className="w-full h-auto" width={600} height={400} />
               </div>
             </div>
           </AnimateOnScroll>
@@ -566,7 +566,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-10 items-center mb-14">
             <AnimateOnScroll>
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_LENTES_ESCLERAIS} alt="Lentes esclerais para ceratocone" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_LENTES_ESCLERAIS} alt="Lentes esclerais para ceratocone" className="w-full h-auto" width={600} height={400} />
               </div>
             </AnimateOnScroll>
 
@@ -655,7 +655,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll delay={0.15} direction="right">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_CROSSLINKING} alt="Procedimento de crosslinking corneano" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_CROSSLINKING} alt="Procedimento de crosslinking corneano" className="w-full h-auto" width={600} height={400} />
               </div>
               <div className="grid grid-cols-3 gap-3 mt-4">
                 <div className="bg-white rounded-lg p-3 text-center border border-border/60">
@@ -685,7 +685,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll delay={0.15}>
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_ANEL_FERRARA} alt="Anel de Ferrara — segmentos intracorneanos" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_ANEL_FERRARA} alt="Anel de Ferrara — segmentos intracorneanos" className="w-full h-auto" width={600} height={400} />
               </div>
             </AnimateOnScroll>
 
@@ -783,7 +783,7 @@ export default function InstitutoCeratocone() {
 
           <AnimateOnScroll>
             <div className="rounded-2xl overflow-hidden shadow-xl max-w-3xl mx-auto">
-              <img loading="lazy" src={IMG_TRANSPLANTE} alt="Transplante de córnea — PKP e DALK" className="w-full h-auto" />
+              <img loading="lazy" src={IMG_TRANSPLANTE} alt="Transplante de córnea — PKP e DALK" className="w-full h-auto" width={600} height={400} />
               <div className="bg-white p-4 text-center border-t border-border/40">
                 <p className="font-body text-xs text-muted-foreground">Ilustração comparativa: Ceratoplastia Penetrante (PKP) à esquerda e Ceratoplastia Lamelar Anterior Profunda (DALK) à direita</p>
               </div>
@@ -807,7 +807,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
             <AnimateOnScroll>
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
-                <img loading="lazy" src={IMAGES.art.vanGoghStarryNight} alt="Noite Estrelada sobre o Ródano — Van Gogh, 1888" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.vanGoghStarryNight} alt="Noite Estrelada sobre o Ródano — Van Gogh, 1888" className="w-full h-auto" width={600} height={400} />
                 <div className="bg-navy-light p-3 text-center">
                   <p className="font-body text-xs text-cream/70">"Noite Estrelada sobre o Ródano" — Van Gogh, 1888</p>
                 </div>
@@ -850,7 +850,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll className="order-first md:order-last">
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
-                <img loading="lazy" src={IMAGES.art.vanGoghSelfPortrait} alt="Autorretrato — Van Gogh, 1887" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.vanGoghSelfPortrait} alt="Autorretrato — Van Gogh, 1887" className="w-full h-auto" width={600} height={400} />
                 <div className="bg-navy-light p-3 text-center">
                   <p className="font-body text-xs text-cream/70">"Autorretrato" — Van Gogh, 1887</p>
                 </div>
@@ -909,7 +909,7 @@ export default function InstitutoCeratocone() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

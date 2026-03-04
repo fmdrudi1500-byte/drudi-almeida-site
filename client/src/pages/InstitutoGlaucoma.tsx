@@ -320,7 +320,7 @@ export default function InstitutoGlaucoma() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_TONOMETRIA} alt="Tonometria de Goldmann — exame de pressão intraocular" className="rounded-2xl shadow-xl w-full" />
+                <img loading="lazy" src={IMG_TONOMETRIA} alt="Tonometria de Goldmann — exame de pressão intraocular" className="rounded-2xl shadow-xl w-full" width={600} height={400} />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[200px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">Tonometria</p>
                   <p className="font-body text-xs text-cream/80">Medida da pressão intraocular — exame fundamental</p>
@@ -379,7 +379,7 @@ export default function InstitutoGlaucoma() {
               <AnimateOnScroll key={s.title} direction={i % 2 === 0 ? "left" : "right"}>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? "md:[direction:rtl] md:*:[direction:ltr]" : ""}`}>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" />
+                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" width={600} height={256} />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-3">
@@ -411,7 +411,7 @@ export default function InstitutoGlaucoma() {
               <StaggerItem key={exame.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all">
-                  <img loading="lazy" src={exame.img} alt={exame.title} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={exame.img} alt={exame.title} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">
                       <exame.icon className="w-5 h-5 text-gold" />
@@ -572,7 +572,7 @@ export default function InstitutoGlaucoma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_CAMPO_VISUAL} alt="Campo Visual Humphrey — exame fundamental no glaucoma" className="w-full" />
+                <img loading="lazy" src={IMG_CAMPO_VISUAL} alt="Campo Visual Humphrey — exame fundamental no glaucoma" className="w-full" width={600} height={400} />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -613,7 +613,7 @@ export default function InstitutoGlaucoma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.elGrecoToledo} alt="El Greco - Vista de Toledo" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.elGrecoToledo} alt="El Greco - Vista de Toledo" className="w-full h-auto" width={600} height={400} />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -664,7 +664,7 @@ export default function InstitutoGlaucoma() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

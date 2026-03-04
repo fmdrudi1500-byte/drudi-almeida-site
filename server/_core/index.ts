@@ -33,7 +33,7 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
-  // Enable gzip/deflate compression for all responses
+  // Enable gzip compression for API responses and dev mode
   app.use(compression());
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));

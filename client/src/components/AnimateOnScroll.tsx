@@ -1,9 +1,8 @@
 /* ============================================================
-   AnimateOnScroll — Rich scroll-triggered animations
-   Supports: fade-up, fade-left, fade-right, scale, blur, stagger
+   AnimateOnScroll — CSS-only scroll-triggered animations
+   Uses IntersectionObserver instead of framer-motion for performance
    ============================================================ */
-import { motion, Variants, TargetAndTransition } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useRef, useEffect, useState } from "react";
 
 interface Props {
   children: ReactNode;
@@ -15,36 +14,6 @@ interface Props {
   once?: boolean;
 }
 
-const buildVariants = (
-  direction: "up" | "left" | "right" | "none",
-  variant: "fade" | "scale" | "blur" | "slide"
-): Variants => {
-  const dirMap = {
-    up: { y: 40, x: 0 },
-    left: { y: 0, x: -40 },
-    right: { y: 0, x: 40 },
-    none: { y: 0, x: 0 },
-  };
-  const { x, y } = dirMap[direction];
-
-  const baseHidden: TargetAndTransition = { opacity: 0, x, y };
-  const baseVisible: TargetAndTransition = { opacity: 1, x: 0, y: 0 };
-
-  if (variant === "scale") {
-    (baseHidden as Record<string, unknown>).scale = 0.92;
-    (baseVisible as Record<string, unknown>).scale = 1;
-  }
-  if (variant === "blur") {
-    (baseHidden as Record<string, unknown>).filter = "blur(8px)";
-    (baseVisible as Record<string, unknown>).filter = "blur(0px)";
-  }
-
-  return {
-    hidden: baseHidden as TargetAndTransition,
-    visible: baseVisible as TargetAndTransition,
-  } as Variants;
-};
-
 export default function AnimateOnScroll({
   children,
   className = "",
@@ -54,23 +23,54 @@ export default function AnimateOnScroll({
   duration = 0.65,
   once = true,
 }: Props) {
-  const variants = buildVariants(direction, variant);
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once) observer.unobserve(el);
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [once]);
+
+  const dirMap = {
+    up: "translateY(40px)",
+    left: "translateX(-40px)",
+    right: "translateX(40px)",
+    none: "none",
+  };
+
+  const hiddenTransform = dirMap[direction];
+  const scaleVal = variant === "scale" ? " scale(0.92)" : "";
+  const blurVal = variant === "blur" ? " blur(8px)" : "";
+
+  const style: React.CSSProperties = {
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible
+      ? "translateY(0) translateX(0) scale(1)"
+      : `${hiddenTransform}${scaleVal}`,
+    filter: variant === "blur" ? (isVisible ? "blur(0px)" : blurVal.trim()) : undefined,
+    transition: `opacity ${duration}s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform ${duration}s cubic-bezier(0.22,1,0.36,1) ${delay}s, filter ${duration}s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
+    willChange: "opacity, transform",
+  };
 
   return (
-    <motion.div
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, margin: "-50px" }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={className}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -87,19 +87,11 @@ interface StaggerProps {
 export function StaggerContainer({
   children,
   className = "",
-  staggerDelay = 0.08,
-  initialDelay = 0,
 }: StaggerProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ staggerChildren: staggerDelay, delayChildren: initialDelay }}
-      className={className}
-    >
+    <div className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -117,29 +109,46 @@ export function StaggerItem({
   className = "",
   direction = "up",
 }: StaggerItemProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const dirMap = {
-    up: { y: 30, x: 0 },
-    left: { y: 0, x: -30 },
-    right: { y: 0, x: 30 },
-    none: { y: 0, x: 0 },
+    up: "translateY(30px)",
+    left: "translateX(-30px)",
+    right: "translateX(30px)",
+    none: "none",
   };
-  const { x, y } = dirMap[direction];
+
+  const style: React.CSSProperties = {
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible
+      ? "translateY(0) translateX(0) scale(1)"
+      : `${dirMap[direction]} scale(0.96)`,
+    transition: `opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)`,
+    willChange: "opacity, transform",
+  };
 
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, x, y, scale: 0.96 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-        },
-      }}
-      className={className}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

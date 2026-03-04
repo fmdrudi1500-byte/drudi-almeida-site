@@ -167,6 +167,54 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // React core + JSX runtime MUST be in the same chunk
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react/jsx-runtime') || id.includes('node_modules/scheduler/')) {
+            return 'vendor-react';
+          }
+          // Wouter (tiny router)
+          if (id.includes('node_modules/wouter/')) {
+            return 'vendor-react';
+          }
+          // Framer Motion — isolated, only loaded by pages that use it
+          if (id.includes('node_modules/framer-motion/')) {
+            return 'vendor-framer';
+          }
+          // tRPC + React Query + superjson
+          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/react-query') || id.includes('node_modules/superjson/')) {
+            return 'vendor-trpc';
+          }
+          // Radix UI primitives
+          if (id.includes('node_modules/@radix-ui/')) {
+            return 'vendor-radix';
+          }
+          // Rich text editor: let Rollup handle naturally (lazy loaded via BlogPostEditor)
+          // DO NOT manually chunk @tiptap — it creates cross-deps with vendor-react
+          // Date utilities
+          if (id.includes('node_modules/date-fns/') || id.includes('node_modules/react-day-picker/')) {
+            return 'vendor-date';
+          }
+          // Icons library
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
+          // Helmet for SEO
+          if (id.includes('node_modules/react-helmet-async/')) {
+            return 'vendor-helmet';
+          }
+          // Toast notifications
+          if (id.includes('node_modules/sonner/')) {
+            return 'vendor-sonner';
+          }
+          // class-variance-authority + clsx + tailwind-merge (small utilities)
+          if (id.includes('node_modules/class-variance-authority/') || id.includes('node_modules/clsx/') || id.includes('node_modules/tailwind-merge/')) {
+            return 'vendor-react';
+          }
+        },
+      },
+    },
   },
   server: {
     host: true,
