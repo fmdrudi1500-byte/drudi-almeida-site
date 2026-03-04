@@ -62,22 +62,22 @@ const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
     description: "Um dos primeiros sintomas da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, usar o celular, assitir televisão.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visaoemba%C3%A7ada_c12f98d4.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visao-embacada-opt_7a9b5eae.webp",
   },
   {
     title: "Maior sensibilidade à luz",
     description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz solarl podem causar desconforto intenso. Dirigir à noite também se torna mais difícil pela diminuição da sensibilidade ao contraste.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidadealuz_9e2c2355.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidade-luz-opt_42cd58e0.webp",
   },
   {
     title: "Dificuldade de enxergar à noite",
     description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata. O paciente passa a ter dificuldade em situações cotidianas.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldadedeenxergaranoite_f2a9f190.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldade-noite-opt_ee0b97c8.webp",
   },
   {
     title: "Visão dupla em um dos olhos",
     description: "Em alguns casos, embora raro, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas. Esse sintoma é mais comum quando existe associação com luxação ou subluxação do cristalino.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia_75d41ba4.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia-opt_ca3969a1.webp",
   },
   {
     title: "Cores parecem desbotadas",
@@ -466,13 +466,13 @@ export default function InstitutoCatarata() {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp",
               },
               {
                 name: "Lapa",
                 city: "São Paulo - SP",
                 description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp",
               },
               {
                 name: "Santana",

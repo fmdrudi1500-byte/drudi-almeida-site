@@ -89,9 +89,11 @@ export default function Home() {
       />
       {/* ========== HERO ========== */}
       <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
-        {/* Hero Background Image — using <img> for LCP optimization */}
+        {/* Hero Background Image — using <img> with srcset for responsive LCP */}
         <img
           src={IMAGES.hero.main}
+          srcSet="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-mobile_94eabae0.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
+          sizes="100vw"
           alt="Drudi e Almeida Oftalmologia — Clínica de Olhos"
           className="absolute inset-0 w-full h-full object-cover object-center"
           width={1920}
@@ -663,14 +665,14 @@ export default function Home() {
                 name: "Guarulhos",
                 address: "Rua Sete de Setembro, 375",
                 city: "Guarulhos - SP",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp",
                 mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375",
               },
               {
                 name: "Lapa",
                 address: "Rua Barão de Jundiaí, 221",
                 city: "São Paulo - SP",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp",
                 mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Lapa+Rua+Barao+de+Jundiai+221",
               },
               {
