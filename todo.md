@@ -158,3 +158,4 @@
 - [x] Adicionar auto-ocultamento após alguns segundos de inatividade
 - [x] Otimização 2: Google Fonts não-bloqueante (media=print + onload) — elimina 750ms de render-blocking
 - [x] Otimização 3: CSS principal não-bloqueante (media=print + onload via Vite plugin) — elimina 790ms de render-blocking
+- [x] Otimização 4: Preload da imagem hero (Monet) com fetchpriority=high — reduz LCP diretamente
