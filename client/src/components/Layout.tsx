@@ -2,14 +2,18 @@
    Layout Component — Drudi e Almeida
    Wraps all pages with Header, Footer, and WhatsApp FAB
    Performance: lazy loads non-critical UI components
+   - Header: critical (above the fold, needed for LCP)
+   - Footer: lazy (below the fold, not needed for LCP/FID)
+   - UrgencyBar: lazy (deferred until after first paint)
+   - WhatsAppButton, MobileCTABar, SocialProofToasts: deferred
    ============================================================ */
 import { ReactNode, lazy, Suspense, useEffect, useState } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import SchemaOrg from "./SchemaOrg";
-import UrgencyBar from "./UrgencyBar";
 
-// Lazy load non-critical components (they appear after page is interactive)
+// Lazy load below-the-fold and non-critical components
+const Footer = lazy(() => import("./Footer"));
+const UrgencyBar = lazy(() => import("./UrgencyBar"));
 const WhatsAppButton = lazy(() => import("./WhatsAppButton"));
 const MobileCTABar = lazy(() => import("./MobileCTABar"));
 const SocialProofToasts = lazy(() => import("./SocialProofToasts"));
@@ -35,10 +39,16 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <SchemaOrg />
-      <UrgencyBar />
+      {/* UrgencyBar: lazy loaded but shown immediately after Suspense resolves */}
+      <Suspense fallback={null}>
+        <UrgencyBar />
+      </Suspense>
       <Header />
       <main className="flex-1">{children}</main>
-      <Footer />
+      {/* Footer: lazy loaded — below the fold, not critical for LCP/TBT */}
+      <Suspense fallback={<div className="h-64 bg-navy" />}>
+        <Footer />
+      </Suspense>
       {showDeferred && (
         <Suspense fallback={null}>
           {/* FAB circular — hidden on mobile (replaced by sticky bar) */}

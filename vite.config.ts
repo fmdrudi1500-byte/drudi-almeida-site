@@ -150,7 +150,57 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+/**
+ * Plugin to remove non-critical modulepreload links from the HTML.
+ * These chunks are still loaded when needed (via dynamic import),
+ * but removing the preload prevents the browser from downloading them
+ * before the page is interactive, reducing TBT.
+ * 
+ * We keep vendor-react preloaded (needed for React to boot).
+ * We remove vendor-trpc, vendor-radix, vendor-sonner, vendor-helmet, vendor-icons
+ * (only needed after hydration for interactive features).
+ */
+function vitePluginRemoveNonCriticalPreloads(): Plugin {
+  return {
+    name: "remove-non-critical-preloads",
+    apply: "build",
+    transformIndexHtml(html) {
+      // Remove modulepreload for non-critical vendor chunks
+      // These are still loaded lazily when components need them
+      const nonCriticalChunks = [
+        "vendor-trpc",
+        "vendor-radix",
+        "vendor-sonner",
+        "vendor-helmet",
+        "vendor-icons",
+      ];
+      
+      let result = html;
+      for (const chunk of nonCriticalChunks) {
+        // Remove the modulepreload link tag for this chunk
+        const regex = new RegExp(
+          `<link[^>]*rel="modulepreload"[^>]*href="[^"]*${chunk}[^"]*"[^>]*>`,
+          "g"
+        );
+        result = result.replace(regex, "");
+      }
+      return result;
+    },
+  };
+}
+
+// jsxLocPlugin adds data-loc attributes for the Manus visual editor.
+// It should only run in development — in production it adds ~192KB of
+// debug metadata (jsxDEV calls + data-loc strings) that bloat the bundle.
+const isProduction = process.env.NODE_ENV === "production";
+const plugins = [
+  react(),
+  tailwindcss(),
+  ...(isProduction ? [] : [jsxLocPlugin()]),
+  vitePluginManusRuntime(),
+  vitePluginManusDebugCollector(),
+  vitePluginRemoveNonCriticalPreloads(),
+];
 
 export default defineConfig({
   plugins,
