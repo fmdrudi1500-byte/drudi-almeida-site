@@ -204,6 +204,10 @@ const plugins = [
 
 export default defineConfig({
   plugins,
+  define: {
+    // Force new bundle hashes on every build
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+  },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
