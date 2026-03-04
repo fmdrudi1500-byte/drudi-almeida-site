@@ -227,3 +227,8 @@
 - [x] Identificar causa raiz: express-static-gzip não funciona em produção (assets servidos como HTML)
 - [x] Substituir express-static-gzip por express.static nativo (sempre disponível)
 - [x] Build limpo sem erros, 18 testes passando
+
+## Fase 37: Tela Branca — Correção do MutationObserver
+- [x] Identificar causa: MutationObserver ocultava SSG shell quando React montava o spinner (PageLoader)
+- [x] Implementar evento drudi:ready no Home.tsx — SSG shell só some quando Home real monta
+- [x] Build limpo sem erros, 18 testes passando

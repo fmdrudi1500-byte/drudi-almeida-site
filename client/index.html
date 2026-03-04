@@ -305,24 +305,23 @@
       src="%VITE_ANALYTICS_ENDPOINT%/umami"
       data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
 
-    <!-- Remove SSG shell once React mounts -->
+    <!-- Remove SSG shell once React renders real content (not just the loading spinner) -->
     <script>
       (function(){
-        var root=document.getElementById('root');
-        if(!root)return;
         var shell=document.getElementById('ssg-shell');
         if(!shell)return;
-        // Watch for React to render content into #root
-        var obs=new MutationObserver(function(){
-          if(root.children.length>0){
-            shell.classList.add('ssg-hide');
-            setTimeout(function(){shell.remove();var css=document.getElementById('ssg-critical-css');if(css)css.remove();},250);
-            obs.disconnect();
-          }
-        });
-        obs.observe(root,{childList:true});
-        // Fallback: remove after 8s regardless
-        setTimeout(function(){if(shell.parentNode){shell.remove();var css=document.getElementById('ssg-critical-css');if(css)css.remove();}obs.disconnect();},8000);
+        function hideShell(){
+          shell.classList.add('ssg-hide');
+          setTimeout(function(){
+            if(shell.parentNode)shell.remove();
+            var css=document.getElementById('ssg-critical-css');
+            if(css)css.remove();
+          },300);
+        }
+        // Listen for explicit signal from React app that real content is ready
+        window.addEventListener('drudi:ready',hideShell,{once:true});
+        // Fallback: remove after 12s regardless
+        setTimeout(function(){hideShell();},12000);
       })();
     </script>
   </body>

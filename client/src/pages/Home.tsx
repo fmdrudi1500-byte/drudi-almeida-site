@@ -8,7 +8,7 @@ import { Link } from "wouter";
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, ThumbsUp, MapPin, ChevronRight } from "lucide-react";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import { IMAGES } from "@/lib/images";
-import { useRef, useState, useMemo, lazy, Suspense } from "react";
+import { useRef, useState, useMemo, lazy, Suspense, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 import { useAuth } from "@/_core/hooks/useAuth";
 
@@ -71,6 +71,11 @@ export default function Home() {
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
+
+  // Signal SSG shell to hide once real React content is mounted
+  useEffect(() => {
+    window.dispatchEvent(new Event('drudi:ready'));
+  }, []);
 
   // Micro-copy: pick a message based on time of day
   const microcopyMsg = useMemo(() => {
