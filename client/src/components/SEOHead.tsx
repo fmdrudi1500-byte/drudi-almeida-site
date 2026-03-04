@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 interface SEOHeadProps {
   title: string;
@@ -13,6 +13,27 @@ interface SEOHeadProps {
 const BASE_URL = "https://drudiealmeida.com.br";
 const DEFAULT_OG_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/TAgHZnKQbefMatka_4b70bdbb.png";
 
+function setMeta(property: string, content: string, isName = false) {
+  const attr = isName ? "name" : "property";
+  let el = document.querySelector(`meta[${attr}="${property}"]`) as HTMLMetaElement | null;
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, property);
+    document.head.appendChild(el);
+  }
+  el.content = content;
+}
+
+function setLink(rel: string, href: string) {
+  let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = rel;
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
 export default function SEOHead({
   title,
   description,
@@ -25,34 +46,47 @@ export default function SEOHead({
   const fullTitle = `${title} | Drudi e Almeida Oftalmologia`;
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
-  return (
-    <Helmet>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonicalUrl} />
+  useEffect(() => {
+    // Title
+    document.title = fullTitle;
 
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:site_name" content="Drudi e Almeida Oftalmologia" />
+    // Meta description & keywords
+    setMeta("description", description, true);
+    if (keywords) setMeta("keywords", keywords, true);
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+    // Canonical
+    setLink("canonical", canonicalUrl);
 
-      {/* Schema.org JSON-LD */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      )}
-    </Helmet>
-  );
+    // Open Graph
+    setMeta("og:title", fullTitle);
+    setMeta("og:description", description);
+    setMeta("og:type", ogType);
+    setMeta("og:url", canonicalUrl);
+    setMeta("og:image", ogImage);
+    setMeta("og:locale", "pt_BR");
+    setMeta("og:site_name", "Drudi e Almeida Oftalmologia");
+
+    // Twitter Card
+    setMeta("twitter:card", "summary_large_image", true);
+    setMeta("twitter:title", fullTitle, true);
+    setMeta("twitter:description", description, true);
+    setMeta("twitter:image", ogImage, true);
+
+    // Schema.org JSON-LD
+    let scriptEl: HTMLScriptElement | null = null;
+    if (schema) {
+      scriptEl = document.createElement("script");
+      scriptEl.type = "application/ld+json";
+      scriptEl.textContent = JSON.stringify(schema);
+      document.head.appendChild(scriptEl);
+    }
+
+    return () => {
+      if (scriptEl && scriptEl.parentNode) {
+        scriptEl.parentNode.removeChild(scriptEl);
+      }
+    };
+  }, [fullTitle, description, keywords, canonicalUrl, ogImage, ogType, schema]);
+
+  return null;
 }

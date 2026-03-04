@@ -234,3 +234,6 @@
 - [ ] CSS render-blocking (26.3 KiB, 790ms) — inline critical CSS
 - [ ] Imagens below-fold sem loading=lazy
 - [ ] Imagens CloudFront sem cache headers (Cache TTL = None)
+
+## Bug Fix: Tela branca (Mar 2026)
+- [x] Tela branca corrigida — react-helmet-async incompatível com React 19, substituído por SEOHead nativo com useEffect
