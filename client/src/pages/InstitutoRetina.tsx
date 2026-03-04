@@ -307,7 +307,7 @@ export default function InstitutoRetina() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT — Tomografia de Coerência Óptica da retina" className="rounded-2xl shadow-xl w-full" width={600} height={400} />
+                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT — Tomografia de Coerência Óptica da retina" className="rounded-2xl shadow-xl w-full" />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[200px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">OCT de Alta Resolução</p>
                   <p className="font-body text-xs text-cream/80">Visualização das camadas retinianas em micrômetros</p>
@@ -365,7 +365,7 @@ export default function InstitutoRetina() {
               <AnimateOnScroll key={s.title} direction={i % 2 === 0 ? "left" : "right"}>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? "md:[direction:rtl] md:*:[direction:ltr]" : ""}`}>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" width={600} height={256} />
+                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-3">
@@ -401,7 +401,7 @@ export default function InstitutoRetina() {
           <AnimateOnScroll className="mb-10">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT Retina" className="w-full h-64 md:h-full object-cover" width={600} height={256} />
+                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT Retina" className="w-full h-64 md:h-full object-cover" />
                 <div className="p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <Search className="w-5 h-5 text-gold" />
@@ -445,7 +445,7 @@ export default function InstitutoRetina() {
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all overflow-hidden">
                   <div className={`grid grid-cols-1 ${t.hasImg ? "md:grid-cols-5" : ""} gap-0`}>
-                    {t.hasImg && <img loading="lazy" src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" width={600} height={256} />}
+                    {t.hasImg && <img loading="lazy" src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" />}
                     <div className={`p-6 ${t.hasImg ? "md:col-span-3" : ""}`}>
                       <div className="flex items-center gap-3 mb-3">
                         <span className="inline-block bg-navy text-cream font-ui text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">{t.type}</span>
@@ -483,7 +483,7 @@ export default function InstitutoRetina() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.degasDancers} alt="Edgar Degas - Bailarinas" className="w-full h-auto" width={600} height={400} />
+                <img loading="lazy" src={IMAGES.art.degasDancers} alt="Edgar Degas - Bailarinas" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -534,7 +534,7 @@ export default function InstitutoRetina() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

@@ -230,7 +230,7 @@ export default function Blog() {
                       <img
                         src={filtered[0].image}
                         alt={`${filtered[0].title} — artigo em destaque no blog Drudi e Almeida`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={800} height={500} loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="p-6 lg:p-8 flex flex-col justify-center">
@@ -268,7 +268,7 @@ export default function Blog() {
                           <img
                             src={article.image}
                             alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={400} height={250} loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
                         <div className="p-5 flex flex-col flex-1">

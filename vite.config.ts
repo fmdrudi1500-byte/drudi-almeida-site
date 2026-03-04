@@ -169,49 +169,52 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // React core + JSX runtime MUST be in the same chunk
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react/jsx-runtime') || id.includes('node_modules/scheduler/')) {
-            return 'vendor-react';
-          }
-          // Wouter (tiny router)
-          if (id.includes('node_modules/wouter/')) {
-            return 'vendor-react';
-          }
-          // Framer Motion — isolated, only loaded by pages that use it
-          if (id.includes('node_modules/framer-motion/')) {
-            return 'vendor-framer';
-          }
+        manualChunks: {
+          // Core React runtime
+          "vendor-react": ["react", "react-dom", "wouter"],
+          // Animation library (heavy ~150KB)
+          "vendor-framer": ["framer-motion"],
           // tRPC + React Query + superjson
-          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/react-query') || id.includes('node_modules/superjson/')) {
-            return 'vendor-trpc';
-          }
+          "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query", "superjson"],
           // Radix UI primitives
-          if (id.includes('node_modules/@radix-ui/')) {
-            return 'vendor-radix';
-          }
-          // Rich text editor: let Rollup handle naturally (lazy loaded via BlogPostEditor)
-          // DO NOT manually chunk @tiptap — it creates cross-deps with vendor-react
+          "vendor-radix": [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-scroll-area",
+            "@radix-ui/react-separator",
+            "@radix-ui/react-slot",
+            "@radix-ui/react-label",
+            "@radix-ui/react-checkbox",
+            "@radix-ui/react-switch",
+            "@radix-ui/react-radio-group",
+            "@radix-ui/react-toggle",
+            "@radix-ui/react-toggle-group",
+            "@radix-ui/react-progress",
+            "@radix-ui/react-slider",
+            "@radix-ui/react-avatar",
+            "@radix-ui/react-collapsible",
+            "@radix-ui/react-hover-card",
+            "@radix-ui/react-navigation-menu",
+            "@radix-ui/react-alert-dialog",
+            "@radix-ui/react-context-menu",
+            "@radix-ui/react-menubar",
+            "@radix-ui/react-aspect-ratio",
+          ],
+          // Rich text editor (only needed in admin)
+          "vendor-editor": ["@tiptap/react", "@tiptap/starter-kit", "@tiptap/extension-image", "@tiptap/extension-link"],
           // Date utilities
-          if (id.includes('node_modules/date-fns/') || id.includes('node_modules/react-day-picker/')) {
-            return 'vendor-date';
-          }
-          // Icons library
-          if (id.includes('node_modules/lucide-react/')) {
-            return 'vendor-icons';
-          }
-          // Helmet for SEO
-          if (id.includes('node_modules/react-helmet-async/')) {
-            return 'vendor-helmet';
-          }
+          "vendor-date": ["date-fns", "react-day-picker"],
+          // Icons library (tree-shaken but still significant)
+          "vendor-icons": ["lucide-react"],
+          // Helmet for SEO head management
+          "vendor-helmet": ["react-helmet-async"],
           // Toast notifications
-          if (id.includes('node_modules/sonner/')) {
-            return 'vendor-sonner';
-          }
-          // class-variance-authority + clsx + tailwind-merge (small utilities)
-          if (id.includes('node_modules/class-variance-authority/') || id.includes('node_modules/clsx/') || id.includes('node_modules/tailwind-merge/')) {
-            return 'vendor-react';
-          }
+          "vendor-sonner": ["sonner"],
         },
       },
     },

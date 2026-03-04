@@ -107,7 +107,7 @@
 
 ## Fase 17: Melhorias Planejadas (Mar 2026)
 
-- [x] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
+- [ ] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
 - [ ] Ativar sistema de agendamento online com e-mail de confirmação e painel admin
 - [ ] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular
 
@@ -178,57 +178,3 @@
 - [x] Otimizar imagens das páginas internas (institutos) — manuscdn → CDN WebP
 - [x] Adicionar Service Worker para cache offline de assets estáticos
 - [x] Implementar SSR/SSG (pré-renderização) da Home page
-
-## Fase 31: Performance Mobile 90+ (Otimização Agressiva)
-- [x] Reduzir bundle JS inicial: separar Radix, Sonner, Helmet do chunk principal
-- [x] Lazy load de HelmetProvider, Sonner, TooltipProvider (não críticos para FCP)
-- [x] Remover imports desnecessários do bundle principal (lucide-react tree-shaking)
-- [x] Corrigir CLS: width/height em TODAS as imagens (convênios, logos, etc.)
-- [x] Reservar espaço CSS para UrgencyBar e Header para evitar layout shifts
-- [x] Otimizar imagens restantes (convênios carousel, logos)
-- [x] Melhorar cache headers no servidor Express (assets imutáveis, fontes)
-- [x] Reduzir TBT: defer inicialização de componentes não-críticos
-- [x] Inline critical CSS no HTML para FCP mais rápido
-- [x] Otimizar prerender SSG para incluir CSS inline
-- [x] Remover vendor-editor (381KB) do critical path da Home page (cross-dependency fix)
-- [x] Adicionar content-visibility: auto nas seções abaixo da dobra
-- [x] Preconnect para CDN de imagens no head
-
-## Fase 32: Migração CDN e Compressão Brotli
-- [x] Auditar todas as URLs session_file/temporárias no código-fonte
-- [x] Fazer upload das imagens para CDN permanente (manus-upload-file)
-- [x] Substituir todas as URLs temporárias pelas URLs CDN permanentes
-- [x] Implementar compressão Brotli no servidor Express
-- [x] Testar e validar todas as mudanças
-
-## Fase 33: Correção da Tela Branca Inicial
-- [x] Diagnosticar causa da tela branca (FCP lento)
-- [x] Corrigir SSG shell para exibir conteúdo imediatamente (inline no index.html)
-- [x] Garantir que o HTML pré-renderizado seja visível antes do JS carregar
-
-## Fase 34: Correção Definitiva da Tela Branca
-- [x] Diagnosticar causa real da tela branca persistente (manus-runtime 367KB injetado antes do SSG shell)
-- [x] Implementar correção definitiva (SSG shell movido para <head>, renderiza antes do manus-runtime)
-- [x] Validar que o conteúdo aparece instantaneamente (SSG shell 8.8KB antes do body tag)
-
-## Fase 35: Tela Branca - Investigação no Browser Real
-- [x] Investigar no browser real o que aparece durante o carregamento
-- [x] Verificar se o SSG shell está sendo exibido ou se algo o esconde
-- [x] Corrigir HelmetProvider deferred que causava crash no HelmetDispatcher (causa raiz real!)
-- [x] Eliminar completamente a tela branca — HelmetProvider agora carrega eagerly
-
-## Fase 36: Tela Branca — Reprodução no Site Publicado
-- [x] Acessar drudiealmeida.com no browser e capturar o estado exato
-- [x] Verificar erros de JS no console do site publicado
-- [x] Identificar o que causa o carregamento incompleto (express-static-gzip falhando silenciosamente)
-- [x] Implementar correção definitiva (express.static nativo)
-
-## Fase 36: URGENTE — Tela Branca no Site Publicado
-- [x] Identificar causa raiz: express-static-gzip não funciona em produção (assets servidos como HTML)
-- [x] Substituir express-static-gzip por express.static nativo (sempre disponível)
-- [x] Build limpo sem erros, 18 testes passando
-
-## Fase 37: Tela Branca — Correção do MutationObserver
-- [x] Identificar causa: MutationObserver ocultava SSG shell quando React montava o spinner (PageLoader)
-- [x] Implementar evento drudi:ready no Home.tsx — SSG shell só some quando Home real monta
-- [x] Build limpo sem erros, 18 testes passando

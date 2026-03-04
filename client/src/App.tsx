@@ -1,8 +1,11 @@
-import { Route, Switch } from "wouter";
+import { Toaster } from "@/components/ui/sonner";
 import { HelmetProvider } from "react-helmet-async";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/NotFound";
+import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -30,10 +33,6 @@ const Agendar = lazy(() => import("./pages/Agendar"));
 const CancelarAgendamento = lazy(() => import("./pages/CancelarAgendamento"));
 const AdminAgendamentos = lazy(() => import("./pages/admin/AdminAgendamentos"));
 const AdminCandidaturas = lazy(() => import("./pages/admin/AdminCandidaturas"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-
-// Lazy load non-critical providers and components
-const LazyToaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
 
 function PageLoader() {
   return (
@@ -45,22 +44,6 @@ function PageLoader() {
     </div>
   );
 }
-
-/** Deferred Toaster — loads after initial paint */
-function DeferredToaster() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const id = requestIdleCallback(() => setShow(true), { timeout: 3000 });
-    return () => cancelIdleCallback(id);
-  }, []);
-  if (!show) return null;
-  return (
-    <Suspense fallback={null}>
-      <LazyToaster />
-    </Suspense>
-  );
-}
-
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -105,8 +88,10 @@ function App() {
     <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider defaultTheme="light" switchable>
-          <DeferredToaster />
-          <Router />
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
         </ThemeProvider>
       </ErrorBoundary>
     </HelmetProvider>

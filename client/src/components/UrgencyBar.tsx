@@ -12,6 +12,13 @@ function getMonthName() {
   return meses[new Date().getMonth()];
 }
 
+function getPeriod() {
+  const h = new Date().getHours();
+  if (h >= 6 && h < 12) return "manha";
+  if (h >= 12 && h < 18) return "tarde";
+  return "noite";
+}
+
 interface BarData {
   texto: string;
   icone: "clock" | "eye" | "calendar" | "alert";
@@ -65,9 +72,11 @@ export default function UrgencyBar() {
   const [barData, setBarData] = useState<BarData | null>(null);
 
   useEffect(() => {
+    // Reset on route change
     setDismissed(false);
     setVisible(false);
 
+    // Find matching page data
     let data: BarData | null = null;
     for (const [route, d] of Object.entries(PAGE_DATA)) {
       if (location === route || location.startsWith(route + "/")) {
@@ -78,82 +87,70 @@ export default function UrgencyBar() {
 
     if (!data) return;
 
+    // Replace {mes} placeholder
     const mes = getMonthName();
     data = { ...data, texto: data.texto.replace("{mes}", mes) };
     setBarData(data);
 
+    // Show after short delay
     const timer = setTimeout(() => setVisible(true), 1500);
     return () => clearTimeout(timer);
   }, [location]);
 
-  // Always render the container with min-height to reserve space and prevent CLS
-  // But only show content when visible and not dismissed
-  const showContent = barData && visible && !dismissed;
+  if (!barData || !visible || dismissed) return null;
+
+  const Icon = ICONS[barData.icone];
+  const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(barData.ctaMsg)}`;
 
   return (
     <div
-      className="w-full overflow-hidden"
+      className="w-full border-b"
       style={{
-        height: showContent ? "auto" : "0",
-        minHeight: showContent ? "40px" : "0",
-        transition: "height 0.3s ease, min-height 0.3s ease",
+        background: "#EFF6FF",
+        borderBottomColor: "rgba(59,130,246,0.15)",
+        animation: "urgbar-enter 0.4s ease",
       }}
     >
-      {showContent && (() => {
-        const Icon = ICONS[barData.icone];
-        const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(barData.ctaMsg)}`;
-        return (
-          <div
-            className="w-full border-b"
-            style={{
-              background: "#EFF6FF",
-              borderBottomColor: "rgba(59,130,246,0.15)",
-              animation: "urgbar-enter 0.4s ease",
-            }}
-          >
-            <style>{`
-              @keyframes urgbar-enter {
-                from { opacity: 0; transform: translateY(-100%); }
-                to { opacity: 1; transform: translateY(0); }
-              }
-            `}</style>
-            <div className="max-w-5xl mx-auto px-4 py-2.5 flex items-center justify-center gap-3 flex-wrap">
-              <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#1E40AF" }} />
-              <span
-                className="text-sm font-medium text-center leading-snug"
-                style={{ color: "#1E40AF" }}
-                dangerouslySetInnerHTML={{
-                  __html: barData.texto.replace(
-                    /\*\*(.*?)\*\*/g,
-                    '<strong style="font-weight:700;color:#1E3A8A">$1</strong>'
-                  ),
-                }}
-              />
-              <a
-                href={waUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold px-3 py-1 rounded-md flex-shrink-0 transition-colors"
-                style={{
-                  color: "#1E40AF",
-                  background: "rgba(59,130,246,0.12)",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(59,130,246,0.22)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "rgba(59,130,246,0.12)")}
-              >
-                Agendar →
-              </a>
-              <button
-                onClick={() => setDismissed(true)}
-                aria-label="Fechar"
-                className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity p-1"
-              >
-                <X className="w-3.5 h-3.5" style={{ color: "#1E40AF" }} />
-              </button>
-            </div>
-          </div>
-        );
-      })()}
+      <style>{`
+        @keyframes urgbar-enter {
+          from { opacity: 0; transform: translateY(-100%); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+      <div className="max-w-5xl mx-auto px-4 py-2.5 flex items-center justify-center gap-3 flex-wrap">
+        <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#1E40AF" }} />
+        <span
+          className="text-sm font-medium text-center leading-snug"
+          style={{ color: "#1E40AF" }}
+          dangerouslySetInnerHTML={{
+            __html: barData.texto.replace(
+              /\*\*(.*?)\*\*/g,
+              '<strong style="font-weight:700;color:#1E3A8A">$1</strong>'
+            ),
+          }}
+        />
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-bold px-3 py-1 rounded-md flex-shrink-0 transition-colors"
+          style={{
+            color: "#1E40AF",
+            background: "rgba(59,130,246,0.12)",
+          }}
+          onMouseEnter={e => (e.currentTarget.style.background = "rgba(59,130,246,0.22)")}
+          onMouseLeave={e => (e.currentTarget.style.background = "rgba(59,130,246,0.12)")}
+        >
+          Agendar →
+        </a>
+        <button
+          onClick={() => setDismissed(true)}
+          aria-label="Fechar"
+          className="flex-shrink-0 opacity-40 hover:opacity-70 transition-opacity p-1"
+        >
+          <X className="w-3.5 h-3.5" style={{ color: "#1E40AF" }} />
+        </button>
+      </div>
     </div>
   );
 }
