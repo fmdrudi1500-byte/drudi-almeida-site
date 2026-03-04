@@ -197,7 +197,7 @@ export default function TecnologiaCarousel() {
                 <div className="relative h-48 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-navy/60 dark:to-navy/40 flex items-center justify-center p-6 overflow-hidden">
                   <img
                     src={eq.image}
-                    alt={eq.name}
+                    alt={`${eq.name} — equipamento oftalmológico Drudi e Almeida`}
                     className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />

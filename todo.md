@@ -142,3 +142,17 @@
 ## Fase 23: Correção de endereços e e-mail de agendamento
 - [x] Corrigir endereços das unidades na página de agendamento (igualar à home)
 - [x] Atualizar destinatário do e-mail de agendamento para contato@drudiealmeida.com.br (já estava correto)
+
+## Fase 24: Acessibilidade — atributos alt descritivos
+- [x] Auditar e corrigir todos os atributos alt genéricos em imagens do site
+
+## Fase 25: Correção do e-mail de contato
+- [x] Substituir contato@drudiealmeida.com.br por contato@drudiealmeida.com em todo o site
+
+## Fase 26: Performance e redes sociais
+- [x] Adicionar loading="lazy" nas imagens das páginas de instituto e componentes
+- [x] Implementar Open Graph e Twitter Card com imagem específica por página no SEOHead
+
+## Fase 27: Reposicionamento do botão scroll-to-top
+- [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
+- [x] Adicionar auto-ocultamento após alguns segundos de inatividade

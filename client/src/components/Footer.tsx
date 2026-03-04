@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="bg-white/95 rounded-lg p-2 inline-block mb-5">
               <img
                 src={LOGO_URL}
-                alt="Drudi e Almeida"
+                alt="Logotipo Drudi e Almeida Clínicas Oftalmológicas — olho em azul marinho e dourado"
                 className="h-14 w-auto object-contain"
               />
             </div>
@@ -141,8 +141,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                <a href="mailto:contato@drudiealmeida.com.br" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
-                  contato@drudiealmeida.com.br
+                <a href="mailto:contato@drudiealmeida.com" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
+                  contato@drudiealmeida.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

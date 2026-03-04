@@ -168,6 +168,8 @@ export default function InstitutoCeratocone() {
         description="Tratamento especializado de ceratocone: crosslinking, anel de Ferrara, lentes de contato especiais. Diagnóstico com Pentacam e OPD. 5 unidades em SP."
         keywords="ceratocone tratamento SP, crosslinking São Paulo, anel de Ferrara, lente de contato ceratocone, Pentacam, oftalmologista ceratocone"
         canonicalPath="/instituto/ceratocone"
+        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nuRRrdSXTUGgVztf_78be1262.jpg"
+        ogType="website"
       />
       <InstitutoSchema instituto="ceratocone" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
@@ -318,7 +320,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll delay={0.2} direction="right">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img src={IMG_PENTACAM} alt="Exame de Pentacam para diagnóstico de ceratocone" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam para diagnóstico de ceratocone" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
           </div>
@@ -353,7 +355,7 @@ export default function InstitutoCeratocone() {
             <AnimateOnScroll delay={0.15} direction="right">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80" alt="Exame oftalmológico" className="w-full h-auto" />
+                  <img loading="lazy" src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80" alt="Exame oftalmológico" className="w-full h-auto" />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-border/60">
                   <div className="flex items-center gap-3">
@@ -398,7 +400,7 @@ export default function InstitutoCeratocone() {
                     <p className="font-body text-base text-muted-foreground leading-relaxed">{s.desc}</p>
                   </div>
                   <div className={`rounded-2xl overflow-hidden shadow-lg ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                    <img src={s.img} alt={s.title} className="w-full h-64 object-cover" />
+                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" />
                   </div>
                 </div>
               </AnimateOnScroll>
@@ -451,7 +453,7 @@ export default function InstitutoCeratocone() {
                 </p>
               </div>
               <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img src={IMG_PENTACAM} alt="Exame de Pentacam com mapa topográfico" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_PENTACAM} alt="Exame de Pentacam com mapa topográfico" className="w-full h-auto" />
               </div>
             </div>
           </AnimateOnScroll>
@@ -564,7 +566,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-10 items-center mb-14">
             <AnimateOnScroll>
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img src={IMG_LENTES_ESCLERAIS} alt="Lentes esclerais para ceratocone" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_LENTES_ESCLERAIS} alt="Lentes esclerais para ceratocone" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
 
@@ -653,7 +655,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll delay={0.15} direction="right">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img src={IMG_CROSSLINKING} alt="Procedimento de crosslinking corneano" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_CROSSLINKING} alt="Procedimento de crosslinking corneano" className="w-full h-auto" />
               </div>
               <div className="grid grid-cols-3 gap-3 mt-4">
                 <div className="bg-white rounded-lg p-3 text-center border border-border/60">
@@ -683,7 +685,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll delay={0.15}>
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img src={IMG_ANEL_FERRARA} alt="Anel de Ferrara — segmentos intracorneanos" className="w-full h-auto" />
+                <img loading="lazy" src={IMG_ANEL_FERRARA} alt="Anel de Ferrara — segmentos intracorneanos" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
 
@@ -781,7 +783,7 @@ export default function InstitutoCeratocone() {
 
           <AnimateOnScroll>
             <div className="rounded-2xl overflow-hidden shadow-xl max-w-3xl mx-auto">
-              <img src={IMG_TRANSPLANTE} alt="Transplante de córnea — PKP e DALK" className="w-full h-auto" />
+              <img loading="lazy" src={IMG_TRANSPLANTE} alt="Transplante de córnea — PKP e DALK" className="w-full h-auto" />
               <div className="bg-white p-4 text-center border-t border-border/40">
                 <p className="font-body text-xs text-muted-foreground">Ilustração comparativa: Ceratoplastia Penetrante (PKP) à esquerda e Ceratoplastia Lamelar Anterior Profunda (DALK) à direita</p>
               </div>
@@ -805,7 +807,7 @@ export default function InstitutoCeratocone() {
           <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
             <AnimateOnScroll>
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
-                <img src={IMAGES.art.vanGoghStarryNight} alt="Noite Estrelada sobre o Ródano — Van Gogh, 1888" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.vanGoghStarryNight} alt="Noite Estrelada sobre o Ródano — Van Gogh, 1888" className="w-full h-auto" />
                 <div className="bg-navy-light p-3 text-center">
                   <p className="font-body text-xs text-cream/70">"Noite Estrelada sobre o Ródano" — Van Gogh, 1888</p>
                 </div>
@@ -848,7 +850,7 @@ export default function InstitutoCeratocone() {
 
             <AnimateOnScroll className="order-first md:order-last">
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gold/20">
-                <img src={IMAGES.art.vanGoghSelfPortrait} alt="Autorretrato — Van Gogh, 1887" className="w-full h-auto" />
+                <img loading="lazy" src={IMAGES.art.vanGoghSelfPortrait} alt="Autorretrato — Van Gogh, 1887" className="w-full h-auto" />
                 <div className="bg-navy-light p-3 text-center">
                   <p className="font-body text-xs text-cream/70">"Autorretrato" — Van Gogh, 1887</p>
                 </div>
@@ -907,7 +909,7 @@ export default function InstitutoCeratocone() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
+                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>
