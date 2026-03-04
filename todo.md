@@ -156,3 +156,10 @@
 ## Fase 27: Reposicionamento do botão scroll-to-top
 - [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
 - [x] Adicionar auto-ocultamento após alguns segundos de inatividade
+
+## Fase 28: Otimização de Performance (GTmetrix D→B)
+- [x] Code splitting com manualChunks (React, Framer Motion, Radix, tRPC, Lucide, Sonner, Helmet separados)
+- [x] Preconnect ao CDN CloudFront e Google Fonts no head
+- [x] Preload da imagem hero Monet no head
+- [x] Lazy loading das rotas com React.lazy (já estava implementado)
+- [x] Reduzir imagem hero de 437KB (1920px) para 238KB (1280px)

@@ -167,6 +167,57 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React runtime
+          "vendor-react": ["react", "react-dom", "wouter"],
+          // Animation library (heavy ~150KB)
+          "vendor-framer": ["framer-motion"],
+          // tRPC + React Query + superjson
+          "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query", "superjson"],
+          // Radix UI primitives
+          "vendor-radix": [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-scroll-area",
+            "@radix-ui/react-separator",
+            "@radix-ui/react-slot",
+            "@radix-ui/react-label",
+            "@radix-ui/react-checkbox",
+            "@radix-ui/react-switch",
+            "@radix-ui/react-radio-group",
+            "@radix-ui/react-toggle",
+            "@radix-ui/react-toggle-group",
+            "@radix-ui/react-progress",
+            "@radix-ui/react-slider",
+            "@radix-ui/react-avatar",
+            "@radix-ui/react-collapsible",
+            "@radix-ui/react-hover-card",
+            "@radix-ui/react-navigation-menu",
+            "@radix-ui/react-alert-dialog",
+            "@radix-ui/react-context-menu",
+            "@radix-ui/react-menubar",
+            "@radix-ui/react-aspect-ratio",
+          ],
+          // Rich text editor (only needed in admin)
+          "vendor-editor": ["@tiptap/react", "@tiptap/starter-kit", "@tiptap/extension-image", "@tiptap/extension-link"],
+          // Date utilities
+          "vendor-date": ["date-fns", "react-day-picker"],
+          // Icons library (tree-shaken but still significant)
+          "vendor-icons": ["lucide-react"],
+          // Helmet for SEO head management
+          "vendor-helmet": ["react-helmet-async"],
+          // Toast notifications
+          "vendor-sonner": ["sonner"],
+        },
+      },
+    },
   },
   server: {
     host: true,
