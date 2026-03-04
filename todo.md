@@ -173,3 +173,8 @@
 - [x] Eliminar render-blocking resources (Google Fonts async)
 - [x] Reduzir TBT: minimizar JavaScript executado no carregamento inicial
 - [x] Otimizar imagens: converter para WebP, reduzir tamanhos (12.4MB → 71KB médicos, 411KB → 26KB logos)
+
+## Fase 30: Otimizações Avançadas de Performance
+- [x] Otimizar imagens das páginas internas (institutos) — manuscdn → CDN WebP
+- [x] Adicionar Service Worker para cache offline de assets estáticos
+- [x] Implementar SSR/SSG (pré-renderização) da Home page
