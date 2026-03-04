@@ -197,3 +197,16 @@
 - [x] Otimizar imagem hero mobile: versões 480px (24KB) e 640px (32KB) + imagesrcset no preload
 - [x] Shared IntersectionObserver no AnimateOnScroll (1 observer compartilhado vs 53 individuais)
 - [x] Diagnóstico: manus-runtime (358KB inline) é o principal limitante do score mobile
+
+## Fase 41: Otimização Mobile Agressiva (Score 37 → 60+)
+- [x] Analisar detalhadamente todas as oportunidades de otimização ao nosso alcance
+- [x] Reduzir TBT: corrigir manualChunks — react-dom (140KB) estava no index.js por bug de subpath resolution
+- [x] Converter manualChunks de objeto para função para capturar subpath imports corretamente
+- [x] Lazy-load Header com skeleton (11KB removido do critical path)
+- [x] Lazy-load SchemaOrg (6KB removido do critical path)
+- [x] Lazy-load HelmetProvider (14KB vendor-helmet removido do critical path)
+- [x] Lazy-load NotFound page (removido do critical path)
+- [x] Extrair tailwind-merge/cva/clsx para vendor-tw-utils (25KB separado do index.js)
+- [x] index.js: 243KB → 14KB (-94%) | Critical path total: 414KB → 208KB (-50%)
+- [ ] Reduzir CSS não utilizado (178 KB de CSS carregado) — requer PurgeCSS ou Tailwind config
+- [ ] Reduzir DOM size (1.428 elementos) — requer simplificação de seções

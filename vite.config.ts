@@ -219,51 +219,47 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Core React runtime
-          "vendor-react": ["react", "react-dom", "wouter"],
+        manualChunks(id) {
+          // Core React runtime — catch react-dom subpath imports (react-dom/client)
+          if (id.includes('node_modules/react-dom/') || id.includes('node_modules/react/') || id.includes('node_modules/scheduler/') || id.includes('node_modules/wouter/')) {
+            return 'vendor-react';
+          }
           // tRPC + React Query + superjson
-          "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query", "superjson"],
+          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/react-query/') || id.includes('node_modules/superjson/')) {
+            return 'vendor-trpc';
+          }
+          // Tailwind merge + class-variance-authority + clsx (utility CSS helpers)
+          if (id.includes('node_modules/tailwind-merge/') || id.includes('node_modules/class-variance-authority/') || id.includes('node_modules/clsx/')) {
+            return 'vendor-tw-utils';
+          }
           // Radix UI Slot (tiny, used eagerly by Button/Badge in NotFound)
-          "vendor-slot": ["@radix-ui/react-slot"],
+          if (id.includes('node_modules/@radix-ui/react-slot/')) {
+            return 'vendor-slot';
+          }
           // Radix UI primitives (loaded lazily via UIProviders + page components)
-          "vendor-radix": [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-select",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-scroll-area",
-            "@radix-ui/react-separator",
-            "@radix-ui/react-label",
-            "@radix-ui/react-checkbox",
-            "@radix-ui/react-switch",
-            "@radix-ui/react-radio-group",
-            "@radix-ui/react-toggle",
-            "@radix-ui/react-toggle-group",
-            "@radix-ui/react-progress",
-            "@radix-ui/react-slider",
-            "@radix-ui/react-avatar",
-            "@radix-ui/react-collapsible",
-            "@radix-ui/react-hover-card",
-            "@radix-ui/react-navigation-menu",
-            "@radix-ui/react-alert-dialog",
-            "@radix-ui/react-context-menu",
-            "@radix-ui/react-menubar",
-            "@radix-ui/react-aspect-ratio",
-          ],
+          if (id.includes('node_modules/@radix-ui/') && !id.includes('react-slot')) {
+            return 'vendor-radix';
+          }
           // Rich text editor (only needed in admin)
-          "vendor-editor": ["@tiptap/react", "@tiptap/starter-kit", "@tiptap/extension-image", "@tiptap/extension-link"],
+          if (id.includes('node_modules/@tiptap/')) {
+            return 'vendor-editor';
+          }
           // Date utilities
-          "vendor-date": ["date-fns", "react-day-picker"],
+          if (id.includes('node_modules/date-fns/') || id.includes('node_modules/react-day-picker/')) {
+            return 'vendor-date';
+          }
           // Icons library (tree-shaken but still significant)
-          "vendor-icons": ["lucide-react"],
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
           // Helmet for SEO head management
-          "vendor-helmet": ["react-helmet-async"],
+          if (id.includes('node_modules/react-helmet-async/')) {
+            return 'vendor-helmet';
+          }
           // Toast notifications
-          "vendor-sonner": ["sonner"],
+          if (id.includes('node_modules/sonner/')) {
+            return 'vendor-sonner';
+          }
         },
       },
     },
