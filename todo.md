@@ -210,3 +210,10 @@
 - [x] index.js: 243KB → 14KB (-94%) | Critical path total: 414KB → 208KB (-50%)
 - [ ] Reduzir CSS não utilizado (178 KB de CSS carregado) — requer PurgeCSS ou Tailwind config
 - [ ] Reduzir DOM size (1.428 elementos) — requer simplificação de seções
+
+## Fase 42: Correção Crítica — Tela Branca em Produção
+- [x] Remover redirecionamento global para OAuth login em main.tsx (causa tela branca para visitantes não autenticados)
+- [x] Remover import de useAuth da Home.tsx (página pública não precisa de autenticação)
+- [x] Bump Service Worker CACHE_VERSION para da-v4 (forçar invalidação de cache antigo)
+- [x] Verificar que nenhuma página pública usa useAuth (apenas admin pages)
+- [x] Build limpo, 18 testes passando, bundle sem redirect code no critical path

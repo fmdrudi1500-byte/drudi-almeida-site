@@ -13,7 +13,6 @@ import { IMAGES } from "@/lib/images";
 import { useRef, useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
-import { useAuth } from "@/_core/hooks/useAuth";
 
 const institutos = [
   {
@@ -66,9 +65,7 @@ const stats = [
 ];
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
+  // Auth removed - public page does not require authentication
 
   // Micro-copy: pick a message based on time of day
   const microcopyMsg = useMemo(() => {
