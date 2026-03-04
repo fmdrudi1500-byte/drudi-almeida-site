@@ -167,6 +167,50 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // React core + react-helmet-async (must stay together to avoid circular deps)
+          if (
+            id.includes('node_modules/react-dom') ||
+            id.includes('node_modules/react/') ||
+            id.includes('node_modules/scheduler') ||
+            id.includes('node_modules/react-helmet-async') ||
+            id.includes('node_modules/helmet')
+          ) {
+            return 'vendor-react';
+          }
+          // Framer Motion
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-framer';
+          }
+          // tRPC + react-query + superjson
+          if (
+            id.includes('node_modules/@trpc') ||
+            id.includes('node_modules/@tanstack/react-query') ||
+            id.includes('node_modules/superjson')
+          ) {
+            return 'vendor-trpc';
+          }
+          // Radix UI
+          if (id.includes('node_modules/@radix-ui')) {
+            return 'vendor-radix';
+          }
+          // Lucide icons
+          if (id.includes('node_modules/lucide-react')) {
+            return 'vendor-icons';
+          }
+          // date-fns
+          if (id.includes('node_modules/date-fns')) {
+            return 'vendor-date';
+          }
+          // Wouter router
+          if (id.includes('node_modules/wouter')) {
+            return 'vendor-router';
+          }
+        },
+      },
+    },
   },
   server: {
     host: true,
