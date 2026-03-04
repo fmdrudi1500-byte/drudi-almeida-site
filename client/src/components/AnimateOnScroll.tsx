@@ -1,8 +1,33 @@
 /* ============================================================
    AnimateOnScroll — CSS-only scroll-triggered animations
-   Uses IntersectionObserver instead of framer-motion for performance
+   Uses a SHARED IntersectionObserver (one per rootMargin) instead
+   of one observer per element — dramatically reduces JS overhead
+   on pages with many animated elements (e.g., Home with 53 items).
    ============================================================ */
-import { ReactNode, useRef, useEffect, useState } from "react";
+import { ReactNode, useRef, useEffect, useState, useCallback } from "react";
+
+// Shared observer registry: rootMargin -> IntersectionObserver + callbacks map
+const observerMap = new Map<string, {
+  observer: IntersectionObserver;
+  callbacks: Map<Element, (visible: boolean) => void>;
+}>();
+
+function getSharedObserver(rootMargin: string) {
+  if (!observerMap.has(rootMargin)) {
+    const callbacks = new Map<Element, (visible: boolean) => void>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cb = callbacks.get(entry.target);
+          if (cb) cb(entry.isIntersecting);
+        });
+      },
+      { rootMargin }
+    );
+    observerMap.set(rootMargin, { observer, callbacks });
+  }
+  return observerMap.get(rootMargin)!;
+}
 
 interface Props {
   children: ReactNode;
@@ -26,25 +51,33 @@ export default function AnimateOnScroll({
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleVisibility = useCallback(
+    (visible: boolean) => {
+      if (visible) {
+        setIsVisible(true);
+        if (once && ref.current) {
+          const { observer, callbacks } = getSharedObserver("-50px");
+          observer.unobserve(ref.current);
+          callbacks.delete(ref.current);
+        }
+      } else if (!once) {
+        setIsVisible(false);
+      }
+    },
+    [once]
+  );
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (once) observer.unobserve(el);
-        } else if (!once) {
-          setIsVisible(false);
-        }
-      },
-      { rootMargin: "-50px" }
-    );
-
+    const { observer, callbacks } = getSharedObserver("-50px");
+    callbacks.set(el, handleVisibility);
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [once]);
+    return () => {
+      observer.unobserve(el);
+      callbacks.delete(el);
+    };
+  }, [handleVisibility]);
 
   const dirMap = {
     up: "translateY(40px)",
@@ -112,23 +145,28 @@ export function StaggerItem({
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleVisibility = useCallback((visible: boolean) => {
+    if (visible) {
+      setIsVisible(true);
+      if (ref.current) {
+        const { observer, callbacks } = getSharedObserver("-50px");
+        observer.unobserve(ref.current);
+        callbacks.delete(ref.current);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { rootMargin: "-50px" }
-    );
-
+    const { observer, callbacks } = getSharedObserver("-50px");
+    callbacks.set(el, handleVisibility);
     observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.unobserve(el);
+      callbacks.delete(el);
+    };
+  }, [handleVisibility]);
 
   const dirMap = {
     up: "translateY(30px)",

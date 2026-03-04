@@ -89,11 +89,11 @@ function App() {
     <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider defaultTheme="light" switchable>
-          {/* UIProviders is lazy-loaded to defer vendor-radix + vendor-sonner from critical path */}
+          {/* Router renders immediately — UIProviders is lazy-loaded inside and does NOT wrap Router */}
+          <Router />
+          {/* UIProviders lazy-loads after initial render — Toaster + TooltipProvider */}
           <Suspense fallback={null}>
-            <UIProviders>
-              <Router />
-            </UIProviders>
+            <UIProviders>{null}</UIProviders>
           </Suspense>
         </ThemeProvider>
       </ErrorBoundary>

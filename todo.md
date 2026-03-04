@@ -191,3 +191,9 @@
 - [x] Lazy-load UIProviders (TooltipProvider + Toaster) para remover vendor-radix (90KB) do critical path
 - [x] Separar @radix-ui/react-slot em vendor-slot (2KB) para não carregar vendor-radix inteiro eagerly
 - [x] Redução de 125KB no critical path (528KB → 406KB, -24%)
+
+## Fase 40: Otimizações Mobile (Score 37 → target 50+)
+- [x] Corrigir CLS: Router agora renderiza imediatamente sem depender do UIProviders lazy
+- [x] Otimizar imagem hero mobile: versões 480px (24KB) e 640px (32KB) + imagesrcset no preload
+- [x] Shared IntersectionObserver no AnimateOnScroll (1 observer compartilhado vs 53 individuais)
+- [x] Diagnóstico: manus-runtime (358KB inline) é o principal limitante do score mobile
