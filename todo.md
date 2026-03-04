@@ -205,3 +205,8 @@
 - [x] Diagnosticar causa da tela branca (FCP lento)
 - [x] Corrigir SSG shell para exibir conteúdo imediatamente (inline no index.html)
 - [x] Garantir que o HTML pré-renderizado seja visível antes do JS carregar
+
+## Fase 34: Correção Definitiva da Tela Branca
+- [x] Diagnosticar causa real da tela branca persistente (manus-runtime 367KB injetado antes do SSG shell)
+- [x] Implementar correção definitiva (SSG shell movido para <head>, renderiza antes do manus-runtime)
+- [x] Validar que o conteúdo aparece instantaneamente (SSG shell 8.8KB antes do body tag)

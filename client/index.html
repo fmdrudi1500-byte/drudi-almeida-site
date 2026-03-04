@@ -50,10 +50,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Critical inline styles for instant SSG shell paint (no external CSS needed) -->
+    <!-- SSG: Critical CSS + Shell for instant first paint -->
     <style id="ssg-critical-css">
-      #ssg-shell{font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;animation:ssgIn .25s ease-out}
-      @keyframes ssgIn{from{opacity:0}to{opacity:1}}
+      /* SSG shell base */
+      html{background:#faf8f5}
+      body{margin:0}
+      #ssg-shell{font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
       .ssg-urgency{background:linear-gradient(90deg,#1a2744,#2c3e50);color:#fff;text-align:center;padding:10px 16px;font-size:13px;letter-spacing:.02em}
       .ssg-urgency a{color:#c9a961;margin-left:8px;font-weight:600;text-decoration:none}
       .ssg-header{background:rgba(255,255,255,.97);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 0;position:sticky;top:0;z-index:50}
@@ -81,7 +83,50 @@
       .ssg-stat-val{font-size:clamp(1.5rem,3vw,2rem);color:#1a2744;font-weight:700}
       .ssg-stat-lbl{font-size:12px;color:#666;margin-top:4px;letter-spacing:.05em}
       @media(max-width:768px){.ssg-stats-grid{grid-template-columns:repeat(2,1fr)}.ssg-stat:nth-child(2){border-right:none}}
+      /* Hide SSG shell once React mounts (JS adds this class) */
+      #ssg-shell.ssg-hide{opacity:0;transition:opacity .2s ease-out;pointer-events:none}
     </style>
+
+    <!-- SSG Shell HTML: parsed before any injected scripts -->
+    <div id="ssg-shell">
+      <div class="ssg-urgency">
+        <span>&#128203;</span>
+        Atendemos Bradesco, Amil, Unimed, Prevent Senior e mais — consulte sua cobertura.
+        <a href="/agendar">Agendar &rarr;</a>
+      </div>
+      <header class="ssg-header">
+        <div class="ssg-header-inner">
+          <a href="/" class="ssg-logo">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png" alt="Drudi e Almeida" width="40" height="40" style="border-radius:8px" />
+            <span>DRUDI E ALMEIDA</span>
+          </a>
+          <a href="https://wa.me/5511916544653" class="ssg-cta">Agendar Consulta</a>
+        </div>
+      </header>
+      <section class="ssg-hero">
+        <img class="ssg-hero-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp" alt="Drudi e Almeida Oftalmologia" width="1920" height="1080" fetchpriority="high" />
+        <div class="ssg-hero-overlay"></div>
+        <div class="ssg-hero-content">
+          <div class="ssg-hero-inner">
+            <div class="ssg-badge"><span>REFER&Ecirc;NCIA EM OFTALMOLOGIA</span></div>
+            <h1>Sua vis&atilde;o merece <em>excel&ecirc;ncia</em> e <em>cuidado</em></h1>
+            <p>Na Drudi e Almeida, unimos tecnologia de ponta, especialistas renomados e 5 institutos dedicados para oferecer o melhor cuidado oftalmol&oacute;gico do Brasil.</p>
+            <div class="ssg-hero-btns">
+              <a href="https://wa.me/5511916544653?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." class="primary">Agendar pelo WhatsApp &rarr;</a>
+              <a href="tel:+551150268521" class="secondary">Ligar Agora</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ssg-stats">
+        <div class="ssg-stats-grid">
+          <div class="ssg-stat"><div class="ssg-stat-val">10+</div><div class="ssg-stat-lbl">Anos de Experi&ecirc;ncia</div></div>
+          <div class="ssg-stat"><div class="ssg-stat-val">50.000+</div><div class="ssg-stat-lbl">Pacientes Atendidos</div></div>
+          <div class="ssg-stat"><div class="ssg-stat-val">5</div><div class="ssg-stat-lbl">Institutos Especializados</div></div>
+          <div class="ssg-stat"><div class="ssg-stat-val">100%</div><div class="ssg-stat-lbl">Compromisso com Voc&ecirc;</div></div>
+        </div>
+      </section>
+    </div>
 
     <!-- Schema.org JSON-LD: MedicalClinic -->
     <script type="application/ld+json">
@@ -253,47 +298,6 @@
   </head>
 
   <body>
-    <!-- SSG Shell: Instant visual content before React loads (works in dev AND production) -->
-    <div id="ssg-shell">
-      <div class="ssg-urgency">
-        <span>&#128203;</span>
-        Atendemos Bradesco, Amil, Unimed, Prevent Senior e mais — consulte sua cobertura.
-        <a href="/agendar">Agendar &rarr;</a>
-      </div>
-      <header class="ssg-header">
-        <div class="ssg-header-inner">
-          <a href="/" class="ssg-logo">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png" alt="Drudi e Almeida" width="40" height="40" style="border-radius:8px" />
-            <span>DRUDI E ALMEIDA</span>
-          </a>
-          <a href="https://wa.me/5511916544653" class="ssg-cta">Agendar Consulta</a>
-        </div>
-      </header>
-      <section class="ssg-hero">
-        <img class="ssg-hero-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp" alt="Drudi e Almeida Oftalmologia" width="1920" height="1080" fetchpriority="high" />
-        <div class="ssg-hero-overlay"></div>
-        <div class="ssg-hero-content">
-          <div class="ssg-hero-inner">
-            <div class="ssg-badge"><span>REFER&Ecirc;NCIA EM OFTALMOLOGIA</span></div>
-            <h1>Sua vis&atilde;o merece <em>excel&ecirc;ncia</em> e <em>cuidado</em></h1>
-            <p>Na Drudi e Almeida, unimos tecnologia de ponta, especialistas renomados e 5 institutos dedicados para oferecer o melhor cuidado oftalmol&oacute;gico do Brasil.</p>
-            <div class="ssg-hero-btns">
-              <a href="https://wa.me/5511916544653?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." class="primary">Agendar pelo WhatsApp &rarr;</a>
-              <a href="tel:+551150268521" class="secondary">Ligar Agora</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="ssg-stats">
-        <div class="ssg-stats-grid">
-          <div class="ssg-stat"><div class="ssg-stat-val">10+</div><div class="ssg-stat-lbl">Anos de Experi&ecirc;ncia</div></div>
-          <div class="ssg-stat"><div class="ssg-stat-val">50.000+</div><div class="ssg-stat-lbl">Pacientes Atendidos</div></div>
-          <div class="ssg-stat"><div class="ssg-stat-val">5</div><div class="ssg-stat-lbl">Institutos Especializados</div></div>
-          <div class="ssg-stat"><div class="ssg-stat-val">100%</div><div class="ssg-stat-lbl">Compromisso com Voc&ecirc;</div></div>
-        </div>
-      </section>
-    </div>
-
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script
@@ -311,8 +315,7 @@
         // Watch for React to render content into #root
         var obs=new MutationObserver(function(){
           if(root.children.length>0){
-            shell.style.opacity='0';
-            shell.style.transition='opacity .2s ease-out';
+            shell.classList.add('ssg-hide');
             setTimeout(function(){shell.remove();var css=document.getElementById('ssg-critical-css');if(css)css.remove();},250);
             obs.disconnect();
           }
