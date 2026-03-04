@@ -33,7 +33,7 @@ const criticalHTML = `
   <header style="background:rgba(255,255,255,0.97);border-bottom:1px solid rgba(0,0,0,0.06);padding:12px 0;position:sticky;top:0;z-index:50">
     <div style="max-width:1280px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between">
       <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none">
-        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp" alt="Drudi e Almeida" width="40" height="40" style="border-radius:8px" />
+        <img src="/img/logo-opt.webp" alt="Drudi e Almeida" width="40" height="40" style="border-radius:8px" />
         <span style="font-weight:700;color:#1a2744;font-size:15px">DRUDI E ALMEIDA</span>
       </a>
       <a href="https://wa.me/5511916544653" style="background:#c9a961;color:#1a2744;padding:8px 20px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.02em">
@@ -45,8 +45,8 @@ const criticalHTML = `
   <!-- Hero Section -->
   <section style="position:relative;min-height:75vh;display:flex;align-items:center;overflow:hidden;background:#1a2744">
     <img 
-      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp"
-      srcset="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-480_d5a97ad9.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-640_47731de7.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
+      src="/img/hero-monet-bridge-optimized.webp"
+      srcset="/img/hero-mobile-v2-480.webp 480w, /img/hero-mobile-v2-640.webp 640w, /img/hero-monet-tablet.webp 1280w, /img/hero-monet-bridge-optimized.webp 1920w"
       sizes="(max-width: 640px) 480px, (max-width: 1280px) 1280px, 1920px"
       alt="Drudi e Almeida Oftalmologia" 
       width="1920" height="1080"

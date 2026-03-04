@@ -8,8 +8,8 @@ import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight } from "lucide-r
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp"; // 400x223, 11KB WebP
-const LOGO_URL_SMALL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-small_255d672b.webp"; // 200x112, 3KB WebP
+const LOGO_URL = "/img/logo-opt.webp"; // 400x223, 11KB WebP
+const LOGO_URL_SMALL = "/img/logo-small.webp"; // 200x112, 3KB WebP
 
 const institutos = [
   {

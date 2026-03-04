@@ -68,6 +68,21 @@ export function serveStatic(app: Express) {
     })
   );
 
+  // Serve image assets with long-lived cache (1 year)
+  app.use(
+    "/img",
+    express.static(path.join(distPath, "img"), {
+      maxAge: "1y",
+      immutable: true,
+      etag: true,
+      setHeaders(res, filePath) {
+        if (filePath.endsWith(".webp")) {
+          res.setHeader("Content-Type", "image/webp");
+        }
+      },
+    })
+  );
+
   // Serve other static files with short cache
   app.use(
     express.static(distPath, {

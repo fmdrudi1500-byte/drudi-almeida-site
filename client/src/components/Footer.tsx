@@ -5,7 +5,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp"; // Optimized: 4MB PNG -> 11KB WebP
+const LOGO_URL = "/img/logo-opt.webp"; // Optimized: 4MB PNG -> 11KB WebP
 
 const unidades = [
   { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
