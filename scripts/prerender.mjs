@@ -108,105 +108,61 @@ const criticalHTML = `
 </style>
 `;
 
-// Script to remove SSG shell once React hydrates.
-// The ssg-shell is now a SIBLING of #root (not inside it), so React 18's
-// createRoot().render() will NOT remove it. We watch #root for its first
-// child to appear (React rendering), then fade out the shell smoothly.
+// Script to remove SSG shell once React hydrates
 const hydrationScript = `
 <script>
+  // Remove SSG shell once React renders
   (function() {
-    var shell = document.getElementById('ssg-shell');
-    if (!shell) return;
-    var root = document.getElementById('root');
-    if (!root) return;
-    function fadeOutShell() {
-      // Position shell absolutely so it doesn't affect layout during fade
-      // This is the key to zero CLS: the shell is taken out of flow before fading
-      var rect = shell.getBoundingClientRect();
-      shell.style.position = 'fixed';
-      shell.style.top = '0';
-      shell.style.left = '0';
-      shell.style.width = '100%';
-      shell.style.zIndex = '9999';
-      shell.style.transition = 'opacity 0.2s ease';
-      shell.style.pointerEvents = 'none';
-      // Small delay to let React paint first, then fade
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          shell.style.opacity = '0';
-          setTimeout(function() {
-            if (shell.parentNode) shell.parentNode.removeChild(shell);
-          }, 250);
-        });
-      });
-    }
-    // Watch #root for React's first render (it starts empty, React adds children)
     var observer = new MutationObserver(function(mutations) {
       for (var i = 0; i < mutations.length; i++) {
         if (mutations[i].addedNodes.length > 0) {
-          observer.disconnect();
-          fadeOutShell();
-          return;
+          var shell = document.getElementById('ssg-shell');
+          if (shell && document.querySelector('[data-reactroot], [data-react-root]') || 
+              (shell && shell.nextElementSibling && shell.nextElementSibling.children.length > 0)) {
+            shell.style.display = 'none';
+            setTimeout(function() { shell.remove(); }, 100);
+            observer.disconnect();
+            return;
+          }
         }
       }
     });
-    observer.observe(root, { childList: true });
-    // Safety fallback after 8s
-    setTimeout(function() {
-      observer.disconnect();
-      if (shell.parentNode) fadeOutShell();
-    }, 8000);
+    var root = document.getElementById('root');
+    if (root) {
+      observer.observe(root, { childList: true, subtree: true });
+      // Fallback: remove after 5 seconds regardless
+      setTimeout(function() {
+        var shell = document.getElementById('ssg-shell');
+        if (shell) shell.remove();
+        observer.disconnect();
+      }, 5000);
+    }
   })();
 </script>
 `;
 
 async function prerender() {
-  console.log('\uD83D\uDD04 Pre-rendering critical HTML...');
+  console.log('🔄 Pre-rendering critical HTML...');
   
   if (!fs.existsSync(indexPath)) {
-    console.error('\u274C dist/public/index.html not found. Run build first.');
+    console.error('❌ dist/public/index.html not found. Run build first.');
     process.exit(1);
   }
   
   let html = fs.readFileSync(indexPath, 'utf-8');
   
-  // Place ssg-shell OUTSIDE of #root so React 18 does not remove it abruptly.
-  // React's createRoot().render() replaces ALL children of #root synchronously.
-  // By placing the shell as a sibling (before #root), React never touches it,
-  // and our hydration script can fade it out smoothly once the app mounts.
+  // Inject critical HTML into the root div
   html = html.replace(
     '<div id="root"></div>',
-    `${criticalHTML}<div id="root"></div>${hydrationScript}`
+    `<div id="root">${criticalHTML}</div>${hydrationScript}`
   );
-
-  // ─── Externalize the manus-runtime inline script ─────────────────────────
-  // The vitePluginManusRuntime injects a 358KB inline <script> into the HTML.
-  // This blocks the main thread for all real visitors.
-  // We extract it to a separate file and load it with `defer` so it no longer
-  // blocks parsing or rendering.
-  const manusScriptMatch = html.match(/<script id="manus-runtime">([\s\S]*?)<\/script>/);
-  if (manusScriptMatch) {
-    const scriptContent = manusScriptMatch[1];
-    // Write to a stable filename (no hash needed — it changes with plugin updates)
-    const runtimeFileName = 'manus-runtime.js';
-    const runtimeFilePath = path.join(distPath, 'assets', runtimeFileName);
-    fs.writeFileSync(runtimeFilePath, scriptContent, 'utf-8');
-    // Replace inline script with a deferred external script
-    html = html.replace(
-      manusScriptMatch[0],
-      `<script id="manus-runtime" src="/assets/${runtimeFileName}" defer></script>`
-    );
-    const runtimeSizeKB = (Buffer.byteLength(scriptContent, 'utf-8') / 1024).toFixed(1);
-    console.log(`\u2705 Externalized manus-runtime (${runtimeSizeKB} KB) → /assets/${runtimeFileName} [defer]`);
-  }
-  // ─────────────────────────────────────────────────────────────────────────
   
   fs.writeFileSync(indexPath, html, 'utf-8');
   
   const sizeKB = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
-  console.log(`\u2705 Pre-rendered index.html (${sizeKB} KB)`);
-  console.log('   \u2192 Hero section rendered as static HTML');
-  console.log('   \u2192 Will be replaced by React on hydration');
+  console.log(`✅ Pre-rendered index.html (${sizeKB} KB)`);
+  console.log('   → Hero section rendered as static HTML');
+  console.log('   → Will be replaced by React on hydration');
 }
 
 prerender().catch(console.error);
