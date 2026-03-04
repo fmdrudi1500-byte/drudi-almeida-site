@@ -236,4 +236,4 @@
 - [ ] Imagens CloudFront sem cache headers (Cache TTL = None)
 
 ## Bug Fix: Tela branca (Mar 2026)
-- [x] Tela branca corrigida — react-helmet-async incompatível com React 19, substituído por SEOHead nativo com useEffect
+- [x] Tela branca corrigida — react-helmet-async removido (React 19 incompatível) + SSG shell movido para fora do #root (createRoot apagava o conteúdo)

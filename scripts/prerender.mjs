@@ -151,10 +151,11 @@ async function prerender() {
   
   let html = fs.readFileSync(indexPath, 'utf-8');
   
-  // Inject critical HTML into the root div
+  // Inject critical HTML OUTSIDE the root div so React can mount without wiping it
+  // The SSG shell sits as a sibling to #root and is removed once React renders
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root">${criticalHTML}</div>${hydrationScript}`
+    `${criticalHTML}<div id="root"></div>${hydrationScript}`
   );
   
   fs.writeFileSync(indexPath, html, 'utf-8');
