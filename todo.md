@@ -160,3 +160,4 @@
 - [x] Otimização 3: CSS principal não-bloqueante (media=print + onload via Vite plugin) — elimina 790ms de render-blocking
 - [x] Otimização 4: Preload da imagem hero (Monet) com fetchpriority=high — reduz LCP diretamente
 - [x] Otimização 5: Framer Motion removido do caminho crítico — Header e ScrollToTopButton migrados para CSS transitions, vendor-framer (123KB) saiu do modulepreload
+- [x] Otimização 6: Conversão para WebP — 12 imagens convertidas, 22,9MB → 3,4MB (85% menor). Fotos dos médicos: 5-6MB → ~300KB cada (94-96% menor). Unsplash com &fm=webp.

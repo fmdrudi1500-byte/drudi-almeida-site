@@ -1,6 +1,7 @@
 /* ============================================================
    Image Constants — Drudi e Almeida
    Central registry for all image URLs used across the site
+   All images served as WebP from CloudFront CDN for optimal performance
    ============================================================ */
 
 export const IMAGES = {
@@ -9,13 +10,14 @@ export const IMAGES = {
     circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png",
   },
   hero: {
-    main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-DgUmbLuWSS36T55mJw8v28.webp",
+    // WebP — 1034KB (era PNG 1205KB)
+    main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-garden_976d21a9.webp",
     eyeAbstract: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-2_1772069118000_na1fn_aGVyby1leWUtYWJzdHJhY3Q.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTJfMTc3MjA2OTExODAwMF9uYTFmbl9hR1Z5YnkxbGVXVXRZV0p6ZEhKaFkzUS5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=oi9AEzBPOuznaJ~iTZ3m7mXciZh7SCDl8gzsVJr8YMYiatIGrhMCOc8~fXu3gVGoPr2SWrTtSin6jvIFIwQaZf0mqsVcZB8~8kKmvBjWYcm8c6cyAXwVxG7~zqf6ElhHjsxQR0R~6dN-FC3kj5-29qIadX8bKMpf~Zoi58shDZF7QuzZK0Aoe3L70MZ5JKK~ZaypCPFbj4iAl3JVMgBOsTIi~967kQKUeXVOeVUO~UnygwG1S0GqwjhZaraP-7AIBj8xI0aF8JbmdAEiQK4nfF8J1jy0DbNL7MyVUK2h5rgia5kgwTO~ICnzMN8RfnoLTuToV8T6-~TT-v4n262~aw__",
     doctorConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/AChRUprKUpxeRdhT_2e6e6c5a.jpg",
     technology: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-4_1772069128000_na1fn_dGVjaG5vbG9neS1lcXVpcG1lbnQ.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTRfMTc3MjA2OTEyODAwMF9uYTFmbl9kR1ZqYUc1dmJHOW5lUzFsY1hWcGNHMWxiblEuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=gKIug21UAzgCtgvavCIwfjCo3cSfkMo32yTG1~FFQwzx0TRR87P1vOc8rda2~ypPuA9yc64vH2LBGPH8JA6ZcBw2ept8-djLKTFLAWZkNumXh~bDPjEge8~s43y1pRym-a889Dt10-3jDZU4v7R1RBm51Fv6RVT3IFMB4tdXnKuF~0L5~gsCW8Cab1y8wF8TNRe6239kgNLx4QXLWdrWkvN4Pd9ShnulQSyIW3TvvJOOlORPqVtuE0-kRl6uMMVgOu10DYodSjoUb4kICLxyigOsyrd9MsFCmhdIIryM6XhWDzcOJo-9q5MG20BN2L6RaBPAVqVaBSErUJAaIf3gsw__",
     happyFamily: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/djZbXcjCVEl7kPyQuEvVgD-img-5_1772069128000_na1fn_aGFwcHktZmFtaWx5LXZpc2lvbg.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L2RqWmJYY2pDVkVsN2tQeVF1RXZWZ0QtaW1nLTVfMTc3MjA2OTEyODAwMF9uYTFmbl9hR0Z3Y0hrdFptRnRhV3g1TFhacGMybHZiZy5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Sjpe1vUAy4gALhe36FEJzB3K~-NS4QYipOoT4Jmgi8~-KLEoVcVmtZDNszkEaNUAoOFGoRsmIOHF4W5iw7SdDH2XZfYMRrHj3yaqJ2kwrAaBNGSfqVa8fl8svZ897~YNvgmE4JnGZELkKPuBcV-igVZi5WuquBpMyZnMdMnpvfus4fYjuvlCbGuKgRCO5RMYympBzHK-yi7X-aKViOaFkOt3rhTm2h8pqrvKrVONvxl0DgHsJqnAM1sh22bLwHBiy0qJbXzQe-GuuB5oy~SYHAoXh1K0GSqB4NC2Z~sKPxD0NkdGfQ0kTTO9D5kAW2GyP9y7o8ThiU5~idySzUlLmg__",
   },
-  // Instituto logos
+  // Instituto logos (already served as WebP via manuscdn transform)
   institutoLogos: {
     catarata: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242972_na1fn_bG9nby1pbnN0aXR1dG8tY2F0YXJhdGE.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3Ml9uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dFkyRjBZWEpoZEdFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=o0U1W4FzVYiJnIVYVFAqWtrnSF5UDUyJj0dlmYqUdN7tSGSVfevhOHt6gNEUIx-DikdXIw06L5frDaCSZK1bh8PhD5dG769ZQbhreNc20CGRQ-5GOeiP7m6pDMosGCM8V8Z3vROTCh5PsZ6pI4k3OItOg7z5i-RIecANbSAPQ40jRLlpl4YfEh538hlt-SQ46OTu-PsKSrLZQdktrvVPNziv8JRlDN2rDjFyNUeWf6GlLBNznr9dF0wgQgOnNXHiLQ4QgqRVy-c-6jW8drzyApDlLAg9xc7XApM-Y2LZ0MszHK2mifLRoYUB86jk7gHio~us1sNRimXW0QaGLVKMAg__",
     ceratocone: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242973_na1fn_bG9nby1pbnN0aXR1dG8tY2VyYXRvY29uZQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3M19uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dFkyVnlZWFJ2WTI5dVpRLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=DQ5cfnRaq4MpO7O3Rt~E-AGiwoEO~aNWzYm2k0gHE9Uk7JyGMMdhYFrcuQ5g-76RuRyWrhkHDP6UZ5bmtybYuI1-QMtKgZrW8KVUWcL9JG~oC4cNOx4cMvoyZC0xUD1UFcZAITC3gEE-BCK5tTzzqdZg6ZZQuhAawlEjICpQRlpQJ-kBDhl41zjy9YmwTfFH5XmWoiluhQNg8coc~Prc66Ly7o09-6uV~tmCt15N2MirsCdZFLMajVEi7xREY0pNorcXaNSgmQkh8OiOKdh0ZgUUttHe7PrddPq856RgX2256tV0nMK121o--aE8RdC4d4unGnzyDnm94gtRJptdog__",
@@ -23,30 +25,30 @@ export const IMAGES = {
     retina: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242975_na1fn_bG9nby1pbnN0aXR1dG8tcmV0aW5h.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3NV9uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dGNtVjBhVzVoLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=EYuibTJ3-E0xc9InY~9i1g5QhZX3u2c6rVsFMSSE~iplK4zJoplG6gWrSAVd8RdaGWJX3jSuTDI~w5zh~h93rNe1v3REA8Q3S56WOg7bygU45lLG6yqyRJNhnAbAj7lBgxX4WmK8lN9wrs6~0whF4m3P2NEeAQ~jddjGA-rRu71E~CTvGfqRzkC3ZSbwKq1715BBt-cnx3UjTIRu3KmrXD7F09OffyYciJKkOgcodE1bdDC1TKTaX7h2WaiX9nFfLT67vzJNw7fmkei22NWqYtHZWvDen9QBoPOQYPK1C~8hgipChGobUgrWiiaWDkeGTMZbwUEPhzbTgWRfINMDvQ__",
     estrabismo: "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/CslCv6FNGUolzNsZyXWsjR_1772071242976_na1fn_bG9nby1pbnN0aXR1dG8tZXN0cmFiaXNtbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0NzbEN2NkZOR1VvbHpOc1p5WFdzalJfMTc3MjA3MTI0Mjk3Nl9uYTFmbl9iRzluYnkxcGJuTjBhWFIxZEc4dFpYTjBjbUZpYVhOdGJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=LLDJBZcz~VpGa~W4QPUHu60Yq0zEKw4GmqdkcOHY2yuz5GDBgvnUOm3fBns53ysvC83YL73cnKrYJIGKhOhQQEiJbMSkZ-n4AMREP2qhDRJKUX-i5spQJ1EIjz7si~sY~H4btzyB~UsiEOsC-GrPs-grNC7BppliqRnUe15vqTfOvT27sY-dMCYgeG~qJbNc6M8LHN79POZG5mlmXIPsJG~A8n4dpcNGh1ol569vorvVAJablDLGWihytUPuFO~R~ZeWS3aHKu26QA6IysiPD061c9Z0vrgFJN5OCDY9jn1o1MeQybS8voazBBAHoKntlMmr0BChAdQp0GjxRTa2-w__",
   },
-  // Art & Vision — Famous paintings connected to eye conditions
+  // Art & Vision — Famous paintings connected to eye conditions (WebP CDN)
   art: {
-    monetBeforeAfter: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/wbNddNYgwjrdnWbs_d1badfa4.jpg",
-    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png",
-    seuratGrandeJatte: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oPEFYPdixVsjysRg_8467105c.jpg",
-    degasDancers: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WzCAlEOMPvceYawr_3290caaa.png",
-    elGrecoToledo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/CyllqkwfVkxboVaD_21b7d2dd.jpg",
-    daVinciStrabismus: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tjFAKPBlHLVpdwvV_b1164d80.jpg",
-    rembrandtSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/EuPODdxSBIgDitkq_19758687.jpg",
-    vanGoghStarryNight: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nuRRrdSXTUGgVztf_78be1262.jpg",
-    vanGoghSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/SaVZZRtMuqleSZBC_cb3eabb8.jpg",
+    monetBeforeAfter: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-monet-before-after_8079565f.webp",
+    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-garden_976d21a9.webp",
+    seuratGrandeJatte: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-seurat-grande-jatte_3425c9d7.webp",
+    degasDancers: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-degas-dancers_153ba6f0.webp",
+    elGrecoToledo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-el-greco-toledo_8fac5bb8.webp",
+    daVinciStrabismus: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-davinci-strabismus_0a81ed73.webp",
+    rembrandtSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-rembrandt-self-portrait_1efefb9a.webp",
+    vanGoghStarryNight: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-vangogh-starry-night_777a05ff.webp",
+    vanGoghSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-vangogh-self-portrait_0ba4231d.webp",
   },
-  // Corpo Clínico — Fotos profissionais dos médicos
+  // Corpo Clínico — Fotos profissionais dos médicos (WebP — 94-96% menor)
   doctors: {
-    drFernando: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dMCAJeYRVKlvSJwN_1eac77ec.png",
-    draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
-    draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nNfvXsUoQXCkKIBI_f5ffd24c.png",
+    drFernando: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-fernando_0bbe2870.webp",
+    draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-priscilla_fbf5b84a.webp",
+    draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-maria-amelia_e4805cf1.webp",
   },
   // Unsplash images for less prominent sections
   unsplash: {
-    elderlySmiling: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",
-    childEyes: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-    eyeExam: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
-    modernClinic: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
-    teamMeeting: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    elderlySmiling: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80&fm=webp",
+    childEyes: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80&fm=webp",
+    eyeExam: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80&fm=webp",
+    modernClinic: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&fm=webp",
+    teamMeeting: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80&fm=webp",
   },
 } as const;
