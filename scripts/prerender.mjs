@@ -142,10 +142,10 @@ const hydrationScript = `
 `;
 
 async function prerender() {
-  console.log('🔄 Pre-rendering critical HTML...');
+  console.log('\uD83D\uDD04 Pre-rendering critical HTML...');
   
   if (!fs.existsSync(indexPath)) {
-    console.error('❌ dist/public/index.html not found. Run build first.');
+    console.error('\u274C dist/public/index.html not found. Run build first.');
     process.exit(1);
   }
   
@@ -156,13 +156,35 @@ async function prerender() {
     '<div id="root"></div>',
     `<div id="root">${criticalHTML}</div>${hydrationScript}`
   );
+
+  // ─── Externalize the manus-runtime inline script ─────────────────────────
+  // The vitePluginManusRuntime injects a 358KB inline <script> into the HTML.
+  // This blocks the main thread for all real visitors.
+  // We extract it to a separate file and load it with `defer` so it no longer
+  // blocks parsing or rendering.
+  const manusScriptMatch = html.match(/<script id="manus-runtime">([\s\S]*?)<\/script>/);
+  if (manusScriptMatch) {
+    const scriptContent = manusScriptMatch[1];
+    // Write to a stable filename (no hash needed — it changes with plugin updates)
+    const runtimeFileName = 'manus-runtime.js';
+    const runtimeFilePath = path.join(distPath, 'assets', runtimeFileName);
+    fs.writeFileSync(runtimeFilePath, scriptContent, 'utf-8');
+    // Replace inline script with a deferred external script
+    html = html.replace(
+      manusScriptMatch[0],
+      `<script id="manus-runtime" src="/assets/${runtimeFileName}" defer></script>`
+    );
+    const runtimeSizeKB = (Buffer.byteLength(scriptContent, 'utf-8') / 1024).toFixed(1);
+    console.log(`\u2705 Externalized manus-runtime (${runtimeSizeKB} KB) → /assets/${runtimeFileName} [defer]`);
+  }
+  // ─────────────────────────────────────────────────────────────────────────
   
   fs.writeFileSync(indexPath, html, 'utf-8');
   
   const sizeKB = (Buffer.byteLength(html, 'utf-8') / 1024).toFixed(1);
-  console.log(`✅ Pre-rendered index.html (${sizeKB} KB)`);
-  console.log('   → Hero section rendered as static HTML');
-  console.log('   → Will be replaced by React on hydration');
+  console.log(`\u2705 Pre-rendered index.html (${sizeKB} KB)`);
+  console.log('   \u2192 Hero section rendered as static HTML');
+  console.log('   \u2192 Will be replaced by React on hydration');
 }
 
 prerender().catch(console.error);
