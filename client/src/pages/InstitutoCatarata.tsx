@@ -20,7 +20,7 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Constants ---- */
-const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/catarata-hero-art-opt_d9627ee4.webp";
+const HERO_ART_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/u4g0I4h1IGUE9ABNeQTXpr-img-1_1772141937000_na1fn_Y2F0YXJhdGEtaGVyby1hcnQ.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L3U0ZzBJNGgxSUdVRTlBQk5lUVRYcHItaW1nLTFfMTc3MjE0MTkzNzAwMF9uYTFmbl9ZMkYwWVhKaGRHRXRhR1Z5YnkxaGNuUS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=C8TKw5YeNCoUokrvSuPBz6Hj1MIx4tVE6IYk5DTYvn6rPvMqchkPn-3uuCPPLmJmrGy3NPpjynhj3fIZcjK9fVK3LVGQVQCgIn0NzAVmpp9zwHKvgsLNMUCIcUBA1D9wosZHVjau~h-gmDPG704XUVxICzjpvyVDNR33BGF7jZCi-zgq4rBWIokUWsvh5QdD-e67Lm7Wp4fnP~S2EfWzJWfVp8Ct77u-xjsqZm0tASPy~xQlvHN~GaGzbR3OT954lxLGsY3rFj7II4MLpGQP1rv5dkkVY-ZA2RcDW47c1JfxTvBYaVMwp6gApMJXRGgMaMCUhNmVWfNmtT7Bdblo5A__";
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber o preço da cirurgia de catarata.";
 const PHONE = "(11) 91654-4653";
 
@@ -62,22 +62,22 @@ const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
     description: "Um dos primeiros sintomas da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, usar o celular, assitir televisão.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visao-embacada-opt_7a9b5eae.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visaoemba%C3%A7ada_c12f98d4.png",
   },
   {
     title: "Maior sensibilidade à luz",
     description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz solarl podem causar desconforto intenso. Dirigir à noite também se torna mais difícil pela diminuição da sensibilidade ao contraste.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidade-luz-opt_42cd58e0.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sensibilidadealuz_9e2c2355.png",
   },
   {
     title: "Dificuldade de enxergar à noite",
     description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata. O paciente passa a ter dificuldade em situações cotidianas.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldade-noite-opt_ee0b97c8.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dificuldadedeenxergaranoite_f2a9f190.png",
   },
   {
     title: "Visão dupla em um dos olhos",
     description: "Em alguns casos, embora raro, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas. Esse sintoma é mais comum quando existe associação com luxação ou subluxação do cristalino.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia-opt_ca3969a1.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/diplopia_75d41ba4.png",
   },
   {
     title: "Cores parecem desbotadas",
@@ -255,20 +255,15 @@ export default function InstitutoCatarata() {
         description="Cirurgia de catarata com facoemulsificação e lentes premium em SP. Especialistas renomados, 5 unidades em São Paulo e Guarulhos. Agende sua avaliação."
         keywords="cirurgia de catarata SP, catarata tratamento, facoemulsificação, lente intraocular, oftalmologista catarata São Paulo, preço cirurgia catarata"
         canonicalPath="/instituto/catarata"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png"
-        ogType="website"
       />
       <InstitutoSchema instituto="catarata" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Parallax Background — Obra de Arte Impressionista */}
-        <motion.img
-          src={HERO_ART_IMG}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
           style={{
+            backgroundImage: `url(${HERO_ART_IMG})`,
             y: heroImageY,
             scale: heroImageScale,
           }}
@@ -469,13 +464,13 @@ export default function InstitutoCatarata() {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
               },
               {
                 name: "Lapa",
                 city: "São Paulo - SP",
                 description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
               },
               {
                 name: "Santana",
@@ -499,7 +494,7 @@ export default function InstitutoCatarata() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>
@@ -546,9 +541,6 @@ export default function InstitutoCatarata() {
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/cataract-eye_22b95078.jpg"
                   alt="Olho com catarata - opacificação do cristalino"
                   className="w-full h-[400px] object-cover"
-                  width={800}
-                  height={400}
-                  loading="lazy"
                 />
               </div>
             </AnimateOnScroll>
@@ -581,9 +573,6 @@ export default function InstitutoCatarata() {
                           src={sintoma.image}
                           alt={sintoma.title}
                           className="w-full h-[280px] object-cover"
-                          width={600}
-                          height={280}
-                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -811,9 +800,6 @@ export default function InstitutoCatarata() {
                     src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/recupera%C3%A7%C3%A3odavisao_1bedcd75.png"
                     alt="Pessoa feliz lendo no parque após recuperação da visão"
                     className="w-full h-[280px] object-cover"
-                    width={600}
-                    height={280}
-                    loading="lazy"
                   />
                 </div>
               </div>
@@ -828,9 +814,6 @@ export default function InstitutoCatarata() {
                       src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/maiorautonomia_64500f0d.png"
                       alt="Casal de idosos com maior autonomia e qualidade de vida"
                       className="w-full h-[280px] object-cover"
-                      width={600}
-                      height={280}
-                      loading="lazy"
                     />
                   </div>
                 </div>

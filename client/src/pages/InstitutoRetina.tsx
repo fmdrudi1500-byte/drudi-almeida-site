@@ -221,13 +221,11 @@ export default function InstitutoRetina() {
         description="Tratamentos avançados para doenças da retina: vitrectomia, injeções intravítreas, retinopatia diabética. Dr. Fernando Drudi, especialista em retina cirúrgica."
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png"
-        ogType="website"
       />
       <InstitutoSchema instituto="retina" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.img src={HERO_ART_IMG} alt="" aria-hidden="true" fetchPriority="high" className="absolute inset-0 w-full h-full object-cover object-center will-change-transform" style={{ y: heroImageY, scale: heroImageScale }} />
+        <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />
         <motion.div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" style={{ opacity: heroOverlayOpacity }} />
         <div className="relative container py-20">
           <div className="max-w-2xl">
@@ -307,7 +305,7 @@ export default function InstitutoRetina() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT — Tomografia de Coerência Óptica da retina" className="rounded-2xl shadow-xl w-full" width={800} height={600} />
+                <img src={IMG_OCT_SCAN} alt="OCT — Tomografia de Coerência Óptica da retina" className="rounded-2xl shadow-xl w-full" />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[200px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">OCT de Alta Resolução</p>
                   <p className="font-body text-xs text-cream/80">Visualização das camadas retinianas em micrômetros</p>
@@ -365,7 +363,7 @@ export default function InstitutoRetina() {
               <AnimateOnScroll key={s.title} direction={i % 2 === 0 ? "left" : "right"}>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? "md:[direction:rtl] md:*:[direction:ltr]" : ""}`}>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" width={600} height={256} />
+                    <img src={s.img} alt={s.title} className="w-full h-64 object-cover" />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-3">
@@ -401,7 +399,7 @@ export default function InstitutoRetina() {
           <AnimateOnScroll className="mb-10">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <img loading="lazy" src={IMG_OCT_SCAN} alt="OCT Retina" className="w-full h-64 md:h-full object-cover" width={600} height={256} />
+                <img src={IMG_OCT_SCAN} alt="OCT Retina" className="w-full h-64 md:h-full object-cover" />
                 <div className="p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <Search className="w-5 h-5 text-gold" />
@@ -445,7 +443,7 @@ export default function InstitutoRetina() {
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-xl border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all overflow-hidden">
                   <div className={`grid grid-cols-1 ${t.hasImg ? "md:grid-cols-5" : ""} gap-0`}>
-                    {t.hasImg && <img loading="lazy" src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" width={600} height={256} />}
+                    {t.hasImg && <img src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" />}
                     <div className={`p-6 ${t.hasImg ? "md:col-span-3" : ""}`}>
                       <div className="flex items-center gap-3 mb-3">
                         <span className="inline-block bg-navy text-cream font-ui text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">{t.type}</span>
@@ -483,7 +481,7 @@ export default function InstitutoRetina() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.degasDancers} alt="Edgar Degas - Bailarinas" className="w-full h-auto" width={800} height={600} />
+                <img src={IMAGES.art.degasDancers} alt="Edgar Degas - Bailarinas" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -525,8 +523,8 @@ export default function InstitutoRetina() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
               { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
@@ -534,7 +532,7 @@ export default function InstitutoRetina() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

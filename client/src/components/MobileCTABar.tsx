@@ -273,7 +273,7 @@ export default function MobileCTABar() {
           cursor: pointer;
           text-decoration: none;
           white-space: nowrap;
-          transition: transform 0.2s, background-color 0.2s;
+          transition: all 0.2s;
           -webkit-tap-highlight-color: transparent;
           box-shadow: 0 2px 8px rgba(37,211,102,0.3);
         }
@@ -292,7 +292,7 @@ export default function MobileCTABar() {
           border-radius: 10px;
           cursor: pointer;
           text-decoration: none;
-          transition: transform 0.2s, background-color 0.2s;
+          transition: all 0.2s;
           -webkit-tap-highlight-color: transparent;
           flex-shrink: 0;
         }

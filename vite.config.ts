@@ -150,64 +150,10 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-/**
- * Plugin to remove non-critical modulepreload links from the HTML.
- * These chunks are still loaded when needed (via dynamic import),
- * but removing the preload prevents the browser from downloading them
- * before the page is interactive, reducing TBT.
- * 
- * We keep vendor-react preloaded (needed for React to boot).
- * We remove vendor-trpc, vendor-radix, vendor-sonner, vendor-helmet, vendor-icons
- * (only needed after hydration for interactive features).
- */
-function vitePluginRemoveNonCriticalPreloads(): Plugin {
-  return {
-    name: "remove-non-critical-preloads",
-    apply: "build",
-    transformIndexHtml(html) {
-      // Remove modulepreload for non-critical vendor chunks
-      // These are still loaded lazily when components need them
-      const nonCriticalChunks = [
-        "vendor-trpc",
-        "vendor-radix",
-        "vendor-sonner",
-        "vendor-helmet",
-        "vendor-icons",
-      ];
-      
-      let result = html;
-      for (const chunk of nonCriticalChunks) {
-        // Remove the modulepreload link tag for this chunk
-        const regex = new RegExp(
-          `<link[^>]*rel="modulepreload"[^>]*href="[^"]*${chunk}[^"]*"[^>]*>`,
-          "g"
-        );
-        result = result.replace(regex, "");
-      }
-      return result;
-    },
-  };
-}
-
-// jsxLocPlugin adds data-loc attributes for the Manus visual editor.
-// It should only run in development — in production it adds ~192KB of
-// debug metadata (jsxDEV calls + data-loc strings) that bloat the bundle.
-const isProduction = process.env.NODE_ENV === "production";
-const plugins = [
-  react(),
-  tailwindcss(),
-  ...(isProduction ? [] : [jsxLocPlugin()]),
-  vitePluginManusRuntime(),
-  vitePluginManusDebugCollector(),
-  vitePluginRemoveNonCriticalPreloads(),
-];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
 export default defineConfig({
   plugins,
-  define: {
-    // Force new bundle hashes on every build
-    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
-  },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -221,52 +167,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          // Core React runtime — catch react-dom subpath imports (react-dom/client)
-          if (id.includes('node_modules/react-dom/') || id.includes('node_modules/react/') || id.includes('node_modules/scheduler/') || id.includes('node_modules/wouter/')) {
-            return 'vendor-react';
-          }
-          // tRPC + React Query + superjson
-          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/react-query/') || id.includes('node_modules/superjson/')) {
-            return 'vendor-trpc';
-          }
-          // Tailwind merge + class-variance-authority + clsx (utility CSS helpers)
-          if (id.includes('node_modules/tailwind-merge/') || id.includes('node_modules/class-variance-authority/') || id.includes('node_modules/clsx/')) {
-            return 'vendor-tw-utils';
-          }
-          // Radix UI Slot (tiny, used eagerly by Button/Badge in NotFound)
-          if (id.includes('node_modules/@radix-ui/react-slot/')) {
-            return 'vendor-slot';
-          }
-          // Radix UI primitives (loaded lazily via UIProviders + page components)
-          if (id.includes('node_modules/@radix-ui/') && !id.includes('react-slot')) {
-            return 'vendor-radix';
-          }
-          // Rich text editor (only needed in admin)
-          if (id.includes('node_modules/@tiptap/')) {
-            return 'vendor-editor';
-          }
-          // Date utilities
-          if (id.includes('node_modules/date-fns/') || id.includes('node_modules/react-day-picker/')) {
-            return 'vendor-date';
-          }
-          // Icons library (tree-shaken but still significant)
-          if (id.includes('node_modules/lucide-react/')) {
-            return 'vendor-icons';
-          }
-          // Helmet for SEO head management
-          if (id.includes('node_modules/react-helmet-async/')) {
-            return 'vendor-helmet';
-          }
-          // Toast notifications
-          if (id.includes('node_modules/sonner/')) {
-            return 'vendor-sonner';
-          }
-        },
-      },
-    },
   },
   server: {
     host: true,

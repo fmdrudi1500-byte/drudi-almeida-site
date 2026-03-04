@@ -221,7 +221,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
 
               {post.coverImageUrl && (
                 <AnimateOnScroll className="mb-8">
-                  <img src={post.coverImageUrl} alt={post.title} className="w-full rounded-xl object-cover max-h-[500px]" width={1200} height={500} loading="lazy" />
+                  <img src={post.coverImageUrl} alt={post.title} className="w-full rounded-xl object-cover max-h-[500px]" />
                 </AnimateOnScroll>
               )}
 
@@ -263,7 +263,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {images.map((img) => (
                       <a key={img.id} href={img.url} target="_blank" rel="noopener noreferrer">
-                        <img src={img.url} alt={img.altText ?? img.fileName ?? ""} className="w-full h-40 object-cover rounded-lg hover:opacity-90 transition-opacity" width={400} height={160} loading="lazy" />
+                        <img src={img.url} alt={img.altText ?? img.fileName ?? ""} className="w-full h-40 object-cover rounded-lg hover:opacity-90 transition-opacity" />
                       </a>
                     ))}
                   </div>
@@ -312,9 +312,6 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                                   src={related.coverImageUrl}
                                   alt={related.title}
                                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                  width={400}
-                                  height={250}
-                                  loading="lazy"
                                 />
                               </div>
                             ) : (
@@ -539,7 +536,7 @@ function StaticBlogPost({ slug }: { slug: string }) {
                     <Link key={r.slug} href={`/blog/${r.slug}`} className="group block">
                       <div className="rounded-lg border border-border/60 overflow-hidden hover:shadow-md hover:border-gold/30 transition-all">
                         <div className="aspect-[16/10] overflow-hidden">
-                          <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={400} height={192} loading="lazy" />
+                          <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
                         <div className="p-3">
                           <h4 className="font-display text-sm text-navy group-hover:text-gold transition-colors leading-snug line-clamp-2">{r.title}</h4>

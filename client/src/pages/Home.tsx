@@ -4,15 +4,16 @@
    Hero, Institutos, Sobre, Tecnologia, Depoimentos, Blog, CTA
    ============================================================ */
 import { Link } from "wouter";
-
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES } from "@/lib/images";
-import { useRef, useState, useMemo } from "react";
+import { useRef, useEffect, useCallback, useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 const institutos = [
   {
@@ -65,7 +66,9 @@ const stats = [
 ];
 
 export default function Home() {
-  // Auth removed - public page does not require authentication
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
 
   // Micro-copy: pick a message based on time of day
   const microcopyMsg = useMemo(() => {
@@ -76,6 +79,10 @@ export default function Home() {
   }, []);
 
   const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
   return (
     <>
       <SEOHead
@@ -84,55 +91,63 @@ export default function Home() {
         keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata SP, ceratocone tratamento, crosslinking, glaucoma especialista, retina cirúrgica, estrabismo cirurgia, oftalmologista Bradesco, oftalmologista Prevent, oftalmologista perto de mim"
         canonicalPath="/"
       />
-      {/* ========== HERO ========== */}
+      {/* ========== HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
-        {/* Hero Background Image — using <img> with srcset for responsive LCP */}
-        <img
-          src={IMAGES.hero.main}
-          srcSet="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-480_d5a97ad9.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-640_47731de7.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
-          sizes="(max-width: 480px) 480px, (max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
-          alt="Drudi e Almeida Oftalmologia — Clínica de Olhos"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          decoding="async"
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{
+            backgroundImage: `url(${IMAGES.hero.main})`,
+            y: heroImageY,
+            scale: heroImageScale,
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
+          style={{ opacity: heroOverlayOpacity }}
+        />
 
         {/* Content */}
         <div className="relative container py-20">
           <div className="max-w-2xl">
-            <div
-              className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6 animate-hero-fade-up"
-              style={{ animationDelay: "0.2s", animationFillMode: "both" }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
             >
               <Zap className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">
                 REFERÊNCIA EM OFTALMOLOGIA
               </span>
-            </div>
+            </motion.div>
 
-            <h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6 animate-hero-fade-up"
-              style={{ animationDelay: "0.4s", animationFillMode: "both" }}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
               Sua visão merece{" "}
               <span className="text-gold italic">excelência</span> e{" "}
               <span className="text-gold italic">cuidado</span>
-            </h1>
+            </motion.h1>
 
-            <p
-              className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl animate-hero-fade-up"
-              style={{ animationDelay: "0.6s", animationFillMode: "both" }}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
             >
               Na Drudi e Almeida, unimos tecnologia de ponta, especialistas renomados e 
               5 institutos dedicados para oferecer o melhor cuidado oftalmológico do Brasil.
-            </p>
+            </motion.p>
 
-            <div
-              className="flex flex-wrap gap-4 animate-hero-fade-up"
-              style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap gap-4"
             >
               <a
                 href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
@@ -155,12 +170,14 @@ export default function Home() {
               >
                 Ligar Agora
               </a>
-            </div>
+            </motion.div>
 
             {/* Micro-copy */}
-            <div
-              className="flex items-center gap-2 mt-4 animate-fade-in"
-              style={{ animationDelay: "1.5s", animationFillMode: "both" }}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.5 }}
+              className="flex items-center gap-2 mt-4"
             >
               <span
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
@@ -175,7 +192,7 @@ export default function Home() {
               <span className="font-ui text-xs text-cream/60 font-medium">
                 {microcopyMsg.text}
               </span>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* Bottom gradient fade */}
@@ -216,16 +233,18 @@ export default function Home() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1} initialDelay={0.1}>
             {institutos.map((inst) => (
               <StaggerItem key={inst.href}>
-                <div className="h-full transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02] active:scale-[0.98]">
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="h-full"
+                >
                   <Link href={inst.href} className="group block h-full">
                     <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-xl hover:border-gold/40 transition-shadow duration-300`}>
                       <img
                         src={inst.logo}
                         alt={inst.name}
                         className="w-16 h-16 object-contain mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
-                        width={64}
-                        height={64}
-                        loading="lazy"
                       />
                       <h3 className="font-display text-xl text-navy mb-2 group-hover:text-gold transition-colors">
                         {inst.name}
@@ -239,7 +258,7 @@ export default function Home() {
                       </span>
                     </div>
                   </Link>
-                </div>
+                </motion.div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -257,12 +276,9 @@ export default function Home() {
           <AnimateOnScroll direction="left" className="relative">
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-consultorio-opt_31e5f1e3.webp"
+                src="https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/G9Tpw7zLvTmvEI9gUisRl0-img-1_1772121965000_na1fn_ZHJhLXByaXNjaWxsYS1jb25zdWx0b3Jpbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0c5VHB3N3pMdlRtdkVJOWdVaXNSbDAtaW1nLTFfMTc3MjEyMTk2NTAwMF9uYTFmbl9aSEpoTFhCeWFYTmphV3hzWVMxamIyNXpkV3gwYjNKcGJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=TTPlEJe6xmx3JcptNhtg1qrEtUbjuKUKa~KI7tuZqDumLMDmDQdnlKVKd1KY-IEDDybrJ1d8fWI7I12FSMXnFCcA~R7GWjp~XmlIsd4OO3hqE8rslDm4CSFl9AxnQeX2JOTrdvcY19Fs5QwBqcvRzFqGvp9V4TPXktsThC2CZyCYjTNtlEpPFlTAXqj3aCz3FY~eUKvjc0Vkjo7zTODXESLEuIlMYP1Vq9NbgPjbroq-FGYG49cbVrRDF6w2SOuJSEUSyCi~TVz6xaUNv6-xBlGlrVz-0yWiN~B7Zq3pStqLZ9ZYrr7sgT2JCERT8tUBpC41UJk8YtAET-lIwTOKIQ__"
                 alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
                 className="absolute inset-0 w-full h-full object-cover object-top"
-                width={800}
-                height={600}
-                loading="lazy"
               />
               {/* Subtle gradient overlay on right edge for blending */}
               <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-cream/80 to-transparent hidden lg:block" />
@@ -377,7 +393,7 @@ export default function Home() {
                 role: "Diretor Clínico",
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dr-fernando-optimized_e2545ed4.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dMCAJeYRVKlvSJwN_1eac77ec.png",
                 highlights: [
                   "Especialista em Catarata e Retina Cirúrgica",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -390,7 +406,7 @@ export default function Home() {
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173 | RQE 59.216",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-optimized_7687b7c9.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -405,11 +421,8 @@ export default function Home() {
                   <div className="relative h-80 overflow-hidden">
                     <img
                       src={doc.image}
-                      alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
+                      alt={doc.name}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      width={400}
-                      height={320}
-                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -570,7 +583,7 @@ export default function Home() {
               <Link href="/instituto/catarata" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.monetJapaneseBridge} alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={400} height={176} loading="lazy" />
+                    <img src={IMAGES.art.monetJapaneseBridge} alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Catarata</span>
@@ -586,7 +599,7 @@ export default function Home() {
               <Link href="/instituto/ceratocone" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.vanGoghStarryNight} alt="Van Gogh - Noite Estrelada, halos e distorções do ceratocone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={400} height={176} loading="lazy" />
+                    <img src={IMAGES.art.vanGoghStarryNight} alt="Van Gogh - Noite Estrelada, halos e distorções do ceratocone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Ceratocone</span>
@@ -602,7 +615,7 @@ export default function Home() {
               <Link href="/instituto/retina" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.degasDancers} alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width={400} height={176} loading="lazy" />
+                    <img src={IMAGES.art.degasDancers} alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Retina</span>
@@ -618,7 +631,7 @@ export default function Home() {
               <Link href="/instituto/estrabismo" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" width={400} height={176} loading="lazy" />
+                    <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Estrabismo</span>
@@ -662,14 +675,14 @@ export default function Home() {
                 name: "Guarulhos",
                 address: "Rua Sete de Setembro, 375",
                 city: "Guarulhos - SP",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png",
                 mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375",
               },
               {
                 name: "Lapa",
                 address: "Rua Barão de Jundiaí, 221",
                 city: "São Paulo - SP",
-                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png",
                 mapsUrl: "https://www.google.com/maps/search/Drudi+e+Almeida+Lapa+Rua+Barao+de+Jundiai+221",
               },
               {
@@ -706,9 +719,6 @@ export default function Home() {
                       src={u.image}
                       alt={`Unidade ${u.name} — Drudi e Almeida`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      width={400}
-                      height={192}
-                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300 flex items-center justify-center">
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">

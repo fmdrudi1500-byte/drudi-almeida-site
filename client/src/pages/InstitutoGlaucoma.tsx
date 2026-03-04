@@ -220,19 +220,13 @@ export default function InstitutoGlaucoma() {
         description="Diagnóstico precoce e tratamento do glaucoma com tecnologia de última geração. Tonometria, campo visual, OCT. 5 unidades em São Paulo e Guarulhos."
         keywords="glaucoma tratamento SP, glaucoma especialista São Paulo, pressão ocular, tonometria, campo visual, oftalmologista glaucoma"
         canonicalPath="/instituto/glaucoma"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WDorIHhiaQuwCSEJ_604c573f.png"
-        ogType="website"
       />
       <InstitutoSchema instituto="glaucoma" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.img
-          src={HERO_ART_IMG}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
-          style={{ y: heroImageY, scale: heroImageScale }}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }}
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
@@ -324,7 +318,7 @@ export default function InstitutoGlaucoma() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_TONOMETRIA} alt="Tonometria de Goldmann — exame de pressão intraocular" className="rounded-2xl shadow-xl w-full" width={800} height={600} />
+                <img src={IMG_TONOMETRIA} alt="Tonometria de Goldmann — exame de pressão intraocular" className="rounded-2xl shadow-xl w-full" />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[200px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">Tonometria</p>
                   <p className="font-body text-xs text-cream/80">Medida da pressão intraocular — exame fundamental</p>
@@ -383,7 +377,7 @@ export default function InstitutoGlaucoma() {
               <AnimateOnScroll key={s.title} direction={i % 2 === 0 ? "left" : "right"}>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? "md:[direction:rtl] md:*:[direction:ltr]" : ""}`}>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" src={s.img} alt={s.title} className="w-full h-64 object-cover" width={600} height={256} />
+                    <img src={s.img} alt={s.title} className="w-full h-64 object-cover" />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-3">
@@ -415,7 +409,7 @@ export default function InstitutoGlaucoma() {
               <StaggerItem key={exame.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all">
-                  <img loading="lazy" src={exame.img} alt={exame.title} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img src={exame.img} alt={exame.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">
                       <exame.icon className="w-5 h-5 text-gold" />
@@ -576,7 +570,7 @@ export default function InstitutoGlaucoma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img loading="lazy" src={IMG_CAMPO_VISUAL} alt="Campo Visual Humphrey — exame fundamental no glaucoma" className="w-full" width={800} height={600} />
+                <img src={IMG_CAMPO_VISUAL} alt="Campo Visual Humphrey — exame fundamental no glaucoma" className="w-full" />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -617,7 +611,7 @@ export default function InstitutoGlaucoma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.elGrecoToledo} alt="El Greco - Vista de Toledo" className="w-full h-auto" width={800} height={600} />
+                <img src={IMAGES.art.elGrecoToledo} alt="El Greco - Vista de Toledo" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -659,8 +653,8 @@ export default function InstitutoGlaucoma() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
               { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
@@ -668,7 +662,7 @@ export default function InstitutoGlaucoma() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

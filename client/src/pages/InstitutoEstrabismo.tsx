@@ -174,13 +174,11 @@ export default function InstitutoEstrabismo() {
         description="Cirurgia de estrabismo para crianças e adultos. Diagnóstico preciso e técnicas modernas de correção. 5 unidades em São Paulo e Guarulhos."
         keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
         canonicalPath="/instituto/estrabismo"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ibNQCeyYILJFGyuH_5048fcfc.png"
-        ogType="website"
       />
       <InstitutoSchema instituto="estrabismo" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.img src={HERO_ART_IMG} alt="" aria-hidden="true" fetchPriority="high" className="absolute inset-0 w-full h-full object-cover object-center will-change-transform" style={{ y: heroImageY, scale: heroImageScale }} />
+        <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />
         <motion.div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" style={{ opacity: heroOverlayOpacity }} />
         <div className="relative container py-20">
           <div className="max-w-2xl">
@@ -259,7 +257,7 @@ export default function InstitutoEstrabismo() {
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
               <div className="relative">
-                <img loading="lazy" src={IMG_TESTE_COBERTURA} alt="Teste de cobertura em criança — diagnóstico de estrabismo" className="rounded-2xl shadow-xl w-full" width={800} height={600} />
+                <img src={IMG_TESTE_COBERTURA} alt="Teste de cobertura em criança — diagnóstico de estrabismo" className="rounded-2xl shadow-xl w-full" />
                 <div className="absolute -bottom-4 -left-4 bg-navy text-cream rounded-xl p-4 shadow-lg max-w-[220px]">
                   <p className="font-ui text-xs font-semibold text-gold mb-1">Diagnóstico Precoce</p>
                   <p className="font-body text-xs text-cream/80">Primeiro exame: entre 6 meses e 1 ano de idade</p>
@@ -556,7 +554,7 @@ export default function InstitutoEstrabismo() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
             <AnimateOnScroll direction="left">
               <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-xl">
-                <img loading="lazy" src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato" className="w-full h-auto" width={800} height={600} />
+                <img src={IMAGES.art.rembrandtSelfPortrait} alt="Rembrandt - Autorretrato" className="w-full h-auto" />
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll direction="right">
@@ -601,8 +599,8 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica-guarulhos-opt_cd560e5c.webp" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio-lapa-opt_967db3ac.webp" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
               { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
               { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
@@ -610,7 +608,7 @@ export default function InstitutoEstrabismo() {
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
-                  <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" width={400} height={192} />
+                  <img src={clinica.image} alt={clinica.name} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h3 className="font-display text-lg text-navy mb-1">{clinica.name}</h3>
                     <p className="font-ui text-xs text-gold font-semibold mb-3">{clinica.city}</p>

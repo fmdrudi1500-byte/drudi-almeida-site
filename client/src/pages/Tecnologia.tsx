@@ -295,8 +295,6 @@ export default function Tecnologia() {
                       alt={`${eq.name} ${eq.fullName} — Drudi e Almeida`}
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
-                      width={400}
-                      height={200}
                     />
                     {/* Category Badge */}
                     <span className={`absolute top-3 right-3 text-xs font-ui font-semibold px-3 py-1 rounded-full ${categoryColors[eq.category]}`}>

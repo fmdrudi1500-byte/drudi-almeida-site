@@ -1,3 +1,7 @@
+import { Toaster } from "@/components/ui/sonner";
+import { HelmetProvider } from "react-helmet-async";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -6,12 +10,8 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
-// Lazy load non-critical UI providers (defers vendor-radix + vendor-sonner from critical path)
-const UIProviders = lazy(() => import("./components/UIProviders"));
-
 // Lazy load pages for performance
 const Home = lazy(() => import("./pages/Home"));
-const NotFound = lazy(() => import("./pages/NotFound"));
 const SobreNos = lazy(() => import("./pages/SobreNos"));
 const Tecnologia = lazy(() => import("./pages/Tecnologia"));
 const InstitutoCatarata = lazy(() => import("./pages/InstitutoCatarata"));
@@ -85,16 +85,16 @@ function Router() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="light" switchable>
-        {/* Router renders immediately — UIProviders is lazy-loaded inside and does NOT wrap Router */}
-        <Router />
-        {/* UIProviders lazy-loads after initial render — Toaster + TooltipProvider */}
-        <Suspense fallback={null}>
-          <UIProviders>{null}</UIProviders>
-        </Suspense>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <ThemeProvider defaultTheme="light" switchable>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 

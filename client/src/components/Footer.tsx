@@ -5,7 +5,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp"; // Optimized: 4MB PNG -> 11KB WebP
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png";
 
 const unidades = [
   { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
@@ -29,11 +29,8 @@ export default function Footer() {
             <div className="bg-white/95 rounded-lg p-2 inline-block mb-5">
               <img
                 src={LOGO_URL}
-                alt="Logotipo Drudi e Almeida Clínicas Oftalmológicas — olho em azul marinho e dourado"
+                alt="Drudi e Almeida"
                 className="h-14 w-auto object-contain"
-                width={200}
-                height={56}
-                loading="lazy"
               />
             </div>
             <p className="font-body text-sm leading-relaxed text-cream/70 max-w-xs">
@@ -144,8 +141,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                <a href="mailto:contato@drudiealmeida.com" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
-                  contato@drudiealmeida.com
+                <a href="mailto:contato@drudiealmeida.com.br" className="font-body text-sm text-cream/70 hover:text-gold transition-colors">
+                  contato@drudiealmeida.com.br
                 </a>
               </li>
               <li className="flex items-start gap-3">

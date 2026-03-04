@@ -137,11 +137,8 @@ export default function Convenios() {
                       <div className="w-16 h-16 rounded-xl bg-white border border-border/40 flex items-center justify-center shrink-0 p-2 shadow-sm">
                         <img
                           src={conv.logo}
-                          alt={`Logotipo do convênio ${conv.name} — aceito na Drudi e Almeida Oftalmologia`}
+                          alt={`Logo ${conv.name}`}
                           className="w-full h-full object-contain"
-                          width={64}
-                          height={64}
-                          loading="lazy"
                         />
                       </div>
                     ) : (

@@ -4,48 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   Font Fallback Overrides — Eliminate CLS from FOUT
-   Metrics calculated from actual Google Fonts binaries (fontTools):
-   - Playfair Display w400: UPM=1000, ascender=1082, descender=-251, avg_char_w=0.5092
-   - Source Sans 3 w400:    UPM=1000, ascender=1024, descender=-400, avg_char_w=0.4481
-   - Montserrat w500:       UPM=1000, ascender=968,  descender=-251, avg_char_w=0.5558
-   size-adjust = fallback_avg_char_width_ratio / web_font_avg_char_width_ratio * 100
-   ============================================================ */
-
-/* Playfair Display -> Georgia fallback */
-/* Georgia avg_char_w=0.4908, Playfair avg_char_w=0.5092 → size-adjust=96.38% */
-@font-face {
-  font-family: "Playfair Display Fallback";
-  src: local("Georgia");
-  size-adjust: 96.38%;
-  ascent-override: 108.2%;
-  descent-override: 25.1%;
-  line-gap-override: 0%;
-}
-
-/* Source Sans 3 -> Arial fallback */
-/* Arial avg_char_w=0.4481, Source Sans 3 avg_char_w=0.4481 → size-adjust=100% (near-perfect match) */
-@font-face {
-  font-family: "Source Sans 3 Fallback";
-  src: local("Arial");
-  size-adjust: 100%;
-  ascent-override: 102.4%;
-  descent-override: 40%;
-  line-gap-override: 0%;
-}
-
-/* Montserrat -> Arial fallback */
-/* Arial avg_char_w=0.4481, Montserrat avg_char_w=0.5558 → size-adjust=80.63% */
-@font-face {
-  font-family: "Montserrat Fallback";
-  src: local("Arial");
-  size-adjust: 80.63%;
-  ascent-override: 96.8%;
-  descent-override: 25.1%;
-  line-gap-override: 0%;
-}
-
-/* ============================================================
    DESIGN SYSTEM: "Luminance" — Neoclassical Medical Aesthetic
    Brand: Drudi e Almeida Clínicas Oftalmológicas
    Primary: Navy Blue #2c3e50 | Accent: Gold #c9a961
@@ -53,9 +11,9 @@
    ============================================================ */
 
 @theme inline {
-  --font-display: "Playfair Display", "Playfair Display Fallback", Georgia, serif;
-  --font-body: "Source Sans 3", "Source Sans 3 Fallback", Arial, sans-serif;
-  --font-ui: "Montserrat", "Montserrat Fallback", Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  --font-ui: "Montserrat", system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -323,48 +281,4 @@ html {
 :is(.dark) ::selection {
   background: oklch(0.72 0.10 80 / 40%);
   color: oklch(0.98 0.005 80);
-}
-
-/* ============================================================
-   Performance: CSS animations to replace framer-motion
-   ============================================================ */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scale-x {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-@keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes mc-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.animate-scale-x {
-  animation: scale-x 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.animate-hero-fade-up {
-  animation: hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }

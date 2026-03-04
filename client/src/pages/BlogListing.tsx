@@ -188,9 +188,6 @@ export default function BlogListing() {
                               src={featuredPost.coverImageUrl}
                               alt={featuredPost.title}
                               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              width={800}
-                              height={400}
-                              loading="lazy"
                             />
                           ) : (
                             <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy/70 flex items-center justify-center">
@@ -255,9 +252,6 @@ export default function BlogListing() {
                               src={post.coverImageUrl}
                               alt={post.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              width={400}
-                              height={192}
-                              loading="lazy"
                             />
                           ) : (
                             <div className="w-full h-full bg-gradient-to-br from-navy/10 to-navy/5 flex items-center justify-center">

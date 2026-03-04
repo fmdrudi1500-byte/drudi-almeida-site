@@ -7,7 +7,7 @@
 const BASE_URL = "https://drudiealmeida.com.br";
 const PHONE = "+5511916544653";
 const PHONE_LANDLINE = "+551154302421";
-const EMAIL = "contato@drudiealmeida.com";
+const EMAIL = "contato@drudiealmeida.com.br";
 
 // ── Opening hours shared by all units ──────────────────────────
 const openingHours = [
