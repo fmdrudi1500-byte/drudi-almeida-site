@@ -156,3 +156,4 @@
 ## Fase 27: Reposicionamento do botão scroll-to-top
 - [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
 - [x] Adicionar auto-ocultamento após alguns segundos de inatividade
+- [x] Otimização 2: Google Fonts não-bloqueante (media=print + onload) — elimina 750ms de render-blocking
