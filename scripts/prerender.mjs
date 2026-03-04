@@ -111,16 +111,16 @@ const criticalHTML = `
 // Script to remove SSG shell once React hydrates
 const hydrationScript = `
 <script>
-  // Remove SSG shell once React renders
+  // Remove SSG shell once React has actual content in #root
   (function() {
     var observer = new MutationObserver(function(mutations) {
       for (var i = 0; i < mutations.length; i++) {
         if (mutations[i].addedNodes.length > 0) {
+          var root = document.getElementById('root');
           var shell = document.getElementById('ssg-shell');
-          if (shell && document.querySelector('[data-reactroot], [data-react-root]') || 
-              (shell && shell.nextElementSibling && shell.nextElementSibling.children.length > 0)) {
+          if (shell && root && root.children.length > 0) {
             shell.style.display = 'none';
-            setTimeout(function() { shell.remove(); }, 100);
+            setTimeout(function() { if (shell.parentNode) shell.parentNode.removeChild(shell); }, 300);
             observer.disconnect();
             return;
           }
@@ -129,13 +129,7 @@ const hydrationScript = `
     });
     var root = document.getElementById('root');
     if (root) {
-      observer.observe(root, { childList: true, subtree: true });
-      // Fallback: remove after 5 seconds regardless
-      setTimeout(function() {
-        var shell = document.getElementById('ssg-shell');
-        if (shell) shell.remove();
-        observer.disconnect();
-      }, 5000);
+      observer.observe(root, { childList: true, subtree: false });
     }
   })();
 </script>
@@ -151,10 +145,10 @@ async function prerender() {
   
   let html = fs.readFileSync(indexPath, 'utf-8');
   
-  // Inject critical HTML into the root div
+  // Inject SSG shell BEFORE #root (not inside) so React can mount without wiping it
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root">${criticalHTML}</div>${hydrationScript}`
+    `${criticalHTML}<div id="root"></div>${hydrationScript}`
   );
   
   fs.writeFileSync(indexPath, html, 'utf-8');
