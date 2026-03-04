@@ -46,8 +46,8 @@ const criticalHTML = `
   <section style="position:relative;min-height:75vh;display:flex;align-items:center;overflow:hidden;background:#1a2744">
     <img 
       src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp"
-      srcset="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-480_d5a97ad9.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-mobile-v2-640_47731de7.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
-      sizes="(max-width: 640px) 480px, (max-width: 1280px) 1280px, 1920px"
+      srcset="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-mobile_94eabae0.webp 640w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-tablet_7b629481.webp 1280w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-optimized_6ab2441a.webp 1920w"
+      sizes="100vw"
       alt="Drudi e Almeida Oftalmologia" 
       width="1920" height="1080"
       fetchpriority="high"
@@ -111,33 +111,32 @@ const criticalHTML = `
 // Script to remove SSG shell once React hydrates
 const hydrationScript = `
 <script>
-  // Remove SSG shell ONLY when React has rendered content into #root
+  // Remove SSG shell once React renders
   (function() {
-    function removeShell() {
-      var shell = document.getElementById('ssg-shell');
-      if (shell) {
-        shell.style.opacity = '0';
-        shell.style.transition = 'opacity 0.2s';
-        setTimeout(function() {
-          var s = document.getElementById('ssg-shell');
-          if (s) s.remove();
-        }, 200);
-      }
-    }
-    var observer = new MutationObserver(function() {
-      var root = document.getElementById('root');
-      // Only remove shell when root has actual React content (children with real DOM nodes)
-      if (root && root.children.length > 0 && root.innerHTML.trim().length > 50) {
-        removeShell();
-        observer.disconnect();
+    var observer = new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        if (mutations[i].addedNodes.length > 0) {
+          var shell = document.getElementById('ssg-shell');
+          if (shell && document.querySelector('[data-reactroot], [data-react-root]') || 
+              (shell && shell.nextElementSibling && shell.nextElementSibling.children.length > 0)) {
+            shell.style.display = 'none';
+            setTimeout(function() { shell.remove(); }, 100);
+            observer.disconnect();
+            return;
+          }
+        }
       }
     });
     var root = document.getElementById('root');
     if (root) {
       observer.observe(root, { childList: true, subtree: true });
+      // Fallback: remove after 5 seconds regardless
+      setTimeout(function() {
+        var shell = document.getElementById('ssg-shell');
+        if (shell) shell.remove();
+        observer.disconnect();
+      }, 5000);
     }
-    // Safety: if React never mounts (JS error), keep shell visible forever
-    // Do NOT remove shell on timeout - better to show static content than blank page
   })();
 </script>
 `;
@@ -152,11 +151,10 @@ async function prerender() {
   
   let html = fs.readFileSync(indexPath, 'utf-8');
   
-  // Inject critical HTML OUTSIDE the root div so React can mount without wiping it
-  // The SSG shell sits as a sibling to #root and is removed once React renders
+  // Inject critical HTML into the root div
   html = html.replace(
     '<div id="root"></div>',
-    `${criticalHTML}<div id="root"></div>${hydrationScript}`
+    `<div id="root">${criticalHTML}</div>${hydrationScript}`
   );
   
   fs.writeFileSync(indexPath, html, 'utf-8');
