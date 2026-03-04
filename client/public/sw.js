@@ -4,7 +4,7 @@
    Network-First for API, Cache-First for CDN images
    ============================================================ */
 
-const CACHE_VERSION = 'da-v2';
+const CACHE_VERSION = 'da-v3';
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const IMAGE_CACHE = `images-${CACHE_VERSION}`;
 const FONT_CACHE = `fonts-${CACHE_VERSION}`;
