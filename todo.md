@@ -210,3 +210,9 @@
 - [x] Diagnosticar causa real da tela branca persistente (manus-runtime 367KB injetado antes do SSG shell)
 - [x] Implementar correção definitiva (SSG shell movido para <head>, renderiza antes do manus-runtime)
 - [x] Validar que o conteúdo aparece instantaneamente (SSG shell 8.8KB antes do body tag)
+
+## Fase 35: Tela Branca - Investigação no Browser Real
+- [x] Investigar no browser real o que aparece durante o carregamento
+- [x] Verificar se o SSG shell está sendo exibido ou se algo o esconde
+- [x] Corrigir HelmetProvider deferred que causava crash no HelmetDispatcher (causa raiz real!)
+- [x] Eliminar completamente a tela branca — HelmetProvider agora carrega eagerly

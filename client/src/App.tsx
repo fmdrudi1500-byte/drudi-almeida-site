@@ -1,4 +1,5 @@
 import { Route, Switch } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { lazy, Suspense, useEffect, useState } from "react";
@@ -33,7 +34,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Lazy load non-critical providers and components
 const LazyToaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
-const LazyHelmetProvider = lazy(() => import("react-helmet-async").then(m => ({ default: m.HelmetProvider })));
 
 function PageLoader() {
   return (
@@ -57,21 +57,6 @@ function DeferredToaster() {
   return (
     <Suspense fallback={null}>
       <LazyToaster />
-    </Suspense>
-  );
-}
-
-/** Deferred HelmetProvider — loads after initial paint */
-function DeferredHelmetProvider({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const id = requestIdleCallback(() => setReady(true), { timeout: 2000 });
-    return () => cancelIdleCallback(id);
-  }, []);
-  if (!ready) return <>{children}</>;
-  return (
-    <Suspense fallback={<>{children}</>}>
-      <LazyHelmetProvider>{children}</LazyHelmetProvider>
     </Suspense>
   );
 }
@@ -117,14 +102,14 @@ function Router() {
 
 function App() {
   return (
-    <DeferredHelmetProvider>
+    <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider defaultTheme="light" switchable>
           <DeferredToaster />
           <Router />
         </ThemeProvider>
       </ErrorBoundary>
-    </DeferredHelmetProvider>
+    </HelmetProvider>
   );
 }
 
