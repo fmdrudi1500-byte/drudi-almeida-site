@@ -156,3 +156,6 @@
 ## Fase 27: Reposicionamento do botão scroll-to-top
 - [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
 - [x] Adicionar auto-ocultamento após alguns segundos de inatividade
+
+## Fase 43: Otimização de Performance (Baseline: Mobile 32 / Desktop 55)
+- [x] Otimização 1: manualChunks no vite.config.ts — bundle index 879KB → 182KB (-79%), vendors separados e cacheáveis
