@@ -139,9 +139,6 @@ export default function Convenios() {
                           src={conv.logo}
                           alt={`Logotipo do convênio ${conv.name} — aceito na Drudi e Almeida Oftalmologia`}
                           className="w-full h-full object-contain"
-                          width={64}
-                          height={64}
-                          loading="lazy"
                         />
                       </div>
                     ) : (

@@ -200,8 +200,6 @@ export default function TecnologiaCarousel() {
                     alt={`${eq.name} — equipamento oftalmológico Drudi e Almeida`}
                     className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
-                    width={280}
-                    height={192}
                   />
                   <div className="absolute top-3 right-3">
                     <span className={`inline-block text-[10px] font-bold font-ui tracking-wider uppercase px-2.5 py-1 rounded-full ${getCategoryStyle(eq.category)}`}>

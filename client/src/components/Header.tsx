@@ -1,10 +1,16 @@
 /* ============================================================
    Header — Drudi e Almeida
-   CSS-only animations (no framer-motion for performance)
+   Sticky navigation with:
+   - Scroll progress bar (gold, top of page)
+   - Mega-menu for Institutos with logo + name + description
+   - Home anchor links (Institutos, Tecnologia, Unidades)
+   - Glass effect on scroll
+   - Mobile drawer menu
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
 
@@ -53,6 +59,7 @@ const institutos = [
   },
 ];
 
+// Anchor links — only shown on home page
 const anchorLinks = [
   { name: "Institutos", anchor: "#institutos" },
   { name: "Tecnologia", anchor: "#tecnologia" },
@@ -73,7 +80,7 @@ function scrollToAnchor(anchor: string) {
   const id = anchor.replace("#", "");
   const el = document.getElementById(id);
   if (el) {
-    const headerOffset = 88;
+    const headerOffset = 88; // sticky header height
     const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top, behavior: "smooth" });
   }
@@ -84,18 +91,19 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileInstitutosOpen, setMobileInstitutosOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [location] = useLocation();
   const { theme, toggleTheme } = useTheme();
   const isHome = location === "/";
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 400, damping: 40 });
+
+  // Close mega-menu timer ref (to allow mouse to travel to panel)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? window.scrollY / docHeight : 0);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -106,8 +114,11 @@ export default function Header() {
     setMobileInstitutosOpen(false);
   }, [location]);
 
+  // Cleanup timer on unmount
   useEffect(() => {
-    return () => { if (closeTimer.current) clearTimeout(closeTimer.current); };
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
   }, []);
 
   const handleMouseEnterDropdown = () => {
@@ -122,9 +133,9 @@ export default function Header() {
   return (
     <>
       {/* ── Scroll Progress Bar ─────────────────────────────── */}
-      <div
+      <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-gold origin-left z-[60]"
-        style={{ transform: `scaleX(${scrollProgress})`, transition: "transform 0.1s linear" }}
+        style={{ scaleX }}
       />
 
       {/* ── Top Info Bar ────────────────────────────────────── */}
@@ -132,6 +143,7 @@ export default function Header() {
         <div className="container flex items-center justify-between py-2 text-xs font-ui tracking-wide">
           <div className="flex items-center gap-6">
             <span>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</span>
+            {/* Anchor quick-links — visible only on home */}
             {isHome && (
               <div className="flex items-center gap-4 text-cream/70">
                 <span className="text-cream/30">|</span>
@@ -168,13 +180,12 @@ export default function Header() {
         }`}
       >
         <div className="container flex items-center justify-between h-20">
+          {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <img
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
               className="h-12 md:h-14 w-auto object-contain"
-              width={168}
-              height={56}
             />
           </Link>
 
@@ -182,6 +193,7 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) =>
               link.children ? (
+                /* ── Mega-menu trigger ── */
                 <div
                   key={link.name}
                   className="relative"
@@ -197,85 +209,93 @@ export default function Header() {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
-                  {/* Mega-menu — CSS transition */}
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
-                    style={{
-                      opacity: dropdownOpen ? 1 : 0,
-                      transform: `translateX(-50%) translateY(${dropdownOpen ? "0" : "10px"}) scale(${dropdownOpen ? 1 : 0.97})`,
-                      pointerEvents: dropdownOpen ? "auto" : "none",
-                      transition: "opacity 0.18s ease-out, transform 0.18s ease-out",
-                    }}
-                    onMouseEnter={handleMouseEnterDropdown}
-                    onMouseLeave={handleMouseLeaveDropdown}
-                  >
-                    <div className="glass rounded-2xl shadow-2xl border border-border/50 p-4 w-[680px]">
-                      <div className="flex items-center justify-between mb-3 pb-3 border-b border-border/40">
-                        <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold">
-                          Nossos Institutos Especializados
-                        </span>
-                        <Link
-                          href="/#institutos"
-                          onClick={() => { setDropdownOpen(false); setTimeout(() => scrollToAnchor("#institutos"), 100); }}
-                          className="font-ui text-xs text-muted-foreground hover:text-gold transition-colors flex items-center gap-1"
-                        >
-                          Ver todos
-                          <ArrowRight className="w-3 h-3" />
-                        </Link>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2">
-                        {link.children.map((inst, idx) => (
-                          <div
-                            key={inst.href}
-                            style={{
-                              opacity: dropdownOpen ? 1 : 0,
-                              transform: dropdownOpen ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
-                              transition: `opacity 0.22s ease-out ${idx * 0.04}s, transform 0.22s ease-out ${idx * 0.04}s`,
-                            }}
-                          >
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                        onMouseEnter={handleMouseEnterDropdown}
+                        onMouseLeave={handleMouseLeaveDropdown}
+                      >
+                        {/* Mega-menu panel */}
+                        <div className="glass rounded-2xl shadow-2xl border border-border/50 p-4 w-[680px]">
+                          {/* Header strip */}
+                          <div className="flex items-center justify-between mb-3 pb-3 border-b border-border/40">
+                            <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold">
+                              Nossos Institutos Especializados
+                            </span>
                             <Link
-                              href={inst.href}
-                              onClick={() => setDropdownOpen(false)}
-                              className={`group flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md hover:border-gold/20 border border-transparent transition-all duration-200`}
+                              href="/#institutos"
+                              onClick={() => { setDropdownOpen(false); setTimeout(() => scrollToAnchor("#institutos"), 100); }}
+                              className="font-ui text-xs text-muted-foreground hover:text-gold transition-colors flex items-center gap-1"
                             >
-                              <img
-                                src={inst.logo}
-                                alt={`Logotipo ${inst.name} — Drudi e Almeida`}
-                                className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                              />
-                              <div className="min-w-0">
-                                <p className={`font-display text-sm font-semibold group-hover:text-gold transition-colors truncate ${inst.accent}`}>
-                                  {inst.name}
-                                </p>
-                                <p className="font-body text-xs text-muted-foreground leading-relaxed mt-0.5 line-clamp-2">
-                                  {inst.desc}
-                                </p>
-                              </div>
+                              Ver todos
+                              <ArrowRight className="w-3 h-3" />
                             </Link>
                           </div>
-                        ))}
-                      </div>
 
-                      <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between">
-                        <p className="font-body text-xs text-muted-foreground">
-                          Não sabe qual instituto é o ideal para você?
-                        </p>
-                        <a
-                          href="https://wa.me/5511916544653?text=Olá! Gostaria de saber qual instituto é indicado para meu caso."
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setDropdownOpen(false)}
-                          className="inline-flex items-center gap-1.5 bg-gold text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-md hover:bg-gold-light transition-colors shrink-0 ml-3"
-                        >
-                          Falar com especialista
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                          {/* 2-column grid of institute cards — stagger animation */}
+                          <motion.div
+                            className="grid grid-cols-2 gap-2"
+                            variants={{
+                              show: { transition: { staggerChildren: 0.04 } },
+                            }}
+                            initial="hidden"
+                            animate="show"
+                          >
+                            {link.children.map((inst, idx) => (
+                              <motion.div
+                                key={inst.href}
+                                variants={{
+                                  hidden: { opacity: 0, y: 8, scale: 0.97 },
+                                  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.22, ease: "easeOut", delay: idx * 0.04 } },
+                                }}
+                              >
+                                <Link
+                                  href={inst.href}
+                                  onClick={() => setDropdownOpen(false)}
+                                  className={`group flex items-start gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md hover:border-gold/20 border border-transparent transition-all duration-200`}
+                                >
+                                  <img
+                                    src={inst.logo}
+                                    alt={`Logotipo ${inst.name} — Drudi e Almeida`}
+                                    className="w-10 h-10 object-contain rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-200"
+                                  />
+                                  <div className="min-w-0">
+                                    <p className={`font-display text-sm font-semibold group-hover:text-gold transition-colors truncate ${inst.accent}`}>
+                                      {inst.name}
+                                    </p>
+                                    <p className="font-body text-xs text-muted-foreground leading-relaxed mt-0.5 line-clamp-2">
+                                      {inst.desc}
+                                    </p>
+                                  </div>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+
+                          {/* CTA strip */}
+                          <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between">
+                            <p className="font-body text-xs text-muted-foreground">
+                              Não sabe qual instituto é o ideal para você?
+                            </p>
+                            <a
+                              href="https://wa.me/5511916544653?text=Olá! Gostaria de saber qual instituto é indicado para meu caso."
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setDropdownOpen(false)}
+                              className="inline-flex items-center gap-1.5 bg-gold text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-md hover:bg-gold-light transition-colors shrink-0 ml-3"
+                            >
+                              Falar com especialista
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ) : (
                 <Link
@@ -291,27 +311,36 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA + Theme Toggle + Mobile Toggle */}
+          {/* CTA + Dark Mode Toggle + Mobile Toggle */}
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
               className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
               aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+              <motion.div
+                key={theme}
+                initial={{ rotate: -30, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 30, opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.25 }}
               >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" stroke="none" />
-              </svg>
+                {/* Contrast / half-circle icon */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" stroke="none" />
+                </svg>
+              </motion.div>
             </button>
 
             <Link
@@ -330,85 +359,90 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Gold accent line */}
         <div className="gold-line" />
       </header>
 
-      {/* ── Mobile Menu — CSS transition ────────────────────── */}
-      <div
-        className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 z-40 bg-background border-b border-border shadow-lg overflow-hidden"
-        style={{
-          maxHeight: mobileOpen ? "80vh" : "0",
-          opacity: mobileOpen ? 1 : 0,
-          transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
-          pointerEvents: mobileOpen ? "auto" : "none",
-        }}
-      >
-        <nav className="container py-4 flex flex-col gap-1">
-          {navLinks.map((link) =>
-            link.children ? (
-              <div key={link.name}>
-                <button
-                  onClick={() => setMobileInstitutosOpen(!mobileInstitutosOpen)}
-                  className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
-                >
-                  {link.name}
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileInstitutosOpen ? "rotate-180" : ""}`} />
-                </button>
-                <div
-                  style={{
-                    maxHeight: mobileInstitutosOpen ? "500px" : "0",
-                    opacity: mobileInstitutosOpen ? 1 : 0,
-                    overflow: "hidden",
-                    transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
-                  }}
-                >
-                  {link.children.map((inst) => (
-                    <Link
-                      key={inst.href}
-                      href={inst.href}
-                      className="flex items-center gap-3 px-6 py-2.5 text-foreground hover:bg-muted rounded-md transition-colors"
+      {/* ── Mobile Menu ─────────────────────────────────────── */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 z-40 bg-background border-b border-border shadow-lg overflow-hidden"
+          >
+            <nav className="container py-4 flex flex-col gap-1">
+              {navLinks.map((link) =>
+                link.children ? (
+                  <div key={link.name}>
+                    <button
+                      onClick={() => setMobileInstitutosOpen(!mobileInstitutosOpen)}
+                      className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
                     >
-                      <img src={inst.logo} alt={`Logotipo ${inst.name} — Drudi e Almeida`} className="w-8 h-8 object-contain rounded" width={32} height={32} loading="lazy" />
-                      <div>
-                        <p className="font-ui text-sm text-foreground">{inst.name}</p>
-                        <p className="font-body text-xs text-muted-foreground line-clamp-1">{inst.desc}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileInstitutosOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileInstitutosOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          {link.children.map((inst) => (
+                            <Link
+                              key={inst.href}
+                              href={inst.href}
+                              className="flex items-center gap-3 pl-6 pr-3 py-2.5 hover:bg-muted/50 rounded-md transition-colors"
+                            >
+                              <img src={inst.logo} alt={`Logotipo ${inst.name} — Drudi e Almeida`} className="w-8 h-8 object-contain rounded" />
+                              <div>
+                                <p className="font-ui text-sm text-foreground">{inst.name}</p>
+                                <p className="font-body text-xs text-muted-foreground line-clamp-1">{inst.desc}</p>
+                              </div>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted ${
+                      location === link.href ? "text-gold" : "text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
+
+              {/* Âncoras de seção — apenas na home, como item extra "Unidades" */}
+              {isHome && (
+                <button
+                  onClick={() => { scrollToAnchor("#unidades"); setMobileOpen(false); }}
+                  className="w-full text-left font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted text-foreground"
+                >
+                  Unidades
+                </button>
+              )}
+
+              <div className="pt-3 mt-2 border-t border-border">
+                <Link
+                  href="/agendar"
+                  className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full dark:bg-gold dark:text-navy"
+                >
+                  Agendar Consulta
+                </Link>
               </div>
-            ) : (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted ${
-                  location === link.href ? "text-gold" : "text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            )
-          )}
-
-          {isHome && (
-            <button
-              onClick={() => { scrollToAnchor("#unidades"); setMobileOpen(false); }}
-              className="w-full text-left font-ui text-sm font-medium px-3 py-3 rounded-md transition-colors hover:bg-muted text-foreground"
-            >
-              Unidades
-            </button>
-          )}
-
-          <div className="pt-3 mt-2 border-t border-border">
-            <Link
-              href="/agendar"
-              className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full dark:bg-gold dark:text-navy"
-            >
-              Agendar Consulta
-            </Link>
-          </div>
-        </nav>
-      </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

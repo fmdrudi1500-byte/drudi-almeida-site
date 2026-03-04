@@ -1,12 +1,15 @@
 /* ============================================================
-   Breadcrumb — Drudi e Almeida (CSS-only, no framer-motion)
+   Breadcrumb — Drudi e Almeida
+   Reusable breadcrumb navigation for internal pages.
+   Renders structured JSON-LD for SEO (BreadcrumbList schema).
    ============================================================ */
 import { Link } from "wouter";
 import { ChevronRight, Home } from "lucide-react";
+import { motion } from "framer-motion";
 
 export interface BreadcrumbItem {
   label: string;
-  href?: string;
+  href?: string; // omit for the current (last) item
 }
 
 interface Props {
@@ -17,6 +20,7 @@ interface Props {
 export default function Breadcrumb({ items, className = "" }: Props) {
   const allItems: BreadcrumbItem[] = [{ label: "Início", href: "/" }, ...items];
 
+  // Build JSON-LD BreadcrumbList
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -32,14 +36,19 @@ export default function Breadcrumb({ items, className = "" }: Props) {
 
   return (
     <>
+      {/* JSON-LD structured data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav
+      {/* Visual breadcrumb */}
+      <motion.nav
         aria-label="Navegação estrutural"
-        className={`flex items-center gap-1 flex-wrap font-ui text-sm text-muted-foreground animate-fade-in ${className}`}
+        initial={{ opacity: 0, y: -6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className={`flex items-center gap-1 flex-wrap font-ui text-sm text-muted-foreground ${className}`}
       >
         {allItems.map((item, index) => {
           const isLast = index === allItems.length - 1;
@@ -69,7 +78,7 @@ export default function Breadcrumb({ items, className = "" }: Props) {
             </span>
           );
         })}
-      </nav>
+      </motion.nav>
     </>
   );
 }
