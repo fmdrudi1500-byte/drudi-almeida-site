@@ -167,44 +167,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          // React core — loaded on every page, cache aggressively
-          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/') || id.includes('node_modules/scheduler')) {
-            return 'vendor-react';
-          }
-          // Framer Motion — large animation library, only needed for pages with animations
-          if (id.includes('node_modules/framer-motion')) {
-            return 'vendor-framer';
-          }
-          // react-helmet-async — SEO library
-          if (id.includes('node_modules/react-helmet-async') || id.includes('node_modules/helmet')) {
-            return 'vendor-helmet';
-          }
-          // tRPC + react-query — data fetching
-          if (id.includes('node_modules/@trpc') || id.includes('node_modules/@tanstack/react-query') || id.includes('node_modules/superjson')) {
-            return 'vendor-trpc';
-          }
-          // Radix UI components
-          if (id.includes('node_modules/@radix-ui')) {
-            return 'vendor-radix';
-          }
-          // Lucide icons
-          if (id.includes('node_modules/lucide-react')) {
-            return 'vendor-icons';
-          }
-          // date-fns
-          if (id.includes('node_modules/date-fns')) {
-            return 'vendor-date';
-          }
-          // Wouter router
-          if (id.includes('node_modules/wouter')) {
-            return 'vendor-router';
-          }
-        },
-      },
-    },
   },
   server: {
     host: true,
