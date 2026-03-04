@@ -355,7 +355,7 @@ export default function InstitutoCeratocone() {
             <AnimateOnScroll delay={0.15} direction="right">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <img loading="lazy" src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80" alt="Exame oftalmológico" className="w-full h-auto" width={600} height={400} />
+                  <img loading="lazy" src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/eye-exam-ceratocone_43808e00.jpg" alt="Exame oftalmológico" className="w-full h-auto" width={600} height={400} />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-border/60">
                   <div className="flex items-center gap-3">

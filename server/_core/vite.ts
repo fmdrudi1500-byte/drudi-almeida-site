@@ -1,4 +1,5 @@
 import express, { type Express } from "express";
+import expressStaticGzip from "express-static-gzip";
 import fs from "fs";
 import { type Server } from "http";
 import { nanoid } from "nanoid";
@@ -58,27 +59,35 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // Serve hashed assets (JS/CSS bundles) with long-lived immutable cache
+  // Serve hashed assets (JS/CSS bundles) with Brotli/gzip support and long-lived immutable cache
   app.use(
     "/assets",
-    express.static(path.join(distPath, "assets"), {
-      maxAge: "1y",
-      immutable: true,
-      etag: true,
+    expressStaticGzip(path.join(distPath, "assets"), {
+      enableBrotli: true,
+      orderPreference: ["br", "gzip"],
+      serveStatic: {
+        maxAge: "1y",
+        immutable: true,
+        etag: true,
+      },
     })
   );
 
-  // Serve other static files with short cache
+  // Serve other static files with Brotli/gzip support and short cache
   app.use(
-    express.static(distPath, {
-      maxAge: "1h",
-      etag: true,
-      lastModified: true,
-      setHeaders(res, filePath) {
-        // HTML files: no cache (always fresh)
-        if (filePath.endsWith(".html")) {
-          res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        }
+    expressStaticGzip(distPath, {
+      enableBrotli: true,
+      orderPreference: ["br", "gzip"],
+      serveStatic: {
+        maxAge: "1h",
+        etag: true,
+        lastModified: true,
+        setHeaders(res: any, filePath: string) {
+          // HTML files: no cache (always fresh)
+          if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+          }
+        },
       },
     })
   );

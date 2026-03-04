@@ -42,12 +42,12 @@ export const IMAGES = {
     draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-profissional_5ab57a9e.png",
     draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nNfvXsUoQXCkKIBI_f5ffd24c.png",
   },
-  // Unsplash images for less prominent sections
+  // Stock images — migrated to permanent CDN
   unsplash: {
-    elderlySmiling: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",
-    childEyes: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-    eyeExam: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
-    modernClinic: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
-    teamMeeting: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    elderlySmiling: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/elderly-smiling_687b2d62.jpg",
+    childEyes: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/child-eyes_2978207c.jpg",
+    eyeExam: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/eye-exam_bd829102.jpg",
+    modernClinic: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/modern-clinic_1da09cf0.jpg",
+    teamMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/team-meeting_3dd52a09.jpg",
   },
 } as const;

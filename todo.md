@@ -107,7 +107,7 @@
 
 ## Fase 17: Melhorias Planejadas (Mar 2026)
 
-- [ ] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
+- [x] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
 - [ ] Ativar sistema de agendamento online com e-mail de confirmação e painel admin
 - [ ] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular
 
@@ -193,3 +193,15 @@
 - [x] Remover vendor-editor (381KB) do critical path da Home page (cross-dependency fix)
 - [x] Adicionar content-visibility: auto nas seções abaixo da dobra
 - [x] Preconnect para CDN de imagens no head
+
+## Fase 32: Migração CDN e Compressão Brotli
+- [x] Auditar todas as URLs session_file/temporárias no código-fonte
+- [x] Fazer upload das imagens para CDN permanente (manus-upload-file)
+- [x] Substituir todas as URLs temporárias pelas URLs CDN permanentes
+- [x] Implementar compressão Brotli no servidor Express
+- [x] Testar e validar todas as mudanças
+
+## Fase 33: Correção da Tela Branca Inicial
+- [x] Diagnosticar causa da tela branca (FCP lento)
+- [x] Corrigir SSG shell para exibir conteúdo imediatamente (inline no index.html)
+- [x] Garantir que o HTML pré-renderizado seja visível antes do JS carregar
