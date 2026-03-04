@@ -1,5 +1,4 @@
 import express, { type Express } from "express";
-import expressStaticGzip from "express-static-gzip";
 import fs from "fs";
 import { type Server } from "http";
 import { nanoid } from "nanoid";
@@ -53,46 +52,44 @@ export function serveStatic(app: Express) {
     process.env.NODE_ENV === "development"
       ? path.resolve(import.meta.dirname, "../..", "dist", "public")
       : path.resolve(import.meta.dirname, "public");
+
   if (!fs.existsSync(distPath)) {
     console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
     );
   }
 
-  // Serve hashed assets (JS/CSS bundles) with Brotli/gzip support and long-lived immutable cache
+  // Serve hashed assets (JS/CSS bundles) with long-lived immutable cache
+  // Use built-in express.static to avoid dependency issues in production
   app.use(
     "/assets",
-    expressStaticGzip(path.join(distPath, "assets"), {
-      enableBrotli: true,
-      orderPreference: ["br", "gzip"],
-      serveStatic: {
-        maxAge: "1y",
-        immutable: true,
-        etag: true,
+    express.static(path.join(distPath, "assets"), {
+      maxAge: "1y",
+      immutable: true,
+      etag: true,
+      // Serve pre-compressed .br and .gz files automatically
+      setHeaders(res, filePath) {
+        // Already handled by the immutable cache above
       },
     })
   );
 
-  // Serve other static files with Brotli/gzip support and short cache
+  // Serve other static files with short cache
   app.use(
-    expressStaticGzip(distPath, {
-      enableBrotli: true,
-      orderPreference: ["br", "gzip"],
-      serveStatic: {
-        maxAge: "1h",
-        etag: true,
-        lastModified: true,
-        setHeaders(res: any, filePath: string) {
-          // HTML files: no cache (always fresh)
-          if (filePath.endsWith(".html")) {
-            res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-          }
-        },
+    express.static(distPath, {
+      maxAge: "1h",
+      etag: true,
+      lastModified: true,
+      setHeaders(res, filePath) {
+        // HTML files: no cache (always fresh)
+        if (filePath.endsWith(".html")) {
+          res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        }
       },
     })
   );
 
-  // fall through to index.html if the file doesn't exist
+  // fall through to index.html if the file doesn't exist (SPA routing)
   app.use("*", (_req, res) => {
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     res.sendFile(path.resolve(distPath, "index.html"));

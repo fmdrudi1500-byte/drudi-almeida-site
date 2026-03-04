@@ -216,3 +216,14 @@
 - [x] Verificar se o SSG shell está sendo exibido ou se algo o esconde
 - [x] Corrigir HelmetProvider deferred que causava crash no HelmetDispatcher (causa raiz real!)
 - [x] Eliminar completamente a tela branca — HelmetProvider agora carrega eagerly
+
+## Fase 36: Tela Branca — Reprodução no Site Publicado
+- [x] Acessar drudiealmeida.com no browser e capturar o estado exato
+- [x] Verificar erros de JS no console do site publicado
+- [x] Identificar o que causa o carregamento incompleto (express-static-gzip falhando silenciosamente)
+- [x] Implementar correção definitiva (express.static nativo)
+
+## Fase 36: URGENTE — Tela Branca no Site Publicado
+- [x] Identificar causa raiz: express-static-gzip não funciona em produção (assets servidos como HTML)
+- [x] Substituir express-static-gzip por express.static nativo (sempre disponível)
+- [x] Build limpo sem erros, 18 testes passando
