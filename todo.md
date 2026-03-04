@@ -157,3 +157,4 @@
 - [x] Mover botão scroll-to-top para o centro inferior da tela (igual referência)
 - [x] Adicionar auto-ocultamento após alguns segundos de inatividade
 - [x] Otimização 2: Google Fonts não-bloqueante (media=print + onload) — elimina 750ms de render-blocking
+- [x] Otimização 3: CSS principal não-bloqueante (media=print + onload via Vite plugin) — elimina 790ms de render-blocking

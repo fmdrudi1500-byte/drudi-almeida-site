@@ -150,7 +150,28 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+// =============================================================================
+// Non-blocking CSS Plugin
+// Transforms Vite-injected <link rel="stylesheet"> to use media=print trick
+// so the CSS doesn't block initial rendering (eliminates render-blocking CSS)
+// =============================================================================
+function vitePluginNonBlockingCSS(): Plugin {
+  return {
+    name: 'vite-plugin-non-blocking-css',
+    apply: 'build',
+    transformIndexHtml(html) {
+      // Transform only the Vite-injected CSS (assets/*.css), not external stylesheets
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
+        (_, href) =>
+          `<link rel="stylesheet" crossorigin href="${href}" media="print" onload="this.media='all'">` +
+          `<noscript><link rel="stylesheet" crossorigin href="${href}"></noscript>`
+      );
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginNonBlockingCSS()];
 
 export default defineConfig({
   plugins,
