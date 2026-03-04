@@ -272,7 +272,7 @@ export default function BlogAdmin() {
                       <img
                         src={post.coverImageUrl}
                         alt={post.title}
-                        className="w-16 h-16 object-cover rounded-lg shrink-0 hidden sm:block"
+                        className="w-16 h-16 object-cover rounded-lg shrink-0 hidden sm:block" width={64} height={64} loading="lazy"
                       />
                     ) : (
                       <div className="w-16 h-16 bg-muted rounded-lg flex items-center justify-center shrink-0 hidden sm:block">

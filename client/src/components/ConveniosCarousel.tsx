@@ -353,7 +353,7 @@ export default function ConveniosCarousel() {
             >
               {ALL_ITEMS.map((conv, i) => (
                 <div key={i} className="conv-logo-card" title={conv.nome}>
-                  <img src={conv.logo} alt={conv.nome} loading="lazy" draggable={false} />
+                  <img src={conv.logo} alt={conv.nome} loading="lazy" draggable={false} width={120} height={42} />
                 </div>
               ))}
             </div>

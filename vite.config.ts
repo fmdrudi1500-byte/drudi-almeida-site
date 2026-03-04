@@ -172,8 +172,6 @@ export default defineConfig({
         manualChunks: {
           // Core React runtime
           "vendor-react": ["react", "react-dom", "wouter"],
-          // Animation library (heavy ~150KB)
-          "vendor-framer": ["framer-motion"],
           // tRPC + React Query + superjson
           "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query", "superjson"],
           // Radix UI primitives

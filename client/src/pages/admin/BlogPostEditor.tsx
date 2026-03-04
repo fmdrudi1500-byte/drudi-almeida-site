@@ -336,7 +336,7 @@ export default function BlogPostEditor({ postId: postIdProp }: BlogPostEditorPro
                           <img
                             src={media.url}
                             alt={media.fileName ? `Imagem do post: ${media.fileName}` : "Imagem anexada ao artigo"}
-                            className="w-full h-24 object-cover"
+                            className="w-full h-24 object-cover" width={400} height={96} loading="lazy"
                           />
                         ) : (
                           <div className="w-full h-24 bg-muted flex flex-col items-center justify-center gap-1">
@@ -472,7 +472,7 @@ export default function BlogPostEditor({ postId: postIdProp }: BlogPostEditorPro
               <CardContent>
                 {coverImageUrl && (
                   <div className="relative mb-3 rounded-lg overflow-hidden">
-                    <img src={coverImageUrl} alt={title ? `Imagem de capa: ${title}` : "Prévia da imagem de capa do post"} className="w-full h-32 object-cover" />
+                    <img src={coverImageUrl} alt={title ? `Imagem de capa: ${title}` : "Prévia da imagem de capa do post"} className="w-full h-32 object-cover" width={800} height={128} loading="lazy" />
                     <button
                       onClick={() => setCoverImageUrl("")}
                       className="absolute top-1 right-1 bg-black/60 text-white rounded-full p-1"

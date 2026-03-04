@@ -178,3 +178,9 @@
 - [x] Otimizar imagens das páginas internas (institutos) — manuscdn → CDN WebP
 - [x] Adicionar Service Worker para cache offline de assets estáticos
 - [x] Implementar SSR/SSG (pré-renderização) da Home page
+
+## Fase 38: Reduzir JS Não Usado (147 KiB)
+- [ ] Analisar bundle com rollup-plugin-visualizer para identificar código morto
+- [ ] Identificar imports não usados em páginas e componentes
+- [ ] Remover dependências não utilizadas ou substituir por versões menores
+- [ ] Build limpo e checkpoint para publicação
