@@ -14,7 +14,7 @@ const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ULBqqsZkuiKBoDrv_04ecb42e.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/prevent-senior-opt_9b0b216d.webp",
   },
   {
     nome: "Bradesco Saúde",
@@ -30,7 +30,7 @@ const CONVENIOS = [
   },
   {
     nome: "Amil",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/vRtJJHZyrxFGQNnx_dba083d5.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/amil-opt_33a856a9.webp",
   },
   {
     nome: "Unimed Seguros",
@@ -38,7 +38,7 @@ const CONVENIOS = [
   },
   {
     nome: "Ameplam",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZZpmIoRpTNvSnOWl_9e98cf1c.jpg",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ameplam-opt_00a9d31b.webp",
   },
 ];
 

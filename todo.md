@@ -163,3 +163,13 @@
 - [x] Preload da imagem hero Monet no head
 - [x] Lazy loading das rotas com React.lazy (já estava implementado)
 - [x] Reduzir imagem hero de 437KB (1920px) para 238KB (1280px)
+
+## Fase 29: Performance Mobile Agressiva (PSI 41→75+)
+- [x] Lazy load de Framer Motion (dynamic import, não carregar no bundle inicial)
+- [x] Lazy load de componentes pesados abaixo do fold (TecnologiaCarousel, Accordion, ConveniosCarousel)
+- [x] Reduzir Google Fonts: apenas pesos usados (400, 600, 700), font-display swap
+- [x] Defer scripts não essenciais (WhatsApp widget, social proof toasts)
+- [x] Lazy load de todas as rotas com React.lazy + Suspense
+- [x] Eliminar render-blocking resources (Google Fonts async)
+- [x] Reduzir TBT: minimizar JavaScript executado no carregamento inicial
+- [x] Otimizar imagens: converter para WebP, reduzir tamanhos (12.4MB → 71KB médicos, 411KB → 26KB logos)
