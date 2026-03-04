@@ -180,7 +180,14 @@
 - [x] Implementar SSR/SSG (pré-renderização) da Home page
 
 ## Fase 38: Reduzir JS Não Usado (147 KiB)
-- [ ] Analisar bundle com rollup-plugin-visualizer para identificar código morto
-- [ ] Identificar imports não usados em páginas e componentes
-- [ ] Remover dependências não utilizadas ou substituir por versões menores
-- [ ] Build limpo e checkpoint para publicação
+- [x] Analisar bundle com rollup-plugin-visualizer para identificar código morto
+- [x] Identificar imports não usados em páginas e componentes
+- [x] Remover dependências não utilizadas ou substituir por versões menores
+- [x] Build limpo e checkpoint para publicação
+
+## Fase 39: Corrigir Animações Não Compostas + Reduzir JS Crítico
+- [x] Corrigir non-composited animations: substituir div+backgroundImage por img em todos os 5 institutos
+- [x] Corrigir transition: all no WhatsAppButton e MobileCTABar (usar apenas opacity/transform)
+- [x] Lazy-load UIProviders (TooltipProvider + Toaster) para remover vendor-radix (90KB) do critical path
+- [x] Separar @radix-ui/react-slot em vendor-slot (2KB) para não carregar vendor-radix inteiro eagerly
+- [x] Redução de 125KB no critical path (528KB → 406KB, -24%)

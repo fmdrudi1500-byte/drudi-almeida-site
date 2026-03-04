@@ -174,9 +174,13 @@ export default function InstitutoCeratocone() {
       <InstitutoSchema instituto="ceratocone" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }}
+        <motion.img
+          src={HERO_ART_IMG}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+          style={{ y: heroImageY, scale: heroImageScale }}
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"

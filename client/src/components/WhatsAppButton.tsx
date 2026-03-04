@@ -230,7 +230,7 @@ export default function WhatsAppButton() {
           max-width: 260px;
           opacity: 0;
           transform: translateY(8px) scale(0.95);
-          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: opacity 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
           pointer-events: none;
           position: relative;
         }
@@ -333,7 +333,7 @@ export default function WhatsAppButton() {
           justify-content: center;
           position: relative;
           box-shadow: 0 4px 16px rgba(37,211,102,0.35);
-          transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
           -webkit-tap-highlight-color: transparent;
         }
         #drudi-wa-btn:hover {

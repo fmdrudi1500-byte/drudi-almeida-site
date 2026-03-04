@@ -224,7 +224,9 @@ export default defineConfig({
           "vendor-react": ["react", "react-dom", "wouter"],
           // tRPC + React Query + superjson
           "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query", "superjson"],
-          // Radix UI primitives
+          // Radix UI Slot (tiny, used eagerly by Button/Badge in NotFound)
+          "vendor-slot": ["@radix-ui/react-slot"],
+          // Radix UI primitives (loaded lazily via UIProviders + page components)
           "vendor-radix": [
             "@radix-ui/react-accordion",
             "@radix-ui/react-dialog",
@@ -235,7 +237,6 @@ export default defineConfig({
             "@radix-ui/react-popover",
             "@radix-ui/react-scroll-area",
             "@radix-ui/react-separator",
-            "@radix-ui/react-slot",
             "@radix-ui/react-label",
             "@radix-ui/react-checkbox",
             "@radix-ui/react-switch",
