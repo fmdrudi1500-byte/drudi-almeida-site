@@ -25,11 +25,11 @@ const SocialProofToasts = lazy(() => import("./SocialProofToasts"));
 function HeaderSkeleton() {
   return (
     <>
-      {/* Top info bar skeleton */}
-      <div className="bg-navy text-cream/70 text-xs" style={{ height: "36px" }} />
-      {/* Main nav skeleton */}
+      {/* Top info bar skeleton — hidden on mobile, matching real Header */}
+      <div className="bg-navy hidden md:block" style={{ height: "36px" }} />
+      {/* Main nav skeleton — sticky to match real Header */}
       <header
-        className="bg-background/95 border-b border-border/50"
+        className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm"
         style={{ height: "80px" }}
       >
         <div className="container flex items-center justify-between h-full">

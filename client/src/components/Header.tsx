@@ -8,7 +8,8 @@ import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight } from "lucide-r
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp"; // Optimized: 4MB PNG -> 11KB WebP
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-opt_76d1d9d6.webp"; // 400x223, 11KB WebP
+const LOGO_URL_SMALL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-small_255d672b.webp"; // 200x112, 3KB WebP
 
 const institutos = [
   {
@@ -170,11 +171,14 @@ export default function Header() {
         <div className="container flex items-center justify-between h-20">
           <Link href="/" className="flex items-center shrink-0">
             <img
-              src={LOGO_URL}
+              src={LOGO_URL_SMALL}
+              srcSet={`${LOGO_URL_SMALL} 200w, ${LOGO_URL} 400w`}
+              sizes="(max-width: 768px) 120px, 168px"
               alt="Drudi e Almeida Clínicas Oftalmológicas"
               className="h-12 md:h-14 w-auto object-contain"
               width={168}
               height={56}
+              decoding="async"
             />
           </Link>
 
