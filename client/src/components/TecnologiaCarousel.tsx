@@ -13,7 +13,7 @@ const equipamentos = [
     name: "OCT com Angio-OCT",
     brand: "Maestro 2 — Topcon",
     highlight: "Automatizado — resultado em segundos",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ervHszJTapbyUNRh_59f74e87.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-ervHszJT_dbcd90e3.webp",
     category: "Diagnóstico" as const,
   },
   {
@@ -41,14 +41,14 @@ const equipamentos = [
     name: "OPD-Scan III",
     brand: "Nidek",
     highlight: "5 exames em 1 único aparelho",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tHthjLAVqdFduqHi_7fd71342.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/other-tHthjLAV_ae6c8b04.webp",
     category: "Diagnóstico" as const,
   },
   {
     name: "Yag Laser",
     brand: "Optimis II — Quantel Medical",
     highlight: "Precisão com mínima energia",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/uNpBHQmkJerdsODE_25e94c29.jpeg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/other-uNpBHQmk_5cf97577.webp",
     category: "Cirúrgico" as const,
   },
 ];

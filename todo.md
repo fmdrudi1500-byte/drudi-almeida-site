@@ -165,3 +165,4 @@
 ## Fase 43: Otimização de Performance (Baseline: Mobile 32 / Desktop 55)
 - [x] Otimização 1: manualChunks no vite.config.ts — bundle index 879KB → 182KB (-79%), vendors separados e cacheáveis
 - [x] Otimização 7: Fotos dos médicos comprimidas para WebP HQ (94-96% menor, visualmente idênticas) + width/height explícitos em todas as imagens (elimina CLS) + loading=lazy nas imagens below-the-fold
+- [x] Otimização 8: Compactar TODAS as imagens restantes do site — 28 imagens PNG/JPG → WebP HQ, 37 URLs substituídas em 12 arquivos

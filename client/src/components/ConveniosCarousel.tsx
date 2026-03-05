@@ -22,15 +22,15 @@ const CONVENIOS = [
   },
   {
     nome: "Mediservice",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/rPLmRznRbIQEDeuV_45e989f6.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-rPLmRznR_d6cff695.webp",
   },
   {
     nome: "Instituto Pró-PM",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-propm_eea209fd.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-propm_0b938536.webp",
   },
   {
     nome: "Amil",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/vRtJJHZyrxFGQNnx_dba083d5.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-vRtJJHZy_791d2761.webp",
   },
   {
     nome: "Unimed Seguros",

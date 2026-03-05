@@ -255,7 +255,7 @@ export default function InstitutoCatarata() {
         description="Cirurgia de catarata com facoemulsificação e lentes premium em SP. Especialistas renomados, 5 unidades em São Paulo e Guarulhos. Agende sua avaliação."
         keywords="cirurgia de catarata SP, catarata tratamento, facoemulsificação, lente intraocular, oftalmologista catarata São Paulo, preço cirurgia catarata"
         canonicalPath="/instituto/catarata"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png"
+        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/monet-japanese-bridge_7feeb7be.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="catarata" />
@@ -799,7 +799,7 @@ export default function InstitutoCatarata() {
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/recupera%C3%A7%C3%A3odavisao_1bedcd75.png"
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-recuperacao_474e0b6a.webp"
                     alt="Pessoa feliz lendo no parque após recuperação da visão"
                     className="w-full h-[280px] object-cover"
                   />

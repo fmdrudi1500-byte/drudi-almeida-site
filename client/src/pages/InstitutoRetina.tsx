@@ -18,7 +18,7 @@ import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png";
-const IMG_OCT_SCAN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/iARxgYZkdHGrBNyp_9c2fcedc.png";
+const IMG_OCT_SCAN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-iARxgYZk_d39e3a25.webp";
 const IMG_INJECAO = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZUJAJUjiWWSeRqav_154af844.png";
 
 /* ---- Constants ---- */
@@ -84,27 +84,27 @@ const sintomasZigzag = [
   {
     title: "Moscas Volantes (Floaters)",
     desc: "Pequenos pontos, manchas ou filamentos que parecem flutuar no campo visual, especialmente visíveis contra fundos claros. O aparecimento súbito de muitas moscas volantes pode indicar descolamento de retina.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-moscas-volantes_8f11004c.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-moscas_342e4065.webp",
   },
   {
     title: "Flashes de Luz (Fotopsias)",
     desc: "Percepção de clarões ou relâmpagos de luz, especialmente na visão periférica. Ocorrem quando o vítreo traciona a retina. Flashes novos e frequentes são um sinal de alerta importante para descolamento de retina.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-flashes-luz_725cfe78.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-flashes_d202f399.webp",
   },
   {
     title: "Cortina Escura na Visão",
     desc: "Sensação de uma sombra ou cortina que se move sobre o campo visual. Este é o sintoma clássico do descolamento de retina e constitui uma emergência oftalmológica.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-cortina-escura_77b9ff18.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-cortina-escura_47c312ee.webp",
   },
   {
     title: "Distorção de Imagens (Metamorfopsia)",
     desc: "Linhas retas parecem onduladas ou tortas. É o sintoma característico de doenças maculares como DMRI úmida, membrana epirretiniana e edema macular. O teste da grade de Amsler ajuda na autoavaliação.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-distorcao-imagens_20680e84.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-distorcao_ba546c8b.webp",
   },
   {
     title: "Perda Súbita de Visão",
     desc: "Perda repentina e indolor da visão em um olho pode indicar oclusão vascular retiniana ou hemorragia vítrea. É uma emergência médica — quanto mais rápido o tratamento, maiores as chances de recuperação.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-perda-visao_da853596.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-perda-visao_52f0c4c7.webp",
   },
 ];
 

@@ -19,8 +19,8 @@ import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/WDorIHhiaQuwCSEJ_604c573f.png";
-const IMG_TONOMETRIA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oqEhfqRixPfOhYlT_0585ea5d.png";
-const IMG_CAMPO_VISUAL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/strSUfQfDmkrvSxb_9a859176.png";
+const IMG_TONOMETRIA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-oqEhfqRi_972f4a09.webp";
+const IMG_CAMPO_VISUAL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-strSUfQf_ab0cb609.webp";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de glaucoma.";
@@ -67,22 +67,22 @@ const sintomasZigzag = [
   {
     title: "Perda Gradual da Visão Periférica",
     desc: "O glaucoma ataca primeiro a visão lateral (periférica). O paciente começa a perder a capacidade de enxergar objetos ao lado sem virar a cabeça. Essa perda é tão gradual que muitos só percebem quando já é significativa.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-periferica_a5cfb684.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-periferica_7ee47091.webp",
   },
   {
     title: "Visão em Túnel",
     desc: "Em estágios avançados, o campo visual se estreita progressivamente, como se o paciente olhasse através de um tubo. A visão central pode estar preservada, mas tudo ao redor desaparece. Atividades como dirigir e caminhar tornam-se perigosas.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-tunel_c5479043.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-tunel_c6037c92.webp",
   },
   {
     title: "Dor Ocular e Vermelhidão (Ângulo Fechado)",
     desc: "No glaucoma de ângulo fechado agudo, a pressão sobe rapidamente causando dor intensa no olho, vermelhidão, visão embaçada e halos coloridos ao redor de luzes. Pode ser acompanhado de náusea e vômito. É uma emergência médica.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-angulo-fechado_cc720421.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-angulo-fechado_ac5a4e09.webp",
   },
   {
     title: "Dificuldade de Adaptação ao Escuro",
     desc: "Pacientes com glaucoma podem notar dificuldade para se adaptar a ambientes com pouca iluminação. A transição de ambientes claros para escuros torna-se mais lenta, e a visão noturna fica comprometida.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-noturna_7548d5b5.png",
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao-noturna_762902ee.webp",
   },
 ];
 

@@ -5,8 +5,8 @@
 
 export const IMAGES = {
   logo: {
-    horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png",
-    circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/RWurHUWujtEFRSAi_0f8e994c.png",
+    horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal_ec558212.webp",
+    circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal_ec558212.webp",
   },
   hero: {
     main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-bridge-DgUmbLuWSS36T55mJw8v28.webp",
@@ -26,7 +26,7 @@ export const IMAGES = {
   // Art & Vision — Famous paintings connected to eye conditions
   art: {
     monetBeforeAfter: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/wbNddNYgwjrdnWbs_d1badfa4.jpg",
-    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/JOOmfherpxYDKbvj_0762dd95.png",
+    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/monet-japanese-bridge_7feeb7be.webp",
     seuratGrandeJatte: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oPEFYPdixVsjysRg_8467105c.jpg",
     degasDancers: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-degas-dancers_57775727.webp",
     elGrecoToledo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-el-greco-toledo_24353633.webp",
