@@ -92,9 +92,11 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileInstitutosOpen, setMobileInstitutosOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [menuTop, setMenuTop] = useState("5rem");
   const [location] = useLocation();
   const { theme, toggleTheme } = useTheme();
   const isHome = location === "/";
+  const headerRef = useRef<HTMLElement>(null);
 
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -132,6 +134,30 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  // Calcular o top do menu mobile dinamicamente com base na posição real do header
+  useEffect(() => {
+    function updateMenuTop() {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        setMenuTop(`${rect.bottom}px`);
+      }
+    }
+    updateMenuTop();
+    // Recalcular quando o banner aparece/desaparece (ResizeObserver no header)
+    const ro = new ResizeObserver(updateMenuTop);
+    if (headerRef.current) ro.observe(headerRef.current);
+    // Também observar o pai (pode mudar quando UrgencyBar monta/desmonta)
+    const parent = headerRef.current?.parentElement;
+    if (parent) ro.observe(parent);
+    window.addEventListener("resize", updateMenuTop);
+    window.addEventListener("scroll", updateMenuTop, { passive: true });
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateMenuTop);
+      window.removeEventListener("scroll", updateMenuTop);
+    };
+  }, []);
 
   const handleMouseEnterDropdown = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -175,6 +201,7 @@ export default function Header() {
 
       {/* ── Main Header ─────────────────────────────────────── */}
       <header
+        ref={headerRef}
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled ? "bg-white shadow-sm dark:bg-background" : "bg-white dark:bg-background"
         }`}
@@ -353,8 +380,9 @@ export default function Header() {
 
       {/* ── Mobile Menu (CSS transition) ────────────────────── */}
       <div
-        className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 bottom-0 z-40 bg-white dark:bg-background border-b border-border shadow-lg overflow-y-auto"
+        className="lg:hidden fixed left-0 right-0 bottom-0 z-40 bg-white dark:bg-background border-b border-border shadow-lg overflow-y-auto"
         style={{
+          top: menuTop,
           opacity: mobileOpen ? 1 : 0,
           transform: mobileOpen ? "translateY(0)" : "translateY(-8px)",
           pointerEvents: mobileOpen ? "auto" : "none",
