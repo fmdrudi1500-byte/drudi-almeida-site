@@ -1,0 +1,60 @@
+{
+  "query": "SELECT id, title, coverImageUrl FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, coverImageUrl FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "coverImageUrl": "/images/blog-catarata-cirugia.webp"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "coverImageUrl": "/images/blog-ceratocone-doenca.webp"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "coverImageUrl": "/images/blog-glaucoma-visao.webp"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "coverImageUrl": "/images/blog-retina-doencas.webp"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "coverImageUrl": "/images/blog-estrabismo-tratamento.webp"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "coverImageUrl": "/images/blog-visao-embacada.webp"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "coverImageUrl": "/images/blog-catarata-quando-operar.webp"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "coverImageUrl": "/images/blog-crosslinking-ceratocone.webp"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "coverImageUrl": "/images/blog-pressao-ocular.webp"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "coverImageUrl": "/images/blog-miopia-criancas.webp"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcoverImageUrl\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\t/images/blog-catarata-cirugia.webp\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\t/images/blog-ceratocone-doenca.webp\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\t/images/blog-glaucoma-visao.webp\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\t/images/blog-retina-doencas.webp\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\t/images/blog-estrabismo-tratamento.webp\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\t/images/blog-visao-embacada.webp\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\t/images/blog-catarata-quando-operar.webp\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\t/images/blog-crosslinking-ceratocone.webp\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\t/images/blog-pressao-ocular.webp\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\t/images/blog-miopia-criancas.webp\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}
