@@ -10,34 +10,36 @@ const PHONE = "5511916544653";
 const WA_MSG = encodeURIComponent("Olá! Gostaria de saber se meu convênio é aceito.");
 const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 
+// Logos otimizados para 188x80px (2x retina para display de 94x40px)
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/prevent-senior-resized_d5845445.webp",
+    logo: `${CDN}/prevent-senior-188w_60641e66.webp`,
   },
   {
     nome: "Bradesco Saúde",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/bradesco-resized_aae8535a.webp",
+    logo: `${CDN}/bradesco-188w_b58e35a5.webp`,
   },
   {
     nome: "Mediservice",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-rPLmRznR_d6cff695.webp",
+    logo: `${CDN}/tech-mediservice-188w_ba541991.webp`,
   },
   {
     nome: "Instituto Pró-PM",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-propm_0b938536.webp",
+    logo: `${CDN}/logo-propm-188w_44c9af21.webp`,
   },
   {
     nome: "Amil",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/amil-resized_65f90601.webp",
+    logo: `${CDN}/amil-188w_94445080.webp`,
   },
   {
     nome: "Unimed Seguros",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/unimed-resized_954ff1a4.webp",
+    logo: `${CDN}/unimed-188w_3728f5a6.webp`,
   },
   {
     nome: "Ameplam",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ameplam-resized_f387254f.webp",
+    logo: `${CDN}/ameplam-188w_df6e92d3.webp`,
   },
 ];
 

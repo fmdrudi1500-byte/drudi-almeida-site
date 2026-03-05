@@ -21,7 +21,8 @@ export default function Layout({ children }: LayoutProps) {
       <SchemaOrg />
       <UrgencyBar />
       <Header />
-      <main className="flex-1">{children}</main>
+      {/* min-h-screen reserva espaço antes da hidratação do React, eliminando CLS */}
+      <main className="flex-1 min-h-screen">{children}</main>
       <Footer />
       {/* FAB circular — hidden on mobile (replaced by sticky bar) */}
       <div className="hidden md:block">

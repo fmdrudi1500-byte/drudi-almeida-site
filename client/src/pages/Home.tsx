@@ -258,13 +258,13 @@ export default function Home() {
           <AnimateOnScroll direction="left" className="relative">
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
-                src={IMAGES.doctors.draPriscilla}
-                srcSet={srcSet(IMAGES.doctors.draPriscilla, IMAGES.responsive.draPriscilla)}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                src={IMAGES.responsive.draPriscilla["412"]}
+                srcSet={`${IMAGES.responsive.draPriscilla["412"]} 412w, ${IMAGES.responsive.draPriscilla["824"]} 824w`}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 412px"
                 alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
                 className="absolute inset-0 w-full h-full object-cover object-top"
-                width={960}
-                height={1280}
+                width={412}
+                height={549}
                 loading="lazy"
                 decoding="async"
               />

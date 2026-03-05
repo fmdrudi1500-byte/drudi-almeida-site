@@ -14,18 +14,22 @@ export function srcSet(base: string, variants: Record<number, string>): string {
 
 export const IMAGES = {
   logo: {
-    horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal-resized_e945407b.webp",
-    circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal-resized_e945407b.webp",
+    // 200x111px (2x retina para display de 100x56) — economia: 9KB → 4KB
+    horizontal: `${CDN}/logo-footer-200w_56b3dc2d.webp`,
+    circular: `${CDN}/logo-footer-200w_56b3dc2d.webp`,
   },
   // Responsive srcset variants for key images
   responsive: {
     heroMonet: {
       "480": `${CDN}/hero-monet-480w_5af50fa4_d2802f0a.webp`,
-      "960": `${CDN}/hero-monet-960w_fa1b756c_0828d305.webp`,
+      // 960w recomprimido para qualidade 65 (era 80) — economia de ~10KB
+      "960": `${CDN}/hero-monet-960w-q65_33ebbbc1.webp`,
     },
     draPriscilla: {
-      "480": `${CDN}/dra-priscilla-consultorio-480w_fc4fa627_b6667ec8.webp`,
-      "720": `${CDN}/dra-priscilla-consultorio-720w_2e365f98_0a7326e4.webp`,
+      // Redimensionado para tamanho exibido: 412w e 824w (2x retina)
+      // Economia: 126KB → 25KB (412w) e 81KB (824w)
+      "412": `${CDN}/dra-priscilla-412w_213372a7.webp`,
+      "824": `${CDN}/dra-priscilla-824w_baddef17.webp`,
     },
     drFernando: {
       "480": `${CDN}/dr-fernando-480w_ffe20b72_daaa02d9.webp`,
@@ -74,7 +78,8 @@ export const IMAGES = {
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {
     drFernando: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-fernando_902033c6.webp",
-    draPriscilla: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/dra-priscilla-consultorio-v2-resized_9cb7afd1.webp",
+    // Otimizada: 960x933 → 412x549px (tamanho exibido) — economia: 126KB → 25KB
+    draPriscilla: `${CDN}/dra-priscilla-412w_213372a7.webp`,
     draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-maria-amelia_6dcb9a0f.webp",
   },
   // Unsplash images for less prominent sections

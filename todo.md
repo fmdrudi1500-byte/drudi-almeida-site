@@ -207,3 +207,12 @@
 - [x] PERF-20: Migrar logos dos institutos de manuscdn.com para CloudFront (eliminar segundo DNS lookup/TLS)
 - [x] PERF-21: Carrossel de convênios — lazy load nas imagens duplicadas (cópia 2 do marquee), carregar apenas as 7 originais no load inicial
 - [x] PERF-22: Mega-menu — logos migrados para CloudFront (URLs de 700+ chars para ~80 chars), eliminando o HTML duplicado inflado
+
+### Fase 7 — PageSpeed Round 2 (Cache, CLS, CSS Bloqueante, Imagens)
+- [x] PERF-23: Corrigir CLS 0.135 — Layout.tsx <main> com min-h-screen reserva espaço antes da hidratação
+- [x] PERF-24: Cache-Control já configurado no Express (/assets com maxAge 1y + immutable) — Cache TTL None é limitação do CloudFront da plataforma Manus
+- [x] PERF-25: Dra. Priscilla redimensionada: 126KB → 25KB (412w) e 81KB (824w) — economia de 101KB
+- [x] PERF-26: Hero-monet-960w recomprimido para qualidade 65 (era 80) — economia de ~10KB
+- [x] PERF-27: Logo footer redimensionado para 200x111px (2x retina): 9KB → 4KB
+- [x] PERF-28: Logos convênios redimensionados para 188x80px (2x retina) — todos atualizados
+- [x] PERF-29: CSS não-bloqueante já implementado via vitePluginNonBlockingCSS (media=print trick) — fontes inline via fonts-inline.css
