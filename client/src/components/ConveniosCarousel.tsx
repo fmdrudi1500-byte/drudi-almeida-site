@@ -317,7 +317,9 @@ export default function ConveniosCarousel() {
                   <img
                     src={conv.logo}
                     alt={conv.nome}
-                    loading="lazy"
+                    // Primeira cópia (i < 7): eager para aparecer imediatamente
+                    // Segunda cópia (i >= 7): lazy pois só entra em cena depois do loop
+                    loading={i < CONVENIOS.length ? "eager" : "lazy"}
                     decoding="async"
                     width={140}
                     height={60}

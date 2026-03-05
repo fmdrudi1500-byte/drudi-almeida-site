@@ -202,3 +202,8 @@
 - [x] PERF-17: Corrigir preload do hero para usar imagem 480w (mobile) com imagesrcset + imagesizes
 - [x] PERF-18: Adicionar placeholder de cor sólida (navy) no hero para evitar flash branco durante carregamento
 - [x] PERF-19: Adicionar srcset responsivo ao preload (imagesrcset + imagesizes no link rel=preload)
+
+### Fase 6 — Redução de Requisições e Unificação de CDN
+- [x] PERF-20: Migrar logos dos institutos de manuscdn.com para CloudFront (eliminar segundo DNS lookup/TLS)
+- [x] PERF-21: Carrossel de convênios — lazy load nas imagens duplicadas (cópia 2 do marquee), carregar apenas as 7 originais no load inicial
+- [x] PERF-22: Mega-menu — logos migrados para CloudFront (URLs de 700+ chars para ~80 chars), eliminando o HTML duplicado inflado
