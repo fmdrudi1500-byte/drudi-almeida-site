@@ -82,17 +82,20 @@ export default function Home() {
         canonicalPath="/"
       />
       {/* ========== HERO ========== */}
-      <section className="relative min-h-[75vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero: navy placeholder visível imediatamente, antes da imagem carregar */}
+      <section
+        className="relative min-h-[75vh] flex items-center overflow-hidden bg-navy"
+      >
+        {/* Background Image — placeholder navy já está no section acima */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src={IMAGES.hero.main}
+            src={IMAGES.responsive.heroMonet["480"]}
             srcSet={srcSet(IMAGES.hero.main, IMAGES.responsive.heroMonet)}
             sizes="100vw"
             alt=""
             aria-hidden="true"
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
             className="absolute inset-0 w-full h-full object-cover object-center"
             width={1920}
             height={1072}

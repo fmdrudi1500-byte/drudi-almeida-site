@@ -37,10 +37,13 @@
     <link rel="apple-touch-icon" sizes="192x192" href="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/TAgHZnKQbefMatka.png" />
 
     <!-- Preload hero image to reduce LCP -->
+    <!-- imagesrcset matches the srcSet in Home.tsx; browser picks the right size for the viewport -->
     <link
       rel="preload"
       as="image"
       href="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-resized_00e348d0.webp"
+      imagesrcset="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-480w_5af50fa4_d2802f0a.webp 480w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-960w_fa1b756c_0828d305.webp 960w, https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-resized_00e348d0.webp 1920w"
+      imagesizes="100vw"
       type="image/webp"
       fetchpriority="high"
     />

@@ -197,3 +197,8 @@
 - [x] PERF-14: Adicionar width/height ao logo no Footer.tsx (Footer.tsx:30)
 - [x] PERF-15: Corrigir animações não compostas no TecnologiaCarousel (transition-all → scale-x GPU-composited)
 - [x] PERF-16: Verificado vendor-icons — todos os ícones são usados, tree-shaking já ativo
+
+### Fase 5 — LCP e Placeholder Hero
+- [x] PERF-17: Corrigir preload do hero para usar imagem 480w (mobile) com imagesrcset + imagesizes
+- [x] PERF-18: Adicionar placeholder de cor sólida (navy) no hero para evitar flash branco durante carregamento
+- [x] PERF-19: Adicionar srcset responsivo ao preload (imagesrcset + imagesizes no link rel=preload)
