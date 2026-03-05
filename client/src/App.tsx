@@ -49,7 +49,6 @@ function Router() {
   return (
     <Layout>
       <ScrollToTop />
-      <ScrollToTopButton />
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" component={Home} />
@@ -91,6 +90,8 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <Router />
+            {/* ScrollToTopButton fora do Layout para evitar duplicação */}
+            <ScrollToTopButton />
           </TooltipProvider>
         </ThemeProvider>
       </ErrorBoundary>

@@ -85,6 +85,19 @@ export default function SocialProofToasts() {
   const [pool] = useState(() => shuffle(NOTIFICATIONS));
   const [index, setIndex] = useState(0);
   const [count, setCount] = useState(0);
+  // Detecta se o MobileCTABar está visível para ajustar o bottom
+  const [ctaBarVisible, setCtaBarVisible] = useState(false);
+
+  useEffect(() => {
+    const checkBar = () => {
+      const bar = document.getElementById("drudi-sticky-bar");
+      setCtaBarVisible(bar ? bar.classList.contains("visible") : false);
+    };
+    // Verifica periodicamente (o bar usa classList, não state React)
+    const interval = setInterval(checkBar, 500);
+    checkBar();
+    return () => clearInterval(interval);
+  }, []);
 
   const removeToast = useCallback((id: number) => {
     setToasts(prev =>
@@ -138,10 +151,11 @@ export default function SocialProofToasts() {
 
   return (
     <div
-      className="fixed z-[99990] flex flex-col gap-2"
+      className="fixed z-[99999] flex flex-col gap-2"
       style={{
-        bottom: "24px",
+        bottom: ctaBarVisible ? "80px" : "24px",
         left: "20px",
+        transition: "bottom 0.3s ease",
       }}
     >
       <style>{`

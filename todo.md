@@ -239,3 +239,8 @@
 - [x] Header mobile: fundo sólido branco (remover transparência)
 - [x] Menu mobile: bloquear scroll da página quando aberto
 - [x] Logo: alinhar à esquerda no header mobile
+
+## Fase 29: Correções de Sobreposição Mobile
+- [x] Remover botão scroll-to-top duplicado (manter apenas 1 - movido para fora do Layout)
+- [x] Botão scroll-to-top deve ficar acima do banner WhatsApp (z-index 99999, bottom dinâmico 80px quando banner visível)
+- [x] Pop-ups de social proof devem aparecer na frente do banner WhatsApp (z-index 99999, bottom dinâmico)
