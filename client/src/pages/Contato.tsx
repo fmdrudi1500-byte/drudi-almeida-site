@@ -98,6 +98,7 @@ export default function Contato() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Unit Cards */}
+            <StaggerContainer>
             <div className="space-y-3">
               {unidades.map((unit, i) => (
                 <StaggerItem key={unit.name}>
@@ -148,6 +149,7 @@ export default function Contato() {
                 </StaggerItem>
               ))}
             </div>
+            </StaggerContainer>
 
             {/* Google Maps Embed */}
             <AnimateOnScroll delay={0.15}>

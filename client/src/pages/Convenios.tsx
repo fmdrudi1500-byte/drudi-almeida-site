@@ -121,6 +121,7 @@ export default function Convenios() {
       {/* Convenios Grid */}
       <section className="section-padding bg-cream/50 pt-0">
         <div className="container">
+          <StaggerContainer>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {convenios.map((conv, i) => (
               <StaggerItem key={conv.name}>
@@ -175,6 +176,7 @@ export default function Convenios() {
               </StaggerItem>
             ))}
           </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -187,6 +189,7 @@ export default function Convenios() {
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
+          <StaggerContainer>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {beneficios.map((b, i) => (
               <StaggerItem key={b.title}>
@@ -200,6 +203,7 @@ export default function Convenios() {
               </StaggerItem>
             ))}
           </div>
+          </StaggerContainer>
         </div>
       </section>
 

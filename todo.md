@@ -244,3 +244,9 @@
 - [x] Remover botão scroll-to-top duplicado (manter apenas 1 - movido para fora do Layout)
 - [x] Botão scroll-to-top deve ficar acima do banner WhatsApp (z-index 99999, bottom dinâmico 80px quando banner visível)
 - [x] Pop-ups de social proof devem aparecer na frente do banner WhatsApp (z-index 99999, bottom dinâmico)
+
+## Fase 30: Correção StaggerContainer nas páginas Tecnologia, Blog, Contato e Convênios
+- [x] Tecnologia.tsx: envolver todos os StaggerItems com StaggerContainer
+- [x] Blog.tsx: envolver todos os StaggerItems com StaggerContainer
+- [x] Contato.tsx: envolver todos os StaggerItems com StaggerContainer
+- [x] Convenios.tsx: envolver todos os StaggerItems com StaggerContainer

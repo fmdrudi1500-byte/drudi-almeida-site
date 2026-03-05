@@ -259,6 +259,7 @@ export default function Blog() {
               </AnimateOnScroll>
 
               {/* Article grid */}
+              <StaggerContainer>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filtered.slice(1).map((article, i) => (
                   <StaggerItem key={article.slug}>
@@ -297,6 +298,7 @@ export default function Blog() {
                   </StaggerItem>
                 ))}
               </div>
+              </StaggerContainer>
             </>
           )}
         </div>
