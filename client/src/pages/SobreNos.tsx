@@ -4,26 +4,89 @@
    Navy (#2c3e50), Gold (#c9a961), cream backgrounds
    ============================================================ */
 import { Link } from "wouter";
-import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe } from "lucide-react";
-import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
+import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe, Eye, Lightbulb, Compass } from "lucide-react";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
+import { useState } from "react";
 
-const values = [
-  { icon: Heart, title: "Cuidado Humanizado", desc: "Cada paciente é único. Oferecemos atendimento personalizado e acolhedor." },
-  { icon: Award, title: "Excelência Técnica", desc: "Profissionais altamente qualificados e em constante atualização." },
-  { icon: Target, title: "Tecnologia de Ponta", desc: "Investimos nos equipamentos mais modernos do mercado." },
-  { icon: Users, title: "Acessibilidade", desc: "Nossos institutos existem para democratizar o acesso à saúde ocular." },
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
+
+// Fotos formais geradas com IA
+const DR_FERNANDO_FORMAL = `${CDN}/dr-fernando-formal_efcf51ca.png`;
+const DRA_PRISCILLA_FORMAL = `${CDN}/dra-priscilla-formal_e0c1595b.png`;
+const DR_FERNANDO_AMAZONIA = `${CDN}/dr-fernando-amazonia-elegant_0e59624a.png`;
+
+// ============================================================
+// Missão, Visão e Valores — dados interativos
+// ============================================================
+const mvv = [
+  {
+    id: "missao",
+    icon: Compass,
+    label: "Missão",
+    title: "Democratizar o Acesso à Oftalmologia de Excelência",
+    color: "from-navy to-navy/80",
+    accent: "#c9a961",
+    description:
+      "Nascemos com o propósito de unir o que há de mais avançado em tecnologia oftalmológica com um atendimento verdadeiramente humanizado. Acreditamos que toda pessoa — independentemente de sua condição social ou localização geográfica — merece ter acesso a cuidados de saúde ocular de alta qualidade.",
+    pillars: [
+      { icon: Heart, text: "Atendimento humanizado e acolhedor em cada consulta" },
+      { icon: Award, text: "5 institutos especializados com protocolos de excelência" },
+      { icon: Globe, text: "Alcance social: do centro de SP às comunidades ribeirinhas da Amazônia" },
+    ],
+    quote: "\"Cada paciente que entra pela nossa porta merece o mesmo cuidado que daríamos a um familiar.\"",
+    quoteAuthor: "Dr. Fernando Drudi",
+  },
+  {
+    id: "visao",
+    icon: Eye,
+    label: "Visão",
+    title: "Ser Referência Nacional em Saúde Ocular Especializada",
+    color: "from-[#1a2e45] to-navy",
+    accent: "#c9a961",
+    description:
+      "Queremos ser reconhecidos como o grupo oftalmológico de maior impacto do Brasil — não apenas pela excelência técnica e pelos resultados cirúrgicos, mas pela forma como transformamos a experiência do paciente e ampliamos o acesso à saúde ocular de qualidade em todo o território nacional.",
+    pillars: [
+      { icon: Target, text: "Expansão contínua com novos institutos e unidades" },
+      { icon: Lightbulb, text: "Inovação constante: tecnologias de diagnóstico e tratamento de ponta" },
+      { icon: Users, text: "Formação de novos especialistas comprometidos com a excelência" },
+    ],
+    quote: "\"A visão que temos para o futuro começa com a visão que devolvemos aos nossos pacientes hoje.\"",
+    quoteAuthor: "Dra. Priscilla de Almeida",
+  },
+  {
+    id: "valores",
+    icon: Award,
+    label: "Valores",
+    title: "Os Pilares que Guiam Cada Decisão",
+    color: "from-[#2a1f0a] to-[#3d2e10]",
+    accent: "#c9a961",
+    description:
+      "Nossos valores não são palavras em uma parede — são critérios que aplicamos em cada consulta, cada cirurgia, cada interação com o paciente. São o DNA da Drudi e Almeida, construídos ao longo de anos de prática clínica e compromisso genuíno com a saúde ocular.",
+    pillars: [
+      { icon: Heart, text: "Cuidado Humanizado — cada paciente é único e merece atenção individualizada" },
+      { icon: Award, text: "Excelência Técnica — profissionais em constante atualização científica" },
+      { icon: Target, text: "Tecnologia de Ponta — investimento nos equipamentos mais modernos do mercado" },
+      { icon: Users, text: "Acessibilidade — democratizar o acesso à saúde ocular de qualidade" },
+    ],
+    quote: "\"Excelência não é um destino — é uma escolha que fazemos todos os dias.\"",
+    quoteAuthor: "Equipe Drudi e Almeida",
+  },
 ];
 
+// ============================================================
+// Corpo Clínico
+// ============================================================
 const doctors = [
   {
     name: "Dr. Fernando Macei Drudi",
     crm: "CRM-SP 139.300 | RQE 50.645",
     role: "Diretor Clínico",
     specialty: "Especialista em Catarata e Retina Cirúrgica",
-    image: IMAGES.doctors.drFernando,
+    image: DR_FERNANDO_FORMAL,
+    surgeryImage: DR_FERNANDO_AMAZONIA,
     institutes: ["Instituto da Catarata", "Instituto da Retina"],
     bio: `Médico oftalmologista com formação completa em subespecialidades de Catarata e Retina Cirúrgica pelo Hospital dos Servidores Público Estadual (HSPE). Atualmente atua como médico concursado do HSPE desde 2020, com foco no ensino prático de técnicas cirúrgicas para residentes e fellows.
 
@@ -41,7 +104,8 @@ Co-fundador da Drudi e Almeida Oftalmologia, lidera a clínica com a missão de 
     crm: "CRM-SP 148.173 | RQE 59.216",
     role: "Diretora Técnica",
     specialty: "Especialista em Segmento Anterior e Lentes de Contato",
-    image: IMAGES.doctors.draPriscilla,
+    image: DRA_PRISCILLA_FORMAL,
+    surgeryImage: null,
     institutes: ["Instituto do Ceratocone"],
     bio: `Construiu sua trajetória na oftalmologia a partir de uma formação sólida e vivência intensa em ambientes de alta complexidade. Formou-se em Medicina e realizou Residência em Oftalmologia pelo Hospital do Servidor Público do Estado de São Paulo (HSPE), onde atuou ativamente em atendimentos clínicos e cirúrgicos, realizando centenas de cirurgias de catarata.
 
@@ -54,28 +118,132 @@ Mantém participação constante em congressos nacionais e internacionais, curso
       { icon: Globe, text: "Congressos nacionais e internacionais" },
     ],
   },
-  // Dra. Maria Amélia removida — apenas fundadores
-  /*
-  {
-    name: "Dra. Maria Amélia Valladares de Melo",
-    crm: "CRM-SP 199.188 | RQE 102.980",
-    role: "Cirurgiã de Estrabismo",
-    specialty: "Especialista em Estrabismo e Oftalmologia Pediátrica",
-    image: IMAGES.doctors.draMariaAmelia,
-    institutes: ["Instituto de Estrabismo"],
-    bio: `Médica oftalmologista especializada em Estrabismo e Oftalmologia Pediátrica, a Dra. Maria Amélia dedica sua carreira ao diagnóstico e tratamento cirúrgico do desalinhamento ocular em crianças e adultos.
-
-Com formação focada em estrabismo, atua como cirurgiã especializada na Drudi e Almeida, realizando procedimentos corretivos que vão além da estética — devolvendo funcionalidade visual, visão binocular e qualidade de vida aos pacientes. O estrabismo infantil, quando diagnosticado precocemente, pode ser tratado com resultados significativos, evitando complicações como a ambliopia (olho preguiçoso).
-
-A Dra. Maria Amélia é reconhecida por sua abordagem acolhedora com pacientes pediátricos e suas famílias, tornando o processo de tratamento mais tranquilo e humanizado.`,
-    highlights: [
-      { icon: GraduationCap, text: "Especialização em Estrabismo" },
-      { icon: Stethoscope, text: "Cirurgiã de Estrabismo — adultos e crianças" },
-      { icon: Heart, text: "Atendimento pediátrico humanizado" },
-    ],
-  },
-  */
 ];
+
+// ============================================================
+// Componente MVV Interativo
+// ============================================================
+function MVVSection() {
+  const [active, setActive] = useState("missao");
+  const current = mvv.find((m) => m.id === active)!;
+
+  return (
+    <section className="section-padding bg-navy overflow-hidden relative">
+      {/* Decorative background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-gold blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-gold blur-3xl" />
+      </div>
+
+      <div className="container relative z-10">
+        {/* Section header */}
+        <AnimateOnScroll className="text-center mb-14">
+          <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Identidade Institucional</span>
+          <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">
+            Missão, Visão e Valores
+          </h2>
+          <div className="w-16 h-0.5 bg-gold mx-auto mt-5" />
+        </AnimateOnScroll>
+
+        {/* Tab navigation */}
+        <div className="flex justify-center gap-2 mb-10">
+          {mvv.map((item) => {
+            const Icon = item.icon;
+            const isActive = active === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActive(item.id)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-ui text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? "bg-gold text-navy shadow-lg shadow-gold/20"
+                    : "bg-white/10 text-cream/70 hover:bg-white/20 hover:text-cream"
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Content panel */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left: Main content */}
+          <div key={active} className="animate-fade-in">
+            <h3 className="font-display text-2xl md:text-3xl text-cream mb-5 leading-tight">
+              {current.title}
+            </h3>
+            <p className="font-body text-base text-cream/70 leading-relaxed mb-8">
+              {current.description}
+            </p>
+
+            {/* Pillars list */}
+            <div className="space-y-3">
+              {current.pillars.map((pillar) => {
+                const PillarIcon = pillar.icon;
+                return (
+                  <div
+                    key={pillar.text}
+                    className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10 hover:border-gold/30 transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <PillarIcon className="w-4 h-4 text-gold" />
+                    </div>
+                    <p className="font-ui text-sm text-cream/80 leading-snug">{pillar.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: Quote card */}
+          <div key={`${active}-quote`} className="animate-fade-in">
+            <div className="relative bg-white/5 rounded-2xl border border-gold/20 p-8 lg:p-10">
+              {/* Large decorative quote mark */}
+              <div className="absolute -top-4 left-8 w-10 h-10 bg-navy flex items-center justify-center">
+                <span className="font-display text-5xl text-gold leading-none">"</span>
+              </div>
+
+              <blockquote className="font-display text-xl md:text-2xl text-cream leading-relaxed italic mt-4 mb-6">
+                {current.quote.replace(/^"|"$/g, "")}
+              </blockquote>
+
+              <div className="flex items-center gap-3 border-t border-white/10 pt-5">
+                <div className="w-8 h-0.5 bg-gold" />
+                <p className="font-ui text-sm text-gold font-semibold">{current.quoteAuthor}</p>
+              </div>
+
+              {/* Icon decorativo */}
+              <div className="absolute bottom-6 right-6 opacity-10">
+                {(() => {
+                  const Icon = current.icon;
+                  return <Icon className="w-16 h-16 text-gold" />;
+                })()}
+              </div>
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex justify-center gap-3 mt-8">
+              {mvv.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActive(item.id)}
+                  className={`transition-all duration-300 rounded-full ${
+                    active === item.id
+                      ? "w-8 h-2 bg-gold"
+                      : "w-2 h-2 bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Ver ${item.label}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function SobreNos() {
   return (
@@ -89,69 +257,12 @@ export default function SobreNos() {
       <InstitutoHero
         title="Sobre a Drudi e Almeida"
         subtitle="Tradição, inovação e compromisso com a saúde ocular de cada paciente."
-        imageUrl={IMAGES.hero.main}
+        imageUrl={IMAGES.hero.starryNight}
         breadcrumb="Sobre Nós"
       />
 
-      {/* Missão */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <AnimateOnScroll>
-              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Nossa Missão</span>
-              <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-5">
-                Democratizar o Acesso à Oftalmologia de Excelência
-              </h2>
-              <p className="font-body text-base text-muted-foreground leading-relaxed mb-4">
-                A Drudi e Almeida Clínicas Oftalmológicas nasceu com o propósito de unir o que há de mais avançado em tecnologia oftalmológica com um atendimento verdadeiramente humanizado. Acreditamos que toda pessoa merece ter acesso a cuidados de saúde ocular de alta qualidade.
-              </p>
-              <p className="font-body text-base text-muted-foreground leading-relaxed mb-4">
-                Nossos 5 institutos especializados — Catarata, Ceratocone, Glaucoma, Retina e Estrabismo — foram criados para oferecer tratamento focado e aprofundado em cada uma dessas áreas, garantindo que nossos pacientes recebam o melhor cuidado possível.
-              </p>
-              <p className="font-body text-base text-muted-foreground leading-relaxed">
-                Cada instituto conta com profissionais dedicados exclusivamente àquela especialidade, equipamentos de última geração e protocolos de tratamento atualizados com as mais recentes evidências científicas internacionais.
-              </p>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll delay={0.2}>
-              <img
-                src={IMAGES.hero.doctorConsultation}
-                alt="Equipe Drudi e Almeida em consulta"
-                className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
-                width={800}
-                height={600}
-                loading="lazy"
-                decoding="async"
-              />
-            </AnimateOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* Valores */}
-      <section className="section-padding bg-cream/50">
-        <div className="container">
-          <AnimateOnScroll className="text-center mb-12">
-            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Nossos Pilares</span>
-            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Nossos Valores</h2>
-            <div className="gold-line max-w-[80px] mx-auto mt-5" />
-          </AnimateOnScroll>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v, i) => (
-              <StaggerItem key={v.title}>
-                <div className="bg-white rounded-xl border border-border/60 p-6 h-full text-center hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                    <v.icon className="w-5 h-5 text-gold" />
-                  </div>
-                  <h3 className="font-display text-lg text-navy mb-2">{v.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ====== MISSÃO, VISÃO E VALORES — Interativo ====== */}
+      <MVVSection />
 
       {/* ====== CORPO CLÍNICO ====== */}
       <section className="section-padding" id="corpo-clinico">
@@ -194,6 +305,26 @@ export default function SobreNos() {
                           <p className="font-ui text-xs text-gold tracking-wide mt-1">{doc.crm}</p>
                         </div>
                       </div>
+
+                      {/* Surgery image for Dr. Fernando */}
+                      {doc.surgeryImage && (
+                        <div className="mt-3 overflow-hidden rounded-xl shadow-md relative">
+                          <img
+                            src={doc.surgeryImage}
+                            alt={`Dr. Fernando Drudi realizando cirurgia oftalmológica na Amazônia`}
+                            className="w-full aspect-[4/3] object-cover object-center"
+                            width={600}
+                            height={450}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <p className="font-ui text-xs text-gold font-semibold">Projeto Amazônia</p>
+                            <p className="font-body text-xs text-white/80">Cirurgia oftalmológica em comunidade ribeirinha</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -201,7 +332,7 @@ export default function SobreNos() {
                   <div className={`lg:col-span-8 ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
                     {/* Role badge */}
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="inline-block bg-gold/10 text-gold font-ui text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full">
+                      <span className="inline-block bg-gold/10 text-gold font-ui text-xs font-bold px-3 py-1 rounded-full tracking-wide uppercase">
                         {doc.role}
                       </span>
                     </div>
@@ -262,9 +393,15 @@ export default function SobreNos() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-navy text-white">
-        <div className="container text-center">
+      {/* ====== CTA — Fundo família feliz ====== */}
+      <section
+        className="relative section-padding overflow-hidden"
+        style={{ backgroundImage: `url(${IMAGES.hero.happyFamily ?? ''})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-navy/85" />
+
+        <div className="relative container text-center z-10">
           <AnimateOnScroll>
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3 block">Agende Sua Consulta</span>
             <h2 className="font-display text-3xl md:text-4xl text-white mb-4">

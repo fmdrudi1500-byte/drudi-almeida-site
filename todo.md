@@ -216,3 +216,11 @@
 - [x] PERF-27: Logo footer redimensionado para 200x111px (2x retina): 9KB → 4KB
 - [x] PERF-28: Logos convênios redimensionados para 188x80px (2x retina) — todos atualizados
 - [x] PERF-29: CSS não-bloqueante já implementado via vitePluginNonBlockingCSS (media=print trick) — fontes inline via fonts-inline.css
+
+### Fase 8 — Edições Visuais SobreNos e InstitutoHero
+- [x] VIS-01: Foto Dr. Fernando cirurgia Amazônia editada com IA — versão elegante/impactante no CDN
+- [x] VIS-02: Seção MVV recriada com tabs interativos animados e conteúdo aprofundado
+- [x] VIS-03: Foto Dra. Priscilla editada com IA para roupas formais escuras
+- [x] VIS-04: Foto Dr. Fernando editada com IA para roupas formais escuras
+- [x] VIS-05: Fundo da seção CTA no SobreNos trocado para IMAGES.hero.happyFamily
+- [x] VIS-06: Hero do SobreNos trocado para Noite Estrelada de Van Gogh (gerada com IA)

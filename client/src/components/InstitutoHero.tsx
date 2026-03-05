@@ -6,21 +6,24 @@ import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
+const STARRY_NIGHT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp";
+
 interface Props {
   title: string;
   subtitle: string;
-  imageUrl: string;
+  imageUrl?: string;
   breadcrumb: string;
   logoUrl?: string;
 }
 
 export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, logoUrl }: Props) {
+  const bgImage = imageUrl ?? STARRY_NIGHT_URL;
   return (
     <section className="relative h-[50vh] min-h-[400px] max-h-[550px] overflow-hidden">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        style={{ backgroundImage: `url(${bgImage})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/75 to-navy/60" />
 

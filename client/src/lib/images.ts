@@ -50,6 +50,7 @@ export const IMAGES = {
   },
   hero: {
     main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-resized_00e348d0.webp",
+    starryNight: `${CDN}/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp`,
     eyeAbstract: `${CDN}/eye-abstract_36effe98.webp`,
     doctorConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/AChRUprKUpxeRdhT_2e6e6c5a.jpg",
     technology: `${CDN}/technology_fed16422.webp`,
