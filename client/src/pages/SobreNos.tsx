@@ -11,12 +11,11 @@ import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 import { useState } from "react";
 
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
 
 // Fotos formais geradas com IA
-const DR_FERNANDO_FORMAL = `${CDN}/dr-fernando-formal_efcf51ca.png`;
-const DRA_PRISCILLA_FORMAL = `${CDN}/dra-priscilla-formal_e0c1595b.png`;
-const DR_FERNANDO_AMAZONIA = `${CDN}/dr-fernando-amazonia-elegant_0e59624a.png`;
+const DR_FERNANDO_FORMAL = `/images/dr-fernando-formal_efcf51ca.png`;
+const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-formal_e0c1595b.png`;
+const DR_FERNANDO_AMAZONIA = `/images/dr-fernando-amazonia-elegant_0e59624a.png`;
 
 // ============================================================
 // Missão, Visão e Valores — dados interativos

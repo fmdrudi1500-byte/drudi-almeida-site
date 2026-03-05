@@ -18,8 +18,8 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-ibNQCeyY_dba86bbf.webp";
-const IMG_TESTE_COBERTURA = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/IVfNepWlZgwuKTFO_f146cd75.png";
+const HERO_ART_IMG = "/images/tech-ibNQCeyY_dba86bbf.webp";
+const IMG_TESTE_COBERTURA = "/images/IVfNepWlZgwuKTFO_f146cd75.png";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de estrabismo.";
@@ -174,7 +174,7 @@ export default function InstitutoEstrabismo() {
         description="Cirurgia de estrabismo para crianças e adultos. Diagnóstico preciso e técnicas modernas de correção. 5 unidades em São Paulo e Guarulhos."
         keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
         canonicalPath="/instituto/estrabismo"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-ibNQCeyY_dba86bbf.webp"
+        ogImage="/images/tech-ibNQCeyY_dba86bbf.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="estrabismo" />
@@ -598,11 +598,11 @@ export default function InstitutoEstrabismo() {
           </AnimateOnScroll>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
-              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
-              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
-              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "/images/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "/images/consultorio_lapa_be866546.png" },
+              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "/images/sala_espera_sofa_bege_v1_3860a616.png" },
+              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "/images/sala_espera_sofa_bege_v4_0b2982e6.png" },
+              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">

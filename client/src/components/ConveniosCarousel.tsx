@@ -11,35 +11,34 @@ const WA_MSG = encodeURIComponent("Olá! Gostaria de saber se meu convênio é a
 const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 
 // Logos otimizados para 188x80px (2x retina para display de 94x40px)
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
-    logo: `${CDN}/prevent-senior-188w_60641e66.webp`,
+    logo: `/images/prevent-senior-188w_60641e66.webp`,
   },
   {
     nome: "Bradesco Saúde",
-    logo: `${CDN}/bradesco-188w_b58e35a5.webp`,
+    logo: `/images/bradesco-188w_b58e35a5.webp`,
   },
   {
     nome: "Mediservice",
-    logo: `${CDN}/tech-mediservice-188w_ba541991.webp`,
+    logo: `/images/tech-mediservice-188w_ba541991.webp`,
   },
   {
     nome: "Instituto Pró-PM",
-    logo: `${CDN}/logo-propm-188w_44c9af21.webp`,
+    logo: `/images/logo-propm-188w_44c9af21.webp`,
   },
   {
     nome: "Amil",
-    logo: `${CDN}/amil-188w_94445080.webp`,
+    logo: `/images/amil-188w_94445080.webp`,
   },
   {
     nome: "Unimed Seguros",
-    logo: `${CDN}/unimed-188w_3728f5a6.webp`,
+    logo: `/images/unimed-188w_3728f5a6.webp`,
   },
   {
     nome: "Ameplam",
-    logo: `${CDN}/ameplam-188w_df6e92d3.webp`,
+    logo: `/images/ameplam-188w_df6e92d3.webp`,
   },
 ];
 

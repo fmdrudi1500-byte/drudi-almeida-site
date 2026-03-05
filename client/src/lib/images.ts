@@ -1,9 +1,11 @@
 /* ============================================================
    Image Constants — Drudi e Almeida
-   Central registry for all image URLs used across the site
+   Todas as imagens são servidas localmente via /images/
+   Isso garante Cache-Control: max-age=31536000 via _headers do Cloudflare Pages,
+   elimina dependência de CDN externo e resolve o aviso de cache do PageSpeed.
    ============================================================ */
 
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
+const BASE = "/images";
 
 // Responsive image helper — returns srcSet string for use in <img srcSet={}>
 export function srcSet(base: string, variants: Record<number, string>): string {
@@ -14,74 +16,69 @@ export function srcSet(base: string, variants: Record<number, string>): string {
 
 export const IMAGES = {
   logo: {
-    // 200x111px (2x retina para display de 100x56) — economia: 9KB → 4KB
-    horizontal: `${CDN}/logo-footer-200w_56b3dc2d.webp`,
-    circular: `${CDN}/logo-footer-200w_56b3dc2d.webp`,
+    horizontal: `${BASE}/logo-footer-200w_56b3dc2d.webp`,
+    circular: `${BASE}/logo-footer-200w_56b3dc2d.webp`,
   },
   // Responsive srcset variants for key images
   responsive: {
     heroMonet: {
-      "480": `${CDN}/hero-monet-480w_5af50fa4_d2802f0a.webp`,
-      // 960w recomprimido para qualidade 65 (era 80) — economia de ~10KB
-      "960": `${CDN}/hero-monet-960w-q65_33ebbbc1.webp`,
+      "480": `${BASE}/hero-monet-480w_5af50fa4_d2802f0a.webp`,
+      "960": `${BASE}/hero-monet-960w-q65_33ebbbc1.webp`,
     },
     draPriscilla: {
-      // Redimensionado para tamanho exibido: 412w e 824w (2x retina)
-      // Economia: 126KB → 25KB (412w) e 81KB (824w)
-      "412": `${CDN}/dra-priscilla-412w_213372a7.webp`,
-      "824": `${CDN}/dra-priscilla-824w_baddef17.webp`,
+      "412": `${BASE}/dra-priscilla-412w_213372a7.webp`,
+      "824": `${BASE}/dra-priscilla-824w_baddef17.webp`,
     },
     drFernando: {
-      "480": `${CDN}/dr-fernando-480w_ffe20b72_daaa02d9.webp`,
-      "720": `${CDN}/dr-fernando-720w_fbb418a0_18ca30d8.webp`,
+      "480": `${BASE}/dr-fernando-480w_ffe20b72_daaa02d9.webp`,
+      "720": `${BASE}/dr-fernando-720w_fbb418a0_18ca30d8.webp`,
     },
     monetJapaneseBridge: {
-      "400": `${CDN}/monet-japanese-bridge-400w_9cb272d9_ccc66b12.webp`,
-      "700": `${CDN}/monet-japanese-bridge-700w_d37e053d_4c5b8c42.webp`,
+      "400": `${BASE}/monet-japanese-bridge-400w_9cb272d9_ccc66b12.webp`,
+      "700": `${BASE}/monet-japanese-bridge-700w_d37e053d_4c5b8c42.webp`,
     },
     artDegas: {
-      "300": `${CDN}/art-degas-300w_ceb85a6c_ac752ae5.webp`,
-      "600": `${CDN}/art-degas-600w_fe5d71f2_44dd38bb.webp`,
+      "300": `${BASE}/art-degas-300w_ceb85a6c_ac752ae5.webp`,
+      "600": `${BASE}/art-degas-600w_fe5d71f2_44dd38bb.webp`,
     },
     artVangogh: {
-      "300": `${CDN}/art-vangogh-300w_ec1adebc_fab9e3db.webp`,
-      "600": `${CDN}/art-vangogh-600w_61afdfcd_f834e739.webp`,
+      "300": `${BASE}/art-vangogh-300w_ec1adebc_fab9e3db.webp`,
+      "600": `${BASE}/art-vangogh-600w_61afdfcd_f834e739.webp`,
     },
   },
   hero: {
-    main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-resized_00e348d0.webp",
-    starryNight: `${CDN}/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp`,
-    eyeAbstract: `${CDN}/eye-abstract_36effe98.webp`,
-    doctorConsultation: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/AChRUprKUpxeRdhT_2e6e6c5a.jpg",
-    technology: `${CDN}/technology_fed16422.webp`,
-    happyFamily: `${CDN}/happy-family_6ee5e159.webp`,
+    main: `${BASE}/hero-monet-resized_00e348d0.webp`,
+    starryNight: `${BASE}/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp`,
+    eyeAbstract: `${BASE}/eye-abstract_36effe98.webp`,
+    doctorConsultation: `${BASE}/doctor-fernando_902033c6.webp`,
+    technology: `${BASE}/technology_fed16422.webp`,
+    happyFamily: `${BASE}/happy-family_6ee5e159.webp`,
   },
-  // Instituto logos — CloudFront CDN permanente (128x128px WebP, 2x retina para display de 64px)
+  // Instituto logos (128x128px WebP, 2x retina para display de 64px)
   institutoLogos: {
-    catarata: `${CDN}/logo-catarata-128_4016b3c8.webp`,
-    ceratocone: `${CDN}/logo-ceratocone-128_5f37b031.webp`,
-    glaucoma: `${CDN}/logo-glaucoma-128_c3ccf9c1.webp`,
-    retina: `${CDN}/logo-retina-128_88ef0fac.webp`,
-    estrabismo: `${CDN}/logo-estrabismo-128_b8ca4997.webp`,
+    catarata: `${BASE}/logo-catarata-128_4016b3c8.webp`,
+    ceratocone: `${BASE}/logo-ceratocone-128_5f37b031.webp`,
+    glaucoma: `${BASE}/logo-glaucoma-128_c3ccf9c1.webp`,
+    retina: `${BASE}/logo-retina-128_88ef0fac.webp`,
+    estrabismo: `${BASE}/logo-estrabismo-128_b8ca4997.webp`,
   },
   // Art & Vision — Famous paintings connected to eye conditions
   art: {
-    monetBeforeAfter: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/wbNddNYgwjrdnWbs_d1badfa4.jpg",
-    monetJapaneseBridge: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/monet-japanese-bridge_7feeb7be.webp",
-    seuratGrandeJatte: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/oPEFYPdixVsjysRg_8467105c.jpg",
-    degasDancers: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-degas-dancers_57775727.webp",
-    elGrecoToledo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/art-el-greco-toledo_24353633.webp",
-    daVinciStrabismus: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tjFAKPBlHLVpdwvV_b1164d80.jpg",
-    rembrandtSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/EuPODdxSBIgDitkq_19758687.jpg",
-    vanGoghStarryNight: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nuRRrdSXTUGgVztf_78be1262.jpg",
-    vanGoghSelfPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/SaVZZRtMuqleSZBC_cb3eabb8.jpg",
+    monetBeforeAfter: `${BASE}/monet-before-after_d1badfa4.jpg`,
+    monetJapaneseBridge: `${BASE}/monet-japanese-bridge_7feeb7be.webp`,
+    seuratGrandeJatte: `${BASE}/seurat-grande-jatte_8467105c.jpg`,
+    degasDancers: `${BASE}/art-degas-dancers_57775727.webp`,
+    elGrecoToledo: `${BASE}/art-el-greco-toledo_24353633.webp`,
+    daVinciStrabismus: `${BASE}/da-vinci-strabismus_b1164d80.jpg`,
+    rembrandtSelfPortrait: `${BASE}/rembrandt-self-portrait_19758687.jpg`,
+    vanGoghStarryNight: `${BASE}/van-gogh-starry-night_78be1262.jpg`,
+    vanGoghSelfPortrait: `${BASE}/van-gogh-self-portrait_cb3eabb8.jpg`,
   },
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {
-    drFernando: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-fernando_902033c6.webp",
-    // Otimizada: 960x933 → 412x549px (tamanho exibido) — economia: 126KB → 25KB
-    draPriscilla: `${CDN}/dra-priscilla-412w_213372a7.webp`,
-    draMariaAmelia: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/doctor-maria-amelia_6dcb9a0f.webp",
+    drFernando: `${BASE}/doctor-fernando_902033c6.webp`,
+    draPriscilla: `${BASE}/dra-priscilla-412w_213372a7.webp`,
+    draMariaAmelia: `${BASE}/doctor-maria-amelia_6dcb9a0f.webp`,
   },
   // Unsplash images for less prominent sections
   unsplash: {

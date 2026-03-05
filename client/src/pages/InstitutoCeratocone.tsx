@@ -18,13 +18,12 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
-const HERO_ART_IMG = `${CDN}/FNcnFFJFKrDuNgLS_4839850a.png`;
-const IMG_PENTACAM = `${CDN}/ceratocone-pentacam_54c0177a.webp`;
-const IMG_LENTES_ESCLERAIS = `${CDN}/ceratocone-lentes-esclerais_be81ebed.webp`;
-const IMG_CROSSLINKING = `${CDN}/ceratocone-crosslinking_be312842.webp`;
-const IMG_ANEL_FERRARA = `${CDN}/ceratocone-anel-ferrara_20881fd0.webp`;
-const IMG_TRANSPLANTE = `${CDN}/ceratocone-transplante_cf7bca9f.webp`;
+const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.png`;
+const IMG_PENTACAM = `/images/ceratocone-pentacam_54c0177a.webp`;
+const IMG_LENTES_ESCLERAIS = `/images/ceratocone-lentes-esclerais_be81ebed.webp`;
+const IMG_CROSSLINKING = `/images/ceratocone-crosslinking_be312842.webp`;
+const IMG_ANEL_FERRARA = `/images/ceratocone-anel-ferrara_20881fd0.webp`;
+const IMG_TRANSPLANTE = `/images/ceratocone-transplante_cf7bca9f.webp`;
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de ceratocone.";
@@ -43,27 +42,27 @@ const sintomasZigzag = [
   {
     title: "Visão Embaçada e Distorcida",
     desc: "A visão fica progressivamente borrada e as imagens parecem onduladas ou distorcidas. Linhas retas podem parecer curvas. É o sintoma mais comum e geralmente o primeiro a ser percebido.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-visao-emba_2ddb7aa2.png",
+    img: "/images/ceratocone-sintoma-visao-emba_2ddb7aa2.png",
   },
   {
     title: "Sensibilidade à Luz (Fotofobia)",
     desc: "Pacientes com ceratocone frequentemente apresentam desconforto intenso com luzes fortes, brilho excessivo e reflexos. Dirigir à noite torna-se especialmente difícil devido aos halos ao redor dos faróis.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-fotofobia_61063d7f.png",
+    img: "/images/ceratocone-sintoma-fotofobia_61063d7f.png",
   },
   {
     title: "Troca Frequente de Óculos",
     desc: "Como a córnea muda de formato progressivamente, o grau dos óculos precisa ser alterado com frequência — às vezes a cada poucos meses. Mesmo com óculos novos, a visão pode não ficar totalmente nítida.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-oculos_6db1f062.png",
+    img: "/images/ceratocone-sintoma-oculos_6db1f062.png",
   },
   {
     title: "Visão Dupla e Halos",
     desc: "Imagens fantasmas ou duplicadas em um mesmo olho (diplopia monocular) e halos luminosos ao redor das luzes são sinais característicos do astigmatismo irregular causado pelo ceratocone.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-halos_2ab35670.png",
+    img: "/images/ceratocone-sintoma-halos_2ab35670.png",
   },
   {
     title: "Coceira Persistente nos Olhos",
     desc: "Muitos pacientes com ceratocone têm histórico de alergia ocular e coceira crônica. O ato de coçar os olhos vigorosamente é um dos principais fatores de risco para o desenvolvimento e progressão da doença.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-sintoma-coceira_6ad37407.png",
+    img: "/images/ceratocone-sintoma-coceira_6ad37407.png",
   },
 ];
 
@@ -169,7 +168,7 @@ export default function InstitutoCeratocone() {
         description="Tratamento especializado de ceratocone: crosslinking, anel de Ferrara, lentes de contato especiais. Diagnóstico com Pentacam e OPD. 5 unidades em SP."
         keywords="ceratocone tratamento SP, crosslinking São Paulo, anel de Ferrara, lente de contato ceratocone, Pentacam, oftalmologista ceratocone"
         canonicalPath="/instituto/ceratocone"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/nuRRrdSXTUGgVztf_78be1262.jpg"
+        ogImage="/images/nuRRrdSXTUGgVztf_78be1262.jpg"
         ogType="website"
       />
       <InstitutoSchema instituto="ceratocone" />
@@ -901,11 +900,11 @@ export default function InstitutoCeratocone() {
           </AnimateOnScroll>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
-              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
-              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
-              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "/images/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "/images/consultorio_lapa_be866546.png" },
+              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "/images/sala_espera_sofa_bege_v1_3860a616.png" },
+              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "/images/sala_espera_sofa_bege_v4_0b2982e6.png" },
+              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">

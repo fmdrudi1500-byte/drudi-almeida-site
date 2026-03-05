@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const STARRY_NIGHT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp";
+const STARRY_NIGHT_URL = "/images/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp";
 
 interface Props {
   title: string;

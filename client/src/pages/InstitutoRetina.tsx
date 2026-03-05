@@ -17,9 +17,9 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png";
-const IMG_OCT_SCAN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-iARxgYZk_d39e3a25.webp";
-const IMG_INJECAO = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZUJAJUjiWWSeRqav_154af844.png";
+const HERO_ART_IMG = "/images/MozNCXrPhMWauJmt_cb57f973.png";
+const IMG_OCT_SCAN = "/images/tech-iARxgYZk_d39e3a25.webp";
+const IMG_INJECAO = "/images/ZUJAJUjiWWSeRqav_154af844.png";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de retina.";
@@ -84,27 +84,27 @@ const sintomasZigzag = [
   {
     title: "Moscas Volantes (Floaters)",
     desc: "Pequenos pontos, manchas ou filamentos que parecem flutuar no campo visual, especialmente visíveis contra fundos claros. O aparecimento súbito de muitas moscas volantes pode indicar descolamento de retina.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-moscas_342e4065.webp",
+    img: "/images/retina-moscas_342e4065.webp",
   },
   {
     title: "Flashes de Luz (Fotopsias)",
     desc: "Percepção de clarões ou relâmpagos de luz, especialmente na visão periférica. Ocorrem quando o vítreo traciona a retina. Flashes novos e frequentes são um sinal de alerta importante para descolamento de retina.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-flashes_d202f399.webp",
+    img: "/images/retina-flashes_d202f399.webp",
   },
   {
     title: "Cortina Escura na Visão",
     desc: "Sensação de uma sombra ou cortina que se move sobre o campo visual. Este é o sintoma clássico do descolamento de retina e constitui uma emergência oftalmológica.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-cortina-escura_47c312ee.webp",
+    img: "/images/retina-cortina-escura_47c312ee.webp",
   },
   {
     title: "Distorção de Imagens (Metamorfopsia)",
     desc: "Linhas retas parecem onduladas ou tortas. É o sintoma característico de doenças maculares como DMRI úmida, membrana epirretiniana e edema macular. O teste da grade de Amsler ajuda na autoavaliação.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-distorcao_ba546c8b.webp",
+    img: "/images/retina-distorcao_ba546c8b.webp",
   },
   {
     title: "Perda Súbita de Visão",
     desc: "Perda repentina e indolor da visão em um olho pode indicar oclusão vascular retiniana ou hemorragia vítrea. É uma emergência médica — quanto mais rápido o tratamento, maiores as chances de recuperação.",
-    img: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-perda-visao_52f0c4c7.webp",
+    img: "/images/retina-perda-visao_52f0c4c7.webp",
   },
 ];
 
@@ -221,7 +221,7 @@ export default function InstitutoRetina() {
         description="Tratamentos avançados para doenças da retina: vitrectomia, injeções intravítreas, retinopatia diabética. Dr. Fernando Drudi, especialista em retina cirúrgica."
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"
-        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/MozNCXrPhMWauJmt_cb57f973.png"
+        ogImage="/images/MozNCXrPhMWauJmt_cb57f973.png"
         ogType="website"
       />
       <InstitutoSchema instituto="retina" />
@@ -522,11 +522,11 @@ export default function InstitutoRetina() {
           </AnimateOnScroll>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
-              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
-              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v1_3860a616.png" },
-              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v4_0b2982e6.png" },
-              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/sala_espera_sofa_bege_v3_5717e0c0.png" },
+              { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "/images/clinica_guarulhos_8e7690c7.png" },
+              { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "/images/consultorio_lapa_be866546.png" },
+              { name: "Santana", city: "São Paulo - SP", description: "Zona norte de São Paulo, atendimento humanizado com fácil acesso pelo metrô.", image: "/images/sala_espera_sofa_bege_v1_3860a616.png" },
+              { name: "São Miguel", city: "São Paulo - SP", description: "Atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.", image: "/images/sala_espera_sofa_bege_v4_0b2982e6.png" },
+              { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
