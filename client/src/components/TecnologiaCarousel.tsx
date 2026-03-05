@@ -227,17 +227,18 @@ export default function TecnologiaCarousel() {
           <div className="hidden md:block absolute top-0 left-0 bottom-4 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none dark:from-background" />
         </div>
 
-        {/* Progress dots */}
+        {/* Progress dots — use transform instead of width to keep animations GPU-composited */}
         <div className="flex items-center justify-center gap-2 mt-5">
           {equipamentos.map((_, i) => (
             <button
               key={i}
               onClick={() => { handleUserInteraction(); scrollToIndex(i); }}
-              className={`rounded-full transition-all duration-300 ${
+              className={`h-2.5 rounded-full transition-transform transition-colors duration-300 origin-left ${
                 i === activeIndex
-                  ? "w-7 h-2.5 bg-gold"
-                  : "w-2.5 h-2.5 bg-border hover:bg-gold/40"
+                  ? "w-2.5 scale-x-[2.8] bg-gold"
+                  : "w-2.5 scale-x-100 bg-border hover:bg-gold/40"
               }`}
+              style={{ willChange: 'transform' }}
               aria-label={`Ir para equipamento ${i + 1}`}
             />
           ))}

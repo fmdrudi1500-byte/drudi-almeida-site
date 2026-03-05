@@ -192,3 +192,8 @@
 - [x] PERF-11: Eliminar framer-motion do bundle inicial (hero CSS-only, removido de Home.tsx)
 - [x] PERF-12: Corrigir logo no Header.tsx sem width/height explícitos (CLS)
 - [x] PERF-13: Corrigido CSS duplicado no HTML (era carregado 2x), framer-motion removido do bundle inicial
+
+### Fase 4 — Correções PageSpeed (rodada 3)
+- [x] PERF-14: Adicionar width/height ao logo no Footer.tsx (Footer.tsx:30)
+- [x] PERF-15: Corrigir animações não compostas no TecnologiaCarousel (transition-all → scale-x GPU-composited)
+- [x] PERF-16: Verificado vendor-icons — todos os ícones são usados, tree-shaking já ativo

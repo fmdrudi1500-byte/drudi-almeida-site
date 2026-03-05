@@ -31,6 +31,10 @@ export default function Footer() {
                 src={LOGO_URL}
                 alt="Logotipo Drudi e Almeida Clínicas Oftalmológicas — olho em azul marinho e dourado"
                 className="h-14 w-auto object-contain"
+                width={200}
+                height={56}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p className="font-body text-sm leading-relaxed text-cream/70 max-w-xs">
