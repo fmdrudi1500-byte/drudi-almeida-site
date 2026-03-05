@@ -172,3 +172,18 @@
 - [x] Excluir botão na linha 167 do Home.tsx (solicitado via editor visual)
 - [x] Gerar nova imagem da Dra. Priscilla em consultório via IA (manter rosto, mudar ambiente), otimizar para performance (126KB WebP, 960x1280)
 - [x] Remover links 'Institutos', 'Tecnologia' e 'Unidades' da barra azul (top bar), manter apenas horário e telefones
+
+## Otimizações de Performance (Audit Claude - Março 2026)
+
+### Fase 1 — Quick Wins
+- [x] PERF-1: Adicionar loading="lazy" decoding="async" em todas as imagens fora do hero
+- [x] PERF-2: Adicionar width e height explícitos em todas as <img>
+- [x] PERF-3: Adicionar preconnect para CDNs no <head>
+- [x] PERF-4: Adicionar fetchpriority="high" na imagem LCP do hero
+- [x] PERF-5: Carregar widget WhatsApp com delay de 5s (era 3s)
+
+### Fase 2 — Otimização de Assets
+- [x] PERF-6: Implementar srcset + sizes nas imagens principais (hero, doutores, arte) com variantes 300w/400w/480w/700w/720w/960w
+- [x] PERF-7: Refatorar carrossel de convênios para CSS animation (2 cópias, sem rAF constante)
+- [x] PERF-8: font-display: swap já estava em todas as declarações
+- [x] PERF-9: Code splitting já estava (7 chunks vendor + lazy routes)

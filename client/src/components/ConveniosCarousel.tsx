@@ -1,11 +1,10 @@
 /* ============================================================
    ConveniosCarousel — Seção de convênios para a home
-   • Carrossel infinito com drag/swipe do usuário
-   • Retoma loop automático 2s após soltar
+   • Carrossel infinito com CSS animation (sem rAF constante)
+   • Pausa no hover / drag/swipe do usuário
    • Logo em grayscale → colorido no hover
    ============================================================ */
-import { useRef, useEffect, useCallback, useState } from "react";
-import { Link } from "wouter";
+import { useRef, useCallback, useState, useEffect } from "react";
 
 const PHONE = "5511916544653";
 const WA_MSG = encodeURIComponent("Olá! Gostaria de saber se meu convênio é aceito.");
@@ -42,152 +41,108 @@ const CONVENIOS = [
   },
 ];
 
-// Triplicar para scroll infinito contínuo
-const ALL_ITEMS = [...CONVENIOS, ...CONVENIOS, ...CONVENIOS];
+// Duplicar apenas 1x para loop infinito (2 cópias)
+const ALL_ITEMS = [...CONVENIOS, ...CONVENIOS];
 
-// Largura de cada card (incluindo margin)
-const CARD_WIDTH_DESKTOP = 170 + 28; // 198px
-const CARD_WIDTH_MOBILE = 120 + 16;  // 136px
-const AUTO_SPEED = 0.6; // px por frame (~36px/s a 60fps)
-const RESUME_DELAY = 2000; // ms após soltar para retomar
+const CARD_W_DESKTOP = 170 + 28; // 198px
+const CARD_W_MOBILE = 120 + 16;  // 136px
+const RESUME_DELAY = 2000;
 
 export default function ConveniosCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef(0);
-  const rafRef = useRef<number>(0);
-  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isDraggingRef = useRef(false);
-  const dragStartXRef = useRef(0);
-  const dragStartPosRef = useRef(0);
-  const isAutoPlayingRef = useRef(true);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const getCardWidth = useCallback(() => {
-    return isMobile ? CARD_WIDTH_MOBILE : CARD_WIDTH_DESKTOP;
-  }, [isMobile]);
+  // Drag state
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragOffsetRef = useRef(0);
+  const currentOffsetRef = useRef(0);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Largura total de um bloco (7 convênios)
-  const getBlockWidth = useCallback(() => {
-    return CONVENIOS.length * getCardWidth();
-  }, [getCardWidth]);
-
-  const applyTransform = useCallback(() => {
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${posRef.current}px)`;
-    }
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 769);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  const normalizePos = useCallback(() => {
-    const blockWidth = getBlockWidth();
-    // Mantém posição dentro do bloco do meio (índice 1)
-    if (posRef.current <= -blockWidth * 2) {
-      posRef.current += blockWidth;
-    } else if (posRef.current >= 0) {
-      posRef.current -= blockWidth;
-    }
-  }, [getBlockWidth]);
+  const cardWidth = isMobile ? CARD_W_MOBILE : CARD_W_DESKTOP;
+  const blockWidth = CONVENIOS.length * cardWidth;
+  // CSS animation duration: blockWidth / speed (speed = 36px/s)
+  const duration = blockWidth / 36;
 
-  const startAutoPlay = useCallback(() => {
-    isAutoPlayingRef.current = true;
-    const tick = () => {
-      if (!isAutoPlayingRef.current) return;
-      posRef.current -= AUTO_SPEED;
-      normalizePos();
-      applyTransform();
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-  }, [normalizePos, applyTransform]);
-
-  const stopAutoPlay = useCallback(() => {
-    isAutoPlayingRef.current = false;
-    cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const scheduleResume = useCallback(() => {
+  const resumeAnim = useCallback(() => {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
-      startAutoPlay();
+      setPaused(false);
+      dragOffsetRef.current = 0;
+      if (trackRef.current) {
+        trackRef.current.style.transform = "";
+      }
     }, RESUME_DELAY);
-  }, [startAutoPlay]);
-
-  // Inicializa posição no bloco do meio
-  useEffect(() => {
-    const blockWidth = getBlockWidth();
-    posRef.current = -blockWidth;
-    applyTransform();
-    startAutoPlay();
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 769);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      stopAutoPlay();
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
-
-  // Recalcula posição ao mudar de mobile/desktop
-  useEffect(() => {
-    const blockWidth = getBlockWidth();
-    posRef.current = -blockWidth;
-    applyTransform();
-  }, [isMobile, getBlockWidth, applyTransform]);
 
   /* ---- Mouse drag ---- */
   const onMouseDown = useCallback((e: React.MouseEvent) => {
-    stopAutoPlay();
+    setPaused(true);
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     isDraggingRef.current = true;
     dragStartXRef.current = e.clientX;
-    dragStartPosRef.current = posRef.current;
+    dragOffsetRef.current = currentOffsetRef.current;
     if (trackRef.current) trackRef.current.style.cursor = "grabbing";
-  }, [stopAutoPlay]);
+  }, []);
 
   const onMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDraggingRef.current) return;
     const delta = e.clientX - dragStartXRef.current;
-    posRef.current = dragStartPosRef.current + delta;
-    normalizePos();
-    applyTransform();
-  }, [normalizePos, applyTransform]);
+    const newOffset = dragOffsetRef.current + delta;
+    currentOffsetRef.current = newOffset;
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${newOffset}px)`;
+    }
+  }, []);
 
   const onMouseUp = useCallback(() => {
     if (!isDraggingRef.current) return;
     isDraggingRef.current = false;
     if (trackRef.current) trackRef.current.style.cursor = "grab";
-    scheduleResume();
-  }, [scheduleResume]);
+    resumeAnim();
+  }, [resumeAnim]);
 
   /* ---- Touch drag ---- */
   const onTouchStart = useCallback((e: React.TouchEvent) => {
-    stopAutoPlay();
+    setPaused(true);
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     isDraggingRef.current = true;
     dragStartXRef.current = e.touches[0].clientX;
-    dragStartPosRef.current = posRef.current;
-  }, [stopAutoPlay]);
+    dragOffsetRef.current = currentOffsetRef.current;
+  }, []);
 
   const onTouchMove = useCallback((e: React.TouchEvent) => {
     if (!isDraggingRef.current) return;
     const delta = e.touches[0].clientX - dragStartXRef.current;
-    posRef.current = dragStartPosRef.current + delta;
-    normalizePos();
-    applyTransform();
-  }, [normalizePos, applyTransform]);
+    const newOffset = dragOffsetRef.current + delta;
+    currentOffsetRef.current = newOffset;
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${newOffset}px)`;
+    }
+  }, []);
 
   const onTouchEnd = useCallback(() => {
     isDraggingRef.current = false;
-    scheduleResume();
-  }, [scheduleResume]);
+    resumeAnim();
+  }, [resumeAnim]);
 
   return (
     <>
       <style>{`
+        @keyframes conv-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-${blockWidth}px); }
+        }
+
         .drudi-convenios {
           background: #FAFBFC;
           padding: 48px 0 40px;
@@ -245,6 +200,10 @@ export default function ConveniosCarousel() {
           width: max-content;
           cursor: grab;
           will-change: transform;
+          animation: conv-scroll ${duration}s linear infinite;
+        }
+        .conv-track.paused {
+          animation-play-state: paused;
         }
         .conv-track:active {
           cursor: grabbing;
@@ -327,33 +286,42 @@ export default function ConveniosCarousel() {
             <span className="w-5 h-px bg-gold/50" />
           </div>
           <h2
-            className="font-display text-2xl md:text-[36px] font-semibold leading-snug mb-2"
-            style={{ color: "#0A1628" }}
+            className="font-display text-2xl md:text-[36px] font-semibold leading-snug text-navy"
           >
-            Seu plano de saúde é aceito aqui
+            Atendemos os principais convênios
           </h2>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-md mx-auto">
-            Atendemos os <strong className="text-navy font-semibold">principais convênios</strong> de São Paulo para consultas, exames e cirurgias.
+          <p className="font-body text-sm text-muted-foreground mt-2 max-w-lg mx-auto">
+            Trabalhamos com os principais planos de saúde para facilitar o acesso ao cuidado oftalmológico.
           </p>
         </div>
 
         {/* Carrossel */}
-        <div className="conv-carousel-wrapper">
+        <div
+          className="conv-carousel-wrapper"
+          ref={wrapperRef}
+          onMouseLeave={onMouseUp}
+        >
           <div className="conv-track-container">
             <div
               ref={trackRef}
-              className="conv-track"
+              className={`conv-track${paused ? " paused" : ""}`}
               onMouseDown={onMouseDown}
               onMouseMove={onMouseMove}
               onMouseUp={onMouseUp}
-              onMouseLeave={onMouseUp}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
             >
               {ALL_ITEMS.map((conv, i) => (
-                <div key={i} className="conv-logo-card" title={conv.nome}>
-                  <img src={conv.logo} alt={conv.nome} loading="lazy" draggable={false} />
+                <div key={`${conv.nome}-${i}`} className="conv-logo-card">
+                  <img
+                    src={conv.logo}
+                    alt={conv.nome}
+                    loading="lazy"
+                    decoding="async"
+                    width={140}
+                    height={60}
+                  />
                 </div>
               ))}
             </div>
@@ -363,47 +331,21 @@ export default function ConveniosCarousel() {
         {/* Footer */}
         <div className="text-center px-6">
           <div className="conv-count">
-            <svg viewBox="0 0 24 24" className="w-4 h-4" style={{ fill: "#C9A86C" }}>
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-            </svg>
-            <span>
-              Atendemos <span className="conv-count-number">+7</span> convênios
-            </span>
+            <span className="conv-count-number">7+</span>
+            convênios aceitos
           </div>
-
-          <div className="flex items-center justify-center gap-5 flex-wrap mt-1">
-            <Link
-              href="/convenios"
-              className="font-ui text-[13px] font-semibold inline-flex items-center gap-1.5 transition-colors hover:text-gold"
-              style={{ color: "#0A1628", borderBottom: "1px solid rgba(10,22,40,0.2)", paddingBottom: "1px" }}
-            >
-              Ver lista completa
-              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-
-            <span className="w-1 h-1 rounded-full bg-gray-300" />
-
+          <p className="font-body text-xs text-muted-foreground mt-3">
+            Não encontrou seu plano?{" "}
             <a
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-ui text-[13px] font-semibold inline-flex items-center gap-1.5 transition-opacity hover:opacity-75"
-              style={{ color: "#25D366" }}
+              className="text-navy font-semibold hover:text-gold transition-colors underline underline-offset-2"
             >
-              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="#25D366">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.612-1.474A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.6-5.92-1.64l-.425-.254-2.735.875.875-2.61-.278-.442A9.77 9.77 0 012.182 12c0-5.412 4.406-9.818 9.818-9.818S21.818 6.588 21.818 12s-4.406 9.818-9.818 9.818z" />
-              </svg>
-              Meu convênio é aceito?
+              Consulte pelo WhatsApp
             </a>
-          </div>
+          </p>
         </div>
-
-        <p className="font-body text-[11px] text-muted-foreground mt-4 text-center px-6">
-          A cobertura pode variar por plano e procedimento. Confirme ao agendar.
-        </p>
       </section>
     </>
   );

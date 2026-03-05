@@ -12,7 +12,7 @@ import { useLocation } from "wouter";
 // ============================================================
 const CONFIG = {
   phone: "5511916544653",
-  showDelay: 3000,
+  showDelay: 5000,
   showDelayInstituto: 500,
   tooltipDelay: 5000,
   pulseInterval: 10000,

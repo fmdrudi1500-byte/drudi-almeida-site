@@ -9,7 +9,7 @@ import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, Messa
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, srcSet } from "@/lib/images";
 import { useRef, useEffect, useCallback, useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
@@ -93,15 +93,24 @@ export default function Home() {
       />
       {/* ========== HERO WITH PARALLAX ========== */}
       <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
-        {/* Parallax Background Image */}
+        {/* Parallax Background Image — real <img> with srcset for responsive loading */}
         <motion.div
-          className="absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{
-            backgroundImage: `url(${IMAGES.hero.main})`,
-            y: heroImageY,
-            scale: heroImageScale,
-          }}
-        />
+          className="absolute inset-0 will-change-transform overflow-hidden"
+          style={{ y: heroImageY, scale: heroImageScale }}
+        >
+          <img
+            src={IMAGES.hero.main}
+            srcSet={srcSet(IMAGES.hero.main, IMAGES.responsive.heroMonet)}
+            sizes="100vw"
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            width={1920}
+            height={1072}
+          />
+        </motion.div>
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
           style={{ opacity: heroOverlayOpacity }}
@@ -276,6 +285,8 @@ export default function Home() {
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
                 src={IMAGES.doctors.draPriscilla}
+                srcSet={srcSet(IMAGES.doctors.draPriscilla, IMAGES.responsive.draPriscilla)}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
                 className="absolute inset-0 w-full h-full object-cover object-top"
                 width={960}
@@ -424,8 +435,17 @@ export default function Home() {
                   <div className="relative h-80 overflow-hidden">
                     <img
                       src={doc.image}
+                      srcSet={i === 0
+                        ? srcSet(doc.image, IMAGES.responsive.drFernando)
+                        : srcSet(doc.image, IMAGES.responsive.draPriscilla)
+                      }
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width={600}
+                      height={640}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -490,7 +510,7 @@ export default function Home() {
               <Link href="/instituto/catarata" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.monetJapaneseBridge} alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={IMAGES.art.monetJapaneseBridge} srcSet={srcSet(IMAGES.art.monetJapaneseBridge, IMAGES.responsive.monetJapaneseBridge)} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" alt="Monet - Ponte Japonesa antes e depois da catarata" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="400" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Catarata</span>
@@ -506,7 +526,7 @@ export default function Home() {
               <Link href="/instituto/ceratocone" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.vanGoghStarryNight} alt="Van Gogh - Noite Estrelada, halos e distorções do ceratocone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={IMAGES.art.vanGoghStarryNight} srcSet={srcSet(IMAGES.art.vanGoghStarryNight, IMAGES.responsive.artVangogh)} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" alt="Van Gogh - Noite Estrelada, halos e distorções do ceratocone" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="400" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Ceratocone</span>
@@ -522,7 +542,7 @@ export default function Home() {
               <Link href="/instituto/retina" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.degasDancers} alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={IMAGES.art.degasDancers} srcSet={srcSet(IMAGES.art.degasDancers, IMAGES.responsive.artDegas)} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" alt="Degas - Bailarinas, afetado por doença retiniana" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="400" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Retina</span>
@@ -538,7 +558,7 @@ export default function Home() {
               <Link href="/instituto/estrabismo" className="group block h-full">
                 <div className="rounded-2xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden">
-                    <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    <img src={IMAGES.art.daVinciStrabismus} alt="Leonardo da Vinci - Estrabismo que ajudou sua arte" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="400" />
                   </div>
                   <div className="p-4 bg-cream/5 backdrop-blur-sm flex-1">
                     <span className="font-ui text-[10px] font-semibold tracking-wider uppercase text-gold">Estrabismo</span>
@@ -626,6 +646,10 @@ export default function Home() {
                       src={u.image}
                       alt={`Unidade ${u.name} — Drudi e Almeida`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width={600}
+                      height={400}
                     />
                     <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300 flex items-center justify-center">
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-navy font-ui text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">

@@ -3,10 +3,46 @@
    Central registry for all image URLs used across the site
    ============================================================ */
 
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz";
+
+// Responsive image helper — returns srcSet string for use in <img srcSet={}>
+export function srcSet(base: string, variants: Record<number, string>): string {
+  return Object.entries(variants)
+    .map(([w, url]) => `${url} ${w}w`)
+    .join(", ") + `, ${base} 1920w`;
+}
+
 export const IMAGES = {
   logo: {
     horizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal-resized_e945407b.webp",
     circular: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/logo-horizontal-resized_e945407b.webp",
+  },
+  // Responsive srcset variants for key images
+  responsive: {
+    heroMonet: {
+      "480": `${CDN}/hero-monet-480w_5af50fa4_d2802f0a.webp`,
+      "960": `${CDN}/hero-monet-960w_fa1b756c_0828d305.webp`,
+    },
+    draPriscilla: {
+      "480": `${CDN}/dra-priscilla-consultorio-480w_fc4fa627_b6667ec8.webp`,
+      "720": `${CDN}/dra-priscilla-consultorio-720w_2e365f98_0a7326e4.webp`,
+    },
+    drFernando: {
+      "480": `${CDN}/dr-fernando-480w_ffe20b72_daaa02d9.webp`,
+      "720": `${CDN}/dr-fernando-720w_fbb418a0_18ca30d8.webp`,
+    },
+    monetJapaneseBridge: {
+      "400": `${CDN}/monet-japanese-bridge-400w_9cb272d9_ccc66b12.webp`,
+      "700": `${CDN}/monet-japanese-bridge-700w_d37e053d_4c5b8c42.webp`,
+    },
+    artDegas: {
+      "300": `${CDN}/art-degas-300w_ceb85a6c_ac752ae5.webp`,
+      "600": `${CDN}/art-degas-600w_fe5d71f2_44dd38bb.webp`,
+    },
+    artVangogh: {
+      "300": `${CDN}/art-vangogh-300w_ec1adebc_fab9e3db.webp`,
+      "600": `${CDN}/art-vangogh-600w_61afdfcd_f834e739.webp`,
+    },
   },
   hero: {
     main: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/hero-monet-resized_00e348d0.webp",
