@@ -224,3 +224,8 @@
 - [x] VIS-04: Foto Dr. Fernando editada com IA para roupas formais escuras
 - [x] VIS-05: Fundo da seção CTA no SobreNos trocado para IMAGES.hero.happyFamily
 - [x] VIS-06: Hero do SobreNos trocado para Noite Estrelada de Van Gogh (gerada com IA)
+
+### Fase 9 — Correção Instituto da Catarata
+- [ ] CAT-01: Auditar todas as imagens da página InstitutoCatarata.tsx e identificar URLs quebradas
+- [ ] CAT-02: Corrigir imagens quebradas (migrar para CDN permanente se necessário)
+- [ ] CAT-03: Verificar e corrigir outros problemas de configuração visual da página
