@@ -161,3 +161,7 @@
 - [x] Otimização 4: Preload da imagem hero (Monet) com fetchpriority=high — reduz LCP diretamente
 - [x] Otimização 5: Framer Motion removido do caminho crítico — Header e ScrollToTopButton migrados para CSS transitions, vendor-framer (123KB) saiu do modulepreload
 - [x] Otimização 6: Conversão para WebP — 12 imagens convertidas, 22,9MB → 3,4MB (85% menor). Fotos dos médicos: 5-6MB → ~300KB cada (94-96% menor). Unsplash com &fm=webp.
+
+## Fase 43: Otimização de Performance (Baseline: Mobile 32 / Desktop 55)
+- [x] Otimização 1: manualChunks no vite.config.ts — bundle index 879KB → 182KB (-79%), vendors separados e cacheáveis
+- [x] Otimização 7: Fotos dos médicos comprimidas para WebP HQ (94-96% menor, visualmente idênticas) + width/height explícitos em todas as imagens (elimina CLS) + loading=lazy nas imagens below-the-fold

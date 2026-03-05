@@ -118,6 +118,10 @@ export default function SobreNos() {
                 src={IMAGES.hero.doctorConsultation}
                 alt="Equipe Drudi e Almeida em consulta"
                 className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
             </AnimateOnScroll>
           </div>
@@ -177,6 +181,10 @@ export default function SobreNos() {
                           src={doc.image}
                           alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
                           className="w-full aspect-[3/4] object-cover object-top"
+                          width={600}
+                          height={800}
+                          loading="lazy"
+                          decoding="async"
                         />
                         {/* Overlay gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />

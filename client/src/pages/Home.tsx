@@ -245,6 +245,10 @@ export default function Home() {
                         src={inst.logo}
                         alt={inst.name}
                         className="w-16 h-16 object-contain mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                        width={64}
+                        height={64}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <h3 className="font-display text-xl text-navy mb-2 group-hover:text-gold transition-colors">
                         {inst.name}
@@ -276,9 +280,13 @@ export default function Home() {
           <AnimateOnScroll direction="left" className="relative">
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
-                src="https://private-us-east-1.manuscdn.com/sessionFile/VBswHKhWNC83TvZUgrFk36/sandbox/G9Tpw7zLvTmvEI9gUisRl0-img-1_1772121965000_na1fn_ZHJhLXByaXNjaWxsYS1jb25zdWx0b3Jpbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkJzd0hLaFdOQzgzVHZaVWdyRmszNi9zYW5kYm94L0c5VHB3N3pMdlRtdkVJOWdVaXNSbDAtaW1nLTFfMTc3MjEyMTk2NTAwMF9uYTFmbl9aSEpoTFhCeWFYTmphV3hzWVMxamIyNXpkV3gwYjNKcGJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=TTPlEJe6xmx3JcptNhtg1qrEtUbjuKUKa~KI7tuZqDumLMDmDQdnlKVKd1KY-IEDDybrJ1d8fWI7I12FSMXnFCcA~R7GWjp~XmlIsd4OO3hqE8rslDm4CSFl9AxnQeX2JOTrdvcY19Fs5QwBqcvRzFqGvp9V4TPXktsThC2CZyCYjTNtlEpPFlTAXqj3aCz3FY~eUKvjc0Vkjo7zTODXESLEuIlMYP1Vq9NbgPjbroq-FGYG49cbVrRDF6w2SOuJSEUSyCi~TVz6xaUNv6-xBlGlrVz-0yWiN~B7Zq3pStqLZ9ZYrr7sgT2JCERT8tUBpC41UJk8YtAET-lIwTOKIQ__"
+                src={IMAGES.doctors.draPriscilla}
                 alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
                 className="absolute inset-0 w-full h-full object-cover object-top"
+                width={960}
+                height={1280}
+                loading="lazy"
+                decoding="async"
               />
               {/* Subtle gradient overlay on right edge for blending */}
               <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-cream/80 to-transparent hidden lg:block" />
