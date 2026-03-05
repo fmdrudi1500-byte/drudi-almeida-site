@@ -146,20 +146,6 @@ export default function Header() {
         <div className="container flex items-center justify-between py-2 text-xs font-ui tracking-wide">
           <div className="flex items-center gap-6">
             <span>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</span>
-            {isHome && (
-              <div className="flex items-center gap-4 text-cream/70">
-                <span className="text-cream/30">|</span>
-                {anchorLinks.map((a) => (
-                  <button
-                    key={a.anchor}
-                    onClick={() => scrollToAnchor(a.anchor)}
-                    className="hover:text-gold transition-colors font-ui text-xs tracking-wide"
-                  >
-                    {a.name}
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
           <div className="flex items-center gap-4">
             <a href="tel:+551154302421" className="flex items-center gap-1.5 hover:text-gold transition-colors">

@@ -171,3 +171,4 @@
 - [x] Remover seção "Depoimentos" da Home (solicitado pelo usuário via editor visual)
 - [x] Excluir botão na linha 167 do Home.tsx (solicitado via editor visual)
 - [x] Gerar nova imagem da Dra. Priscilla em consultório via IA (manter rosto, mudar ambiente), otimizar para performance (126KB WebP, 960x1280)
+- [x] Remover links 'Institutos', 'Tecnologia' e 'Unidades' da barra azul (top bar), manter apenas horário e telefones
