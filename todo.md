@@ -250,3 +250,6 @@
 - [x] Blog.tsx: envolver todos os StaggerItems com StaggerContainer
 - [x] Contato.tsx: envolver todos os StaggerItems com StaggerContainer
 - [x] Convenios.tsx: envolver todos os StaggerItems com StaggerContainer
+
+## Fase 31: Remover botão scroll-to-top duplicado
+- [x] Corrigir ScrollToTopButton: ocultar no mobile quando banner CTA visível (evita duplicação visual)

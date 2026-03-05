@@ -4,19 +4,25 @@
    - Posicionado no centro inferior da tela (left-1/2 -translate-x-1/2)
    - Some automaticamente após 3s de inatividade no scroll
    - Reaparece ao rolar novamente
-   - No mobile: sobe acima do MobileCTABar (~72px) quando banner visível
-   - Animação via CSS transitions (sem framer-motion no caminho crítico)
+   - No mobile: OCULTO quando o MobileCTABar está visível (evita duplicação)
+   - No desktop: sempre visível (bottom-8)
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { ChevronUp } from "lucide-react";
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
-  // Detecta se o MobileCTABar está visível para ajustar o bottom
+  // Detecta se o MobileCTABar está visível para ocultar o botão no mobile
   const [ctaBarVisible, setCtaBarVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    // Detecta mobile
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+
     const onScroll = () => {
       if (window.scrollY > 300) {
         setVisible(true);
@@ -41,6 +47,7 @@ export default function ScrollToTopButton() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", checkMobile);
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     };
   }, []);
@@ -50,9 +57,9 @@ export default function ScrollToTopButton() {
     setVisible(false);
   };
 
-  // No mobile (< 769px), quando o banner CTA está visível, sobe 80px do fundo
-  // No desktop, mantém bottom-8 (32px)
-  const bottomValue = ctaBarVisible ? "80px" : "32px";
+  // No mobile: ocultar completamente quando o banner CTA estiver visível
+  // No desktop: sempre mostrar em bottom-8 (32px)
+  const shouldShow = visible && !(isMobile && ctaBarVisible);
 
   return (
     <button
@@ -60,11 +67,11 @@ export default function ScrollToTopButton() {
       aria-label="Voltar ao topo da página"
       title="Voltar ao topo"
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translate(-50%, 0)" : "translate(-50%, 16px)",
-        pointerEvents: visible ? "auto" : "none",
-        transition: "opacity 0.22s ease-out, transform 0.22s ease-out, bottom 0.3s ease",
-        bottom: bottomValue,
+        opacity: shouldShow ? 1 : 0,
+        transform: shouldShow ? "translate(-50%, 0)" : "translate(-50%, 16px)",
+        pointerEvents: shouldShow ? "auto" : "none",
+        transition: "opacity 0.22s ease-out, transform 0.22s ease-out",
+        bottom: "32px",
       }}
       className="fixed left-1/2 z-[99999] flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/90 dark:bg-navy/90 backdrop-blur-sm shadow-lg border border-border/40 text-navy dark:text-cream font-ui text-xs font-semibold hover:bg-white dark:hover:bg-navy transition-colors active:scale-95"
     >
