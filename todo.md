@@ -253,3 +253,8 @@
 
 ## Fase 31: Remover botão scroll-to-top duplicado
 - [x] Corrigir ScrollToTopButton: ocultar no mobile quando banner CTA visível (evita duplicação visual)
+
+## Fase 32: Correção definitiva do botão scroll-to-top
+- [x] Usar MutationObserver para detectar mudanças na classe do banner em tempo real
+- [x] Garantir que no mobile só apareça UM botão (bolinha circular, sem pill de texto)
+- [x] Posicionar a bolinha acima do banner (bottom: 80px quando banner visível, 24px quando oculto)
