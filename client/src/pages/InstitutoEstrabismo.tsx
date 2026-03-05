@@ -279,7 +279,7 @@ export default function InstitutoEstrabismo() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">O estrabismo é classificado pela direção do desvio e pela causa subjacente.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {tiposEstrabismo.map((t, i) => (
               <StaggerItem key={t.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -297,10 +297,9 @@ export default function InstitutoEstrabismo() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 5. SINTOMAS — CRIANÇAS vs ADULTOS ========== */}
       <section className="section-padding">
         <div className="container">
@@ -381,7 +380,7 @@ export default function InstitutoEstrabismo() {
             <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4">A avaliação completa do estrabismo envolve uma série de testes especializados para determinar o tipo, grau e causa do desvio.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {exames.map((e, i) => (
               <StaggerItem key={e.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -393,10 +392,9 @@ export default function InstitutoEstrabismo() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 7. TRATAMENTOS ========== */}
       <section className="section-padding">
         <div className="container">
@@ -406,7 +404,7 @@ export default function InstitutoEstrabismo() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">O tratamento é individualizado e pode incluir óculos, terapia visual, toxina botulínica e/ou cirurgia.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="space-y-6 max-w-4xl mx-auto">
+          <StaggerContainer className="space-y-6 max-w-4xl mx-auto">
             {tratamentos.map((t, i) => (
               <StaggerItem key={t.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -430,10 +428,9 @@ export default function InstitutoEstrabismo() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 8. ETAPAS DA CIRURGIA ========== */}
       <section className="section-padding bg-cream/50">
         <div className="container">
@@ -442,7 +439,7 @@ export default function InstitutoEstrabismo() {
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Como é a Cirurgia de Estrabismo?</h2>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {etapasCirurgia.map((e, i) => (
               <StaggerItem key={e.step}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -457,7 +454,7 @@ export default function InstitutoEstrabismo() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
           {/* Técnicas Cirúrgicas */}
           <AnimateOnScroll className="mt-12 max-w-4xl mx-auto">
             <div className="bg-white rounded-xl border border-border/60 p-8">
@@ -599,7 +596,7 @@ export default function InstitutoEstrabismo() {
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
               { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
@@ -618,12 +615,11 @@ export default function InstitutoEstrabismo() {
                   </div>
                 </div>
                 </motion.div>
-              </StaggerItem>
+               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 12. FAQ ========== */}
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
 

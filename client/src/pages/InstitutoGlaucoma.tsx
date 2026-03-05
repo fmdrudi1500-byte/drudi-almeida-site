@@ -340,7 +340,7 @@ export default function InstitutoGlaucoma() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Existem diferentes formas de glaucoma, cada uma com características e abordagens terapêuticas distintas.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {tiposGlaucoma.map((tipo, i) => (
               <StaggerItem key={tipo.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -361,7 +361,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -406,7 +406,7 @@ export default function InstitutoGlaucoma() {
           </AnimateOnScroll>
 
           {/* Exames com imagem */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
             {examesDiagnosticos.filter(e => e.img).map((exame, i) => (
               <StaggerItem key={exame.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -423,10 +423,10 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Exames sem imagem */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {examesDiagnosticos.filter(e => !e.img).map((exame, i) => (
               <StaggerItem key={exame.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -438,7 +438,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -451,7 +451,7 @@ export default function InstitutoGlaucoma() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Conhecer os fatores de risco é o primeiro passo para a prevenção. Se você se identifica com algum deles, procure um oftalmologista.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+          <StaggerContainer className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             {fatoresRisco.map((fr, i) => (
               <StaggerItem key={fr.factor}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -465,7 +465,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -478,7 +478,7 @@ export default function InstitutoGlaucoma() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">O tratamento inicial do glaucoma é geralmente com colírios. Existem diversas classes, cada uma com mecanismo de ação diferente.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="max-w-4xl mx-auto space-y-4">
+          <StaggerContainer className="max-w-4xl mx-auto space-y-4">
             {tratamentoColirios.map((col, i) => (
               <StaggerItem key={col.name}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -501,7 +501,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -514,7 +514,7 @@ export default function InstitutoGlaucoma() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Quando os colírios não são suficientes ou como alternativa inicial, procedimentos a laser oferecem resultados eficazes com mínima invasividade.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {tratamentosLaser.map((laser, i) => (
               <StaggerItem key={laser.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -531,7 +531,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -544,7 +544,7 @@ export default function InstitutoGlaucoma() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Para casos que não respondem adequadamente a colírios e laser, a cirurgia cria novas vias de drenagem para o humor aquoso.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {cirurgias.map((cir, i) => (
               <StaggerItem key={cir.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -562,7 +562,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -653,7 +653,7 @@ export default function InstitutoGlaucoma() {
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
               { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
@@ -674,7 +674,7 @@ export default function InstitutoGlaucoma() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

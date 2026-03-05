@@ -229,3 +229,8 @@
 - [ ] CAT-01: Auditar todas as imagens da página InstitutoCatarata.tsx e identificar URLs quebradas
 - [ ] CAT-02: Corrigir imagens quebradas (migrar para CDN permanente se necessário)
 - [ ] CAT-03: Verificar e corrigir outros problemas de configuração visual da página
+
+### Fase 10 — Correção Urgente Elementos Visuais InstitutoCatarata
+- [ ] FIX-01: Investigar e corrigir cards de etapas (Como funciona?) em branco no mobile
+- [ ] FIX-02: Investigar e corrigir cards de clínicas (Conheça nossas unidades) em branco no mobile
+- [ ] FIX-03: Investigar e corrigir cards de sintomas pós-operatórios em branco no mobile

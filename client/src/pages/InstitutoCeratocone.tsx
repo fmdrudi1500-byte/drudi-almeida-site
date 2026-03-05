@@ -282,7 +282,7 @@ export default function InstitutoCeratocone() {
           </AnimateOnScroll>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+            <StaggerContainer className="space-y-6">
               {[
                 { n: "1", title: "Selecione a unidade", desc: "Escolha entre nossas 5 unidades: Guarulhos Centro, Lapa, Santana, São Miguel ou Tatuapé." },
                 { n: "2", title: "Receba o atendimento", desc: "Nossa equipe entrará em contato para agendar sua consulta avaliativa." },
@@ -317,7 +317,7 @@ export default function InstitutoCeratocone() {
                   </a>
                 </div>
               </AnimateOnScroll>
-            </div>
+            </StaggerContainer>
 
             <AnimateOnScroll delay={0.2} direction="right">
               <div className="rounded-2xl overflow-hidden shadow-xl">
@@ -422,7 +422,7 @@ export default function InstitutoCeratocone() {
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <StaggerContainer className="grid md:grid-cols-2 gap-6">
             {exames.map((ex, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -440,7 +440,7 @@ export default function InstitutoCeratocone() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <AnimateOnScroll delay={0.3} className="mt-10">
             <div className="grid md:grid-cols-2 gap-8 items-center bg-white/5 rounded-2xl p-8 border border-cream/10">
@@ -899,7 +899,7 @@ export default function InstitutoCeratocone() {
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
               { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
@@ -920,7 +920,7 @@ export default function InstitutoCeratocone() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

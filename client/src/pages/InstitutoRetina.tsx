@@ -327,7 +327,7 @@ export default function InstitutoRetina() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Nosso instituto trata todas as principais doenças que afetam a retina e o vítreo.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {doencas.map((d, i) => (
               <StaggerItem key={d.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -347,10 +347,9 @@ export default function InstitutoRetina() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 5. SINTOMAS ZIGZAG ========== */}
       <section className="section-padding">
         <div className="container">
@@ -414,7 +413,7 @@ export default function InstitutoRetina() {
           </AnimateOnScroll>
 
           {/* Outros exames */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {examesDiagnosticos.slice(1).map((exame, i) => (
               <StaggerItem key={exame.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -424,12 +423,11 @@ export default function InstitutoRetina() {
                   <p className="font-body text-xs text-cream/60 leading-relaxed">{exame.desc}</p>
                 </div>
                 </motion.div>
-              </StaggerItem>
+               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 7. TRATAMENTOS ========== */}
       <section className="section-padding">
         <div className="container">
@@ -439,7 +437,7 @@ export default function InstitutoRetina() {
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Do tratamento clínico à cirurgia de ponta, oferecemos todas as opções terapêuticas para doenças da retina.</p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="space-y-8 max-w-5xl mx-auto">
+          <StaggerContainer className="space-y-8 max-w-5xl mx-auto">
             {tratamentos.map((t, i) => (
               <StaggerItem key={t.title}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -463,12 +461,11 @@ export default function InstitutoRetina() {
                   </div>
                 </div>
                 </motion.div>
-              </StaggerItem>
+               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 8. ARTE E VISÃO — DEGAS ========== */}
       <section className="section-padding bg-navy text-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
@@ -523,7 +520,7 @@ export default function InstitutoRetina() {
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { name: "Guarulhos Centro", city: "Guarulhos - SP", description: "Atendimento completo com equipamentos de última geração e equipe especializada.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/clinica_guarulhos_8e7690c7.png" },
               { name: "Lapa", city: "São Paulo - SP", description: "Infraestrutura moderna e fácil acesso, com o mesmo padrão de excelência.", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/consultorio_lapa_be866546.png" },
@@ -544,10 +541,9 @@ export default function InstitutoRetina() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
-
       {/* ========== 10. FAQ ========== */}
       <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre doenças retinianas e seus tratamentos." />
 

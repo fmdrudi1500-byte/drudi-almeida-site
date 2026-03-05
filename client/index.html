@@ -55,6 +55,23 @@
     <!-- Fonts: Inlined @font-face for latin subset (eliminates render-blocking Google Fonts request) -->
     <!-- INLINE_FONTS_PLACEHOLDER -->
 
+    <!-- CRITICAL: AOS animation rules must be inline to avoid race condition with deferred CSS.
+         Elements start with opacity:0 via JS inline style; these rules make them visible.
+         If this CSS were deferred (media=print), IntersectionObserver could fire before CSS loads,
+         leaving elements permanently invisible. -->
+    <style>
+      .aos-element.aos-visible {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        scale: 1 !important;
+      }
+      .stagger-item.aos-visible {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+
     <!-- Schema.org JSON-LD: MedicalClinic -->
     <script type="application/ld+json">
     {

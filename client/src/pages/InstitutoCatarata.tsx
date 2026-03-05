@@ -414,7 +414,7 @@ export default function InstitutoCatarata() {
                 </p>
               </AnimateOnScroll>
 
-              <div className="space-y-6">
+              <StaggerContainer className="space-y-6">
                 {comoFunciona.map((item) => (
                   <StaggerItem key={item.step}>
                     <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -430,7 +430,7 @@ export default function InstitutoCatarata() {
                     </motion.div>
                   </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
 
               <AnimateOnScroll delay={0.5}>
                 <div className="mt-8">
@@ -461,7 +461,7 @@ export default function InstitutoCatarata() {
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Conheça nossas unidades</h2>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 name: "Guarulhos Centro",
@@ -507,7 +507,7 @@ export default function InstitutoCatarata() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -610,7 +610,7 @@ export default function InstitutoCatarata() {
             </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {etapasCirurgia.map((etapa) => (
               <StaggerItem key={etapa.step}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -624,7 +624,7 @@ export default function InstitutoCatarata() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -656,7 +656,7 @@ export default function InstitutoCatarata() {
             </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {sintomasPos.map((sintoma, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -672,7 +672,7 @@ export default function InstitutoCatarata() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -848,7 +848,7 @@ export default function InstitutoCatarata() {
             </p>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {riscos.map((risco, i) => (
               <StaggerItem key={i}>
                 <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -859,7 +859,7 @@ export default function InstitutoCatarata() {
                 </motion.div>
               </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <AnimateOnScroll>
             <div className="bg-navy/5 rounded-2xl p-6 max-w-3xl mx-auto mt-10 text-center">
@@ -923,7 +923,7 @@ export default function InstitutoCatarata() {
               </div>
             </AnimateOnScroll>
 
-            <div className="space-y-4">
+            <StaggerContainer className="space-y-4">
               {cuidados.map((cuidado, i) => (
                 <StaggerItem key={i}>
                   <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
@@ -933,7 +933,7 @@ export default function InstitutoCatarata() {
                   </motion.div>
                 </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
 
           <AnimateOnScroll>
