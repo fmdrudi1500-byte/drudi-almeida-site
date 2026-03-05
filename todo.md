@@ -166,3 +166,4 @@
 - [x] Otimização 1: manualChunks no vite.config.ts — bundle index 879KB → 182KB (-79%), vendors separados e cacheáveis
 - [x] Otimização 7: Fotos dos médicos comprimidas para WebP HQ (94-96% menor, visualmente idênticas) + width/height explícitos em todas as imagens (elimina CLS) + loading=lazy nas imagens below-the-fold
 - [x] Otimização 8: Compactar TODAS as imagens restantes do site — 28 imagens PNG/JPG → WebP HQ, 37 URLs substituídas em 12 arquivos
+- [x] Otimização 9: Redimensionar imagens para tamanho real de exibição (2x retina) — Dr. Fernando 5918KB→190KB (97%), Dra. Priscilla 873KB→259KB (70%), hero Monet 437KB→372KB, logo 82KB→9KB, logos convênios 181KB→2.5KB (99%). Total: ~8MB de economia.

@@ -14,11 +14,11 @@ const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 const CONVENIOS = [
   {
     nome: "Prevent Senior",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ULBqqsZkuiKBoDrv_04ecb42e.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/prevent-senior-resized_d5845445.webp",
   },
   {
     nome: "Bradesco Saúde",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/iwnJMoCNnwopchUF_08f309cc.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/bradesco-resized_aae8535a.webp",
   },
   {
     nome: "Mediservice",
@@ -30,15 +30,15 @@ const CONVENIOS = [
   },
   {
     nome: "Amil",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/tech-vRtJJHZy_791d2761.webp",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/amil-resized_65f90601.webp",
   },
   {
     nome: "Unimed Seguros",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/mvWRpZFYQZpqvVDK_42ae30c0.png",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/unimed-resized_954ff1a4.webp",
   },
   {
     nome: "Ameplam",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ZZpmIoRpTNvSnOWl_9e98cf1c.jpg",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ameplam-resized_f387254f.webp",
   },
 ];
 
