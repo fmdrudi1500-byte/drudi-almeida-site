@@ -4,16 +4,15 @@
    Hero, Institutos, Sobre, Tecnologia, Depoimentos, Blog, CTA
    ============================================================ */
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
+// framer-motion removed — hero uses CSS animations
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES, srcSet } from "@/lib/images";
-import { useRef, useEffect, useCallback, useState, useMemo } from "react";
+import { useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
-import { useAuth } from "@/_core/hooks/useAuth";
 
 const institutos = [
   {
@@ -66,10 +65,6 @@ const stats = [
 ];
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
   // Micro-copy: pick a message based on time of day
   const microcopyMsg = useMemo(() => {
     const h = new Date().getHours();
@@ -78,11 +73,6 @@ export default function Home() {
     return { dot: "amber", text: "Atendimento imediato pelo WhatsApp" };
   }, []);
 
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
   return (
     <>
       <SEOHead
@@ -91,13 +81,10 @@ export default function Home() {
         keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata SP, ceratocone tratamento, crosslinking, glaucoma especialista, retina cirúrgica, estrabismo cirurgia, oftalmologista Bradesco, oftalmologista Prevent, oftalmologista perto de mim"
         canonicalPath="/"
       />
-      {/* ========== HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[75vh] flex items-center overflow-hidden">
-        {/* Parallax Background Image — real <img> with srcset for responsive loading */}
-        <motion.div
-          className="absolute inset-0 will-change-transform overflow-hidden"
-          style={{ y: heroImageY, scale: heroImageScale }}
-        >
+      {/* ========== HERO ========== */}
+      <section className="relative min-h-[75vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src={IMAGES.hero.main}
             srcSet={srcSet(IMAGES.hero.main, IMAGES.responsive.heroMonet)}
@@ -110,53 +97,42 @@ export default function Home() {
             width={1920}
             height={1072}
           />
-        </motion.div>
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
-          style={{ opacity: heroOverlayOpacity }}
-        />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
 
         {/* Content */}
         <div className="relative container py-20">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
               className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
+              style={{ animation: "hero-fade-up 0.6s 0.2s both" }}
             >
               <Zap className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">
                 REFERÊNCIA EM OFTALMOLOGIA
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
+            <h1
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
+              style={{ animation: "hero-fade-up 0.7s 0.4s both" }}
             >
               Sua visão merece{" "}
               <span className="text-gold italic">excelência</span> e{" "}
               <span className="text-gold italic">cuidado</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+            <p
               className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
+              style={{ animation: "hero-fade-up 0.6s 0.6s both" }}
             >
               Na Drudi e Almeida, unimos tecnologia de ponta, especialistas renomados e 
               5 institutos dedicados para oferecer o melhor cuidado oftalmológico do Brasil.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+            <div
               className="flex flex-wrap gap-4"
+              style={{ animation: "hero-fade-up 0.6s 0.8s both" }}
             >
               <a
                 href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
@@ -174,14 +150,12 @@ export default function Home() {
                 Agendar Online
               </Link>
 
-            </motion.div>
+            </div>
 
             {/* Micro-copy */}
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
+            <div
               className="flex items-center gap-2 mt-4"
+              style={{ animation: "hero-fade-in 0.5s 1.5s both" }}
             >
               <span
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
@@ -196,7 +170,7 @@ export default function Home() {
               <span className="font-ui text-xs text-cream/60 font-medium">
                 {microcopyMsg.text}
               </span>
-            </motion.div>
+            </div>
           </div>
         </div>
         {/* Bottom gradient fade */}
@@ -237,11 +211,8 @@ export default function Home() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1} initialDelay={0.1}>
             {institutos.map((inst) => (
               <StaggerItem key={inst.href}>
-                <motion.div
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="h-full"
+                <div
+                  className="h-full transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Link href={inst.href} className="group block h-full">
                     <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-xl hover:border-gold/40 transition-shadow duration-300`}>
@@ -266,7 +237,7 @@ export default function Home() {
                       </span>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>

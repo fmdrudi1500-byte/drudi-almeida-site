@@ -187,3 +187,8 @@
 - [x] PERF-7: Refatorar carrossel de convênios para CSS animation (2 cópias, sem rAF constante)
 - [x] PERF-8: font-display: swap já estava em todas as declarações
 - [x] PERF-9: Code splitting já estava (7 chunks vendor + lazy routes)
+
+### Fase 3 — Eliminar Framer-Motion e Reduzir JS
+- [x] PERF-11: Eliminar framer-motion do bundle inicial (hero CSS-only, removido de Home.tsx)
+- [x] PERF-12: Corrigir logo no Header.tsx sem width/height explícitos (CLS)
+- [x] PERF-13: Corrigido CSS duplicado no HTML (era carregado 2x), framer-motion removido do bundle inicial

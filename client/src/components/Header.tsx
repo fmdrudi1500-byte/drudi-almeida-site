@@ -174,6 +174,8 @@ export default function Header() {
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
               className="h-12 md:h-14 w-auto object-contain"
+              width={200}
+              height={56}
             />
           </Link>
 

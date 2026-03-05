@@ -282,3 +282,36 @@ html {
   background: oklch(0.72 0.10 80 / 40%);
   color: oklch(0.98 0.005 80);
 }
+
+/* ============================================================
+   AOS (Animate On Scroll) — CSS-only, no framer-motion
+   .aos-element starts hidden; .aos-visible makes it visible
+   ============================================================ */
+.aos-element.aos-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  scale: 1 !important;
+}
+
+/* Stagger items follow the same pattern */
+.stagger-item.aos-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Hero entrance animations (CSS keyframes, no JS) */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes mc-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
