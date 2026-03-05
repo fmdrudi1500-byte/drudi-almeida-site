@@ -1,0 +1,60 @@
+{
+  "query": "SELECT id, title, coverImageUrl FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, coverImageUrl FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/catarata-cirugia_3e96b0c8.png"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-doenca_01ec1d49.png"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao_55530aef.png"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-doencas_c52acdea.png"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/estrabismo-tratamento_dfbec7dc.png"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visao-embacada-alerta_c12cc04d.png"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/quando-operar-catarata_5a770173.png"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/crosslinking-ceratocone_b5527840.png"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/pressao-ocular-alta_8de9fe8e.png"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/miopia-criancas_861ec912.png"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcoverImageUrl\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/catarata-cirugia_3e96b0c8.png\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/ceratocone-doenca_01ec1d49.png\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/glaucoma-visao_55530aef.png\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/retina-doencas_c52acdea.png\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/estrabismo-tratamento_dfbec7dc.png\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/visao-embacada-alerta_c12cc04d.png\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/quando-operar-catarata_5a770173.png\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/crosslinking-ceratocone_b5527840.png\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/pressao-ocular-alta_8de9fe8e.png\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/miopia-criancas_861ec912.png\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

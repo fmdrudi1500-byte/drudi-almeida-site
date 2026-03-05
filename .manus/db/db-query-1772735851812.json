@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, title, status, featured FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, status, featured FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "status": "published",
+      "featured": "1"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "status": "published",
+      "featured": "1"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "status": "published",
+      "featured": "1"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "status": "published",
+      "featured": "1"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "status": "published",
+      "featured": "1"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "status": "published",
+      "featured": "0"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "status": "published",
+      "featured": "0"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "status": "published",
+      "featured": "0"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "status": "published",
+      "featured": "0"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "status": "published",
+      "featured": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tstatus\tfeatured\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tpublished\t1\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tpublished\t1\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tpublished\t1\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tpublished\t1\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tpublished\t1\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tpublished\t0\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tpublished\t0\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tpublished\t0\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tpublished\t0\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tpublished\t0\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

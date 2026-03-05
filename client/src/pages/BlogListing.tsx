@@ -240,7 +240,7 @@ export default function BlogListing() {
               )}
 
               {/* Regular posts grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularPosts.map((post, i) => (
                   <StaggerItem key={post.id}>
                     <Link href={`/blog/${post.slug}`} className="group block h-full">
@@ -320,7 +320,7 @@ export default function BlogListing() {
                     </Link>
                   </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
 
               {/* Pagination */}
               {(postsData?.total ?? 0) > POSTS_PER_PAGE && (

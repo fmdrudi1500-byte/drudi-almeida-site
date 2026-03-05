@@ -1,0 +1,60 @@
+{
+  "query": "SELECT id, title, status FROM blog_posts LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, status FROM blog_posts LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "status": "published"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "status": "published"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "status": "published"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "status": "published"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "status": "published"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "status": "published"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "status": "published"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "status": "published"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "status": "published"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "status": "published"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tstatus\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tpublished\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tpublished\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tpublished\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tpublished\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tpublished\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tpublished\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tpublished\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tpublished\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tpublished\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tpublished\n",
+  "stderr": "",
+  "execution_time_ms": 191
+}
