@@ -181,11 +181,11 @@ export default function Header() {
       >
         <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:container lg:mx-auto lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center shrink-0 mr-auto lg:mr-0">
             <img
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-10 md:h-14 w-auto max-w-[160px] md:max-w-none object-contain object-left"
               width={250}
               height={48}
               style={{ aspectRatio: "250/48" }}
