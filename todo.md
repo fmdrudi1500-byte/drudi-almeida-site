@@ -258,3 +258,7 @@
 - [x] Usar MutationObserver para detectar mudanças na classe do banner em tempo real
 - [x] Garantir que no mobile só apareça UM botão (bolinha circular, sem pill de texto)
 - [x] Posicionar a bolinha acima do banner (bottom: 80px quando banner visível, 24px quando oculto)
+
+## Fase 33: Correção do Blog
+- [x] Investigar por que apenas 1 artigo aparece no Blog (StaggerContainer com rootMargin -50px impedia disparo do observer)
+- [x] Corrigir para exibir todos os artigos: substituir StaggerContainer+StaggerItem por AnimateOnScroll individual em cada card

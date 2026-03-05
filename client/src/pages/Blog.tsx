@@ -5,7 +5,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
 import { useState, useMemo } from "react";
-import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -259,10 +259,9 @@ export default function Blog() {
               </AnimateOnScroll>
 
               {/* Article grid */}
-              <StaggerContainer>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filtered.slice(1).map((article, i) => (
-                  <StaggerItem key={article.slug}>
+                  <AnimateOnScroll key={article.slug} delay={Math.min(i % 3, 2) * 0.08}>
                     <Link href={`/blog/${article.slug}`} className="group block h-full">
                       <div className="rounded-xl border border-border/60 overflow-hidden bg-white hover:shadow-lg hover:border-gold/30 transition-all h-full flex flex-col">
                         <div className="aspect-[16/10] overflow-hidden">
@@ -295,10 +294,9 @@ export default function Blog() {
                         </div>
                       </div>
                     </Link>
-                  </StaggerItem>
+                  </AnimateOnScroll>
                 ))}
               </div>
-              </StaggerContainer>
             </>
           )}
         </div>
