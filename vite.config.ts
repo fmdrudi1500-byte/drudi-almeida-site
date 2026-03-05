@@ -152,21 +152,38 @@ function vitePluginManusDebugCollector(): Plugin {
 
 // =============================================================================
 // Non-blocking CSS Plugin
-// Transforms Vite-injected <link rel="stylesheet"> to use media=print trick
-// so the CSS doesn't block initial rendering (eliminates render-blocking CSS)
+// 1. Inlines @font-face declarations (eliminates Google Fonts render-blocking request)
+// 2. Transforms Vite-injected <link rel="stylesheet"> to use media=print trick
 // =============================================================================
 function vitePluginNonBlockingCSS(): Plugin {
   return {
     name: 'vite-plugin-non-blocking-css',
     apply: 'build',
     transformIndexHtml(html) {
-      // Transform only the Vite-injected CSS (assets/*.css), not external stylesheets
-      return html.replace(
+      // 1. Inline font-face declarations from the pre-generated file
+      const fontsPath = path.resolve(import.meta.dirname, 'client', 'src', 'fonts-inline.css');
+      let fontsCSS = '';
+      try {
+        fontsCSS = fs.readFileSync(fontsPath, 'utf-8').trim();
+      } catch {
+        console.warn('[non-blocking-css] fonts-inline.css not found, skipping font inlining');
+      }
+      if (fontsCSS) {
+        html = html.replace(
+          '<!-- INLINE_FONTS_PLACEHOLDER -->',
+          `<style>${fontsCSS}</style>`
+        );
+      }
+
+      // 2. Transform Vite-injected CSS to non-blocking
+      html = html.replace(
         /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
         (_, href) =>
           `<link rel="stylesheet" crossorigin href="${href}" media="print" onload="this.media='all'">` +
           `<noscript><link rel="stylesheet" crossorigin href="${href}"></noscript>`
       );
+
+      return html;
     },
   };
 }
