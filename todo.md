@@ -169,3 +169,5 @@
 - [x] Otimização 9: Redimensionar imagens para tamanho real de exibição (2x retina) — Dr. Fernando 5918KB→190KB (97%), Dra. Priscilla 873KB→259KB (70%), hero Monet 437KB→372KB, logo 82KB→9KB, logos convênios 181KB→2.5KB (99%). Total: ~8MB de economia.
 - [x] Otimização 10: Eliminar render-blocking do CSS principal (25.9KB, 820ms) e Google Fonts (2KB, 750ms) — economia estimada 980ms
 - [x] Remover seção "Depoimentos" da Home (solicitado pelo usuário via editor visual)
+- [x] Excluir botão na linha 167 do Home.tsx (solicitado via editor visual)
+- [x] Gerar nova imagem da Dra. Priscilla em consultório via IA (manter rosto, mudar ambiente), otimizar para performance (126KB WebP, 960x1280)
