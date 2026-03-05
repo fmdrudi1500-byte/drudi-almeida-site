@@ -42,27 +42,27 @@ const sintomasZigzag = [
   {
     title: "Visão Embaçada e Distorcida",
     desc: "A visão fica progressivamente borrada e as imagens parecem onduladas ou distorcidas. Linhas retas podem parecer curvas. É o sintoma mais comum e geralmente o primeiro a ser percebido.",
-    img: "/images/ceratocone-sintoma-visao-emba_2ddb7aa2.png",
+    img: "/images/ceratocone-sintoma-visao-emba_2ddb7aa2.webp",
   },
   {
     title: "Sensibilidade à Luz (Fotofobia)",
     desc: "Pacientes com ceratocone frequentemente apresentam desconforto intenso com luzes fortes, brilho excessivo e reflexos. Dirigir à noite torna-se especialmente difícil devido aos halos ao redor dos faróis.",
-    img: "/images/ceratocone-sintoma-fotofobia_61063d7f.png",
+    img: "/images/ceratocone-sintoma-fotofobia_61063d7f.webp",
   },
   {
     title: "Troca Frequente de Óculos",
     desc: "Como a córnea muda de formato progressivamente, o grau dos óculos precisa ser alterado com frequência — às vezes a cada poucos meses. Mesmo com óculos novos, a visão pode não ficar totalmente nítida.",
-    img: "/images/ceratocone-sintoma-oculos_6db1f062.png",
+    img: "/images/ceratocone-sintoma-oculos_6db1f062.webp",
   },
   {
     title: "Visão Dupla e Halos",
     desc: "Imagens fantasmas ou duplicadas em um mesmo olho (diplopia monocular) e halos luminosos ao redor das luzes são sinais característicos do astigmatismo irregular causado pelo ceratocone.",
-    img: "/images/ceratocone-sintoma-halos_2ab35670.png",
+    img: "/images/ceratocone-sintoma-halos_2ab35670.webp",
   },
   {
     title: "Coceira Persistente nos Olhos",
     desc: "Muitos pacientes com ceratocone têm histórico de alergia ocular e coceira crônica. O ato de coçar os olhos vigorosamente é um dos principais fatores de risco para o desenvolvimento e progressão da doença.",
-    img: "/images/ceratocone-sintoma-coceira_6ad37407.png",
+    img: "/images/ceratocone-sintoma-coceira_6ad37407.webp",
   },
 ];
 
@@ -168,7 +168,7 @@ export default function InstitutoCeratocone() {
         description="Tratamento especializado de ceratocone: crosslinking, anel de Ferrara, lentes de contato especiais. Diagnóstico com Pentacam e OPD. 5 unidades em SP."
         keywords="ceratocone tratamento SP, crosslinking São Paulo, anel de Ferrara, lente de contato ceratocone, Pentacam, oftalmologista ceratocone"
         canonicalPath="/instituto/ceratocone"
-        ogImage="/images/nuRRrdSXTUGgVztf_78be1262.jpg"
+        ogImage="/images/van-gogh-starry-night_78be1262.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="ceratocone" />

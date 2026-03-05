@@ -18,8 +18,8 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "/images/tech-ibNQCeyY_dba86bbf.webp";
-const IMG_TESTE_COBERTURA = "/images/IVfNepWlZgwuKTFO_f146cd75.png";
+const HERO_ART_IMG = "/images/estrabismo-hero_dba86bbf.webp";
+const IMG_TESTE_COBERTURA = "/images/estrabismo-teste-cobertura_f146cd75.webp";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de estrabismo.";
@@ -174,7 +174,7 @@ export default function InstitutoEstrabismo() {
         description="Cirurgia de estrabismo para crianças e adultos. Diagnóstico preciso e técnicas modernas de correção. 5 unidades em São Paulo e Guarulhos."
         keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
         canonicalPath="/instituto/estrabismo"
-        ogImage="/images/tech-ibNQCeyY_dba86bbf.webp"
+        ogImage="/images/estrabismo-hero_dba86bbf.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="estrabismo" />

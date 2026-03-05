@@ -17,9 +17,9 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "/images/MozNCXrPhMWauJmt_cb57f973.png";
-const IMG_OCT_SCAN = "/images/tech-iARxgYZk_d39e3a25.webp";
-const IMG_INJECAO = "/images/ZUJAJUjiWWSeRqav_154af844.png";
+const HERO_ART_IMG = "/images/retina-hero_cb57f973.webp";
+const IMG_OCT_SCAN = "/images/tech-oct-scan_d39e3a25.webp";
+const IMG_INJECAO = "/images/retina-injecao_154af844.webp";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de retina.";
@@ -221,7 +221,7 @@ export default function InstitutoRetina() {
         description="Tratamentos avançados para doenças da retina: vitrectomia, injeções intravítreas, retinopatia diabética. Dr. Fernando Drudi, especialista em retina cirúrgica."
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"
-        ogImage="/images/MozNCXrPhMWauJmt_cb57f973.png"
+        ogImage="/images/retina-hero_cb57f973.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="retina" />

@@ -62,27 +62,27 @@ const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
     description: "Um dos primeiros sintomas da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, usar o celular, assitir televisão.",
-    image: "/images/visaoemba%C3%A7ada_c12f98d4.png",
+    image: "/images/catarata-visao-embacada_c12f98d4.png",
   },
   {
     title: "Maior sensibilidade à luz",
     description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz solarl podem causar desconforto intenso. Dirigir à noite também se torna mais difícil pela diminuição da sensibilidade ao contraste.",
-    image: "/images/sensibilidadealuz_9e2c2355.png",
+    image: "/images/catarata-sensibilidade-luz_9e2c2355.png",
   },
   {
     title: "Dificuldade de enxergar à noite",
     description: "Especialmente ao dirigir, os faróis de outros veículos podem causar ofuscamento intenso, enquanto ruas pouco iluminadas parecem ainda mais escuras. Essa dificuldade noturna é um dos sintomas que mais impacta a qualidade de vida dos pacientes com catarata. O paciente passa a ter dificuldade em situações cotidianas.",
-    image: "/images/dificuldadedeenxergaranoite_f2a9f190.png",
+    image: "/images/catarata-dificuldade-noite_f2a9f190.webp",
   },
   {
     title: "Visão dupla em um dos olhos",
     description: "Em alguns casos, embora raro, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas. Esse sintoma é mais comum quando existe associação com luxação ou subluxação do cristalino.",
-    image: "/images/diplopia_75d41ba4.png",
+    image: "/images/catarata-diplopia_75d41ba4.png",
   },
   {
     title: "Cores parecem desbotadas",
     description: "As cores podem parecer mais amareladas, desbotadas ou menos vibrantes do que o normal. Isso ocorre porque o cristalino opaco filtra a luz de forma irregular, alterando a percepção cromática. Muitos pacientes só percebem essa mudança após a cirurgia, quando voltam a ver cores vivas. Esse pode ser um dos primeiros sintomas da catarata, muitas vezes antes da diminuição da acuidade visual notamos perda da sensibilidade ao contraste.",
-    image: "/images/coresdesbotadas_3f160022.png",
+    image: "/images/catarata-cores-desbotadas_3f160022.png",
   },
 ];
 
@@ -540,7 +540,7 @@ export default function InstitutoCatarata() {
             <AnimateOnScroll delay={0.2}>
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/images/cataract-eye_22b95078.jpg"
+                  src="/images/cataract-eye_22b95078.webp"
                   alt="Olho com catarata - opacificação do cristalino"
                   className="w-full h-[400px] object-cover"
                 />
@@ -813,7 +813,7 @@ export default function InstitutoCatarata() {
                 <div className="md:[direction:ltr]">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/maiorautonomia_64500f0d.png"
+                      src="/images/maiorautonomia_64500f0d.webp"
                       alt="Casal de idosos com maior autonomia e qualidade de vida"
                       className="w-full h-[280px] object-cover"
                     />

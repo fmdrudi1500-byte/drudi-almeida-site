@@ -11,7 +11,7 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://drudiealmeida.com.br";
-const DEFAULT_OG_IMAGE = "/images/TAgHZnKQbefMatka_4b70bdbb.png";
+const DEFAULT_OG_IMAGE = "/images/og-default_4b70bdbb.png";
 
 export default function SEOHead({
   title,

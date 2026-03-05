@@ -18,9 +18,9 @@ import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = "/images/WDorIHhiaQuwCSEJ_604c573f.png";
-const IMG_TONOMETRIA = "/images/tech-oqEhfqRi_972f4a09.webp";
-const IMG_CAMPO_VISUAL = "/images/tech-strSUfQf_ab0cb609.webp";
+const HERO_ART_IMG = "/images/glaucoma-hero_604c573f.webp";
+const IMG_TONOMETRIA = "/images/tech-tonometria_972f4a09.webp";
+const IMG_CAMPO_VISUAL = "/images/tech-campo-visual_ab0cb609.webp";
 
 /* ---- Constants ---- */
 const WHATSAPP_LINK = "https://wa.me/5511916544653?text=Olá! Gostaria de receber informações sobre o tratamento de glaucoma.";
@@ -220,7 +220,7 @@ export default function InstitutoGlaucoma() {
         description="Diagnóstico precoce e tratamento do glaucoma com tecnologia de última geração. Tonometria, campo visual, OCT. 5 unidades em São Paulo e Guarulhos."
         keywords="glaucoma tratamento SP, glaucoma especialista São Paulo, pressão ocular, tonometria, campo visual, oftalmologista glaucoma"
         canonicalPath="/instituto/glaucoma"
-        ogImage="/images/WDorIHhiaQuwCSEJ_604c573f.png"
+        ogImage="/images/glaucoma-hero_604c573f.webp"
         ogType="website"
       />
       <InstitutoSchema instituto="glaucoma" />

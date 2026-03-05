@@ -37,7 +37,7 @@ const convenios: Convenio[] = [
     name: "Mediservice",
     description: "Plano corporativo do Bradesco com atendimento diferenciado e cobertura abrangente em oftalmologia.",
     color: "#0066B3",
-    logo: "/images/tech-rPLmRznR_d6cff695.webp",
+    logo: "/images/tech-mediservice-rPLmRznR_d6cff695.webp",
     initial: "MS",
   },
   {
