@@ -234,3 +234,8 @@
 - [ ] FIX-01: Investigar e corrigir cards de etapas (Como funciona?) em branco no mobile
 - [ ] FIX-02: Investigar e corrigir cards de clínicas (Conheça nossas unidades) em branco no mobile
 - [ ] FIX-03: Investigar e corrigir cards de sintomas pós-operatórios em branco no mobile
+
+## Fase 28: Correções Estéticas do Header Mobile
+- [x] Header mobile: fundo sólido branco (remover transparência)
+- [x] Menu mobile: bloquear scroll da página quando aberto
+- [x] Logo: alinhar à esquerda no header mobile

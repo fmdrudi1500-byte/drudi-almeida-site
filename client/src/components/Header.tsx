@@ -121,6 +121,18 @@ export default function Header() {
     };
   }, []);
 
+  // Bloquear scroll da página quando o menu mobile estiver aberto
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const handleMouseEnterDropdown = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setDropdownOpen(true);
@@ -164,10 +176,10 @@ export default function Header() {
       {/* ── Main Header ─────────────────────────────────────── */}
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass shadow-sm" : "bg-background/95 backdrop-blur-sm"
+          scrolled ? "bg-white shadow-sm dark:bg-background" : "bg-white dark:bg-background"
         }`}
       >
-        <div className="container flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:container lg:mx-auto lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <img
@@ -341,12 +353,13 @@ export default function Header() {
 
       {/* ── Mobile Menu (CSS transition) ────────────────────── */}
       <div
-        className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 z-40 bg-background border-b border-border shadow-lg overflow-hidden"
+        className="lg:hidden fixed top-[calc(5rem+1px)] left-0 right-0 bottom-0 z-40 bg-white dark:bg-background border-b border-border shadow-lg overflow-y-auto"
         style={{
-          maxHeight: mobileOpen ? "100vh" : "0",
           opacity: mobileOpen ? 1 : 0,
-          transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
+          transform: mobileOpen ? "translateY(0)" : "translateY(-8px)",
           pointerEvents: mobileOpen ? "auto" : "none",
+          visibility: mobileOpen ? "visible" : "hidden",
+          transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear " + (mobileOpen ? "0s" : "0.2s"),
         }}
       >
         <nav className="container py-4 flex flex-col gap-1">
