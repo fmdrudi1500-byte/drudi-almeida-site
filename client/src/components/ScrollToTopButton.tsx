@@ -6,8 +6,9 @@
    - Aparece ao rolar > 300px para baixo
    - Desaparece quando scrollY ≤ 300 (comportamento simples)
    - Posicionado no canto DIREITO da tela (right: 16px)
-   - Detecta o MobileCTABar via getBoundingClientRect (mais confiável)
-   - Quando barra visível no mobile: bottom = altura da barra + 8px
+   - Detecta o MobileCTABar via MutationObserver (tempo real)
+   - Quando barra visível no mobile: bottom = 80px
+     (barra tem ~62px de altura + 18px de margem de segurança)
    - Quando barra oculta: bottom = 24px
    - SEM timer automático de ocultação
    ============================================================ */
@@ -15,29 +16,26 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ChevronUp } from "lucide-react";
 
+// Altura fixa da barra MobileCTABar:
+// padding 10px top + 42px botões + 10px bottom = 62px
+// + margem de segurança de 18px = 80px total
+const BAR_HEIGHT_PX = 80;
+
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
-  const [bottomOffset, setBottomOffset] = useState(24);
+  const [ctaBarVisible, setCtaBarVisible] = useState(false);
 
   useEffect(() => {
-    // Calcular o offset do bottom baseado na altura real da barra
-    const updateBottomOffset = () => {
-      const bar = document.getElementById("drudi-sticky-bar");
-      if (bar && bar.classList.contains("visible")) {
-        const rect = bar.getBoundingClientRect();
-        const barHeight = window.innerHeight - rect.top;
-        setBottomOffset(barHeight + 8);
-      } else {
-        setBottomOffset(24);
-      }
-    };
-
     // --- MutationObserver: detecta mudanças na classe do banner em tempo real ---
     let observer: MutationObserver | null = null;
 
+    const checkBar = (el: Element) => {
+      setCtaBarVisible(el.classList.contains("visible"));
+    };
+
     const attachObserver = (el: Element) => {
-      updateBottomOffset();
-      observer = new MutationObserver(() => updateBottomOffset());
+      checkBar(el);
+      observer = new MutationObserver(() => checkBar(el));
       observer.observe(el, { attributes: true, attributeFilter: ["class"] });
     };
 
@@ -59,7 +57,6 @@ export default function ScrollToTopButton() {
     // --- Scroll: controla visibilidade do botão ---
     const onScroll = () => {
       setVisible(window.scrollY > 300);
-      updateBottomOffset();
     };
 
     // Verificar posição inicial
@@ -77,6 +74,10 @@ export default function ScrollToTopButton() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Quando a barra do WhatsApp está visível, sobe para BAR_HEIGHT_PX
+  // Quando a barra está oculta (ou no desktop onde não aparece): 24px
+  const bottomPx = ctaBarVisible ? BAR_HEIGHT_PX : 24;
+
   const button = (
     <button
       onClick={handleClick}
@@ -84,7 +85,7 @@ export default function ScrollToTopButton() {
       title="Voltar ao topo"
       className="fixed z-[99997] flex items-center gap-1.5 px-3 py-2.5 rounded-full bg-white/95 dark:bg-navy/95 backdrop-blur-sm shadow-lg border border-border/40 text-navy dark:text-cream font-ui text-xs font-semibold hover:bg-white dark:hover:bg-navy transition-colors active:scale-95"
       style={{
-        bottom: `${bottomOffset}px`,
+        bottom: `${bottomPx}px`,
         right: "16px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(12px)",
