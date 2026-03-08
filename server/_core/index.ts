@@ -10,6 +10,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoutes } from "../sitemap.js";
 import { registerResumeUploadRoute } from "../upload-resume.js";
+import { registerGoogleAuthRoutes } from "../google-auth-routes.js";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -44,6 +45,8 @@ async function startServer() {
   registerSitemapRoutes(app);
   // Resume upload endpoint
   registerResumeUploadRoute(app);
+  // Google Calendar OAuth2 routes
+  registerGoogleAuthRoutes(app);
   // tRPC API
   app.use(
     "/api/trpc",

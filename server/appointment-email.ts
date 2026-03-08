@@ -32,8 +32,9 @@ function formatDate(dateStr: string): string {
   return `${weekday}, ${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${year}`;
 }
 
-function formatHour(hour: number): string {
-  return `${String(hour).padStart(2, "0")}h00`;
+function formatHour(hour: number, minute?: number): string {
+  const m = minute ?? 0;
+  return `${String(hour).padStart(2, "0")}h${String(m).padStart(2, "0")}`;
 }
 
 const UNIT_ADDRESSES: Record<string, string> = {
@@ -49,8 +50,11 @@ interface AppointmentEmailData {
   patientEmail?: string | null;
   patientPhone: string;
   unit: string;
+  specialty?: string;
+  healthPlan?: string;
   appointmentDate: string;
   appointmentHour: number;
+  appointmentMinute?: number;
   cancelToken: string;
   siteOrigin?: string;
 }

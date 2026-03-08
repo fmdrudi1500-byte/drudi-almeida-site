@@ -262,3 +262,19 @@
 ## Fase 33: Correção do Blog
 - [x] Investigar por que apenas 1 artigo aparece no Blog (StaggerContainer com rootMargin -50px impedia disparo do observer)
 - [x] Corrigir para exibir todos os artigos: substituir StaggerContainer+StaggerItem por AnimateOnScroll individual em cada card
+
+## Fase 28: Sistema de Agendamento com Google Calendar
+
+- [ ] Configurar Google Calendar API: credenciais OAuth2 e helper de integração
+- [ ] Criar/atualizar schema do banco: tabela de bloqueios de dias por unidade
+- [ ] tRPC: getAvailableSlots com integração Google Calendar (horários ocupados)
+- [ ] tRPC: createAppointment — cria evento no Google Calendar + envia email
+- [ ] tRPC: cancelAppointment — remove evento do Google Calendar + envia email
+- [ ] tRPC: listAppointmentsByUnit (admin)
+- [ ] tRPC: blockDay / unblockDay por unidade (admin)
+- [ ] Página /agendar: fluxo multi-step (especialidade → unidade → data/hora → dados → confirmação)
+- [ ] Email automático ao paciente: confirmação com dados da consulta e instruções
+- [ ] Email de notificação para contato@drudiealmeida.com com dados do paciente
+- [ ] Painel admin /admin/agendamentos: visualizar por unidade/data, cancelar agendamentos
+- [ ] Painel admin: bloquear/desbloquear dias por unidade
+- [ ] Testes vitest para lógica de disponibilidade e criação de agendamentos

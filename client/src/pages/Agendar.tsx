@@ -33,8 +33,8 @@ function formatDateBR(dateStr: string): string {
   return `${d}/${m}/${y}`;
 }
 
-function formatHour(h: number): string {
-  return `${String(h).padStart(2, "0")}h00`;
+function formatHour(h: number, m?: number): string {
+  return `${String(h).padStart(2, "0")}h${String(m ?? 0).padStart(2, "0")}`;
 }
 
 function getNext30Days(): { value: string; label: string; disabled: boolean }[] {
@@ -117,13 +117,15 @@ export default function Agendar() {
   const [step, setStep] = useState(0);
   const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("");
-  const [selectedHour, setSelectedHour] = useState<number | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<{ hour: number; minute: number } | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedSpecialty, setSelectedSpecialty] = useState<"Catarata" | "Ceratocone" | "Glaucoma" | "Retina" | "Estrabismo" | "Consulta Geral">("Consulta Geral");
+  const [healthPlan, setHealthPlan] = useState("");
 
   const days = useMemo(() => getNext30Days(), []);
 
@@ -144,15 +146,18 @@ export default function Agendar() {
   });
 
   function handleSubmit() {
-    if (!selectedUnit || !selectedDate || selectedHour === null) return;
+    if (!selectedUnit || !selectedDate || selectedSlot === null) return;
     setError(null);
     createMutation.mutate({
       patientName: name,
       patientPhone: phone,
       patientEmail: email || undefined,
       unit: selectedUnit,
+      specialty: selectedSpecialty || "Consulta Geral",
+      healthPlan: healthPlan || "Particular",
       appointmentDate: selectedDate,
-      appointmentHour: selectedHour,
+      appointmentHour: selectedSlot.hour,
+      appointmentMinute: selectedSlot.minute,
       notes: notes || undefined,
       siteOrigin: window.location.origin,
     });
@@ -258,7 +263,7 @@ export default function Agendar() {
                     {days.map((d) => (
                       <button
                         key={d.value}
-                        onClick={() => { setSelectedDate(d.value); setSelectedHour(null); }}
+                        onClick={() => { setSelectedDate(d.value); setSelectedSlot(null); }}
                         className={`py-2.5 px-3 rounded-lg border text-sm font-ui transition-all ${
                           selectedDate === d.value
                             ? "border-gold bg-gold/10 text-navy font-semibold"
@@ -287,17 +292,17 @@ export default function Agendar() {
                       <p className="text-sm text-amber-600 font-medium">Todos os horários estão ocupados nesta data. Escolha outro dia.</p>
                     ) : (
                       <div className="flex flex-wrap gap-2">
-                        {slotsQuery.data?.slots.map((h) => (
+                        {slotsQuery.data?.slots.map((slot) => (
                           <button
-                            key={h}
-                            onClick={() => setSelectedHour(h)}
+                            key={`${slot.hour}-${slot.minute}`}
+                            onClick={() => setSelectedSlot(slot)}
                             className={`px-4 py-2 rounded-lg border font-ui text-sm transition-all ${
-                              selectedHour === h
+                              selectedSlot?.hour === slot.hour && selectedSlot?.minute === slot.minute
                                 ? "border-gold bg-gold text-navy font-bold"
                                 : "border-border hover:border-navy/30 text-foreground"
                             }`}
                           >
-                            {formatHour(h)}
+                            {formatHour(slot.hour, slot.minute)}
                           </button>
                         ))}
                       </div>
@@ -310,7 +315,7 @@ export default function Agendar() {
                     <ChevronLeft className="w-4 h-4" /> Voltar
                   </Button>
                   <Button
-                    disabled={!selectedDate || selectedHour === null}
+                    disabled={!selectedDate || selectedSlot === null}
                     onClick={() => setStep(2)}
                     className="bg-navy text-cream hover:bg-navy/90 gap-2"
                   >
@@ -340,7 +345,7 @@ export default function Agendar() {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4 text-gold" />
-                    <span className="text-foreground">{formatHour(selectedHour!)}</span>
+                    <span className="text-foreground">{selectedSlot ? formatHour(selectedSlot.hour, selectedSlot.minute) : ""}</span>
                   </div>
                 </div>
 
@@ -461,7 +466,7 @@ export default function Agendar() {
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <Clock className="w-4 h-4 text-gold flex-shrink-0" />
-                    <span><strong>Horário:</strong> {formatHour(selectedHour!)}</span>
+                    <span><strong>Horário:</strong> {selectedSlot ? formatHour(selectedSlot.hour, selectedSlot.minute) : ""}</span>
                   </div>
                 </div>
 

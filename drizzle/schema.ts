@@ -184,6 +184,18 @@ export const appointments = mysqlTable("appointments", {
   // Unique token for cancellation link in email
   cancelToken: varchar("cancelToken", { length: 64 }).notNull().unique(),
 
+  // Specialty chosen by the patient
+  specialty: varchar("specialty", { length: 100 }),
+
+  // Health plan
+  healthPlan: varchar("healthPlan", { length: 100 }),
+
+  // Appointment time in minutes (0 or 30)
+  appointmentMinute: int("appointmentMinute").default(0).notNull(),
+
+  // Google Calendar event ID (set after event creation)
+  googleCalendarEventId: varchar("googleCalendarEventId", { length: 200 }),
+
   // Email notification tracking
   emailSentToPatient: boolean("emailSentToPatient").default(false),
   emailSentToClinic: boolean("emailSentToClinic").default(false),
@@ -194,6 +206,29 @@ export const appointments = mysqlTable("appointments", {
 
 export type Appointment = typeof appointments.$inferSelect;
 export type InsertAppointment = typeof appointments.$inferInsert;
+
+/**
+ * Appointment Day Blocks — days blocked by the call center leader for a specific unit.
+ * When a day is blocked, no new appointments can be made for that unit on that date.
+ */
+export const appointmentDayBlocks = mysqlTable("appointment_day_blocks", {
+  id: int("id").autoincrement().primaryKey(),
+  unit: mysqlEnum("unit", [
+    "Santana",
+    "Guarulhos",
+    "Tatuapé",
+    "São Miguel",
+    "Lapa",
+  ]).notNull(),
+  // Date stored as YYYY-MM-DD string
+  blockedDate: varchar("blockedDate", { length: 10 }).notNull(),
+  // Optional reason for the block
+  reason: varchar("reason", { length: 300 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type AppointmentDayBlock = typeof appointmentDayBlocks.$inferSelect;
+export type InsertAppointmentDayBlock = typeof appointmentDayBlocks.$inferInsert;
 
 /**
  * Job Applications — candidates who apply via Trabalhe Conosco page
