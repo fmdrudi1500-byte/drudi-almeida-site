@@ -18,6 +18,7 @@ import AudioPlayer from "@/components/AudioPlayer";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Constants ---- */
 const HERO_ART_IMG = `/images/catarata-hero-art_bd1bf3f5.webp`;
@@ -1007,13 +1008,7 @@ export default function InstitutoCatarata() {
                     <DollarSign className="w-4 h-4" />
                     Receber Preço
                   </a>
-                  <Link
-                    href="/agendar"
-                    className="w-full inline-flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-6 py-3 rounded-lg hover:bg-cream/10 transition-all"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    Agendar Online
-                  </Link>
+                  <AgendarOnlineBtn variant="light" className="w-full justify-center" />
                 </div>
               </div>
 

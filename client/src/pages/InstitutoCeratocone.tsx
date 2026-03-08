@@ -16,6 +16,7 @@ import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.png`;
@@ -144,13 +145,7 @@ export default function InstitutoCeratocone() {
         <DollarSign className="w-4 h-4" />
         Receber Preço
       </a>
-      <Link
-        href="/agendar"
-        className="w-full inline-flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-6 py-3 rounded-lg hover:bg-cream/10 transition-all"
-      >
-        <Calendar className="w-4 h-4" />
-        Agendar Online
-      </Link>
+      <AgendarOnlineBtn variant="light" className="w-full justify-center" />
       <a
         href={`tel:+55${PHONE.replace(/\D/g, "")}`}
         className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all"

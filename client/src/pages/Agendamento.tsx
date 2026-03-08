@@ -12,6 +12,7 @@ import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import { toast } from "sonner";
 import SEOHead from "@/components/SEOHead";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 const institutos = [
   { value: "consulta-geral", label: "Consulta Geral" },
@@ -519,13 +520,7 @@ export default function Agendamento() {
                           <MessageCircle className="w-4 h-4" />
                           Enviar pelo WhatsApp
                         </button>
-                        <Link
-                          href="/agendar"
-                          className="inline-flex items-center justify-center gap-2 border border-navy text-navy font-ui text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-navy/5 transition-colors"
-                        >
-                          <Calendar className="w-4 h-4" />
-                          Agendar Online
-                        </Link>
+                        <AgendarOnlineBtn variant="dark" />
                       </div>
                     </div>
                   </motion.div>

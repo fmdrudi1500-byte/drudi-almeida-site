@@ -16,6 +16,7 @@ import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 import InstitutoSchema from "@/components/InstitutoSchema";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 const HERO_ART_IMG = "/images/glaucoma-hero_604c573f.webp";
@@ -260,10 +261,7 @@ export default function InstitutoGlaucoma() {
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20">
                   <DollarSign className="w-4 h-4" />Receber Preço
                 </a>
-                <a href="/agendar" className="w-full inline-flex items-center justify-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-6 py-3 rounded-lg hover:bg-cream/10 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                  Agendar Online
-                </a>
+                <AgendarOnlineBtn variant="light" className="w-full justify-center" />
                 <a href={`tel:+55${PHONE.replace(/\D/g, "")}`} className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all">
                   <Phone className="w-4 h-4" />Ligar: {PHONE}
                 </a>

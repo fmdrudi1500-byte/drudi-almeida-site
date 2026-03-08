@@ -13,6 +13,7 @@ import { IMAGES, srcSet } from "@/lib/images";
 import { useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 const institutos = [
   {
@@ -146,12 +147,7 @@ export default function Home() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link
-                href="/agendar"
-                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
-              >
-                Agendar Online
-              </Link>
+              <AgendarOnlineBtn variant="light" />
 
             </div>
 
@@ -981,12 +977,7 @@ export default function Home() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link
-                href="/agendar"
-                className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-8 py-4 rounded-md hover:bg-cream/10 transition-colors"
-              >
-                Agendar Online
-              </Link>
+              <AgendarOnlineBtn variant="light" />
               <a
                 href="tel:+5511916544653"
                 className="inline-flex items-center gap-2 border border-cream/20 text-cream/70 font-ui text-sm font-medium px-6 py-4 rounded-md hover:bg-cream/10 transition-colors"
