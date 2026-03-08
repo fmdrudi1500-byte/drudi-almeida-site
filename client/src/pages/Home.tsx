@@ -377,7 +377,7 @@ export default function Home() {
                 role: "Diretor Clínico",
                 specialty: "Catarata e Retina Cirúrgica",
                 crm: "CRM-SP 139.300",
-                image: "/images/dr-fernando-resized_f8b345bb.webp",
+                image: "/images/dr-fernando-800w.webp",
                 highlights: [
                   "Especialista em Catarata e Retina Cirúrgica",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",
@@ -390,7 +390,7 @@ export default function Home() {
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173 | RQE 59.216",
-                image: "/images/dra-priscilla-resized_8b728834.webp",
+                image: "/images/dra-priscilla-800w.webp",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",

@@ -26,12 +26,12 @@ export const IMAGES = {
       "960": `${BASE}/hero-monet-960w-q65_33ebbbc1.webp`,
     },
     draPriscilla: {
-      "412": `${BASE}/dra-priscilla-412w_213372a7.webp`,
-      "824": `${BASE}/dra-priscilla-824w_baddef17.webp`,
+      "412": `${BASE}/dra-priscilla-800w.webp`,
+      "824": `${BASE}/dra-priscilla-800w.webp`,
     },
     drFernando: {
-      "480": `${BASE}/dr-fernando-480w_ffe20b72_daaa02d9.webp`,
-      "720": `${BASE}/dr-fernando-720w_fbb418a0_18ca30d8.webp`,
+      "480": `${BASE}/dr-fernando-800w.webp`,
+      "720": `${BASE}/dr-fernando-800w.webp`,
     },
     monetJapaneseBridge: {
       "400": `${BASE}/monet-japanese-bridge-400w_9cb272d9_ccc66b12.webp`,
@@ -76,8 +76,8 @@ export const IMAGES = {
   },
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {
-    drFernando: `${BASE}/doctor-fernando_902033c6.webp`,
-    draPriscilla: `${BASE}/dra-priscilla-412w_213372a7.webp`,
+    drFernando: `${BASE}/dr-fernando-800w.webp`,
+    draPriscilla: `${BASE}/dra-priscilla-800w.webp`,
     draMariaAmelia: `${BASE}/doctor-maria-amelia_6dcb9a0f.webp`,
   },
   // Unsplash images for less prominent sections
