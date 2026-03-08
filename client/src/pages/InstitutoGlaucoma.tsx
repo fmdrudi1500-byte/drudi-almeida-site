@@ -10,7 +10,7 @@ import {
   Glasses, Droplets, Sun, CircleDot, Target, Gauge
 } from "lucide-react";
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
@@ -208,11 +208,6 @@ const faqItems = [
 
 export default function InstitutoGlaucoma() {
   const [selectedUnidade, setSelectedUnidade] = useState("");
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
 
   return (
     <>
@@ -226,30 +221,30 @@ export default function InstitutoGlaucoma() {
       />
       <InstitutoSchema instituto="glaucoma" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.div
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div
           className="absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }}
+          style={{ backgroundImage: `url(${HERO_ART_IMG})` }}
         />
-        <motion.div
+        <div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
-          style={{ opacity: heroOverlayOpacity }}
+         
         />
         <div className="relative container py-20">
           <div className="max-w-2xl">
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
               <Eye className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DO GLAUCOMA</span>
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
               Glaucoma: diagnóstico precoce para{" "}
               <span className="text-gold italic">preservar sua visão</span>
-            </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
+            </h1>
+            <p className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
               O glaucoma é o "ladrão silencioso da visão". Selecione sua unidade e receba informações sobre diagnóstico e tratamento com especialistas.
-            </motion.p>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md">
+            </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md">
               <div className="space-y-4">
                 <div>
                   <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">Unidade</label>
@@ -266,7 +261,7 @@ export default function InstitutoGlaucoma() {
                   <Phone className="w-4 h-4" />Ligar: {PHONE}
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -341,7 +336,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {tiposGlaucoma.map((tipo, i) => (
               <StaggerItem key={tipo.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
@@ -356,7 +351,7 @@ export default function InstitutoGlaucoma() {
                     </div>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -407,7 +402,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
             {examesDiagnosticos.filter(e => e.img).map((exame, i) => (
               <StaggerItem key={exame.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-cream/10 hover:border-gold/30 transition-all">
                   <img loading="lazy" src={exame.img} alt={exame.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -418,7 +413,7 @@ export default function InstitutoGlaucoma() {
                     <p className="font-body text-sm text-cream/70 leading-relaxed">{exame.desc}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -427,13 +422,13 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {examesDiagnosticos.filter(e => !e.img).map((exame, i) => (
               <StaggerItem key={exame.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-cream/10 hover:border-gold/30 transition-all h-full">
                   <exame.icon className="w-5 h-5 text-gold mb-3" />
                   <h4 className="font-display text-base text-cream mb-2">{exame.title}</h4>
                   <p className="font-body text-xs text-cream/60 leading-relaxed">{exame.desc}</p>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -452,7 +447,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             {fatoresRisco.map((fr, i) => (
               <StaggerItem key={fr.factor}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-border/60 hover:shadow-md hover:border-gold/30 transition-all">
                   <AlertCircle className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                   <div>
@@ -460,7 +455,7 @@ export default function InstitutoGlaucoma() {
                     <p className="font-body text-xs text-muted-foreground leading-relaxed">{fr.detail}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -479,7 +474,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="max-w-4xl mx-auto space-y-4">
             {tratamentoColirios.map((col, i) => (
               <StaggerItem key={col.name}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl p-5 border border-border/60 hover:shadow-md hover:border-gold/30 transition-all">
                   <div className="flex flex-col md:flex-row md:items-start gap-4">
                     <div className="flex-1">
@@ -496,7 +491,7 @@ export default function InstitutoGlaucoma() {
                     </div>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -515,7 +510,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {tratamentosLaser.map((laser, i) => (
               <StaggerItem key={laser.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full flex flex-col">
                   <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4">
                     <laser.icon className="w-6 h-6 text-gold" />
@@ -526,7 +521,7 @@ export default function InstitutoGlaucoma() {
                     <p className="font-body text-xs text-navy/70">{laser.stats}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -545,7 +540,7 @@ export default function InstitutoGlaucoma() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {cirurgias.map((cir, i) => (
               <StaggerItem key={cir.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="inline-block bg-navy text-cream font-ui text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">{cir.type}</span>
@@ -557,7 +552,7 @@ export default function InstitutoGlaucoma() {
                     <p className="font-body text-xs text-navy/70">{cir.stats}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -660,7 +655,7 @@ export default function InstitutoGlaucoma() {
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -669,7 +664,7 @@ export default function InstitutoGlaucoma() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>

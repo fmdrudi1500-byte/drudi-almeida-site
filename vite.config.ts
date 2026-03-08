@@ -218,10 +218,6 @@ export default defineConfig({
           ) {
             return 'vendor-react';
           }
-          // Framer Motion
-          if (id.includes('node_modules/framer-motion')) {
-            return 'vendor-framer';
-          }
           // tRPC + react-query + superjson
           if (
             id.includes('node_modules/@trpc') ||

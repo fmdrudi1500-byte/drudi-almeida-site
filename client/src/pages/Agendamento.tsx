@@ -6,7 +6,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Calendar, Clock, MapPin, CheckCircle2, Phone, MessageCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
@@ -135,9 +134,7 @@ export default function Agendamento() {
         />
         <section className="section-padding">
           <div className="container">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+            <div
               className="max-w-lg mx-auto text-center"
             >
               <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
@@ -161,7 +158,7 @@ export default function Agendamento() {
                   Voltar ao Início
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </>
@@ -222,14 +219,11 @@ export default function Agendamento() {
 
             {/* Form Card */}
             <div className="bg-white rounded-xl border border-border/60 shadow-sm overflow-hidden">
-              <AnimatePresence mode="wait">
+              <>
                 {/* STEP 1: Personal Data */}
                 {step === 1 && (
-                  <motion.div
+                  <div
                     key="step1"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
                     className="p-6 md:p-8"
                   >
                     <h3 className="font-display text-xl text-navy mb-1">Seus Dados</h3>
@@ -297,16 +291,13 @@ export default function Agendamento() {
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* STEP 2: Appointment Details */}
                 {step === 2 && (
-                  <motion.div
+                  <div
                     key="step2"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
                     className="p-6 md:p-8"
                   >
                     <h3 className="font-display text-xl text-navy mb-1">Detalhes da Consulta</h3>
@@ -419,16 +410,13 @@ export default function Agendamento() {
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* STEP 3: Confirmation */}
                 {step === 3 && (
-                  <motion.div
+                  <div
                     key="step3"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
                     className="p-6 md:p-8"
                   >
                     <h3 className="font-display text-xl text-navy mb-1">Confirme seus Dados</h3>
@@ -523,9 +511,9 @@ export default function Agendamento() {
                         <AgendarOnlineBtn variant="dark" />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </>
             </div>
 
             {/* Alternative contact */}

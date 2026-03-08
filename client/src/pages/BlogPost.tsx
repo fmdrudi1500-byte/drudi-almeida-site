@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { useParams, Link } from "wouter";
 import { ArrowLeft, Calendar, Clock, Share2, Eye, Tag, MessageSquare, Send, Loader2, FileText, Video, Music, GalleryHorizontal, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+
 import { blogArticles } from "./Blog";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
@@ -481,7 +481,7 @@ function StaticBlogPost({ slug }: { slug: string }) {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${article.image})` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/70 to-navy/40" />
         <div className="relative h-full container flex flex-col justify-end pb-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+          <div style={{ animation: 'heroFadeUp 0.5s ease 0.2s both' }}>
             <Link href="/blog" className="inline-flex items-center gap-1.5 font-ui text-xs text-cream/60 hover:text-gold transition-colors mb-4">
               <ArrowLeft className="w-3.5 h-3.5" /> Voltar ao Blog
             </Link>
@@ -491,7 +491,7 @@ function StaticBlogPost({ slug }: { slug: string }) {
               <span className="flex items-center gap-1.5 font-ui text-xs"><Calendar className="w-3.5 h-3.5" />{new Date(article.date).toLocaleDateString("pt-BR")}</span>
               <span className="flex items-center gap-1.5 font-ui text-xs"><Clock className="w-3.5 h-3.5" />{article.readTime} de leitura</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -512,11 +512,11 @@ function StaticBlogPost({ slug }: { slug: string }) {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             {content.map((paragraph, i) => (
-              <motion.p key={i} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }} className="font-body text-base text-foreground/80 leading-[1.8] mb-6">
+              <p key={i} className="font-body text-base text-foreground/80 leading-[1.8] mb-6" style={{ animation: `heroFadeUp 0.5s ease ${0.3 + i * 0.1}s both` }}>
                 {paragraph}
-              </motion.p>
+              </p>
             ))}
-            <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-10 p-8 rounded-xl bg-navy/5 border border-border/60">
+            <div className="mt-10 p-8 rounded-xl bg-navy/5 border border-border/60" style={{ animation: 'heroFadeUp 0.5s ease 0.8s both' }}>
               <h3 className="font-display text-xl text-navy mb-3">Precisa de uma avaliação?</h3>
               <p className="font-body text-sm text-muted-foreground mb-5">Nossos especialistas estão prontos para cuidar da sua visão. Agende sua consulta.</p>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -527,7 +527,7 @@ function StaticBlogPost({ slug }: { slug: string }) {
                   Falar pelo WhatsApp
                 </a>
               </div>
-            </motion.div>
+            </div>
             {related.length > 0 && (
               <div className="mt-12 pt-8 border-t border-border/40">
                 <h3 className="font-display text-xl text-navy mb-6">Artigos Relacionados</h3>

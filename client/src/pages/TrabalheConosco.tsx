@@ -24,7 +24,7 @@ import {
   Loader2,
   FileText,
 } from "lucide-react";
-import { motion } from "framer-motion";
+
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
@@ -249,11 +249,7 @@ export default function TrabalheConosco() {
 
         <div className="container relative section-padding">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <div style={{ animation: 'heroFadeUp 0.6s ease both' }}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-gold" />
@@ -270,7 +266,7 @@ export default function TrabalheConosco() {
                 oftalmológicas mais completas de São Paulo. Buscamos profissionais
                 comprometidos com a excelência no cuidado visual.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
         <div className="h-1 bg-gradient-to-r from-gold/0 via-gold to-gold/0" />

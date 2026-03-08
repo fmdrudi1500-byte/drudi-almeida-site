@@ -9,7 +9,7 @@ import {
   Shield, Clock, Zap, Activity, Search, Target, CircleDot, Syringe
 } from "lucide-react";
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
@@ -209,11 +209,6 @@ const faqItems = [
 
 export default function InstitutoRetina() {
   const [selectedUnidade, setSelectedUnidade] = useState("");
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
 
   return (
     <>
@@ -227,24 +222,24 @@ export default function InstitutoRetina() {
       />
       <InstitutoSchema instituto="retina" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }} />
-        <motion.div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" style={{ opacity: heroOverlayOpacity }} />
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})` }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
         <div className="relative container py-20">
           <div className="max-w-2xl">
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
               <Eye className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DA RETINA</span>
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
               Retina: tratamentos avançados para{" "}
               <span className="text-gold italic">preservar cada detalhe</span>
-            </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
+            </h1>
+            <p className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
               A retina é responsável por transformar luz em visão. Selecione sua unidade e receba informações sobre diagnóstico e tratamento com nossos especialistas.
-            </motion.p>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md">
+            </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md">
               <div className="space-y-4">
                 <div>
                   <label className="font-ui text-xs font-semibold tracking-wider uppercase text-cream/60 mb-2 block">Unidade</label>
@@ -261,7 +256,7 @@ export default function InstitutoRetina() {
                   <Phone className="w-4 h-4" />Ligar: {PHONE_NUM}
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -328,7 +323,7 @@ export default function InstitutoRetina() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {doencas.map((d, i) => (
               <StaggerItem key={d.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl p-6 border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
@@ -342,7 +337,7 @@ export default function InstitutoRetina() {
                     <p className="font-body text-xs text-navy/70 font-medium">{d.detail}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -414,13 +409,13 @@ export default function InstitutoRetina() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {examesDiagnosticos.slice(1).map((exame, i) => (
               <StaggerItem key={exame.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-cream/10 hover:border-gold/30 transition-all h-full">
                   <exame.icon className="w-5 h-5 text-gold mb-3" />
                   <h4 className="font-display text-sm text-cream mb-2">{exame.title}</h4>
                   <p className="font-body text-xs text-cream/60 leading-relaxed">{exame.desc}</p>
                 </div>
-                </motion.div>
+                </div>
                </StaggerItem>
             ))}
           </StaggerContainer>
@@ -438,7 +433,7 @@ export default function InstitutoRetina() {
           <StaggerContainer className="space-y-8 max-w-5xl mx-auto">
             {tratamentos.map((t, i) => (
               <StaggerItem key={t.title}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-xl border border-border/60 hover:shadow-lg hover:border-gold/30 transition-all overflow-hidden">
                   <div className={`grid grid-cols-1 ${t.hasImg ? "md:grid-cols-5" : ""} gap-0`}>
                     {t.hasImg && <img loading="lazy" src={IMG_INJECAO} alt={t.title} className="w-full h-64 md:h-full object-cover md:col-span-2" />}
@@ -458,7 +453,7 @@ export default function InstitutoRetina() {
                     </div>
                   </div>
                 </div>
-                </motion.div>
+                </div>
                </StaggerItem>
             ))}
           </StaggerContainer>
@@ -527,7 +522,7 @@ export default function InstitutoRetina() {
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -536,7 +531,7 @@ export default function InstitutoRetina() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>

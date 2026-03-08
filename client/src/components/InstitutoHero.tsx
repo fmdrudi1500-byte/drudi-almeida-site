@@ -1,10 +1,10 @@
 /* ============================================================
    InstitutoHero — Reusable hero section for institute pages
    Dark overlay on image with title, subtitle, logo, and breadcrumb
+   CSS animations only — no framer-motion dependency
    ============================================================ */
 import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 const STARRY_NIGHT_URL = "/images/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp";
 
@@ -30,61 +30,51 @@ export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, l
       {/* Content */}
       <div className="relative h-full container flex flex-col justify-end pb-12">
         {/* Breadcrumb */}
-        <motion.nav
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        <nav
           className="flex items-center gap-1.5 text-cream/60 font-ui text-xs tracking-wide mb-4"
+          style={{ animation: "heroFadeUp 0.5s ease 0.2s both" }}
         >
           <Link href="/" className="hover:text-gold transition-colors">Início</Link>
           <ChevronRight className="w-3 h-3" />
           <span className="text-gold">{breadcrumb}</span>
-        </motion.nav>
+        </nav>
 
         <div className="flex items-center gap-5">
           {/* Instituto Logo */}
           {logoUrl && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.25, duration: 0.5 }}
+            <div
               className="shrink-0 hidden md:block"
+              style={{ animation: "heroScaleIn 0.5s ease 0.25s both" }}
             >
               <img
                 src={logoUrl}
                 alt={`Logotipo ${title} — Drudi e Almeida Clínicas Oftalmológicas`}
                 className="w-24 h-24 lg:w-28 lg:h-28 object-contain rounded-xl bg-white/10 backdrop-blur-sm p-2 border border-cream/10"
               />
-            </motion.div>
+            </div>
           )}
 
           <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+            <h1
               className="font-display text-3xl md:text-5xl lg:text-6xl text-cream max-w-3xl leading-tight"
+              style={{ animation: "heroFadeUp 0.6s ease 0.3s both" }}
             >
               {title}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+            <p
               className="font-body text-base md:text-lg text-cream/80 max-w-2xl mt-4 leading-relaxed"
+              style={{ animation: "heroFadeUp 0.6s ease 0.5s both" }}
             >
               {subtitle}
-            </motion.p>
+            </p>
           </div>
         </div>
 
         {/* Gold accent */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
+        <div
           className="w-20 h-0.5 bg-gold mt-6 origin-left"
+          style={{ animation: "heroScaleX 0.8s ease 0.7s both" }}
         />
       </div>
     </section>

@@ -10,7 +10,7 @@ import {
   ChevronDown, Glasses, Droplets, Sun, CircleDot, Calendar
 } from "lucide-react";
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import { IMAGES } from "@/lib/images";
@@ -115,11 +115,6 @@ const faqItems = [
 
 export default function InstitutoCeratocone() {
   const [selectedUnidade, setSelectedUnidade] = useState("");
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
 
   const UnitSelect = ({ id }: { id: string }) => (
     <div className="space-y-4">
@@ -168,57 +163,45 @@ export default function InstitutoCeratocone() {
       />
       <InstitutoSchema instituto="ceratocone" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <motion.div
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div
           className="absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{ backgroundImage: `url(${HERO_ART_IMG})`, y: heroImageY, scale: heroImageScale }}
+          style={{ backgroundImage: `url(${HERO_ART_IMG})` }}
         />
-        <motion.div
+        <div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
-          style={{ opacity: heroOverlayOpacity }}
+         
         />
 
         <div className="relative container py-20">
           <div className="max-w-2xl">
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
               className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
             >
               <Eye className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DO CERATOCONE</span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
+            <h1
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
               Tratamento de Ceratocone com{" "}
               <span className="text-gold italic">especialistas</span> em{" "}
               <span className="text-gold italic">córnea</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+            <p
               className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
             >
               Selecione a unidade mais próxima e receba informações sobre o tratamento de ceratocone com os melhores especialistas em córnea.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+            <div
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md"
             >
               <UnitSelect id="hero" />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -284,7 +267,7 @@ export default function InstitutoCeratocone() {
                 { n: "4", title: "Plano de tratamento", desc: "Definimos o melhor tratamento: crosslinking, lentes especiais, anel ou transplante." },
               ].map((step, i) => (
                 <StaggerItem key={i}>
-                  <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                  <div className="h-full">
                   <div className="flex gap-4 items-start">
                     <div className="w-10 h-10 rounded-full bg-gold text-navy font-display text-lg font-bold flex items-center justify-center shrink-0">
                       {step.n}
@@ -294,7 +277,7 @@ export default function InstitutoCeratocone() {
                       <p className="font-body text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               ))}
 
@@ -419,7 +402,7 @@ export default function InstitutoCeratocone() {
           <StaggerContainer className="grid md:grid-cols-2 gap-6">
             {exames.map((ex, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white/5 backdrop-blur-sm border border-cream/10 rounded-xl p-6 hover:border-gold/30 transition-all h-full">
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-lg bg-gold/15 flex items-center justify-center shrink-0">
@@ -431,7 +414,7 @@ export default function InstitutoCeratocone() {
                     </div>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -902,7 +885,7 @@ export default function InstitutoCeratocone() {
               { name: "Tatuapé", city: "São Paulo - SP", description: "Infraestrutura completa e equipe altamente qualificada na zona leste.", image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png" },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -911,7 +894,7 @@ export default function InstitutoCeratocone() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>

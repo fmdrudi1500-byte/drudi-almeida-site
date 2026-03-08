@@ -11,7 +11,7 @@ import {
   Droplets, Activity, Heart, AlertTriangle, DollarSign,
   Star, MapPin, Users, Stethoscope, CircleDot, Calendar
 } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import FAQSection from "@/components/FAQSection";
 import AudioPlayer from "@/components/AudioPlayer";
@@ -243,11 +243,6 @@ function SectionDivider() {
    ============================================================ */
 export default function InstitutoCatarata() {
   const [selectedUnidade, setSelectedUnidade] = useState("");
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.9]);
 
   return (
     <>
@@ -261,61 +256,47 @@ export default function InstitutoCatarata() {
       />
       <InstitutoSchema instituto="catarata" />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Parallax Background — Obra de Arte Impressionista */}
-        <motion.div
+        <div
           className="absolute inset-0 bg-cover bg-center will-change-transform"
           style={{
             backgroundImage: `url(${HERO_ART_IMG})`,
-            y: heroImageY,
-            scale: heroImageScale,
           }}
         />
-        <motion.div
+        <div
           className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent"
-          style={{ opacity: heroOverlayOpacity }}
+         
         />
 
         {/* Content */}
         <div className="relative container py-20">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
               className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
             >
               <Eye className="w-3.5 h-3.5 text-gold" />
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">
                 INSTITUTO DA CATARATA
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
+            <h1
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
               Cirurgia de Catarata com{" "}
               <span className="text-gold italic">tecnologia</span> e{" "}
               <span className="text-gold italic">cuidado</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+            <p
               className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl"
             >
               Selecione a unidade mais próxima e receba o preço da sua cirurgia de catarata com os melhores especialistas.
-            </motion.p>
+            </p>
 
             {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+            <div
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md"
             >
               <div className="space-y-4">
@@ -353,7 +334,7 @@ export default function InstitutoCatarata() {
                   Ligar: {PHONE}
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -417,7 +398,7 @@ export default function InstitutoCatarata() {
               <StaggerContainer className="space-y-6">
                 {comoFunciona.map((item) => (
                   <StaggerItem key={item.step}>
-                    <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                    <div className="h-full">
                     <div className="flex gap-4">
                       <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center shrink-0 font-display text-sm font-bold">
                         {item.step}
@@ -427,7 +408,7 @@ export default function InstitutoCatarata() {
                         <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                       </div>
                     </div>
-                    </motion.div>
+                    </div>
                   </StaggerItem>
                 ))}
               </StaggerContainer>
@@ -495,7 +476,7 @@ export default function InstitutoCatarata() {
               },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/40 hover:shadow-md transition-shadow">
                   <img loading="lazy" src={clinica.image} alt={`Unidade Drudi e Almeida ${clinica.name} — clínica oftalmológica`} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -504,7 +485,7 @@ export default function InstitutoCatarata() {
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{clinica.description}</p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -613,7 +594,7 @@ export default function InstitutoCatarata() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {etapasCirurgia.map((etapa) => (
               <StaggerItem key={etapa.step}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className="bg-slate-50 rounded-2xl p-6 border border-border/40 h-full">
                   <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center font-display text-sm font-bold mb-4">
                     {etapa.step}
@@ -621,7 +602,7 @@ export default function InstitutoCatarata() {
                   <h3 className="font-display text-base text-navy mb-2">{etapa.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{etapa.description}</p>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -659,7 +640,7 @@ export default function InstitutoCatarata() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {sintomasPos.map((sintoma, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className={`rounded-2xl p-6 border ${sintoma.color} h-full`}>
                   <h3 className="font-display text-base text-navy mb-3">{sintoma.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{sintoma.description}</p>
@@ -669,7 +650,7 @@ export default function InstitutoCatarata() {
                     </p>
                   </div>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -851,12 +832,12 @@ export default function InstitutoCatarata() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {riscos.map((risco, i) => (
               <StaggerItem key={i}>
-                <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                <div className="h-full">
                 <div className={`rounded-2xl p-6 border ${risco.color} h-full`}>
                   <h3 className="font-display text-base text-navy mb-3">{risco.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{risco.description}</p>
                 </div>
-                </motion.div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -926,11 +907,11 @@ export default function InstitutoCatarata() {
             <StaggerContainer className="space-y-4">
               {cuidados.map((cuidado, i) => (
                 <StaggerItem key={i}>
-                  <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 300, damping: 22 }} className="h-full">
+                  <div className="h-full">
                   <div className={`rounded-xl p-5 border ${cuidado.color}`}>
                     <p className="font-body text-sm text-navy/80 leading-relaxed">{cuidado.text}</p>
                   </div>
-                  </motion.div>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
