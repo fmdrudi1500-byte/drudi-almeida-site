@@ -7,6 +7,7 @@ import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
 import { useState, useMemo } from "react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
+import InstitutoCTA from "@/components/InstitutoCTA";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 
@@ -170,7 +171,7 @@ export default function Blog() {
       <InstitutoHero
         title="Blog Informativo"
         subtitle="Conteúdo confiável e atualizado sobre saúde ocular para você e sua família."
-        imageUrl={IMAGES.art.monetJapaneseBridge}
+        imageUrl={IMAGES.art.monetJapaneseBridge["700"]}
         breadcrumb="Blog"
       />
 
@@ -301,6 +302,11 @@ export default function Blog() {
           )}
         </div>
       </section>
+
+      <InstitutoCTA
+        text="Cuide da sua visão com quem entende. Agende uma consulta com nossos especialistas."
+        backgroundImage={IMAGES.hero.happyFamily}
+      />
     </>
   );
 }
