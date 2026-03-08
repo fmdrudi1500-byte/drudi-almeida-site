@@ -243,19 +243,20 @@ export default function Header() {
 
                   {/* Mega-menu — CSS transition */}
                   <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                    className="absolute top-full right-0 pt-3"
                     style={{
                       opacity: dropdownOpen ? 1 : 0,
                       transform: dropdownOpen
-                        ? "translateX(-50%) translateY(0) scale(1)"
-                        : "translateX(-50%) translateY(10px) scale(0.97)",
+                        ? "translateY(0) scale(1)"
+                        : "translateY(10px) scale(0.97)",
                       pointerEvents: dropdownOpen ? "auto" : "none",
                       transition: "opacity 0.18s ease-out, transform 0.18s ease-out",
+                      transformOrigin: "top right",
                     }}
                     onMouseEnter={handleMouseEnterDropdown}
                     onMouseLeave={handleMouseLeaveDropdown}
                   >
-                    <div className="glass rounded-2xl shadow-2xl border border-border/50 p-4 w-[680px]">
+                    <div className="bg-white dark:bg-card rounded-2xl shadow-2xl border border-border/60 p-4 w-[680px]">
                       <div className="flex items-center justify-between mb-3 pb-3 border-b border-border/40">
                         <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold">
                           Nossos Institutos Especializados
