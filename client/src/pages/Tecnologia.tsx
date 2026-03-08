@@ -356,8 +356,13 @@ export default function Tecnologia() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-navy">
-        <div className="container text-center">
+      <section
+        className="relative section-padding overflow-hidden"
+        style={{ backgroundImage: `url(${IMAGES.hero.happyFamily})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-navy/85" />
+        <div className="relative container text-center z-10">
           <AnimateOnScroll>
             <h2 className="font-display text-3xl text-cream mb-4">Compromisso com a Inovação</h2>
             <p className="font-body text-base text-cream/70 max-w-xl mx-auto mb-8 leading-relaxed">

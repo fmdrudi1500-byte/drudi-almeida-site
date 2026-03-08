@@ -49,6 +49,7 @@ export const IMAGES = {
   hero: {
     main: `${BASE}/hero-monet-resized_00e348d0.webp`,
     starryNight: `${BASE}/starry-night-hero-v3-JqwHFQEiozpvaSGrn5zcqj.webp`,
+    degasHero: `${BASE}/art-degas-hero_optimized.webp`,
     eyeAbstract: `${BASE}/eye-abstract_36effe98.webp`,
     doctorConsultation: `${BASE}/doctor-fernando_902033c6.webp`,
     technology: `${BASE}/technology_fed16422.webp`,

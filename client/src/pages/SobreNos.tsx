@@ -289,7 +289,7 @@ export default function SobreNos() {
       <InstitutoHero
         title="Sobre a Drudi e Almeida"
         subtitle="Tradição, inovação e compromisso com a saúde ocular de cada paciente."
-        imageUrl={IMAGES.hero.starryNight}
+        imageUrl={IMAGES.hero.degasHero}
         breadcrumb="Sobre Nós"
       />
 
