@@ -19,7 +19,7 @@ import InstitutoSchema from "@/components/InstitutoSchema";
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
-const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.png`;
+const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.webp`;
 const IMG_PENTACAM = `/images/ceratocone-pentacam_54c0177a.webp`;
 const IMG_LENTES_ESCLERAIS = `/images/ceratocone-lentes-esclerais_be81ebed.webp`;
 const IMG_CROSSLINKING = `/images/ceratocone-crosslinking_be312842.webp`;
