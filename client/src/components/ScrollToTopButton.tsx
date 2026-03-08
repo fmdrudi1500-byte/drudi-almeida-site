@@ -1,33 +1,36 @@
 /* ============================================================
    ScrollToTopButton — Drudi e Almeida
    - Renderizado via createPortal diretamente no document.body
-     → imune a qualquer stacking context criado por will-change,
-       transform, filter ou perspective em elementos ancestrais
-   - Aparece ao rolar > 300px para baixo
-   - Desaparece quando scrollY ≤ 300 (comportamento simples)
-   - Posicionado no canto DIREITO da tela (right: 16px)
-   - Detecta o MobileCTABar via MutationObserver (tempo real)
-   - Quando barra visível no mobile: bottom = 80px
-     (barra tem ~62px de altura + 18px de margem de segurança)
-   - Quando barra oculta: bottom = 24px
-   - SEM timer automático de ocultação
+   - Aparece ao rolar > 300px, desaparece ao voltar ao topo
+   - Canto DIREITO da tela (right: 16px)
+   - Quando barra WhatsApp visível no mobile: bottom = 80px
+   - Quando barra oculta / desktop: bottom = 24px
    ============================================================ */
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ChevronUp } from "lucide-react";
 
-// Altura fixa da barra MobileCTABar:
-// padding 10px top + 42px botões + 10px bottom = 62px
-// + margem de segurança de 18px = 80px total
 const BAR_HEIGHT_PX = 80;
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
   const [ctaBarVisible, setCtaBarVisible] = useState(false);
 
+  // --- Efeito 1: controla visibilidade pelo scroll ---
   useEffect(() => {
-    // --- MutationObserver: detecta mudanças na classe do banner em tempo real ---
+    const onScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
+    // Verificar posição inicial
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // --- Efeito 2: detecta a barra do WhatsApp via MutationObserver ---
+  useEffect(() => {
     let observer: MutationObserver | null = null;
+    let poll: ReturnType<typeof setInterval> | null = null;
 
     const checkBar = (el: Element) => {
       setCtaBarVisible(el.classList.contains("visible"));
@@ -43,29 +46,18 @@ export default function ScrollToTopButton() {
     if (bar) {
       attachObserver(bar);
     } else {
-      // Banner ainda não montado — aguarda com polling leve
-      const poll = setInterval(() => {
+      poll = setInterval(() => {
         const el = document.getElementById("drudi-sticky-bar");
         if (el) {
+          if (poll) clearInterval(poll);
+          poll = null;
           attachObserver(el);
-          clearInterval(poll);
         }
       }, 300);
-      return () => clearInterval(poll);
     }
 
-    // --- Scroll: controla visibilidade do botão ---
-    const onScroll = () => {
-      setVisible(window.scrollY > 300);
-    };
-
-    // Verificar posição inicial
-    onScroll();
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      if (poll) clearInterval(poll);
       observer?.disconnect();
     };
   }, []);
@@ -74,8 +66,6 @@ export default function ScrollToTopButton() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Quando a barra do WhatsApp está visível, sobe para BAR_HEIGHT_PX
-  // Quando a barra está oculta (ou no desktop onde não aparece): 24px
   const bottomPx = ctaBarVisible ? BAR_HEIGHT_PX : 24;
 
   const button = (
