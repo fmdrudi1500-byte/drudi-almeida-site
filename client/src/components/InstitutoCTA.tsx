@@ -7,12 +7,17 @@ import AnimateOnScroll from "./AnimateOnScroll";
 interface Props {
   title?: string;
   text?: string;
+  backgroundImage?: string;
 }
 
-export default function InstitutoCTA({ title = "Agende Sua Consulta", text }: Props) {
+export default function InstitutoCTA({ title = "Agende Sua Consulta", text, backgroundImage }: Props) {
   return (
-    <section className="section-padding bg-navy">
-      <div className="container text-center">
+    <section
+      className="relative section-padding overflow-hidden"
+      style={backgroundImage ? { backgroundImage: `url(${backgroundImage})`, backgroundSize: "cover", backgroundPosition: "center" } : {}}
+    >
+      <div className={`absolute inset-0 ${backgroundImage ? "bg-navy/85" : "bg-navy"}`} />
+      <div className="relative container text-center z-10">
         <AnimateOnScroll>
           <h2 className="font-display text-3xl text-cream mb-4">{title}</h2>
           <p className="font-body text-base text-cream/70 max-w-lg mx-auto mb-8 leading-relaxed">

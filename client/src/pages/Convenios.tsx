@@ -100,7 +100,7 @@ export default function Convenios() {
       <InstitutoHero
         title="Convênios"
         subtitle="Atendemos os principais planos de saúde para facilitar o seu acesso à oftalmologia de excelência."
-        imageUrl={IMAGES.hero.doctorConsultation}
+        imageUrl={IMAGES.hero.starryNight}
         breadcrumb="Convênios"
       />
 
@@ -239,7 +239,10 @@ export default function Convenios() {
         </div>
       </section>
 
-      <InstitutoCTA text="Agende sua consulta utilizando o seu convênio. Nossa equipe cuida de toda a autorização." />
+      <InstitutoCTA
+        text="Agende sua consulta utilizando o seu convênio. Nossa equipe cuida de toda a autorização."
+        backgroundImage={IMAGES.hero.happyFamily}
+      />
     </>
   );
 }
