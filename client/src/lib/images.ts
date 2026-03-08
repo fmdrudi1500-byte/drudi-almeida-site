@@ -69,10 +69,10 @@ export const IMAGES = {
     seuratGrandeJatte: `${BASE}/seurat-grande-jatte_8467105c.webp`,
     degasDancers: `${BASE}/art-degas-dancers_57775727.webp`,
     elGrecoToledo: `${BASE}/art-el-greco-toledo_24353633.webp`,
-    daVinciStrabismus: `${BASE}/da-vinci-strabismus_b1164d80.jpg`,
-    rembrandtSelfPortrait: `${BASE}/rembrandt-self-portrait_19758687.jpg`,
+    daVinciStrabismus: `${BASE}/da-vinci-strabismus_b1164d80.webp`,
+    rembrandtSelfPortrait: `${BASE}/rembrandt-self-portrait_19758687.webp`,
     vanGoghStarryNight: `${BASE}/van-gogh-starry-night_78be1262.webp`,
-    vanGoghSelfPortrait: `${BASE}/van-gogh-self-portrait_cb3eabb8.jpg`,
+    vanGoghSelfPortrait: `${BASE}/van-gogh-self-portrait_cb3eabb8.webp`,
   },
   // Corpo Clínico — Fotos profissionais dos médicos
   doctors: {

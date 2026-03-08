@@ -204,6 +204,12 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Optimize chunk sizes for better caching and loading
+    chunkSizeWarningLimit: 600,
+    // Enable minification with esbuild (default) for faster builds
+    minify: 'esbuild',
+    // Target modern browsers for smaller output
+    target: ['es2020', 'chrome80', 'safari14'],
     rollupOptions: {
       output: {
         manualChunks(id) {

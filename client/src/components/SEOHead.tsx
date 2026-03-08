@@ -10,8 +10,8 @@ interface SEOHeadProps {
   schema?: object | object[];
 }
 
-const BASE_URL = "https://drudiealmeida.com.br";
-const DEFAULT_OG_IMAGE = "/images/og-default_4b70bdbb.png";
+const BASE_URL = "https://institutodrudiealmeida.com.br";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/og-default_4b70bdbb.png`;
 
 export default function SEOHead({
   title,
@@ -24,6 +24,8 @@ export default function SEOHead({
 }: SEOHeadProps) {
   const fullTitle = `${title} | Drudi e Almeida Oftalmologia`;
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  // Ensure ogImage is absolute URL
+  const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
 
   return (
     <Helmet>
@@ -37,7 +39,7 @@ export default function SEOHead({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={ogImageAbsolute} />
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:site_name" content="Drudi e Almeida Oftalmologia" />
 
@@ -45,7 +47,7 @@ export default function SEOHead({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={ogImageAbsolute} />
 
       {/* Schema.org JSON-LD */}
       {schema && (

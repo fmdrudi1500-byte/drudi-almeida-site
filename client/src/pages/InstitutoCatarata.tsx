@@ -63,12 +63,12 @@ const sintomasZigzag = [
   {
     title: "Visão embaçada ou turva",
     description: "Um dos primeiros sintomas da catarata é a sensação de que a visão está constantemente embaçada, como se você estivesse olhando através de uma janela suja ou embaçada. Essa dificuldade pode afetar atividades simples como ler, usar o celular, assitir televisão.",
-    image: "/images/catarata-visao-embacada_c12f98d4.png",
+    image: "/images/catarata-visao-embacada_c12f98d4.webp",
   },
   {
     title: "Maior sensibilidade à luz",
     description: "A catarata pode causar um aumento significativo na sensibilidade à luz. Ambientes muito iluminados ou a luz solarl podem causar desconforto intenso. Dirigir à noite também se torna mais difícil pela diminuição da sensibilidade ao contraste.",
-    image: "/images/catarata-sensibilidade-luz_9e2c2355.png",
+    image: "/images/catarata-sensibilidade-luz_9e2c2355.webp",
   },
   {
     title: "Dificuldade de enxergar à noite",
@@ -78,12 +78,12 @@ const sintomasZigzag = [
   {
     title: "Visão dupla em um dos olhos",
     description: "Em alguns casos, embora raro, a catarata pode causar visão dupla (diplopia) em apenas um dos olhos. Isso acontece porque a opacidade do cristalino faz com que a luz se disperse de forma irregular ao entrar no olho, criando imagens duplicadas. Esse sintoma é mais comum quando existe associação com luxação ou subluxação do cristalino.",
-    image: "/images/catarata-diplopia_75d41ba4.png",
+    image: "/images/catarata-diplopia_75d41ba4.webp",
   },
   {
     title: "Cores parecem desbotadas",
     description: "As cores podem parecer mais amareladas, desbotadas ou menos vibrantes do que o normal. Isso ocorre porque o cristalino opaco filtra a luz de forma irregular, alterando a percepção cromática. Muitos pacientes só percebem essa mudança após a cirurgia, quando voltam a ver cores vivas. Esse pode ser um dos primeiros sintomas da catarata, muitas vezes antes da diminuição da acuidade visual notamos perda da sensibilidade ao contraste.",
-    image: "/images/catarata-cores-desbotadas_3f160022.png",
+    image: "/images/catarata-cores-desbotadas_3f160022.webp",
   },
 ];
 
@@ -448,31 +448,31 @@ export default function InstitutoCatarata() {
                 name: "Guarulhos Centro",
                 city: "Guarulhos - SP",
                 description: "Nossa unidade em Guarulhos oferece atendimento completo com equipamentos de última geração e equipe especializada em cirurgia de catarata.",
-                image: "/images/clinica_guarulhos_8e7690c7.png",
+                image: "/images/clinica_guarulhos_8e7690c7.webp",
               },
               {
                 name: "Lapa",
                 city: "São Paulo - SP",
                 description: "Nossa unidade na Lapa conta com infraestrutura moderna e fácil acesso, oferecendo o mesmo padrão de excelência em cirurgia de catarata.",
-                image: "/images/consultorio_lapa_be866546.png",
+                image: "/images/consultorio_lapa_be866546.webp",
               },
               {
                 name: "Santana",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em Santana, na zona norte de São Paulo, oferece atendimento humanizado com equipamentos de ponta e fácil acesso pelo metrô.",
-                image: "/images/sala_espera_sofa_bege_v1_3860a616.png",
+                image: "/images/sala_espera_sofa_bege_v1_3860a616.webp",
               },
               {
                 name: "São Miguel",
                 city: "São Paulo - SP",
                 description: "Nossa unidade em São Miguel Paulista atende a zona leste com a mesma qualidade e tecnologia de todas as nossas clínicas.",
-                image: "/images/sala_espera_sofa_bege_v4_0b2982e6.png",
+                image: "/images/sala_espera_sofa_bege_v4_0b2982e6.webp",
               },
               {
                 name: "Tatuapé",
                 city: "São Paulo - SP",
                 description: "Nossa unidade no Tatuapé oferece atendimento especializado em catarata com infraestrutura completa e equipe altamente qualificada.",
-                image: "/images/sala_espera_sofa_bege_v3_5717e0c0.png",
+                image: "/images/sala_espera_sofa_bege_v3_5717e0c0.webp",
               },
             ].map((clinica, i) => (
               <StaggerItem key={i}>
