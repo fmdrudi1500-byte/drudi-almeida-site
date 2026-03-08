@@ -12,6 +12,16 @@ import { registerSitemapRoutes } from "../sitemap.js";
 import { registerResumeUploadRoute } from "../upload-resume.js";
 import { registerGoogleAuthRoutes } from "../google-auth-routes.js";
 
+// Domains that should redirect to the canonical domain (301 Permanent)
+const CANONICAL_DOMAIN = "institutodrudiealmeida.com.br";
+const REDIRECT_DOMAINS = new Set([
+  "drudiealmeida.com",
+  "www.drudiealmeida.com",
+  "drudiealmeida.com.br",
+  "www.drudiealmeida.com.br",
+  "www.institutodrudiealmeida.com.br",
+]);
+
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
     const server = net.createServer();
@@ -34,6 +44,19 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  // Redirect alternative domains to canonical domain (301 Permanent)
+  // This ensures all traffic consolidates to institutodrudiealmeida.com.br for SEO
+  app.use((req, res, next) => {
+    const forwardedHost = req.headers["x-forwarded-host"] as string | undefined;
+    const host = (forwardedHost || req.headers.host || "").split(":")[0].toLowerCase();
+    if (REDIRECT_DOMAINS.has(host)) {
+      const redirectUrl = `https://${CANONICAL_DOMAIN}${req.originalUrl}`;
+      return res.redirect(301, redirectUrl);
+    }
+    next();
+  });
+
   // Enable gzip/deflate compression for all responses
   app.use(compression());
   // Configure body parser with larger size limit for file uploads
