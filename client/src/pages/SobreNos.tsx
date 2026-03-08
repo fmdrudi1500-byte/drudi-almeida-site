@@ -122,7 +122,7 @@ function MVVSection() {
   const current = mvv.find((m) => m.id === active)!;
 
   return (
-    <section className="section-padding bg-cream/40 overflow-hidden relative">
+    <section className="section-padding bg-cream/40 relative">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-gold/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full bg-navy/4 blur-3xl pointer-events-none" />
@@ -226,7 +226,7 @@ function MVVSection() {
           {/* Right column: Foto da Amazônia */}
           <div className="lg:col-span-5">
             <AnimateOnScroll direction="right">
-              <div className="relative">
+              <div className="relative pb-6 pr-6">
                 {/* Decorative gold frame */}
                 <div className="absolute -inset-3 bg-gradient-to-br from-gold/20 via-gold/5 to-transparent rounded-2xl" />
                 <div className="relative overflow-hidden rounded-xl shadow-xl">
@@ -257,7 +257,7 @@ function MVVSection() {
                 </div>
 
                 {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg border border-gold/20 p-3 max-w-[160px]">
+                <div className="absolute bottom-2 right-2 bg-white rounded-xl shadow-lg border border-gold/20 p-3 max-w-[160px]">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
                       <Award className="w-4 h-4 text-gold" />
