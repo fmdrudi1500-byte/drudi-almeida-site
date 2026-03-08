@@ -207,7 +207,7 @@ export default function Tecnologia() {
       <InstitutoHero
         title="Tecnologia de Ponta"
         subtitle="Investimos continuamente nos equipamentos mais modernos para garantir diagnósticos precisos e tratamentos seguros."
-        imageUrl={IMAGES.hero.technology}
+        imageUrl={IMAGES.hero.main}
         breadcrumb="Tecnologia"
       />
 
