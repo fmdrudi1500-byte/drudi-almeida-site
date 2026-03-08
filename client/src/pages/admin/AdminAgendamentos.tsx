@@ -533,6 +533,265 @@ function AppointmentsTab() {
   );
 }
 
+// ─── Novo Agendamento Manual Dialog ─────────────────────────────────────────
+
+const SPECIALTIES = [
+  "Catarata",
+  "Ceratocone",
+  "Glaucoma",
+  "Retina",
+  "Estrabismo",
+  "Consulta Geral",
+] as const;
+
+const HEALTH_PLANS = [
+  "Particular",
+  "Bradesco Saúde",
+  "Amil",
+  "Unimed",
+  "Prevent Senior",
+  "SulAmérica",
+  "Porto Seguro",
+  "Notre Dame Intermédica",
+  "Hapvida",
+  "Outro convênio",
+];
+
+// Generate time slots: 9:00–17:30 weekdays, 9:00–12:30 saturdays
+function generateTimeSlots(): Array<{ label: string; hour: number; minute: number }> {
+  const slots: Array<{ label: string; hour: number; minute: number }> = [];
+  for (let h = 7; h <= 20; h++) {
+    for (const m of [0, 30]) {
+      const label = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+      slots.push({ label, hour: h, minute: m });
+    }
+  }
+  return slots;
+}
+
+const TIME_SLOTS = generateTimeSlots();
+
+function NovoAgendamentoDialog({ onCreated }: { onCreated: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({
+    patientName: "",
+    patientPhone: "",
+    patientEmail: "",
+    unit: "Santana" as Unit,
+    specialty: "Consulta Geral" as (typeof SPECIALTIES)[number],
+    healthPlan: "Particular",
+    appointmentDate: "",
+    appointmentHour: 9,
+    appointmentMinute: 0,
+    appointmentType: "primeira_vez" as "primeira_vez" | "retorno",
+    notes: "",
+  });
+
+  const createMutation = trpc.appointment.createAppointmentManual.useMutation({
+    onSuccess: () => {
+      toast.success("Agendamento criado com sucesso!");
+      setOpen(false);
+      setForm({
+        patientName: "",
+        patientPhone: "",
+        patientEmail: "",
+        unit: "Santana",
+        specialty: "Consulta Geral",
+        healthPlan: "Particular",
+        appointmentDate: "",
+        appointmentHour: 9,
+        appointmentMinute: 0,
+        appointmentType: "primeira_vez",
+        notes: "",
+      });
+      onCreated();
+    },
+    onError: (err) => toast.error(err.message),
+  });
+
+  const selectedSlotLabel = `${String(form.appointmentHour).padStart(2, "0")}:${String(form.appointmentMinute).padStart(2, "0")}`;
+
+  function handleSubmit() {
+    if (!form.patientName.trim() || !form.patientPhone.trim() || !form.appointmentDate) {
+      toast.error("Preencha os campos obrigatórios: nome, telefone e data.");
+      return;
+    }
+    createMutation.mutate({
+      ...form,
+      patientEmail: form.patientEmail || undefined,
+      notes: form.notes || undefined,
+      siteOrigin: window.location.origin,
+    });
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button className="bg-gold text-navy hover:bg-gold-light font-ui font-bold gap-2">
+          <PlusCircle className="w-4 h-4" /> Novo Agendamento
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="font-display text-navy text-xl">Cadastro Manual de Agendamento</DialogTitle>
+          <p className="font-body text-sm text-muted-foreground">Preencha os dados do paciente para criar o agendamento manualmente.</p>
+        </DialogHeader>
+
+        <div className="space-y-5 pt-2">
+          {/* Dados do paciente */}
+          <div className="bg-muted/40 rounded-xl p-4 space-y-4">
+            <h3 className="font-ui text-sm font-semibold text-navy uppercase tracking-wide">Dados do Paciente</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="md:col-span-2">
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Nome completo *</Label>
+                <Input
+                  placeholder="Nome do paciente"
+                  value={form.patientName}
+                  onChange={(e) => setForm((f) => ({ ...f, patientName: e.target.value }))}
+                />
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Telefone / WhatsApp *</Label>
+                <Input
+                  placeholder="(11) 99999-9999"
+                  value={form.patientPhone}
+                  onChange={(e) => setForm((f) => ({ ...f, patientPhone: e.target.value }))}
+                />
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">
+                  E-mail <span className="text-muted-foreground text-xs font-normal">(opcional — para envio de confirmação)</span>
+                </Label>
+                <Input
+                  type="email"
+                  placeholder="paciente@email.com"
+                  value={form.patientEmail}
+                  onChange={(e) => setForm((f) => ({ ...f, patientEmail: e.target.value }))}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Dados da consulta */}
+          <div className="bg-muted/40 rounded-xl p-4 space-y-4">
+            <h3 className="font-ui text-sm font-semibold text-navy uppercase tracking-wide">Dados da Consulta</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Unidade *</Label>
+                <Select value={form.unit} onValueChange={(v) => setForm((f) => ({ ...f, unit: v as Unit }))}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {UNITS.map((u) => (
+                      <SelectItem key={u} value={u}>Unidade {u}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Especialidade *</Label>
+                <Select value={form.specialty} onValueChange={(v) => setForm((f) => ({ ...f, specialty: v as (typeof SPECIALTIES)[number] }))}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {SPECIALTIES.map((s) => (
+                      <SelectItem key={s} value={s}>{s}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Convênio *</Label>
+                <Select value={form.healthPlan} onValueChange={(v) => setForm((f) => ({ ...f, healthPlan: v }))}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {HEALTH_PLANS.map((p) => (
+                      <SelectItem key={p} value={p}>{p}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Tipo de consulta *</Label>
+                <Select value={form.appointmentType} onValueChange={(v) => setForm((f) => ({ ...f, appointmentType: v as "primeira_vez" | "retorno" }))}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="primeira_vez">Primeira vez</SelectItem>
+                    <SelectItem value="retorno">Retorno</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+
+          {/* Data e horário */}
+          <div className="bg-muted/40 rounded-xl p-4 space-y-4">
+            <h3 className="font-ui text-sm font-semibold text-navy uppercase tracking-wide">Data e Horário</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Data *</Label>
+                <Input
+                  type="date"
+                  value={form.appointmentDate}
+                  onChange={(e) => setForm((f) => ({ ...f, appointmentDate: e.target.value }))}
+                  min={new Date().toISOString().split("T")[0]}
+                />
+              </div>
+              <div>
+                <Label className="font-ui text-sm font-medium mb-1.5 block">Horário *</Label>
+                <Select
+                  value={selectedSlotLabel}
+                  onValueChange={(v) => {
+                    const [h, m] = v.split(":").map(Number);
+                    setForm((f) => ({ ...f, appointmentHour: h, appointmentMinute: m }));
+                  }}
+                >
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent className="max-h-48">
+                    {TIME_SLOTS.map((slot) => (
+                      <SelectItem key={slot.label} value={slot.label}>{slot.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+
+          {/* Observações */}
+          <div>
+            <Label className="font-ui text-sm font-medium mb-1.5 block">
+              Observações <span className="text-muted-foreground text-xs font-normal">(opcional)</span>
+            </Label>
+            <Textarea
+              placeholder="Informações adicionais sobre o paciente ou a consulta..."
+              value={form.notes}
+              onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
+              rows={3}
+              className="resize-none"
+            />
+          </div>
+
+          {/* Actions */}
+          <div className="flex justify-end gap-3 pt-2 border-t border-border">
+            <Button variant="outline" onClick={() => setOpen(false)} disabled={createMutation.isPending}>
+              Cancelar
+            </Button>
+            <Button
+              onClick={handleSubmit}
+              disabled={createMutation.isPending || !form.patientName || !form.patientPhone || !form.appointmentDate}
+              className="bg-navy text-cream hover:bg-navy-light gap-2 min-w-[160px]"
+            >
+              {createMutation.isPending ? (
+                <><Loader2 className="w-4 h-4 animate-spin" /> Salvando...</>
+              ) : (
+                <><PlusCircle className="w-4 h-4" /> Criar Agendamento</>
+              )}
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function AdminAgendamentos() {
@@ -571,9 +830,10 @@ export default function AdminAgendamentos() {
             <h1 className="font-display text-2xl">Central de Agendamentos</h1>
           </div>
           <div className="flex items-center gap-3">
-            <span className="font-ui text-xs text-cream/60">
+            <span className="font-ui text-xs text-cream/60 hidden sm:block">
               Logado como <strong className="text-cream">{user.name}</strong>
             </span>
+            <NovoAgendamentoDialog onCreated={() => {}} />
           </div>
         </div>
       </div>

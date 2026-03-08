@@ -486,4 +486,134 @@ export const appointmentRouter = router({
     if (ctx.user.role !== "admin") throw new Error("Acesso restrito.");
     return { configured: isCalendarConfigured() };
   }),
+
+  /**
+   * Creates an appointment manually by admin/call center.
+   * Bypasses slot validation (admin can override), creates Google Calendar event
+   * and sends confirmation email to the patient.
+   */
+  createAppointmentManual: protectedProcedure
+    .input(
+      z.object({
+        patientName: z.string().min(2).max(200),
+        patientPhone: z.string().min(8).max(30),
+        patientEmail: z.string().email().optional().or(z.literal("")),
+        unit: z.enum(UNITS),
+        specialty: z.enum(SPECIALTIES),
+        healthPlan: z.string().min(1).max(100),
+        appointmentDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+        appointmentHour: z.number().int().min(0).max(23),
+        appointmentMinute: z.number().int().refine((v) => v === 0 || v === 30),
+        appointmentType: z.enum(["primeira_vez", "retorno"]).default("primeira_vez"),
+        notes: z.string().max(1000).optional(),
+        siteOrigin: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== "admin") throw new Error("Acesso restrito.");
+
+      const db = await getDb();
+      if (!db) throw new Error("Servi\u00e7o temporariamente indispon\u00edvel.");
+
+      // Check for slot conflict (warn but allow admin to proceed)
+      const conflict = await db
+        .select({ id: appointments.id })
+        .from(appointments)
+        .where(
+          and(
+            eq(appointments.unit, input.unit),
+            eq(appointments.appointmentDate, input.appointmentDate),
+            eq(appointments.appointmentHour, input.appointmentHour),
+            eq(appointments.appointmentMinute, input.appointmentMinute),
+            not(eq(appointments.status, "cancelled"))
+          )
+        )
+        .limit(1);
+
+      if (conflict.length > 0) {
+        throw new Error("Este hor\u00e1rio j\u00e1 est\u00e1 ocupado. Escolha outro hor\u00e1rio.");
+      }
+
+      const cancelToken = generateCancelToken();
+      const patientEmail = input.patientEmail || null;
+      const notesWithType = `[${input.appointmentType === "retorno" ? "RETORNO" : "PRIMEIRA VEZ"}]${input.notes ? " " + input.notes : ""}`;
+
+      await (db as NonNullable<typeof db>).insert(appointments).values({
+        patientName: input.patientName,
+        patientPhone: input.patientPhone,
+        patientEmail,
+        unit: input.unit,
+        specialty: input.specialty,
+        healthPlan: input.healthPlan,
+        appointmentDate: input.appointmentDate,
+        appointmentHour: input.appointmentHour,
+        appointmentMinute: input.appointmentMinute,
+        notes: notesWithType,
+        cancelToken,
+        status: "confirmed",
+        emailSentToPatient: false,
+        emailSentToClinic: false,
+      });
+
+      // Create Google Calendar event
+      if (isCalendarConfigured()) {
+        createCalendarEvent({
+          unit: input.unit as GCalUnit,
+          patientName: input.patientName,
+          patientPhone: input.patientPhone,
+          patientEmail,
+          healthPlan: input.healthPlan,
+          specialty: input.specialty,
+          appointmentDate: input.appointmentDate,
+          appointmentHour: input.appointmentHour,
+          appointmentMinute: input.appointmentMinute,
+          notes: notesWithType,
+        })
+          .then(async (eventId) => {
+            if (eventId) {
+              const dbInner = await getDb();
+              if (dbInner) {
+                await (dbInner as NonNullable<typeof dbInner>)
+                  .update(appointments)
+                  .set({ googleCalendarEventId: eventId })
+                  .where(
+                    and(
+                      eq(appointments.unit, input.unit),
+                      eq(appointments.appointmentDate, input.appointmentDate),
+                      eq(appointments.appointmentHour, input.appointmentHour),
+                      eq(appointments.appointmentMinute, input.appointmentMinute),
+                      eq(appointments.cancelToken, cancelToken)
+                    )
+                  );
+              }
+            }
+          })
+          .catch(console.error);
+      }
+
+      // Send confirmation email to patient (if email provided)
+      const emailData = {
+        patientName: input.patientName,
+        patientPhone: input.patientPhone,
+        patientEmail,
+        unit: input.unit,
+        specialty: input.specialty,
+        healthPlan: input.healthPlan,
+        appointmentDate: input.appointmentDate,
+        appointmentHour: input.appointmentHour,
+        appointmentMinute: input.appointmentMinute,
+        cancelToken,
+        siteOrigin: input.siteOrigin,
+      };
+
+      if (patientEmail) {
+        sendPatientConfirmation(emailData).catch(console.error);
+      }
+      sendClinicNotification(emailData).catch(console.error);
+
+      return {
+        success: true,
+        message: "Agendamento criado com sucesso!",
+      };
+    }),
 });
