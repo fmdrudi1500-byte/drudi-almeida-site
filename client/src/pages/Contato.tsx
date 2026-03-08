@@ -80,7 +80,7 @@ export default function Contato() {
       <InstitutoHero
         title="Entre em Contato"
         subtitle="Estamos prontos para atender você. Agende sua consulta ou tire suas dúvidas em qualquer uma das nossas 5 unidades."
-        imageUrl={IMAGES.hero.main}
+        imageUrl={IMAGES.art.elGrecoToledo}
         breadcrumb="Contato"
       />
 

@@ -170,7 +170,7 @@ export default function Blog() {
       <InstitutoHero
         title="Blog Informativo"
         subtitle="Conteúdo confiável e atualizado sobre saúde ocular para você e sua família."
-        imageUrl={IMAGES.hero.main}
+        imageUrl={IMAGES.art.monetJapaneseBridge}
         breadcrumb="Blog"
       />
 
