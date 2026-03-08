@@ -16,10 +16,14 @@ import { createUnitCalendar, listCalendars } from "./google-calendar";
 const SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
 function getOAuth2Client() {
+  // Read redirect URI dynamically to pick up env changes without restart
+  const redirectUri =
+    process.env.GOOGLE_REDIRECT_URI ||
+    "https://institutodrudiealmeida.com.br/api/google-auth/callback";
   return new google.auth.OAuth2(
-    ENV.googleClientId,
-    ENV.googleClientSecret,
-    ENV.googleRedirectUri
+    process.env.GOOGLE_CLIENT_ID || ENV.googleClientId,
+    process.env.GOOGLE_CLIENT_SECRET || ENV.googleClientSecret,
+    redirectUri
   );
 }
 
