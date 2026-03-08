@@ -25,34 +25,33 @@ export default function AgendarOnlineBtn({
   const isLight = variant === "light";
 
   return (
-    <Link href="/agendar">
-      <a
+    <Link
+      href="/agendar"
+      className={[
+        "inline-flex flex-col items-start gap-0.5 px-6 py-3 rounded-md border transition-all duration-200 group no-underline",
+        "border-gold/40 text-cream bg-navy hover:bg-navy/80 hover:border-gold/60",
+        className,
+      ].join(" ")}
+    >
+      {/* Linha principal */}
+      <span className="flex items-center gap-2 font-ui text-sm font-semibold leading-tight">
+        <Calendar
+          className={[
+            "w-4 h-4 flex-shrink-0 transition-colors",
+            isLight ? "text-gold" : "text-gold",
+          ].join(" ")}
+        />
+        {label}
+      </span>
+      {/* Subtexto */}
+      <span
         className={[
-          "inline-flex flex-col items-start gap-0.5 px-6 py-3 rounded-md border transition-all duration-200 group no-underline",
-          "border-gold/40 text-cream bg-navy hover:bg-navy/80 hover:border-gold/60",
-          className,
+          "font-ui text-[11px] font-medium pl-6 leading-tight transition-colors",
+          isLight ? "text-gold/80" : "text-gold",
         ].join(" ")}
       >
-        {/* Linha principal */}
-        <span className="flex items-center gap-2 font-ui text-sm font-semibold leading-tight">
-          <Calendar
-            className={[
-              "w-4 h-4 flex-shrink-0 transition-colors",
-              isLight ? "text-gold" : "text-gold",
-            ].join(" ")}
-          />
-          {label}
-        </span>
-        {/* Subtexto */}
-        <span
-          className={[
-            "font-ui text-[11px] font-medium pl-6 leading-tight transition-colors",
-            isLight ? "text-gold/80" : "text-gold",
-          ].join(" ")}
-        >
-          {subtext}
-        </span>
-      </a>
+        {subtext}
+      </span>
     </Link>
   );
 }
