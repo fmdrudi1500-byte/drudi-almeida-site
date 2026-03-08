@@ -316,22 +316,12 @@ export default function InstitutoCatarata() {
                   </select>
                 </div>
 
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-gold text-navy font-display text-[23px] font-extrabold px-8 py-2 rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/30 hover:shadow-2xl hover:-translate-y-0.5"
-                >
-                  <DollarSign className="w-5 h-5" />
-                  Receber Preço
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20">
+                  <DollarSign className="w-4 h-4" />Receber Preço
                 </a>
-
-                <a
-                  href={`tel:+55${PHONE.replace(/\D/g, "")}`}
-                  className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all"
-                >
-                  <Phone className="w-4 h-4" />
-                  Ligar: {PHONE}
+                <AgendarOnlineBtn variant="light" className="w-full justify-center" />
+                <a href={`tel:+55${PHONE.replace(/\D/g, "")}`} className="w-full inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3 rounded-lg border border-cream/30 text-cream hover:bg-cream/10 transition-all">
+                  <Phone className="w-4 h-4" />Ligar: {PHONE}
                 </a>
               </div>
             </div>
