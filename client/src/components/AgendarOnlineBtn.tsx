@@ -29,9 +29,7 @@ export default function AgendarOnlineBtn({
       <a
         className={[
           "inline-flex flex-col items-start gap-0.5 px-6 py-3 rounded-md border transition-all duration-200 group no-underline",
-          isLight
-            ? "border-cream/30 text-cream hover:bg-cream/10 hover:border-cream/50"
-            : "border-navy/30 text-navy bg-white hover:bg-navy/5 hover:border-navy/50",
+          "border-gold/40 text-cream bg-navy hover:bg-navy/80 hover:border-gold/60",
           className,
         ].join(" ")}
       >
