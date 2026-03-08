@@ -1,66 +1,44 @@
 /* ============================================================
    ConveniosCarousel — Seção de convênios para a home
-   • Carrossel infinito com CSS animation (sem rAF constante)
-   • Pausa no hover / drag/swipe do usuário
-   • Logo em grayscale → colorido no hover
+   • Auto-scroll via requestAnimationFrame (sem CSS animation)
+   • Pausa no hover / drag / swipe / botões de seta
+   • Loop infinito suave
    ============================================================ */
-import { useRef, useCallback, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const PHONE = "5511916544653";
 const WA_MSG = encodeURIComponent("Olá! Gostaria de saber se meu convênio é aceito.");
 const WA_URL = `https://wa.me/${PHONE}?text=${WA_MSG}`;
 
-// Logos otimizados para 188x80px (2x retina para display de 94x40px)
 const CONVENIOS = [
-  {
-    nome: "Prevent Senior",
-    logo: `/images/prevent-senior-188w_60641e66.webp`,
-  },
-  {
-    nome: "Bradesco Saúde",
-    logo: `/images/bradesco-188w_b58e35a5.webp`,
-  },
-  {
-    nome: "Mediservice",
-    logo: `/images/tech-mediservice-188w_ba541991.webp`,
-  },
-  {
-    nome: "Instituto Pró-PM",
-    logo: `/images/logo-propm-188w_44c9af21.webp`,
-  },
-  {
-    nome: "Amil",
-    logo: `/images/amil-188w_94445080.webp`,
-  },
-  {
-    nome: "Unimed Seguros",
-    logo: `/images/unimed-188w_3728f5a6.webp`,
-  },
-  {
-    nome: "Ameplam",
-    logo: `/images/ameplam-188w_df6e92d3.webp`,
-  },
+  { nome: "Prevent Senior",   logo: `/images/prevent-senior-188w_60641e66.webp` },
+  { nome: "Bradesco Saúde",   logo: `/images/bradesco-188w_b58e35a5.webp` },
+  { nome: "Mediservice",      logo: `/images/tech-mediservice-188w_ba541991.webp` },
+  { nome: "Instituto Pró-PM", logo: `/images/logo-propm-188w_44c9af21.webp` },
+  { nome: "Amil",             logo: `/images/amil-188w_94445080.webp` },
+  { nome: "Unimed Seguros",   logo: `/images/unimed-188w_3728f5a6.webp` },
+  { nome: "Ameplam",          logo: `/images/ameplam-188w_df6e92d3.webp` },
 ];
 
-// Duplicar apenas 1x para loop infinito (2 cópias)
-const ALL_ITEMS = [...CONVENIOS, ...CONVENIOS];
+// Triplicar para garantir loop infinito suave em qualquer largura de tela
+const ALL_ITEMS = [...CONVENIOS, ...CONVENIOS, ...CONVENIOS];
 
-const CARD_W_DESKTOP = 170 + 28; // 198px
-const CARD_W_MOBILE = 120 + 16;  // 136px
-const RESUME_DELAY = 2000;
+const SPEED = 0.5; // px por frame (~30px/s a 60fps)
+const RESUME_DELAY = 1800; // ms após interação para retomar
 
 export default function ConveniosCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+  const pausedRef = useRef(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   // Drag state
   const isDraggingRef = useRef(false);
   const dragStartXRef = useRef(0);
-  const dragOffsetRef = useRef(0);
-  const currentOffsetRef = useRef(0);
-  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dragStartPosRef = useRef(0);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 769);
@@ -69,95 +47,105 @@ export default function ConveniosCarousel() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const cardWidth = isMobile ? CARD_W_MOBILE : CARD_W_DESKTOP;
+  const cardWidth = isMobile ? 136 : 198; // card + gap
   const blockWidth = CONVENIOS.length * cardWidth;
-  // CSS animation duration: blockWidth / speed (speed = 36px/s)
-  const duration = blockWidth / 36;
 
-  const resumeAnim = useCallback(() => {
+  // Aplicar transform diretamente no DOM (sem re-render)
+  const applyTransform = useCallback((x: number) => {
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${x}px)`;
+    }
+  }, []);
+
+  // Loop de animação via rAF
+  useEffect(() => {
+    const tick = () => {
+      if (!pausedRef.current) {
+        posRef.current -= SPEED;
+        // Reset quando passou um bloco completo (loop infinito)
+        if (Math.abs(posRef.current) >= blockWidth) {
+          posRef.current += blockWidth;
+        }
+        applyTransform(posRef.current);
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [blockWidth, applyTransform]);
+
+  const pauseScroll = useCallback(() => {
+    pausedRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+  }, []);
+
+  const resumeScroll = useCallback(() => {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
-      setPaused(false);
-      dragOffsetRef.current = 0;
-      if (trackRef.current) {
-        trackRef.current.style.transform = "";
-      }
+      pausedRef.current = false;
     }, RESUME_DELAY);
   }, []);
 
+  /* ---- Botões de seta ---- */
+  const handleArrow = useCallback((direction: "left" | "right") => {
+    pauseScroll();
+    const step = cardWidth * 2;
+    posRef.current += direction === "left" ? step : -step;
+    // Manter dentro dos limites do loop
+    if (posRef.current > 0) posRef.current -= blockWidth;
+    if (posRef.current < -blockWidth * 2) posRef.current += blockWidth;
+    applyTransform(posRef.current);
+    resumeScroll();
+  }, [cardWidth, blockWidth, pauseScroll, resumeScroll, applyTransform]);
+
   /* ---- Mouse drag ---- */
   const onMouseDown = useCallback((e: React.MouseEvent) => {
-    setPaused(true);
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    pauseScroll();
     isDraggingRef.current = true;
     dragStartXRef.current = e.clientX;
-    dragOffsetRef.current = currentOffsetRef.current;
+    dragStartPosRef.current = posRef.current;
     if (trackRef.current) trackRef.current.style.cursor = "grabbing";
-  }, []);
+  }, [pauseScroll]);
 
   const onMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDraggingRef.current) return;
     const delta = e.clientX - dragStartXRef.current;
-    const newOffset = dragOffsetRef.current + delta;
-    currentOffsetRef.current = newOffset;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${newOffset}px)`;
-    }
-  }, []);
+    posRef.current = dragStartPosRef.current + delta;
+    applyTransform(posRef.current);
+  }, [applyTransform]);
 
   const onMouseUp = useCallback(() => {
     if (!isDraggingRef.current) return;
     isDraggingRef.current = false;
     if (trackRef.current) trackRef.current.style.cursor = "grab";
-    resumeAnim();
-  }, [resumeAnim]);
+    resumeScroll();
+  }, [resumeScroll]);
 
   /* ---- Touch drag ---- */
   const onTouchStart = useCallback((e: React.TouchEvent) => {
-    setPaused(true);
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    pauseScroll();
     isDraggingRef.current = true;
     dragStartXRef.current = e.touches[0].clientX;
-    dragOffsetRef.current = currentOffsetRef.current;
-  }, []);
+    dragStartPosRef.current = posRef.current;
+  }, [pauseScroll]);
 
   const onTouchMove = useCallback((e: React.TouchEvent) => {
     if (!isDraggingRef.current) return;
     const delta = e.touches[0].clientX - dragStartXRef.current;
-    const newOffset = dragOffsetRef.current + delta;
-    currentOffsetRef.current = newOffset;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${newOffset}px)`;
-    }
-  }, []);
+    posRef.current = dragStartPosRef.current + delta;
+    applyTransform(posRef.current);
+  }, [applyTransform]);
 
   const onTouchEnd = useCallback(() => {
     isDraggingRef.current = false;
-    resumeAnim();
-  }, [resumeAnim]);
-
-  /* ---- Arrow navigation ---- */
-  const scrollBy = useCallback((direction: "left" | "right") => {
-    setPaused(true);
-    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
-    const step = cardWidth * 2;
-    const delta = direction === "left" ? step : -step;
-    dragOffsetRef.current = (dragOffsetRef.current || 0) + delta;
-    currentOffsetRef.current = dragOffsetRef.current;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${dragOffsetRef.current}px)`;
-    }
-    resumeAnim();
-  }, [cardWidth, resumeAnim]);
+    resumeScroll();
+  }, [resumeScroll]);
 
   return (
     <>
       <style>{`
-        @keyframes conv-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-${blockWidth}px); }
-        }
-
         .drudi-convenios {
           background: #FAFBFC;
           padding: 48px 0 40px;
@@ -179,13 +167,14 @@ export default function ConveniosCarousel() {
           );
         }
         .drudi-convenios::before { top: 0; }
-        .drudi-convenios::after { bottom: 0; }
+        .drudi-convenios::after  { bottom: 0; }
 
         .conv-carousel-wrapper {
           position: relative;
           margin-bottom: 28px;
           user-select: none;
         }
+        /* Fade nas bordas */
         .conv-carousel-wrapper::before,
         .conv-carousel-wrapper::after {
           content: '';
@@ -211,18 +200,11 @@ export default function ConveniosCarousel() {
 
         .conv-track {
           display: flex;
-          gap: 0;
           width: max-content;
           cursor: grab;
           will-change: transform;
-          animation: conv-scroll ${duration}s linear infinite;
         }
-        .conv-track.paused {
-          animation-play-state: paused;
-        }
-        .conv-track:active {
-          cursor: grabbing;
-        }
+        .conv-track:active { cursor: grabbing; }
 
         .conv-logo-card {
           flex-shrink: 0;
@@ -237,10 +219,6 @@ export default function ConveniosCarousel() {
           border: 1px solid rgba(0,0,0,0.05);
           padding: 12px 16px;
           transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-          pointer-events: none;
-        }
-        .conv-track:not(:active) .conv-logo-card {
-          pointer-events: auto;
         }
         .conv-logo-card:hover {
           border-color: rgba(201,168,108,0.35);
@@ -251,11 +229,34 @@ export default function ConveniosCarousel() {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
-          filter: none;
-          transition: transform 0.3s ease;
           pointer-events: none;
           -webkit-user-drag: none;
         }
+
+        .conv-arrow-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: white;
+          border: 1px solid rgba(201,168,108,0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+          transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .conv-arrow-btn:hover {
+          border-color: #C9A86C;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          background: #fffbf4;
+        }
+        .conv-arrow-btn.left  { left: 12px; }
+        .conv-arrow-btn.right { right: 12px; }
 
         .conv-count {
           display: inline-flex;
@@ -300,9 +301,7 @@ export default function ConveniosCarousel() {
             </span>
             <span className="w-5 h-px bg-gold/50" />
           </div>
-          <h2
-            className="font-display text-2xl md:text-[36px] font-semibold leading-snug text-navy"
-          >
+          <h2 className="font-display text-2xl md:text-[36px] font-semibold leading-snug text-navy">
             Atendemos os principais convênios
           </h2>
           <p className="font-body text-sm text-muted-foreground mt-2 max-w-lg mx-auto">
@@ -313,67 +312,35 @@ export default function ConveniosCarousel() {
         {/* Carrossel */}
         <div
           className="conv-carousel-wrapper"
-          ref={wrapperRef}
+          ref={containerRef}
           onMouseLeave={onMouseUp}
         >
           {/* Botão esquerda */}
           <button
-            onClick={() => scrollBy("left")}
+            className="conv-arrow-btn left"
+            onClick={() => handleArrow("left")}
             aria-label="Anterior"
-            style={{
-              position: "absolute",
-              left: "12px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              width: "36px",
-              height: "36px",
-              borderRadius: "50%",
-              background: "white",
-              border: "1px solid rgba(201,168,108,0.4)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-              transition: "border-color 0.2s, box-shadow 0.2s",
-            }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A1628" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
+
           {/* Botão direita */}
           <button
-            onClick={() => scrollBy("right")}
+            className="conv-arrow-btn right"
+            onClick={() => handleArrow("right")}
             aria-label="Próximo"
-            style={{
-              position: "absolute",
-              right: "12px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              width: "36px",
-              height: "36px",
-              borderRadius: "50%",
-              background: "white",
-              border: "1px solid rgba(201,168,108,0.4)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-              transition: "border-color 0.2s, box-shadow 0.2s",
-            }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A1628" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
+
           <div className="conv-track-container">
             <div
               ref={trackRef}
-              className={`conv-track${paused ? " paused" : ""}`}
+              className="conv-track"
               onMouseDown={onMouseDown}
               onMouseMove={onMouseMove}
               onMouseUp={onMouseUp}
@@ -386,8 +353,6 @@ export default function ConveniosCarousel() {
                   <img
                     src={conv.logo}
                     alt={conv.nome}
-                    // Primeira cópia (i < 7): eager para aparecer imediatamente
-                    // Segunda cópia (i >= 7): lazy pois só entra em cena depois do loop
                     loading={i < CONVENIOS.length ? "eager" : "lazy"}
                     decoding="async"
                     width={140}
