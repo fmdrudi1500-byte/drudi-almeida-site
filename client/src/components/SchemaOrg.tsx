@@ -4,7 +4,7 @@
              WebSite, LocalBusiness (x5 units)
    ============================================================ */
 
-const BASE_URL = "https://drudiealmeida.com.br";
+const BASE_URL = "https://institutodrudiealmeida.com.br";
 const PHONE = "+5511916544653";
 const PHONE_LANDLINE = "+551154302421";
 const EMAIL = "contato@drudiealmeida.com";
@@ -113,6 +113,13 @@ const drFernandoSchema = {
     "@type": "MedicalOrganization",
     name: "Conselho Brasileiro de Oftalmologia (CBO)",
   },
+  image: {
+    "@type": "ImageObject",
+    url: `${BASE_URL}/images/dr-fernando-800w.webp`,
+    width: 800,
+    height: 1067,
+    caption: "Dr. Fernando Macei Drudi — Diretor Clínico, Drudi e Almeida Oftalmologia",
+  },
 };
 
 const draPriscillaSchema = {
@@ -157,6 +164,13 @@ const draPriscillaSchema = {
   memberOf: {
     "@type": "MedicalOrganization",
     name: "Conselho Brasileiro de Oftalmologia (CBO)",
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${BASE_URL}/images/dra-priscilla-800w.webp`,
+    width: 800,
+    height: 1067,
+    caption: "Dra. Priscilla R. de Almeida — Diretora Técnica, Drudi e Almeida Oftalmologia",
   },
 };
 

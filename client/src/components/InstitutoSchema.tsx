@@ -4,7 +4,13 @@
    melhorando a visibilidade no Google Knowledge Panel e AI Search.
    ============================================================ */
 
-const BASE_URL = "https://drudiealmeida.com.br";
+const BASE_URL = "https://institutodrudiealmeida.com.br";
+
+// Fotos dos médicos para o Schema.org
+const PHYSICIAN_IMAGES: Record<string, string> = {
+  "Dr. Fernando Macei Drudi": `${BASE_URL}/images/dr-fernando-800w.webp`,
+  "Dra. Priscilla Rodrigues de Almeida": `${BASE_URL}/images/dra-priscilla-800w.webp`,
+};
 const PHONE = "+5511916544653";
 const PHONE_LANDLINE = "+551154302421";
 
@@ -161,6 +167,14 @@ export default function InstitutoSchema({ instituto }: Props) {
         medicalSpecialty: config.physician.specialty,
         identifier: identifiers,
         worksFor: { "@id": `${BASE_URL}/#organization` },
+        ...(PHYSICIAN_IMAGES[config.physician.name] ? {
+          image: {
+            "@type": "ImageObject",
+            url: PHYSICIAN_IMAGES[config.physician.name],
+            width: 800,
+            height: 1067,
+          },
+        } : {}),
       },
     };
   }
