@@ -1,11 +1,13 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
+import InstitutoHero from "@/components/InstitutoHero";
+import InstitutoCTA from "@/components/InstitutoCTA";
+import { IMAGES } from "@/lib/images";
 import {
   Search,
   Clock,
@@ -16,7 +18,6 @@ import {
   Music,
   GalleryHorizontal,
   Loader2,
-  MessageSquare,
 } from "lucide-react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -81,38 +82,29 @@ export default function BlogListing() {
         canonicalPath="/blog"
       />
 
-      {/* Hero */}
-      <section className="bg-navy text-cream py-16">
-        <div className="container">
-          <AnimateOnScroll>
-            <div className="max-w-2xl">
-              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-                Conteúdo Especializado
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl mt-3 mb-4 leading-tight">
-                Blog de Saúde Ocular
-              </h1>
-              <p className="font-body text-base text-cream/70 leading-relaxed">
-                Artigos, vídeos e conteúdos educativos sobre cuidados com a visão, 
-                elaborados pelos especialistas da Drudi e Almeida Oftalmologia.
-              </p>
-            </div>
-          </AnimateOnScroll>
+      <InstitutoHero
+        title="Blog de Saúde Ocular"
+        subtitle="Artigos, vídeos e conteúdos educativos sobre cuidados com a visão, elaborados pelos especialistas da Drudi e Almeida Oftalmologia."
+        imageUrl={IMAGES.art.monetJapaneseBridge}
+        breadcrumb="Blog"
+      />
 
-          {/* Search */}
-          <AnimateOnScroll delay={0.2} className="mt-8 max-w-xl">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cream/50" />
+      {/* Search bar — abaixo do hero */}
+      <div className="bg-white border-b border-border shadow-sm">
+        <div className="container py-4">
+          <AnimateOnScroll>
+            <div className="relative max-w-xl">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <input
                 value={search}
                 onChange={(e) => handleSearch(e.target.value)}
                 placeholder="Buscar artigos, vídeos, podcasts..."
-                className="w-full bg-white/10 border border-white/20 rounded-xl pl-12 pr-4 py-3 text-cream placeholder:text-cream/50 font-body text-sm focus:outline-none focus:border-gold/50 focus:bg-white/15 transition-all"
+                className="w-full bg-background border border-border rounded-xl pl-12 pr-4 py-3 text-foreground placeholder:text-muted-foreground font-body text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all"
               />
             </div>
           </AnimateOnScroll>
         </div>
-      </section>
+      </div>
 
       {/* Category filters */}
       {categories && categories.length > 0 && (
@@ -350,24 +342,11 @@ export default function BlogListing() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-cream/50 py-12">
-        <div className="container text-center">
-          <h3 className="font-display text-2xl text-navy mb-3">Cuide da sua visão</h3>
-          <p className="font-body text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-            Agende uma consulta com nossos especialistas e receba o melhor cuidado oftalmológico.
-          </p>
-          <a
-            href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold/90 transition-colors"
-          >
-            Agendar pelo WhatsApp
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-      </section>
+      <InstitutoCTA
+        title="Cuide da Sua Visão"
+        text="Leu algo que te preocupou? Agende uma consulta com nossos especialistas e receba o melhor cuidado oftalmológico."
+        backgroundImage={IMAGES.hero.happyFamily}
+      />
     </>
   );
 }
