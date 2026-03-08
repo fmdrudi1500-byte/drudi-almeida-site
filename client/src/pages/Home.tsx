@@ -365,7 +365,7 @@ export default function Home() {
               Nossos Fundadores
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Um casal de oftalmologistas unidos pela paixão em oferecer o melhor cuidado para a sua visão.
+              Dois médicos oftalmologistas unidos pela paixão em oferecer o melhor cuidado para a sua visão.
             </p>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>

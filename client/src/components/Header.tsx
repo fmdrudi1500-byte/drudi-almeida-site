@@ -333,26 +333,7 @@ export default function Header() {
 
           {/* CTA + Dark Mode Toggle + Mobile Toggle */}
           <div className="flex items-center gap-2">
-            {/* Admin / Login button */}
-            {isAuthenticated ? (
-              user?.role === "admin" && (
-                <Link
-                  href="/admin/agendamentos"
-                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
-                >
-                  <LayoutDashboard className="w-3.5 h-3.5" />
-                  Painel Admin
-                </Link>
-              )
-            ) : (
-              <a
-                href={getLoginUrl()}
-                className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                Área Restrita
-              </a>
-            )}
+            {/* Theme toggle — left of admin/login button */}
             <button
               onClick={toggleTheme}
               className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
@@ -380,6 +361,26 @@ export default function Header() {
                 </svg>
               </span>
             </button>
+            {/* Admin / Login button */}
+            {isAuthenticated ? (
+              user?.role === "admin" && (
+                <Link
+                  href="/admin/agendamentos"
+                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+                >
+                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  Painel Admin
+                </Link>
+              )
+            ) : (
+              <a
+                href={getLoginUrl()}
+                className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+              >
+                <LogIn className="w-3.5 h-3.5" />
+                Área Restrita
+              </a>
+            )}
 
             <Link
               href="/agendar"

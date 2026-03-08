@@ -136,6 +136,20 @@ export default function ConveniosCarousel() {
     resumeAnim();
   }, [resumeAnim]);
 
+  /* ---- Arrow navigation ---- */
+  const scrollBy = useCallback((direction: "left" | "right") => {
+    setPaused(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    const step = cardWidth * 2;
+    const delta = direction === "left" ? step : -step;
+    dragOffsetRef.current = (dragOffsetRef.current || 0) + delta;
+    currentOffsetRef.current = dragOffsetRef.current;
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${dragOffsetRef.current}px)`;
+    }
+    resumeAnim();
+  }, [cardWidth, resumeAnim]);
+
   return (
     <>
       <style>{`
@@ -302,6 +316,60 @@ export default function ConveniosCarousel() {
           ref={wrapperRef}
           onMouseLeave={onMouseUp}
         >
+          {/* Botão esquerda */}
+          <button
+            onClick={() => scrollBy("left")}
+            aria-label="Anterior"
+            style={{
+              position: "absolute",
+              left: "12px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              background: "white",
+              border: "1px solid rgba(201,168,108,0.4)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              transition: "border-color 0.2s, box-shadow 0.2s",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A1628" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          {/* Botão direita */}
+          <button
+            onClick={() => scrollBy("right")}
+            aria-label="Próximo"
+            style={{
+              position: "absolute",
+              right: "12px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              background: "white",
+              border: "1px solid rgba(201,168,108,0.4)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              transition: "border-color 0.2s, box-shadow 0.2s",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A1628" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
           <div className="conv-track-container">
             <div
               ref={trackRef}
