@@ -13,8 +13,8 @@ import { useState } from "react";
 
 
 // Fotos dos médicos — extensões .webp (convertidas na otimização)
-const DR_FERNANDO_FORMAL = `/images/dr-fernando-formal_efcf51ca.webp`;
-const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-formal_e0c1595b.webp`;
+const DR_FERNANDO_FORMAL = `/images/dr-fernando-800w.webp`;
+const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-800w.webp`;
 const DR_FERNANDO_AMAZONIA = `/images/dr-fernando-amazonia-elegant_0e59624a.webp`;
 
 // ============================================================
