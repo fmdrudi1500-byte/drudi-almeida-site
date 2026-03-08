@@ -10,9 +10,11 @@
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight, LayoutDashboard, LogIn } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 
 const LOGO_URL = "/images/logo-horizontal-resized_e945407b.webp";
 
@@ -87,6 +89,7 @@ function scrollToAnchor(anchor: string) {
 }
 
 export default function Header() {
+  const { user, isAuthenticated } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -330,6 +333,26 @@ export default function Header() {
 
           {/* CTA + Dark Mode Toggle + Mobile Toggle */}
           <div className="flex items-center gap-2">
+            {/* Admin / Login button */}
+            {isAuthenticated ? (
+              user?.role === "admin" && (
+                <Link
+                  href="/admin/agendamentos"
+                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+                >
+                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  Painel Admin
+                </Link>
+              )
+            ) : (
+              <a
+                href={getLoginUrl()}
+                className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+              >
+                <LogIn className="w-3.5 h-3.5" />
+                Área Restrita
+              </a>
+            )}
             <button
               onClick={toggleTheme}
               className="relative w-9 h-9 rounded-full border border-border flex items-center justify-center text-foreground hover:text-gold hover:border-gold transition-all duration-300"
@@ -446,7 +469,26 @@ export default function Header() {
             </button>
           )}
 
-          <div className="pt-3 mt-2 border-t border-border">
+          <div className="pt-3 mt-2 border-t border-border flex flex-col gap-2">
+            {isAuthenticated ? (
+              user?.role === "admin" && (
+                <Link
+                  href="/admin/agendamentos"
+                  className="flex items-center justify-center gap-2 border border-border text-foreground font-ui text-sm font-semibold px-5 py-3 rounded-md w-full hover:border-gold hover:text-gold transition-colors"
+                >
+                  <LayoutDashboard className="w-4 h-4" />
+                  Painel Admin
+                </Link>
+              )
+            ) : (
+              <a
+                href={getLoginUrl()}
+                className="flex items-center justify-center gap-2 border border-border text-foreground font-ui text-sm font-semibold px-5 py-3 rounded-md w-full hover:border-gold hover:text-gold transition-colors"
+              >
+                <LogIn className="w-4 h-4" />
+                Área Restrita
+              </a>
+            )}
             <Link
               href="/agendar"
               className="flex items-center justify-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-3 rounded-md w-full dark:bg-gold dark:text-navy"
