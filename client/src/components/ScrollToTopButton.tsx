@@ -2,12 +2,14 @@
    ScrollToTopButton — Drudi e Almeida
    - Aparece ao rolar > 300px para baixo
    - Desaparece quando scrollY ≤ 300 (comportamento simples e consistente)
+   - Posicionado no canto DIREITO da tela (não centralizado)
+     → evita conflito visual com badges/elementos do carrossel
    - Detecta o MobileCTABar via MutationObserver (tempo real)
-   - Quando banner visível: bottom = 80px (acima do banner)
-   - Quando banner oculto: bottom = 24px
-   - No mobile: apenas ícone + texto pequeno
+   - Quando barra visível no mobile: bottom = 72px (acima da barra de ~64px)
+   - Quando barra oculta: bottom = 24px
+   - No mobile: apenas ícone (compacto, não sobrepõe nada)
    - No desktop: ícone + texto "Topo"
-   - SEM timer automático de ocultação (evita aparência de botão duplicado)
+   - SEM timer automático de ocultação
    ============================================================ */
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
@@ -45,7 +47,7 @@ export default function ScrollToTopButton() {
       return () => clearInterval(poll);
     }
 
-    // --- Scroll: controla visibilidade do botão (simples: aparece/desaparece pelo scroll) ---
+    // --- Scroll: controla visibilidade do botão ---
     const onScroll = () => {
       setVisible(window.scrollY > 300);
     };
@@ -65,8 +67,10 @@ export default function ScrollToTopButton() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Posição dinâmica: acima do banner quando visível
-  const bottomPx = ctaBarVisible ? 80 : 24;
+  // No mobile: quando a barra do WhatsApp está visível, sobe para 72px
+  // (barra tem ~64px de altura + 8px de margem)
+  // No desktop: sempre 24px (barra não aparece no desktop)
+  const bottomPx = ctaBarVisible ? 72 : 24;
 
   return (
     <button
@@ -76,11 +80,11 @@ export default function ScrollToTopButton() {
       style={{
         bottom: `${bottomPx}px`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(12px)",
+        transform: visible ? "translateY(0)" : "translateY(12px)",
         pointerEvents: visible ? "auto" : "none",
         transition: "opacity 0.25s ease-out, transform 0.25s ease-out, bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
-      className="fixed left-1/2 z-[99997] flex items-center gap-1.5 px-3 py-2.5 md:px-4 rounded-full bg-white/95 dark:bg-navy/95 backdrop-blur-sm shadow-lg border border-border/40 text-navy dark:text-cream font-ui text-xs font-semibold hover:bg-white dark:hover:bg-navy transition-colors active:scale-95"
+      className="fixed right-4 z-[99997] flex items-center gap-1.5 px-3 py-2.5 md:px-4 rounded-full bg-white/95 dark:bg-navy/95 backdrop-blur-sm shadow-lg border border-border/40 text-navy dark:text-cream font-ui text-xs font-semibold hover:bg-white dark:hover:bg-navy transition-colors active:scale-95"
     >
       <ChevronUp className="w-4 h-4" />
       <span className="hidden md:inline">Topo</span>
