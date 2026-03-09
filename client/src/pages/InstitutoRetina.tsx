@@ -559,21 +559,43 @@ export default function InstitutoRetina() {
               </p>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cream/10 max-w-md mx-auto mb-8">
                 <div className="space-y-4">
-                  <select value={selectedUnidade} onChange={(e) => setSelectedUnidade(e.target.value)} className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold">
+                  <select
+                    value={selectedUnidade}
+                    onChange={(e) => setSelectedUnidade(e.target.value)}
+                    className="w-full bg-white text-navy font-body text-sm rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-gold"
+                  >
                     <option value="">Selecione a unidade</option>
                     {unidades.map((u) => (<option key={u.id} value={u.id}>{u.name}</option>))}
                   </select>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20">
-                    <DollarSign className="w-4 h-4" />Receber Preço
+                  <a
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-gold-light transition-all shadow-lg shadow-gold/20"
+                  >
+                    <DollarSign className="w-4 h-4" />
+                    Receber Preço
                   </a>
+                  <AgendarOnlineBtn variant="light" className="w-full justify-center" />
                 </div>
               </div>
+
               <div className="flex flex-wrap justify-center gap-4">
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gold font-ui text-sm font-semibold hover:text-gold-light transition-colors">
-                  <MessageCircle className="w-4 h-4" />Agende pelo WhatsApp
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gold font-ui text-sm font-semibold hover:text-gold-light transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Agende pelo WhatsApp
                 </a>
-                <a href={`tel:+55${PHONE_NUM.replace(/\D/g, "")}`} className="inline-flex items-center gap-2 text-cream/70 font-ui text-sm font-semibold hover:text-cream transition-colors">
-                  <Phone className="w-4 h-4" />Ligar: {PHONE_NUM}
+                <a
+                  href={`tel:+55${PHONE_NUM.replace(/\D/g, "")}`}
+                  className="inline-flex items-center gap-2 text-cream/70 font-ui text-sm font-semibold hover:text-cream transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Ligar: {PHONE_NUM}
                 </a>
               </div>
             </div>
