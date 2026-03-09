@@ -10,11 +10,10 @@
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight, LayoutDashboard, LogIn } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, MessageSquare, ArrowRight, LayoutDashboard } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { getLoginUrl } from "@/const";
 import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 const LOGO_URL = "/images/logo-horizontal-resized_e945407b.webp";
@@ -363,25 +362,15 @@ export default function Header() {
                 </svg>
               </span>
             </button>
-            {/* Admin / Login button */}
-            {isAuthenticated ? (
-              user?.role === "admin" && (
-                <Link
-                  href="/admin/agendamentos"
-                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors whitespace-nowrap"
-                >
-                  <LayoutDashboard className="w-3.5 h-3.5" />
-                  Painel Admin
-                </Link>
-              )
-            ) : (
-              <a
-                href={getLoginUrl()}
+            {/* Admin button — only for authenticated admins */}
+            {isAuthenticated && user?.role === "admin" && (
+              <Link
+                href="/admin/agendamentos"
                 className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors whitespace-nowrap"
               >
-                <LogIn className="w-3.5 h-3.5" />
-                Área Restrita
-              </a>
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                Painel Admin
+              </Link>
             )}
 
             <Link
@@ -473,24 +462,14 @@ export default function Header() {
           )}
 
           <div className="pt-3 mt-2 border-t border-border flex flex-col gap-2">
-            {isAuthenticated ? (
-              user?.role === "admin" && (
-                <Link
-                  href="/admin/agendamentos"
-                  className="flex items-center justify-center gap-2 border border-border text-foreground font-ui text-sm font-semibold px-5 py-3 rounded-md w-full hover:border-gold hover:text-gold transition-colors"
-                >
-                  <LayoutDashboard className="w-4 h-4" />
-                  Painel Admin
-                </Link>
-              )
-            ) : (
-              <a
-                href={getLoginUrl()}
+            {isAuthenticated && user?.role === "admin" && (
+              <Link
+                href="/admin/agendamentos"
                 className="flex items-center justify-center gap-2 border border-border text-foreground font-ui text-sm font-semibold px-5 py-3 rounded-md w-full hover:border-gold hover:text-gold transition-colors"
               >
-                <LogIn className="w-4 h-4" />
-                Área Restrita
-              </a>
+                <LayoutDashboard className="w-4 h-4" />
+                Painel Admin
+              </Link>
             )}
             <Link
               href="/agendar"
