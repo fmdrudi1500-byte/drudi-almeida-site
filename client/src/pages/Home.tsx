@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Oftalmologista em São Paulo"
+        title="Drudi e Almeida | Oftalmologista em SP"
         description="Oftalmologista em São Paulo com 5 institutos especializados: catarata, ceratocone, glaucoma, retina e estrabismo. Agende sua consulta."
         keywords="oftalmologista São Paulo, cirurgia de catarata SP, ceratocone tratamento, glaucoma especialista, clínica de olhos SP"
         canonicalPath="/"
