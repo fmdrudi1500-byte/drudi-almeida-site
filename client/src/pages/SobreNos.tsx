@@ -9,7 +9,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 
 
 // Fotos dos médicos — extensões .webp (convertidas na otimização)
@@ -120,19 +120,40 @@ Mantém participação constante em congressos nacionais e internacionais, curso
 function MVVSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const current = mvv[activeIndex];
-  const touchStartX = useRef<number | null>(null);
 
-  const goNext = () => setActiveIndex((i) => (i + 1) % mvv.length);
-  const goPrev = () => setActiveIndex((i) => (i - 1 + mvv.length) % mvv.length);
+  // Touch / mouse drag state
+  const dragStartX = useRef<number | null>(null);
+  const isDragging = useRef(false);
 
+  const goNext = useCallback(() => setActiveIndex((i) => (i + 1) % mvv.length), []);
+  const goPrev = useCallback(() => setActiveIndex((i) => (i - 1 + mvv.length) % mvv.length), []);
+
+  // Touch handlers
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
+    dragStartX.current = e.touches[0].clientX;
   };
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (dragStartX.current === null) return;
+    const diff = dragStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) diff > 0 ? goNext() : goPrev();
-    touchStartX.current = null;
+    dragStartX.current = null;
+  };
+
+  // Mouse drag handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragStartX.current = e.clientX;
+    isDragging.current = false;
+  };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (dragStartX.current !== null && Math.abs(e.clientX - dragStartX.current) > 5) {
+      isDragging.current = true;
+    }
+  };
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (dragStartX.current === null) return;
+    const diff = dragStartX.current - e.clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? goNext() : goPrev();
+    dragStartX.current = null;
   };
 
   return (
@@ -178,8 +199,17 @@ function MVVSection() {
               })}
             </div>
 
-            {/* Content panel */}
-            <div key={activeIndex} className="animate-fade-in" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+            {/* Content panel — drag/swipe enabled */}
+            <div
+              key={activeIndex}
+              className="animate-fade-in select-none cursor-grab active:cursor-grabbing"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={() => { dragStartX.current = null; }}
+            >
               <h3 className="font-display text-2xl md:text-3xl text-navy mb-4 leading-tight">
                 {current.title}
               </h3>
@@ -219,39 +249,38 @@ function MVVSection() {
                 </div>
               </div>
 
-              {/* Navigation dots + arrows */}
-              <div className="flex items-center gap-3 mt-6">
-                {/* Prev arrow */}
-                <button
-                  onClick={goPrev}
-                  aria-label="Item anterior"
-                  className="w-8 h-8 rounded-full border border-navy/20 flex items-center justify-center text-navy/60 hover:bg-navy hover:text-cream hover:border-navy transition-all duration-200"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                {/* Dots */}
-                {mvv.map((item, idx) => (
+              {/* Navigation — integrado no card de citação */}
+              <div className="flex items-center justify-between mt-5 px-1">
+                <div className="flex items-center gap-2">
+                  {mvv.map((item, idx) => (
+                    <button
+                      key={item.id}
+                      onClick={() => setActiveIndex(idx)}
+                      className={`transition-all duration-300 rounded-full ${
+                        activeIndex === idx
+                          ? "w-6 h-2 bg-gold"
+                          : "w-2 h-2 bg-navy/20 hover:bg-navy/40"
+                      }`}
+                      aria-label={`Ver ${item.label}`}
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center gap-1.5">
                   <button
-                    key={item.id}
-                    onClick={() => setActiveIndex(idx)}
-                    className={`transition-all duration-300 rounded-full ${
-                      activeIndex === idx
-                        ? "w-8 h-2 bg-navy"
-                        : "w-2 h-2 bg-navy/25 hover:bg-navy/40"
-                    }`}
-                    aria-label={`Ver ${item.label}`}
-                  />
-                ))}
-
-                {/* Next arrow */}
-                <button
-                  onClick={goNext}
-                  aria-label="Próximo item"
-                  className="w-8 h-8 rounded-full border border-navy/20 flex items-center justify-center text-navy/60 hover:bg-navy hover:text-cream hover:border-navy transition-all duration-200"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                    onClick={goPrev}
+                    aria-label="Item anterior"
+                    className="w-7 h-7 rounded-full bg-navy/8 flex items-center justify-center text-navy/50 hover:bg-navy hover:text-cream transition-all duration-200"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={goNext}
+                    aria-label="Próximo item"
+                    className="w-7 h-7 rounded-full bg-navy/8 flex items-center justify-center text-navy/50 hover:bg-navy hover:text-cream transition-all duration-200"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -289,16 +318,12 @@ function MVVSection() {
                   </div>
                 </div>
 
-                {/* Floating badge — posicionado fora da área de texto */}
-                <div className="absolute top-4 right-4 bg-white rounded-xl shadow-lg border border-gold/20 p-3 max-w-[160px]">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                      <Award className="w-4 h-4 text-gold" />
-                    </div>
-                    <div>
-                      <p className="font-ui text-[10px] font-bold text-navy leading-tight">Amigo da Marinha</p>
-                      <p className="font-body text-[10px] text-muted-foreground">Marinha do Brasil</p>
-                    </div>
+                {/* Selo de qualidade — canto inferior esquerdo, compacto */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-md border border-gold/30 px-2.5 py-1.5">
+                  <Award className="w-3 h-3 text-gold shrink-0" />
+                  <div>
+                    <p className="font-ui text-[9px] font-bold text-navy leading-tight">Amigo da Marinha</p>
+                    <p className="font-body text-[8px] text-muted-foreground leading-tight">Marinha do Brasil</p>
                   </div>
                 </div>
               </div>
