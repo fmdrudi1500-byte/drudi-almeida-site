@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { HelmetProvider } from "react-helmet-async";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { lazy, Suspense } from "react";
@@ -23,7 +23,6 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Convenios = lazy(() => import("./pages/Convenios"));
-const Agendamento = lazy(() => import("./pages/Agendamento"));
 const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
 const BlogListing = lazy(() => import("./pages/BlogListing"));
 const BlogAdmin = lazy(() => import("./pages/admin/BlogAdmin"));
@@ -63,7 +62,7 @@ function Router() {
           <Route path="/blog-legado" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/convenios" component={Convenios} />
-          <Route path="/agendamento" component={Agendamento} />
+          <Route path="/agendamento">{() => <Redirect to="/agendar" />}</Route>
           <Route path="/contato" component={Contato} />
           <Route path="/trabalhe-conosco" component={TrabalheConosco} />
           <Route path="/admin/blog" component={BlogAdmin} />

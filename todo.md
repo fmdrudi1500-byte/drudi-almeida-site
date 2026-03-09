@@ -278,3 +278,18 @@
 - [ ] Painel admin /admin/agendamentos: visualizar por unidade/data, cancelar agendamentos
 - [ ] Painel admin: bloquear/desbloquear dias por unidade
 - [ ] Testes vitest para lógica de disponibilidade e criação de agendamentos
+
+## Auditoria Completa — Março 2026
+
+- [x] Auditoria TypeScript: 0 erros encontrados
+- [x] Auditoria de console: 0 erros ativos (erro antigo de HMR do AgendarOnlineBtn já resolvido)
+- [x] Auditoria de rede: 0 erros 4xx/5xx
+- [x] Auditoria de banco de dados: 14 artigos íntegros, 0 slugs duplicados
+- [x] Corrigir domínio no sitemap.ts (drudiealmeida.com.br → institutodrudiealmeida.com.br)
+- [x] Corrigir domínio no robots.txt (drudiealmeida.com.br → institutodrudiealmeida.com.br)
+- [x] Corrigir rota no sitemap (/agendamento → /agendar)
+- [x] Corrigir domínio no Breadcrumb.tsx (drudiealmeida.com.br → institutodrudiealmeida.com.br)
+- [x] Corrigir email no SchemaMarkup.tsx (contato@institutodrudiealmeida.com.br → contato@drudiealmeida.com)
+- [x] Adicionar redirect 301 da rota /agendamento → /agendar no App.tsx
+- [x] Remover import não utilizado do Agendamento no App.tsx
+- [x] Todos os 18 testes automatizados passando

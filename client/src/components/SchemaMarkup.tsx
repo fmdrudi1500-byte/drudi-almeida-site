@@ -33,7 +33,7 @@ const CLINIC_BASE = {
   logo: "https://www.institutodrudiealmeida.com.br/logo-drudi-almeida.svg",
   image: "https://www.institutodrudiealmeida.com.br/og-image.jpg",
   telephone: "+55-11-5430-2421",
-  email: "contato@institutodrudiealmeida.com.br",
+  email: "contato@drudiealmeida.com",
   description:
     "Clínica oftalmológica com 5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades em São Paulo e Guarulhos.",
   medicalSpecialty: "Ophthalmology",

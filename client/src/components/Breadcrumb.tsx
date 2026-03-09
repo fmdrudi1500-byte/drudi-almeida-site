@@ -29,7 +29,7 @@ export default function Breadcrumb({ items, className = "" }: Props) {
       position: index + 1,
       name: item.label,
       ...(item.href
-        ? { item: `https://drudiealmeida.com.br${item.href}` }
+        ? { item: `https://institutodrudiealmeida.com.br${item.href}` }
         : {}),
     })),
   };
