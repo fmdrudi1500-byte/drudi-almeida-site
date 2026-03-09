@@ -275,7 +275,7 @@ export default function InstitutoCatarata() {
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
               Cirurgia de{" "}
-              <span className="text-gold italic">Catarata</span>{" "}
+              <span className="text-gold italic gold-word-animate">Catarata</span>{" "}
               com tecnologia e cuidado
             </h1>
 

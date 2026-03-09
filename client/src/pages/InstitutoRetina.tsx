@@ -233,7 +233,7 @@ export default function InstitutoRetina() {
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DA RETINA</span>
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
-              <span className="text-gold italic">Retina</span>: tratamentos avançados para preservar cada detalhe
+              <span className="text-gold italic gold-word-animate">Retina</span>: tratamentos avançados para preservar cada detalhe
             </h1>
             <p className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
               A retina é responsável por transformar luz em visão. Selecione sua unidade e receba informações sobre diagnóstico e tratamento com nossos especialistas.

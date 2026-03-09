@@ -187,7 +187,7 @@ export default function InstitutoCeratocone() {
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
               Tratamento de{" "}
-              <span className="text-gold italic">Ceratocone</span>{" "}
+              <span className="text-gold italic gold-word-animate">Ceratocone</span>{" "}
               com especialistas em córnea
             </h1>
 

@@ -320,3 +320,9 @@
 - [x] Adicionar highlightWord="Glaucoma" em InstitutoGlaucoma.tsx
 - [x] Adicionar highlightWord="Retina" em InstitutoRetina.tsx
 - [x] Adicionar highlightWord="Estrabismo" em InstitutoEstrabismo.tsx
+
+## Animação fade-in nos títulos dos institutos — Março 2026
+
+- [x] Criar keyframes goldWordReveal e goldShimmer no index.css
+- [x] Criar classe .gold-word-animate com animação fade-in + shimmer dourado
+- [x] Aplicar gold-word-animate nos spans de destaque das 5 páginas de institutos

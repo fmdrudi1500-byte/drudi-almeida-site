@@ -238,7 +238,7 @@ export default function InstitutoGlaucoma() {
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DO GLAUCOMA</span>
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
-              <span className="text-gold italic">Glaucoma</span>: diagnóstico precoce para preservar sua visão
+              <span className="text-gold italic gold-word-animate">Glaucoma</span>: diagnóstico precoce para preservar sua visão
             </h1>
             <p className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
               O glaucoma é o "ladrão silencioso da visão". Selecione sua unidade e receba informações sobre diagnóstico e tratamento com especialistas.

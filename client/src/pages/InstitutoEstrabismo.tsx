@@ -186,7 +186,7 @@ export default function InstitutoEstrabismo() {
               <span className="font-ui text-xs font-semibold text-gold tracking-wide">INSTITUTO DO ESTRABISMO</span>
             </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6">
-              <span className="text-gold italic">Estrabismo</span>: alinhamento perfeito para olhos e autoestima
+              <span className="text-gold italic gold-word-animate">Estrabismo</span>: alinhamento perfeito para olhos e autoestima
             </h1>
             <p className="font-body text-lg text-cream/80 leading-relaxed mb-8 max-w-xl">
               Tratamento especializado para crianças e adultos. Selecione sua unidade e receba informações sobre diagnóstico e cirurgia de estrabismo.
