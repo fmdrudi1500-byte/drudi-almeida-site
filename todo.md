@@ -300,3 +300,9 @@
 - [x] Adicionar redirects 301 no servidor para URLs 404 antigas: /instituto-catarata, /instituto-ceratocone, /instituto-glaucoma, /instituto-retina, /instituto-estrabismo → /instituto/*
 - [x] Confirmar redirect 301 /agendamento → /agendar no servidor (além do redirect client-side)
 - [ ] Reenviar sitemap no Search Console usando URL sem www: https://institutodrudiealmeida.com.br/sitemap.xml
+
+## Correções Página Contato — Março 2026
+
+- [ ] Título "Contato" no header em cor dourada (text-gold)
+- [ ] Trocar imagem de fundo do header por imagem otimizada para performance
+- [ ] Padronizar CTA "Agende sua Consulta" igual ao da Home

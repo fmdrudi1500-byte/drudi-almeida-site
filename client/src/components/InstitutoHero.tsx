@@ -14,9 +14,11 @@ interface Props {
   imageUrl?: string;
   breadcrumb: string;
   logoUrl?: string;
+  /** Palavra do título a destacar em dourado (padrão: "Almeida") */
+  highlightWord?: string;
 }
 
-export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, logoUrl }: Props) {
+export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, logoUrl, highlightWord }: Props) {
   const bgImage = imageUrl ?? STARRY_NIGHT_URL;
   return (
     <section className="relative h-[50vh] min-h-[400px] max-h-[550px] overflow-hidden">
@@ -59,14 +61,20 @@ export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, l
               className="font-display text-3xl md:text-5xl lg:text-6xl text-cream max-w-3xl leading-tight"
               style={{ animation: "heroFadeUp 0.6s ease 0.3s both" }}
             >
-              {title.includes("Almeida")
-                ? title.split("Almeida").map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
-                      {i < arr.length - 1 && <span className="text-gold">Almeida</span>}
-                    </span>
-                  ))
-                : title}
+              {(() => {
+                const word = highlightWord ?? "Almeida";
+                if (!title.includes(word)) return <>{title}</>;
+                return (
+                  <>
+                    {title.split(word).map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && <span className="text-gold italic">{word}</span>}
+                      </span>
+                    ))}
+                  </>
+                );
+              })()}
             </h1>
 
             <p
