@@ -22,7 +22,8 @@ export default function SEOHead({
   ogType = "website",
   schema,
 }: SEOHeadProps) {
-  const fullTitle = `${title} | Drudi e Almeida Oftalmologia`;
+  // Title is used as-is; each page must include brand name if desired and keep within 30-60 chars
+  const fullTitle = title;
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   // Ensure ogImage is absolute URL
   const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;

@@ -212,7 +212,7 @@ export default function InstitutoGlaucoma() {
   return (
     <>
       <SEOHead
-        title="Instituto do Glaucoma — Diagnóstico e Tratamento em SP"
+        title="Glaucoma: Diagnóstico e Tratamento em SP"
         description="Diagnóstico precoce e tratamento do glaucoma com tecnologia de última geração. Tonometria, campo visual, OCT. 5 unidades em São Paulo e Guarulhos."
         keywords="glaucoma tratamento SP, glaucoma especialista São Paulo, pressão ocular, tonometria, campo visual, oftalmologista glaucoma"
         canonicalPath="/instituto/glaucoma"

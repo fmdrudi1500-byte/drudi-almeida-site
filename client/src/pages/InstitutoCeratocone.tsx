@@ -154,7 +154,7 @@ export default function InstitutoCeratocone() {
   return (
     <>
       <SEOHead
-        title="Instituto do Ceratocone — Crosslinking e Tratamentos em SP"
+        title="Ceratocone: Crosslinking e Tratamento | SP"
         description="Tratamento de ceratocone em SP: crosslinking, anel de Ferrara e lentes especiais. Diagnóstico com Pentacam. 5 unidades. Agende sua consulta."
         keywords="ceratocone tratamento SP, crosslinking São Paulo, anel de Ferrara, lente de contato ceratocone, Pentacam, oftalmologista ceratocone"
         canonicalPath="/instituto/ceratocone"

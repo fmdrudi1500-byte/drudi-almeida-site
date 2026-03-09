@@ -199,7 +199,7 @@ export default function Tecnologia() {
   return (
     <>
       <SEOHead
-        title="Tecnologia — Equipamentos de Última Geração"
+        title="Tecnologia Oftalmológica | Drudi e Almeida"
         description="Conheça os equipamentos e tecnologias utilizados na Drudi e Almeida: Pentacam, OCT, laser femtossegundo, facoemulsificação e mais."
         keywords="tecnologia oftalmológica, Pentacam, OCT, laser femtossegundo, equipamentos oftalmologia, Drudi e Almeida tecnologia"
         canonicalPath="/tecnologia"

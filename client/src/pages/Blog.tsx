@@ -163,7 +163,7 @@ export default function Blog() {
   return (
     <>
       <SEOHead
-        title="Blog — Artigos sobre Saúde Ocular"
+        title="Blog de Saúde Ocular | Drudi e Almeida"
         description="Artigos educativos sobre catarata, ceratocone, glaucoma, retina, estrabismo e saúde ocular. Informação de qualidade para cuidar da sua visão."
         keywords="blog oftalmologia, artigos saúde ocular, catarata blog, glaucoma informações, ceratocone artigos"
         canonicalPath="/blog"

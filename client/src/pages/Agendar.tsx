@@ -166,7 +166,7 @@ export default function Agendar() {
   return (
     <>
       <SEOHead
-        title="Agendar Consulta — Drudi e Almeida Oftalmologia"
+        title="Agendar Consulta | Drudi e Almeida"
         description="Agende sua consulta oftalmológica nas unidades Santana, Guarulhos, Tatuapé, São Miguel e Lapa. Rápido, fácil e sem complicação."
         canonicalPath="/agendar"
       />

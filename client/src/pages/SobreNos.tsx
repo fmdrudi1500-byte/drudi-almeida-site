@@ -341,7 +341,7 @@ export default function SobreNos() {
   return (
     <>
       <SEOHead
-        title="Sobre Nós — Nossa História e Equipe"
+        title="Sobre Nós | Drudi e Almeida Oftalmologia"
         description="Conheça a história da Drudi e Almeida Oftalmologia, fundada pelo Dr. Fernando Drudi e Dra. Priscilla de Almeida. +10 anos de experiência em saúde ocular."
         keywords="Drudi e Almeida história, Dr Fernando Drudi, Dra Priscilla Almeida, clínica oftalmológica São Paulo, equipe médica"
         canonicalPath="/sobre"

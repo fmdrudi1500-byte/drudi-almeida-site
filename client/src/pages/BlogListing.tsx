@@ -76,7 +76,7 @@ export default function BlogListing() {
   return (
     <>
       <SEOHead
-        title="Blog — Saúde Ocular e Oftalmologia"
+        title="Blog de Saúde Ocular | Drudi e Almeida"
         description="Artigos, vídeos e conteúdos sobre saúde ocular, catarata, ceratocone, glaucoma, retina e estrabismo. Drudi e Almeida Oftalmologia."
         keywords="blog oftalmologia, saúde ocular, catarata, ceratocone, glaucoma, retina"
         canonicalPath="/blog"

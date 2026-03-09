@@ -166,7 +166,7 @@ export default function InstitutoEstrabismo() {
   return (
     <>
       <SEOHead
-        title="Instituto de Estrabismo — Cirurgia para Crianças e Adultos em SP"
+        title="Cirurgia de Estrabismo em SP | Drudi e Almeida"
         description="Cirurgia de estrabismo para crianças e adultos. Diagnóstico preciso e técnicas modernas de correção. 5 unidades em São Paulo e Guarulhos."
         keywords="estrabismo cirurgia SP, estrabismo infantil, estrabismo adulto, oftalmologista estrabismo São Paulo, olho torto tratamento"
         canonicalPath="/instituto/estrabismo"

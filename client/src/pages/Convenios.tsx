@@ -92,7 +92,7 @@ export default function Convenios() {
   return (
     <>
       <SEOHead
-        title="Convênios — Planos de Saúde Aceitos"
+        title="Planos de Saúde Aceitos | Drudi e Almeida"
         description="Confira os convênios e planos de saúde aceitos na Drudi e Almeida Oftalmologia. Atendemos os principais planos de São Paulo."
         keywords="convênios oftalmologia SP, planos de saúde aceitos, oftalmologista convênio São Paulo, Drudi e Almeida convênios"
         canonicalPath="/convenios"

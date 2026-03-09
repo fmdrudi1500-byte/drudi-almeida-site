@@ -213,7 +213,7 @@ export default function InstitutoRetina() {
   return (
     <>
       <SEOHead
-        title="Instituto da Retina — Retina Cirúrgica em SP"
+        title="Retina Cirúrgica em SP | Drudi e Almeida"
         description="Retina cirúrgica em SP: vitrectomia, injeções intravítreas e retinopatia diabética. Dr. Fernando Drudi, especialista. 5 unidades. Agende."
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"

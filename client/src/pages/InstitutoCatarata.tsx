@@ -237,7 +237,7 @@ export default function InstitutoCatarata() {
   return (
     <>
       <SEOHead
-        title="Instituto da Catarata — Cirurgia de Catarata em SP"
+        title="Cirurgia de Catarata em SP | Drudi e Almeida"
         description="Cirurgia de catarata com facoemulsificação e lentes premium em SP. Especialistas renomados, 5 unidades em São Paulo e Guarulhos. Agende sua avaliação."
         keywords="cirurgia de catarata SP, catarata tratamento, facoemulsificação, lente intraocular, oftalmologista catarata São Paulo, preço cirurgia catarata"
         canonicalPath="/instituto/catarata"

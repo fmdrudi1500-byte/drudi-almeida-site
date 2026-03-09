@@ -121,7 +121,7 @@ export default function Agendamento() {
     return (
       <>
       <SEOHead
-        title="Agendar Consulta — Marque sua Avaliação"
+        title="Agendar Consulta | Drudi e Almeida"
         description="Agende sua consulta oftalmológica na Drudi e Almeida. Escolha a unidade mais próxima e o instituto especializado. Atendimento rápido e humanizado."
         keywords="agendar consulta oftalmologista SP, marcar consulta olhos, agendamento oftalmologia São Paulo"
         canonicalPath="/agendamento"

@@ -230,7 +230,7 @@ export default function TrabalheConosco() {
   return (
     <Layout>
       <SEOHead
-        title="Trabalhe Conosco — Vagas em Oftalmologia em São Paulo"
+        title="Trabalhe Conosco | Drudi e Almeida"
         description="Faça parte da equipe Drudi e Almeida Oftalmologia. Vagas para oftalmologistas, ortoptistas, técnicos e recepcionistas em SP. Candidate-se online."
         keywords="vagas oftalmologia São Paulo, trabalhe conosco clínica olhos, emprego oftalmologista SP"
         canonicalPath="/trabalhe-conosco"
