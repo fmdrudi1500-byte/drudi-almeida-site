@@ -46,9 +46,20 @@
       fetchpriority="high"
     />
 
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1Y6Z77ZK6M');
+    </script>
+
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
     <!-- Fonts: Inlined @font-face for latin subset (eliminates render-blocking Google Fonts request) -->
     <!-- INLINE_FONTS_PLACEHOLDER -->
