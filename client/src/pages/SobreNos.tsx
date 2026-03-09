@@ -304,16 +304,52 @@ function MVVSection() {
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
 
-                  {/* Medalha — sobre a foto, canto superior esquerdo */}
-                  <div className="absolute top-4 left-4 z-10 flex flex-col items-center drop-shadow-lg">
-                    {/* Fita da medalha */}
-                    <div className="w-2 h-6 bg-gradient-to-b from-navy via-navy/80 to-navy/50 rounded-t-sm" />
-                    <div className="w-5 h-1.5 bg-navy/70" />
-                    {/* Corpo circular da medalha */}
-                    <div className="w-16 h-16 rounded-full bg-white shadow-xl border-2 border-white flex flex-col items-center justify-center text-center p-1.5 ring-2 ring-navy/20">
-                      <Award className="w-6 h-6 text-navy mb-0.5" />
-                      <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo da<br/>Marinha</p>
-                    </div>
+                  {/* Roseta — sobre a foto, canto superior esquerdo */}
+                  <div className="absolute top-3 left-3 z-10" style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.35))' }}>
+                    <svg width="72" height="90" viewBox="0 0 72 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Fitas inferiores */}
+                      <polygon points="28,58 34,88 38,58" fill="#1a3a6b" />
+                      <polygon points="34,58 40,88 44,58" fill="#1e4080" />
+                      <line x1="31" y1="58" x2="36" y2="88" stroke="#4a7cc7" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="37" y1="58" x2="42" y2="88" stroke="#4a7cc7" strokeWidth="0.8" opacity="0.6" />
+                      {/* Pétalas da roseta — anel externo */}
+                      {Array.from({ length: 16 }).map((_, i) => {
+                        const angle = (i * 360) / 16;
+                        const rad = (angle * Math.PI) / 180;
+                        const cx = 36 + Math.cos(rad) * 22;
+                        const cy = 36 + Math.sin(rad) * 22;
+                        return (
+                          <ellipse
+                            key={i}
+                            cx={cx}
+                            cy={cy}
+                            rx="7"
+                            ry="4"
+                            transform={`rotate(${angle}, ${cx}, ${cy})`}
+                            fill={i % 2 === 0 ? '#1e4080' : '#c8d4e8'}
+                            opacity="0.95"
+                          />
+                        );
+                      })}
+                      {/* Anel de folhas de louro */}
+                      <circle cx="36" cy="36" r="18" fill="none" stroke="#c8d4e8" strokeWidth="2.5" strokeDasharray="3 2" />
+                      {/* Disco central — gradiente prata */}
+                      <defs>
+                        <radialGradient id="silverGrad" cx="40%" cy="35%" r="60%">
+                          <stop offset="0%" stopColor="#f0f4f8" />
+                          <stop offset="50%" stopColor="#d0dae8" />
+                          <stop offset="100%" stopColor="#a8b8cc" />
+                        </radialGradient>
+                      </defs>
+                      <circle cx="36" cy="36" r="15" fill="url(#silverGrad)" stroke="#c8d4e8" strokeWidth="1.5" />
+                      {/* Texto no centro */}
+                      <text x="36" y="33" textAnchor="middle" fontFamily="sans-serif" fontSize="4.5" fontWeight="900" fill="#0f2a5a" letterSpacing="0.3">
+                        AMIGO DA
+                      </text>
+                      <text x="36" y="39" textAnchor="middle" fontFamily="sans-serif" fontSize="4.5" fontWeight="900" fill="#0f2a5a" letterSpacing="0.3">
+                        MARINHA
+                      </text>
+                    </svg>
                   </div>
 
                   {/* Caption */}
