@@ -27,7 +27,7 @@ interface BarData {
 
 const PAGE_DATA: Record<string, BarData> = {
   "/instituto/catarata": {
-    texto: "A catarata tem tratamento definitivo — avaliação gratuita disponível em {mes}.",
+    texto: "A catarata tem tratamento definitivo — avaliação com preço reduzido disponível em {mes}.",
     icone: "eye",
     ctaMsg: "Olá! Gostaria de agendar uma avaliação de catarata.",
   },
