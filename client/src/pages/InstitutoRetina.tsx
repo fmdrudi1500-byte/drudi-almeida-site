@@ -225,7 +225,7 @@ export default function InstitutoRetina() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
-        <div className="relative container py-20">
+        <div className="relative container py-14">
           <div className="max-w-2xl">
 
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
@@ -345,7 +345,7 @@ export default function InstitutoRetina() {
       {/* ========== 5. SINTOMAS ZIGZAG ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Sinais de Alerta</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Quando Procurar um Retinólogo?</h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Estes sintomas podem indicar problemas retinianos que requerem avaliação urgente:</p>
@@ -381,7 +381,7 @@ export default function InstitutoRetina() {
       {/* ========== 6. EXAMES DIAGNÓSTICOS ========== */}
       <section className="section-padding bg-navy text-cream">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Diagnóstico</span>
             <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Exames Diagnósticos</h2>
             <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4">Contamos com equipamentos de última geração para diagnóstico preciso de todas as doenças retinianas.</p>
@@ -423,7 +423,7 @@ export default function InstitutoRetina() {
       {/* ========== 7. TRATAMENTOS ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Tratamentos</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Tratamentos para Doenças Retinianas</h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Do tratamento clínico à cirurgia de ponta, oferecemos todas as opções terapêuticas para doenças da retina.</p>
@@ -547,7 +547,7 @@ export default function InstitutoRetina() {
         />
         <div className="absolute inset-0 bg-navy/70" />
 
-        <div className="relative container py-24 md:py-32">
+        <div className="relative container py-14 md:py-16">
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">

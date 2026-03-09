@@ -260,7 +260,7 @@ export default function InstitutoCatarata() {
         />
 
         {/* Content */}
-        <div className="relative container py-20">
+        <div className="relative container py-14">
           <div className="max-w-2xl">
             <div
               className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6"
@@ -500,7 +500,7 @@ export default function InstitutoCatarata() {
       {/* ========== 6. SINTOMAS (ZIGZAG) ========== */}
       <section className="section-padding bg-slate-50">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Fique Atento</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Quais são os <span className="text-gold">sintomas</span> da catarata?
@@ -546,7 +546,7 @@ export default function InstitutoCatarata() {
       {/* ========== 7. COMO É FEITA A CIRURGIA ========== */}
       <section className="section-padding bg-white">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">O Procedimento</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Como é feita a <span className="text-gold">cirurgia de catarata</span>?
@@ -592,7 +592,7 @@ export default function InstitutoCatarata() {
       {/* ========== 9. SINTOMAS PÓS-CIRURGIA ========== */}
       <section className="section-padding bg-white">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Pós-Operatório</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Quais são os <span className="text-gold">sintomas pós-cirurgia</span> de catarata?
@@ -724,7 +724,7 @@ export default function InstitutoCatarata() {
       {/* ========== 12. BENEFÍCIOS (ZIGZAG) ========== */}
       <section className="section-padding bg-slate-50">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Transformação</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Benefícios da <span className="text-gold">cirurgia de catarata</span>
@@ -784,7 +784,7 @@ export default function InstitutoCatarata() {
       {/* ========== 13. RISCOS ========== */}
       <section className="section-padding bg-white">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Transparência</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Quais são os <span className="text-gold">riscos</span> da cirurgia de catarata?
@@ -922,7 +922,7 @@ export default function InstitutoCatarata() {
         />
         <div className="absolute inset-0 bg-navy/70" />
 
-        <div className="relative container py-24 md:py-32">
+        <div className="relative container py-14 md:py-16">
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">

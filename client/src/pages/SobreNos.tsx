@@ -359,7 +359,7 @@ export default function SobreNos() {
       {/* ====== CORPO CLÍNICO ====== */}
       <section className="section-padding" id="corpo-clinico">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-16">
+          <AnimateOnScroll className="text-center mb-10">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Corpo Clínico</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">
               Conheça Nossos Especialistas

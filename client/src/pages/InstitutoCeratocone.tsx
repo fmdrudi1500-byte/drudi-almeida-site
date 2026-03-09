@@ -173,7 +173,7 @@ export default function InstitutoCeratocone() {
          
         />
 
-        <div className="relative container py-20">
+        <div className="relative container py-14">
           <div className="max-w-2xl">
 
             <div
@@ -355,7 +355,7 @@ export default function InstitutoCeratocone() {
       {/* ========== 5. SINTOMAS (zigzag com fotos) ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Fique Atento</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Sintomas do Ceratocone</h2>
             <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -390,7 +390,7 @@ export default function InstitutoCeratocone() {
       {/* ========== 6. EXAMES DIAGNÓSTICOS ========== */}
       <section className="section-padding bg-navy text-cream">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Diagnóstico</span>
             <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Exames Diagnósticos</h2>
             <p className="font-body text-base text-cream/70 mt-4 max-w-2xl mx-auto">
@@ -441,7 +441,7 @@ export default function InstitutoCeratocone() {
       {/* ========== 7. CLASSIFICAÇÃO ========== */}
       <section className="section-padding">
         <div className="container max-w-5xl mx-auto">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Estadiamento</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Classificação do Ceratocone</h2>
             <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -532,7 +532,7 @@ export default function InstitutoCeratocone() {
       {/* ========== 8. TRATAMENTO 1: LENTES DE CONTATO ========== */}
       <section className="section-padding bg-cream/50">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Reabilitação Visual</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Lentes de Contato Especiais</h2>
             <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -541,7 +541,7 @@ export default function InstitutoCeratocone() {
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-10 items-center mb-14">
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-8">
             <AnimateOnScroll>
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img loading="lazy" src={IMG_LENTES_ESCLERAIS} alt="Lentes esclerais para ceratocone" className="w-full h-auto" />
@@ -708,7 +708,7 @@ export default function InstitutoCeratocone() {
       {/* ========== 11. TRATAMENTO 4: TRANSPLANTE DE CÓRNEA ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Casos Avançados</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Transplante de Córnea</h2>
             <p className="font-body text-base text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -916,7 +916,7 @@ export default function InstitutoCeratocone() {
         />
         <div className="absolute inset-0 bg-navy/70" />
 
-        <div className="relative container py-24 md:py-32">
+        <div className="relative container py-14 md:py-16">
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">

@@ -178,7 +178,7 @@ export default function InstitutoEstrabismo() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
-        <div className="relative container py-20">
+        <div className="relative container py-14">
           <div className="max-w-2xl">
 
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
@@ -296,7 +296,7 @@ export default function InstitutoEstrabismo() {
       {/* ========== 5. SINTOMAS — CRIANÇAS vs ADULTOS ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Sinais de Alerta</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Sintomas por Faixa Etária</h2>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
@@ -367,7 +367,7 @@ export default function InstitutoEstrabismo() {
       {/* ========== 6. EXAMES DIAGNÓSTICOS ========== */}
       <section className="section-padding bg-navy text-cream">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Diagnóstico</span>
             <h2 className="font-display text-3xl md:text-4xl text-cream mt-3">Exames Diagnósticos</h2>
             <p className="font-body text-base text-cream/70 max-w-2xl mx-auto mt-4">A avaliação completa do estrabismo envolve uma série de testes especializados para determinar o tipo, grau e causa do desvio.</p>
@@ -391,7 +391,7 @@ export default function InstitutoEstrabismo() {
       {/* ========== 7. TRATAMENTOS ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Tratamentos</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Opções de Tratamento</h2>
             <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">O tratamento é individualizado e pode incluir óculos, terapia visual, toxina botulínica e/ou cirurgia.</p>
@@ -427,7 +427,7 @@ export default function InstitutoEstrabismo() {
       {/* ========== 8. ETAPAS DA CIRURGIA ========== */}
       <section className="section-padding bg-cream/50">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Cirurgia</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Como é a Cirurgia de Estrabismo?</h2>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
@@ -478,7 +478,7 @@ export default function InstitutoEstrabismo() {
       {/* ========== 9. ESTRABISMO INFANTIL vs ADULTO ========== */}
       <section className="section-padding">
         <div className="container">
-          <AnimateOnScroll className="text-center mb-14">
+          <AnimateOnScroll className="text-center mb-8">
             <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Para Todas as Idades</span>
             <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Estrabismo Infantil e Adulto</h2>
             <div className="gold-line max-w-[80px] mx-auto mt-5" />
@@ -624,7 +624,7 @@ export default function InstitutoEstrabismo() {
         />
         <div className="absolute inset-0 bg-navy/70" />
 
-        <div className="relative container py-24 md:py-32">
+        <div className="relative container py-14 md:py-16">
           <AnimateOnScroll>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">

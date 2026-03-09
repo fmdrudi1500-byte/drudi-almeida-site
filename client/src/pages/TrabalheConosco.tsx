@@ -276,7 +276,7 @@ export default function TrabalheConosco() {
       <section className="section-padding bg-background">
         <div className="container">
           <AnimateOnScroll>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-8">
               <span className="font-ui text-xs tracking-widest uppercase text-gold">
                 Por Que Nos Escolher
               </span>
@@ -338,7 +338,7 @@ export default function TrabalheConosco() {
       <section className="section-padding bg-background">
         <div className="container">
           <AnimateOnScroll>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-8">
               <span className="font-ui text-xs tracking-widest uppercase text-gold">
                 Oportunidades
               </span>
