@@ -214,13 +214,13 @@ export default function Home() {
                   className="h-full transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Link href={inst.href} className="group block h-full">
-                    <div className={`relative rounded-xl border border-border/60 p-7 h-full bg-gradient-to-br ${inst.color} hover:shadow-xl hover:border-gold/40 transition-shadow duration-300`}>
+                    <div className="relative rounded-xl border border-border/40 border-l-4 border-l-gold p-7 h-full bg-white hover:shadow-lg hover:border-gold/60 transition-all duration-300">
                       <img
                         src={inst.logo}
                         alt={inst.name}
-                        className="w-16 h-16 object-contain mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
-                        width={64}
-                        height={64}
+                        className="w-14 h-14 object-contain mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
+                        width={56}
+                        height={56}
                         loading="lazy"
                         decoding="async"
                       />
