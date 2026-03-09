@@ -22,7 +22,7 @@ const institutos = [
     href: "/instituto/catarata",
     desc: "Cirurgia de catarata, especialistas renomados, tecnologia de ponta para restaurar a clareza da sua visão.",
     icon: Eye,
-    color: "from-blue-500/10 to-blue-600/5",
+    color: "from-navy/5 to-navy/3",
     logo: IMAGES.institutoLogos.catarata,
   },
   {
@@ -30,7 +30,7 @@ const institutos = [
     href: "/instituto/ceratocone",
     desc: "Adaptação de lente de contato, Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.",
     icon: Shield,
-    color: "from-emerald-500/10 to-emerald-600/5",
+    color: "from-navy/5 to-navy/3",
     logo: IMAGES.institutoLogos.ceratocone,
   },
   {
@@ -38,7 +38,7 @@ const institutos = [
     href: "/instituto/glaucoma",
     desc: "Diagnóstico precoce e tratamento contínuo para preservar sua visão do glaucoma.",
     icon: Eye,
-    color: "from-amber-500/10 to-amber-600/5",
+    color: "from-navy/5 to-navy/3",
     logo: IMAGES.institutoLogos.glaucoma,
   },
   {
@@ -46,7 +46,7 @@ const institutos = [
     href: "/instituto/retina",
     desc: "Tratamento especializado para doenças da retina com tecnologia de última geração.",
     icon: Heart,
-    color: "from-rose-500/10 to-rose-600/5",
+    color: "from-navy/5 to-navy/3",
     logo: IMAGES.institutoLogos.retina,
   },
   {
@@ -54,7 +54,7 @@ const institutos = [
     href: "/instituto/estrabismo",
     desc: "Cirurgia para correção do estrabismo para crianças e adultos com técnicas modernas.",
     icon: Users,
-    color: "from-violet-500/10 to-violet-600/5",
+    color: "from-navy/5 to-navy/3",
     logo: IMAGES.institutoLogos.estrabismo,
   },
 ];

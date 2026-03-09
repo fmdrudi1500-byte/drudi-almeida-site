@@ -24,40 +24,40 @@ const institutos = [
     href: "/instituto/catarata",
     desc: "Cirurgia de catarata com facoemulsificação e lentes premium.",
     logo: IMAGES.institutoLogos.catarata,
-    color: "from-blue-500/10 to-blue-600/5",
-    accent: "text-blue-600 dark:text-blue-400",
+    color: "from-navy/5 to-navy/3",
+    accent: "text-navy",
   },
   {
     name: "Instituto do Ceratocone",
     href: "/instituto/ceratocone",
     desc: "Crosslinking, anel de Ferrara e lentes de contato especiais.",
     logo: IMAGES.institutoLogos.ceratocone,
-    color: "from-emerald-500/10 to-emerald-600/5",
-    accent: "text-emerald-600 dark:text-emerald-400",
+    color: "from-navy/5 to-navy/3",
+    accent: "text-navy",
   },
   {
     name: "Instituto do Glaucoma",
     href: "/instituto/glaucoma",
     desc: "Diagnóstico precoce e tratamento contínuo do glaucoma.",
     logo: IMAGES.institutoLogos.glaucoma,
-    color: "from-amber-500/10 to-amber-600/5",
-    accent: "text-amber-600 dark:text-amber-400",
+    color: "from-navy/5 to-navy/3",
+    accent: "text-navy",
   },
   {
     name: "Instituto da Retina",
     href: "/instituto/retina",
     desc: "Vitrectomia, injeções intravítreas e retinopatia diabética.",
     logo: IMAGES.institutoLogos.retina,
-    color: "from-rose-500/10 to-rose-600/5",
-    accent: "text-rose-600 dark:text-rose-400",
+    color: "from-navy/5 to-navy/3",
+    accent: "text-navy",
   },
   {
     name: "Instituto de Estrabismo",
     href: "/instituto/estrabismo",
     desc: "Cirurgia de estrabismo para crianças e adultos.",
     logo: IMAGES.institutoLogos.estrabismo,
-    color: "from-violet-500/10 to-violet-600/5",
-    accent: "text-violet-600 dark:text-violet-400",
+    color: "from-navy/5 to-navy/3",
+    accent: "text-navy",
   },
 ];
 
@@ -277,7 +277,7 @@ export default function Header() {
                             key={inst.href}
                             href={inst.href}
                             onClick={() => setDropdownOpen(false)}
-                            className={`group flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md border border-transparent hover:border-border/40 transition-all duration-200`}
+                            className={`group flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br ${inst.color} hover:shadow-md border border-transparent hover:border-l-gold hover:border-l-2 hover:border-t-border/30 hover:border-r-border/30 hover:border-b-border/30 transition-all duration-200`}
                             style={{
                               opacity: dropdownOpen ? 1 : 0,
                               transform: dropdownOpen ? "translateY(0)" : "translateY(8px)",
