@@ -85,8 +85,9 @@ export default function BlogListing() {
       <InstitutoHero
         title="Blog de Saúde Ocular"
         subtitle="Artigos, vídeos e conteúdos educativos sobre cuidados com a visão, elaborados pelos especialistas da Drudi e Almeida Oftalmologia."
-        imageUrl={IMAGES.art.monetJapaneseBridge}
+        imageUrl={IMAGES.art.seuratGrandeJatte}
         breadcrumb="Blog"
+        highlightWord="Ocular"
       />
 
       {/* Search bar — abaixo do hero */}

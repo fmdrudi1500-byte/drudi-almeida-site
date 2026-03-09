@@ -372,3 +372,39 @@ html {
     goldWordReveal 0.90s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both,
     goldShimmer    1.80s ease-in-out 1.25s 1 forwards;
 }
+
+/* ============================================================
+   Blog — Letra Capitular Dourada (Drop Cap)
+   Aplicada ao primeiro parágrafo do conteúdo de artigos.
+   Classe .prose-blog-dropcap adicionada no BlogPost.tsx.
+   ============================================================ */
+.prose-blog-dropcap > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 4.2em;
+  line-height: 0.78;
+  margin-top: 0.08em;
+  margin-right: 0.12em;
+  margin-bottom: 0;
+  color: oklch(0.72 0.10 80); /* gold */
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 0 2px 10px oklch(0.72 0.10 80 / 0.30);
+  padding-bottom: 0.05em;
+}
+
+/* Letra capitular para parágrafos estáticos (artigos legados) */
+.prose-blog-dropcap-static::first-letter {
+  float: left;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 4.2em;
+  line-height: 0.78;
+  margin-top: 0.08em;
+  margin-right: 0.12em;
+  margin-bottom: 0;
+  color: oklch(0.72 0.10 80); /* gold */
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 0 2px 10px oklch(0.72 0.10 80 / 0.30);
+  padding-bottom: 0.05em;
+}

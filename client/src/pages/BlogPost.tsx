@@ -252,7 +252,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
 
               <AnimateOnScroll>
                 <div
-                  className="prose prose-navy max-w-none font-body [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_h1]:text-navy [&_h2]:text-navy [&_h3]:text-navy [&_a]:text-gold [&_a:hover]:text-gold/80 [&_blockquote]:border-l-gold [&_blockquote]:bg-gold/5 [&_blockquote]:rounded-r-lg [&_blockquote]:py-1"
+                  className="prose prose-navy max-w-none font-body prose-blog-dropcap [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_h1]:text-navy [&_h2]:text-navy [&_h3]:text-navy [&_a]:text-gold [&_a:hover]:text-gold/80 [&_blockquote]:border-l-gold [&_blockquote]:bg-gold/5 [&_blockquote]:rounded-r-lg [&_blockquote]:py-1"
                   dangerouslySetInnerHTML={{ __html: post.content }}
                 />
               </AnimateOnScroll>
@@ -512,7 +512,11 @@ function StaticBlogPost({ slug }: { slug: string }) {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             {content.map((paragraph, i) => (
-              <p key={i} className="font-body text-base text-foreground/80 leading-[1.8] mb-6" style={{ animation: `heroFadeUp 0.5s ease ${0.3 + i * 0.1}s both` }}>
+              <p
+                key={i}
+                className={`font-body text-base text-foreground/80 leading-[1.8] mb-6${i === 0 ? ' prose-blog-dropcap-static' : ''}`}
+                style={{ animation: `heroFadeUp 0.5s ease ${0.3 + i * 0.1}s both` }}
+              >
                 {paragraph}
               </p>
             ))}
