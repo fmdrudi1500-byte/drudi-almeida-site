@@ -312,7 +312,7 @@ function MVVSection() {
                     {/* Corpo circular da medalha */}
                     <div className="w-16 h-16 rounded-full bg-white shadow-xl border-2 border-white flex flex-col items-center justify-center text-center p-1.5 ring-2 ring-navy/20">
                       <Award className="w-6 h-6 text-navy mb-0.5" />
-                      <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo<br/>Marinha</p>
+                      <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo da<br/>Marinha</p>
                     </div>
                   </div>
 
