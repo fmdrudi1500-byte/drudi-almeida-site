@@ -293,3 +293,10 @@
 - [x] Adicionar redirect 301 da rota /agendamento → /agendar no App.tsx
 - [x] Remover import não utilizado do Agendamento no App.tsx
 - [x] Todos os 18 testes automatizados passando
+
+## Correções de Indexação SEO — Março 2026
+
+- [x] Adicionar noindex/nofollow na página /cancelar-agendamento (página de token, não deve aparecer no Google)
+- [x] Adicionar redirects 301 no servidor para URLs 404 antigas: /instituto-catarata, /instituto-ceratocone, /instituto-glaucoma, /instituto-retina, /instituto-estrabismo → /instituto/*
+- [x] Confirmar redirect 301 /agendamento → /agendar no servidor (além do redirect client-side)
+- [ ] Reenviar sitemap no Search Console usando URL sem www: https://institutodrudiealmeida.com.br/sitemap.xml

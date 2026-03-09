@@ -57,6 +57,23 @@ async function startServer() {
     next();
   });
 
+  // Redirect legacy URLs (404s from old site structure) to correct paths
+  const LEGACY_REDIRECTS: Record<string, string> = {
+    "/instituto-catarata": "/instituto/catarata",
+    "/instituto-ceratocone": "/instituto/ceratocone",
+    "/instituto-glaucoma": "/instituto/glaucoma",
+    "/instituto-retina": "/instituto/retina",
+    "/instituto-estrabismo": "/instituto/estrabismo",
+    "/agendamento": "/agendar",
+  };
+  app.use((req, res, next) => {
+    const target = LEGACY_REDIRECTS[req.path];
+    if (target) {
+      return res.redirect(301, target);
+    }
+    next();
+  });
+
   // Enable gzip/deflate compression for all responses
   app.use(compression());
   // Configure body parser with larger size limit for file uploads

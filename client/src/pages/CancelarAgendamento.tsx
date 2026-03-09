@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function CancelarAgendamento() {
   const [location] = useLocation();
@@ -37,7 +38,12 @@ export default function CancelarAgendamento() {
   }, [token]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-background px-4">
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Cancelar Agendamento | Drudi e Almeida Oftalmologia</title>
+      </Helmet>
+      <section className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="max-w-md w-full text-center bg-card border border-border/60 rounded-2xl shadow-lg p-10">
         {cancelMutation.isPending && (
           <>
@@ -106,5 +112,6 @@ export default function CancelarAgendamento() {
         )}
       </div>
     </section>
+    </>
   );
 }
