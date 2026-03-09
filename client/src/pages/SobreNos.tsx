@@ -303,6 +303,19 @@ function MVVSection() {
                   />
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+
+                  {/* Medalha — sobre a foto, canto superior esquerdo */}
+                  <div className="absolute top-4 left-4 z-10 flex flex-col items-center drop-shadow-lg">
+                    {/* Fita da medalha */}
+                    <div className="w-2 h-6 bg-gradient-to-b from-navy via-navy/80 to-navy/50 rounded-t-sm" />
+                    <div className="w-5 h-1.5 bg-navy/70" />
+                    {/* Corpo circular da medalha */}
+                    <div className="w-16 h-16 rounded-full bg-white shadow-xl border-2 border-white flex flex-col items-center justify-center text-center p-1.5 ring-2 ring-navy/20">
+                      <Award className="w-6 h-6 text-navy mb-0.5" />
+                      <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo<br/>Marinha</p>
+                    </div>
+                  </div>
+
                   {/* Caption */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="flex items-center gap-2 mb-1">
@@ -315,20 +328,6 @@ function MVVSection() {
                     <p className="font-ui text-xs text-white/60 mt-1">
                       Condecorado "Amigo da Marinha" pela Marinha do Brasil
                     </p>
-                  </div>
-                </div>
-
-                {/* Medalha — canto superior esquerdo */}
-                <div className="absolute -top-4 -left-4 z-10">
-                  {/* Fita da medalha */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-1.5 h-5 bg-gradient-to-b from-navy to-navy/60 rounded-t-full" />
-                    <div className="w-4 h-1 bg-gold/80" />
-                  </div>
-                  {/* Corpo circular da medalha */}
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold via-yellow-400 to-gold-light shadow-lg border-2 border-gold/60 flex flex-col items-center justify-center text-center p-1">
-                    <Award className="w-5 h-5 text-navy mb-0.5" />
-                    <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo<br/>Marinha</p>
                   </div>
                 </div>
               </div>
