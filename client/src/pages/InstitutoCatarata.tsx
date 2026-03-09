@@ -218,17 +218,7 @@ function CTAButtons({ variant = "default" }: { variant?: "default" | "hero" | "d
         <MessageCircle className="w-4 h-4" />
         Agende pelo WhatsApp
       </a>
-      <a
-        href={`tel:+55${PHONE.replace(/\D/g, "")}`}
-        className={`inline-flex items-center justify-center gap-2 font-ui text-sm font-semibold px-6 py-3.5 rounded-lg border transition-all ${
-          isDark
-            ? "border-cream/30 text-cream hover:bg-cream/10"
-            : "border-navy/20 text-navy hover:bg-navy/5"
-        }`}
-      >
-        <Phone className="w-4 h-4" />
-        Ligar: {PHONE}
-      </a>
+      <AgendarOnlineBtn variant={isDark ? "dark" : "light"} />
     </div>
   );
 }
@@ -330,43 +320,28 @@ export default function InstitutoCatarata() {
       </section>
 
       {/* ========== 2. AVALIAÇÕES ========== */}
-      <section className="py-8 bg-white border-b border-border/40">
+      <section className="py-10 bg-white border-b border-border/40">
         <div className="container">
-          <div className="flex items-center justify-between gap-4 overflow-x-auto">
-            <div className="flex items-center gap-3">
-              <div className="flex">
+          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+            {/* Stat 1 — Google */}
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                 ))}
               </div>
-              <div>
-                <p className="font-display text-sm text-navy font-semibold">4,9 no Google</p>
-                <p className="font-body text-xs text-muted-foreground">Avaliações reais de pacientes</p>
-              </div>
+              <p className="font-display text-2xl text-navy font-bold">4,9</p>
+              <p className="font-body text-xs text-muted-foreground mt-0.5">no Google</p>
             </div>
-            <div className="hidden md:block w-px h-10 bg-border" />
-            <div className="flex items-center gap-3">
-              <Users className="w-6 h-6 text-gold" />
-              <div>
-                <p className="font-display text-sm text-navy font-semibold">+10 anos de experiência</p>
-                <p className="font-body text-xs text-muted-foreground">Equipe altamente qualificada</p>
-              </div>
+            {/* Divider */}
+            <div className="text-center border-x border-border/50 px-4">
+              <p className="font-display text-2xl text-navy font-bold">+10</p>
+              <p className="font-body text-xs text-muted-foreground mt-0.5">anos de experiência</p>
             </div>
-            <div className="hidden md:block w-px h-10 bg-border" />
-            <div className="flex items-center gap-3">
-              <MapPin className="w-6 h-6 text-gold" />
-              <div>
-                <p className="font-display text-sm text-navy font-semibold">5 unidades</p>
-                <p className="font-body text-xs text-muted-foreground">Guarulhos, Lapa, Santana, São Miguel e Tatuapé</p>
-              </div>
-            </div>
-            <div className="hidden md:block w-px h-10 bg-border" />
-            <div className="flex items-center gap-3">
-              <Shield className="w-6 h-6 text-gold" />
-              <div>
-                <p className="font-display text-sm text-navy font-semibold">14 equipamentos</p>
-                <p className="font-body text-xs text-muted-foreground">Tecnologia de última geração</p>
-              </div>
+            {/* Stat 3 — Unidades */}
+            <div className="text-center">
+              <p className="font-display text-2xl text-navy font-bold">5</p>
+              <p className="font-body text-xs text-muted-foreground mt-0.5">unidades em SP</p>
             </div>
           </div>
         </div>
