@@ -306,3 +306,9 @@
 - [ ] Título "Contato" no header em cor dourada (text-gold)
 - [ ] Trocar imagem de fundo do header por imagem otimizada para performance
 - [ ] Padronizar CTA "Agende sua Consulta" igual ao da Home
+
+## Migração de Imagens Temporárias para CDN Permanente — Março 2026
+
+- [ ] Identificar todas as URLs manuscdn.com nas páginas Tecnologia, Convênios e Ceratocone
+- [ ] Baixar e fazer upload das imagens para o CDN permanente
+- [ ] Substituir URLs temporárias pelas permanentes no código
