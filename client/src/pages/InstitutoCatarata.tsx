@@ -606,7 +606,7 @@ export default function InstitutoCatarata() {
             {sintomasPos.map((sintoma, i) => (
               <StaggerItem key={i}>
                 <div className="h-full">
-                <div className={`rounded-2xl p-6 border ${sintoma.color} h-full`}>
+                <div className="rounded-2xl p-6 border border-border/40 border-l-4 border-l-gold bg-white h-full">
                   <h3 className="font-display text-base text-navy mb-3">{sintoma.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{sintoma.description}</p>
                   <div className="bg-white/60 rounded-lg p-3">
@@ -798,7 +798,7 @@ export default function InstitutoCatarata() {
             {riscos.map((risco, i) => (
               <StaggerItem key={i}>
                 <div className="h-full">
-                <div className={`rounded-2xl p-6 border ${risco.color} h-full`}>
+                <div className="rounded-2xl p-6 border border-border/40 border-l-4 border-l-gold bg-white h-full">
                   <h3 className="font-display text-base text-navy mb-3">{risco.title}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{risco.description}</p>
                 </div>
@@ -873,7 +873,7 @@ export default function InstitutoCatarata() {
               {cuidados.map((cuidado, i) => (
                 <StaggerItem key={i}>
                   <div className="h-full">
-                  <div className={`rounded-xl p-5 border ${cuidado.color}`}>
+                  <div className="rounded-xl p-5 border border-border/40 border-l-4 border-l-gold bg-white">
                     <p className="font-body text-sm text-navy/80 leading-relaxed">{cuidado.text}</p>
                   </div>
                   </div>
