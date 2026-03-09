@@ -109,7 +109,7 @@
 
 - [ ] Migrar todas as URLs session_file para CDN permanente (Home, Tecnologia, Convênios, Ceratocone, Glaucoma, Retina, Estrabismo)
 - [ ] Ativar sistema de agendamento online com e-mail de confirmação e painel admin
-- [ ] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular
+- [x] Criar e publicar posts iniciais no blog com conteúdo de saúde ocular (14 artigos publicados: catarata, ceratocone, glaucoma, retina, estrabismo, visão embaçada, quando operar catarata, crosslinking, pressão ocular, miopia em crianças, olho seco, lentes para ceratocone, exame de vista completo, glaucoma de ângulo fechado)
 
 ## Fase 18: SEO Técnico Avançado e Conformidade CFM
 - [x] Corrigir CRM/RQE reais da Dra. Priscilla no rodapé (CRM-SP 148.173 | RQE 59.216)
