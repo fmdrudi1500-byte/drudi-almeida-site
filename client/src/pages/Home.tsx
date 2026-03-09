@@ -278,8 +278,8 @@ export default function Home() {
                   <Star className="w-4 h-4 text-gold fill-gold" />
                   <Star className="w-4 h-4 text-gold fill-gold" />
                 </div>
-                <p className="font-ui text-xs text-navy font-bold">Avaliação 5 estrelas</p>
-                <p className="font-body text-[11px] text-muted-foreground">+200 avaliações no Google</p>
+                <p className="font-ui text-xs text-navy font-bold">Clínicas Premiadas</p>
+                <p className="font-body text-[11px] text-muted-foreground">Excelência no Atendimento</p>
               </div>
             </div>
           </AnimateOnScroll>

@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="bg-white/95 rounded-lg p-2 inline-block mb-5">
+            <div className="bg-white rounded-lg p-3 inline-block mb-5">
               <img
                 src={LOGO_URL}
                 alt="Logotipo Drudi e Almeida Clínicas Oftalmológicas — olho em azul marinho e dourado"
