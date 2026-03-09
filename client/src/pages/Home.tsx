@@ -254,11 +254,9 @@ export default function Home() {
           <AnimateOnScroll direction="left" className="relative">
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
-                src={IMAGES.responsive.draPriscilla["412"]}
-                srcSet={`${IMAGES.responsive.draPriscilla["412"]} 412w, ${IMAGES.responsive.draPriscilla["824"]} 824w`}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 412px"
-                alt="Dra. Priscilla R. de Almeida em consultório oftalmológico — Drudi e Almeida"
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/quemsomos_b4aab543.png"
+                alt="Cirurgião oftalmologista realizando cirurgia ocular com microscópio Leica — Drudi e Almeida"
+                className="absolute inset-0 w-full h-full object-cover object-center"
                 width={412}
                 height={549}
                 loading="lazy"
