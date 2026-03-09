@@ -78,8 +78,8 @@ export default function Home() {
     <>
       <SEOHead
         title="Oftalmologista em São Paulo"
-        description="Drudi e Almeida: oftalmologista em SP com 5 institutos especializados. Catarata, ceratocone, glaucoma, retina e estrabismo. WhatsApp: (11) 91654-4653."
-        keywords="oftalmologista São Paulo, clínica de olhos SP, cirurgia de catarata SP, ceratocone tratamento, crosslinking, glaucoma especialista, retina cirúrgica, estrabismo cirurgia, oftalmologista Bradesco, oftalmologista Prevent, oftalmologista perto de mim"
+        description="Oftalmologista em São Paulo com 5 institutos especializados: catarata, ceratocone, glaucoma, retina e estrabismo. Agende sua consulta."
+        keywords="oftalmologista São Paulo, cirurgia de catarata SP, ceratocone tratamento, glaucoma especialista, clínica de olhos SP"
         canonicalPath="/"
       />
       {/* ========== HERO ========== */}
@@ -93,8 +93,7 @@ export default function Home() {
             src={IMAGES.responsive.heroMonet["480"]}
             srcSet={srcSet(IMAGES.hero.main, IMAGES.responsive.heroMonet)}
             sizes="100vw"
-            alt=""
-            aria-hidden="true"
+            alt="Ponte japonesa de Monet — representação artística da visão com catarata"
             fetchPriority="high"
             decoding="sync"
             className="absolute inset-0 w-full h-full object-cover object-center"
