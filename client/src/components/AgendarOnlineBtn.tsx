@@ -5,6 +5,7 @@
  */
 import { Link } from "wouter";
 import { Calendar } from "lucide-react";
+import { trackAgendarOnlineClick } from "@/lib/analytics";
 
 interface AgendarOnlineBtnProps {
   /** Texto principal do botão (padrão: "Agendar Online") */
@@ -14,6 +15,8 @@ interface AgendarOnlineBtnProps {
   /** Variante de cor: "light" para hero escuro, "dark" para seções claras */
   variant?: "light" | "dark";
   className?: string;
+  /** Identificador da origem para rastreamento GA4 (ex: "hero", "cta_final") */
+  source?: string;
 }
 
 export default function AgendarOnlineBtn({
@@ -21,12 +24,14 @@ export default function AgendarOnlineBtn({
   subtext = "Consulta disponível em até 48h",
   variant = "light",
   className = "",
+  source,
 }: AgendarOnlineBtnProps) {
   const isLight = variant === "light";
 
   return (
     <Link
       href="/agendar"
+      onClick={() => trackAgendarOnlineClick(source)}
       className={[
         "inline-flex flex-col items-start gap-0.5 px-6 py-3 rounded-md border transition-all duration-200 group no-underline",
         "border-gold/40 text-cream bg-navy hover:bg-navy/80 hover:border-gold/60",

@@ -15,6 +15,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { IMAGES } from "@/lib/images";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 const LOGO_URL = "/images/logo-horizontal-resized_e945407b.webp";
 
@@ -189,12 +190,12 @@ export default function Header() {
             <span>Seg - Sex: 8h às 18h | Sáb: 8h às 12h</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+551154302421" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href="tel:+551154302421" onClick={() => trackPhoneClick("header")} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <Phone className="w-3 h-3" />
               (11) 5430-2421
             </a>
             <span className="text-cream/40">|</span>
-            <a href="https://wa.me/5511916544653" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+            <a href="https://wa.me/5511916544653" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("header")} className="flex items-center gap-1.5 hover:text-gold transition-colors">
               <MessageSquare className="w-3 h-3" />
               (11) 91654-4653
             </a>

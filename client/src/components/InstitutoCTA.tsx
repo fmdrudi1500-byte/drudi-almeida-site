@@ -3,6 +3,7 @@
    ============================================================ */
 import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 interface Props {
   title?: string;
@@ -28,6 +29,7 @@ export default function InstitutoCTA({ title = "Agende Sua Consulta", text, back
               href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("cta_final")}
               className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold-light transition-colors"
             >
               Agendar pelo WhatsApp
@@ -35,6 +37,7 @@ export default function InstitutoCTA({ title = "Agende Sua Consulta", text, back
             </a>
             <a
               href="tel:+5511916544653"
+              onClick={() => trackPhoneClick("cta_final")}
               className="inline-flex items-center gap-2 border border-cream/30 text-cream font-ui text-sm font-semibold px-7 py-3.5 rounded-md hover:bg-cream/10 transition-colors"
             >
               Ligar: (11) 91654-4653
