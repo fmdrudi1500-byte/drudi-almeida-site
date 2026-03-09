@@ -12,6 +12,7 @@ import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES, srcSet } from "@/lib/images";
 import { useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
+import SchemaMarkup from "@/components/SchemaMarkup";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
@@ -82,6 +83,9 @@ export default function Home() {
         keywords="oftalmologista São Paulo, cirurgia de catarata SP, ceratocone tratamento, glaucoma especialista, clínica de olhos SP"
         canonicalPath="/"
       />
+      <SchemaMarkup type="clinic" />
+      <SchemaMarkup type="physician" name="Fernando" />
+      <SchemaMarkup type="physician" name="Priscilla" />
       {/* ========== HERO ========== */}
       {/* Hero: navy placeholder visível imediatamente, antes da imagem carregar */}
       <section

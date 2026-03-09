@@ -214,7 +214,7 @@ export default function InstitutoRetina() {
     <>
       <SEOHead
         title="Instituto da Retina — Retina Cirúrgica em SP"
-        description="Tratamentos avançados para doenças da retina: vitrectomia, injeções intravítreas, retinopatia diabética. Dr. Fernando Drudi, especialista em retina cirúrgica."
+        description="Retina cirúrgica em SP: vitrectomia, injeções intravítreas e retinopatia diabética. Dr. Fernando Drudi, especialista. 5 unidades. Agende."
         keywords="retina cirúrgica SP, vitrectomia São Paulo, retinopatia diabética, descolamento de retina, injeção intravítrea, oftalmologista retina"
         canonicalPath="/instituto/retina"
         ogImage="/images/retina-hero_cb57f973.webp"
