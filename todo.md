@@ -312,3 +312,11 @@
 - [ ] Identificar todas as URLs manuscdn.com nas páginas Tecnologia, Convênios e Ceratocone
 - [ ] Baixar e fazer upload das imagens para o CDN permanente
 - [ ] Substituir URLs temporárias pelas permanentes no código
+
+## Destaque Dourado nos Títulos dos Institutos — Março 2026
+
+- [x] Adicionar highlightWord="Catarata" em InstitutoCatarata.tsx
+- [x] Adicionar highlightWord="Ceratocone" em InstitutoCeratocone.tsx
+- [x] Adicionar highlightWord="Glaucoma" em InstitutoGlaucoma.tsx
+- [x] Adicionar highlightWord="Retina" em InstitutoRetina.tsx
+- [x] Adicionar highlightWord="Estrabismo" em InstitutoEstrabismo.tsx

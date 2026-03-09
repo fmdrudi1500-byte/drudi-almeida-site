@@ -274,9 +274,9 @@ export default function InstitutoCatarata() {
             <h1
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
-              Cirurgia de Catarata com{" "}
-              <span className="text-gold italic">tecnologia</span> e{" "}
-              <span className="text-gold italic">cuidado</span>
+              Cirurgia de{" "}
+              <span className="text-gold italic">Catarata</span>{" "}
+              com tecnologia e cuidado
             </h1>
 
             <p

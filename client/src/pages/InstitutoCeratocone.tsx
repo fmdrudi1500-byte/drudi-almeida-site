@@ -186,9 +186,9 @@ export default function InstitutoCeratocone() {
             <h1
               className="font-display text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] mb-6"
             >
-              Tratamento de Ceratocone com{" "}
-              <span className="text-gold italic">especialistas</span> em{" "}
-              <span className="text-gold italic">córnea</span>
+              Tratamento de{" "}
+              <span className="text-gold italic">Ceratocone</span>{" "}
+              com especialistas em córnea
             </h1>
 
             <p
