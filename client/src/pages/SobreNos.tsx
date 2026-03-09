@@ -6,6 +6,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe, Eye, Lightbulb, Compass, ChevronLeft, ChevronRight } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
@@ -491,13 +492,7 @@ export default function SobreNos() {
                 Agendar pelo WhatsApp
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link
-                href="/contato"
-                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-white/10 transition-colors"
-              >
-                Nossas Unidades
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <AgendarOnlineBtn variant="dark" />
             </div>
           </AnimateOnScroll>
         </div>

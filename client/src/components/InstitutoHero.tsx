@@ -59,7 +59,14 @@ export default function InstitutoHero({ title, subtitle, imageUrl, breadcrumb, l
               className="font-display text-3xl md:text-5xl lg:text-6xl text-cream max-w-3xl leading-tight"
               style={{ animation: "heroFadeUp 0.6s ease 0.3s both" }}
             >
-              {title}
+              {title.includes("Almeida")
+                ? title.split("Almeida").map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && <span className="text-gold">Almeida</span>}
+                    </span>
+                  ))
+                : title}
             </h1>
 
             <p
