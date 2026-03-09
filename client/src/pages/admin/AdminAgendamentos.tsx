@@ -50,6 +50,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { toast } from "sonner";
+import { getLoginUrl } from "@/const";
 
 const UNITS = ["Santana", "Guarulhos", "Tatuapé", "São Miguel", "Lapa"] as const;
 type Unit = (typeof UNITS)[number];
@@ -812,9 +813,15 @@ export default function AdminAgendamentos() {
           <XCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
           <h1 className="font-display text-2xl text-navy mb-2">Acesso Restrito</h1>
           <p className="font-body text-muted-foreground">Esta página é exclusiva para administradores.</p>
-          <p className="font-body text-sm text-muted-foreground mt-2">
+          <p className="font-body text-sm text-muted-foreground mt-2 mb-6">
             Faça login com uma conta de administrador para continuar.
           </p>
+          <a
+            href={getLoginUrl()}
+            className="inline-flex items-center gap-2 bg-navy text-cream font-ui font-semibold text-sm px-6 py-3 rounded-md hover:bg-navy/90 transition-colors shadow-md"
+          >
+            Entrar com minha conta
+          </a>
         </div>
       </div>
     );

@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { Search, Globe, Tag, FileText, CheckCircle2, AlertCircle, Pencil, X, ExternalLink } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
 import { Link } from "wouter";
 
 type PageSeo = {
@@ -306,9 +307,12 @@ export default function AdminSEO() {
           <p className="font-body text-sm text-muted-foreground mb-4">
             Você precisa estar autenticado para acessar o painel de SEO.
           </p>
-          <Link href="/admin/blog">
-            <Button className="bg-navy text-cream font-ui text-sm">Ir para Admin</Button>
-          </Link>
+          <a
+            href={getLoginUrl()}
+            className="inline-flex items-center gap-2 bg-navy text-cream font-ui font-semibold text-sm px-6 py-3 rounded-md hover:bg-navy/90 transition-colors shadow-md"
+          >
+            Entrar com minha conta
+          </a>
         </div>
       </div>
     );
