@@ -4,12 +4,12 @@
    Navy (#2c3e50), Gold (#c9a961), cream backgrounds
    ============================================================ */
 import { Link } from "wouter";
-import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe, Eye, Lightbulb, Compass } from "lucide-react";
+import { ArrowRight, Award, Users, Heart, Target, GraduationCap, Stethoscope, Globe, Eye, Lightbulb, Compass, ChevronLeft, ChevronRight } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import InstitutoHero from "@/components/InstitutoHero";
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 
 // Fotos dos médicos — extensões .webp (convertidas na otimização)
@@ -28,7 +28,7 @@ const mvv = [
     title: "Democratizar o Acesso à Oftalmologia de Excelência",
     accent: "#c9a961",
     description:
-      "Nascemos com o propósito de unir o que há de mais avançado em tecnologia oftalmológica com um atendimento verdadeiramente humanizado. Acreditamos que toda pessoa — independentemente de sua condição social ou localização geográfica — merece ter acesso a cuidados de saúde ocular de alta qualidade.",
+      "Nascemos com o propósito de unir o que há de mais avançado em tecnologia oftalmológica com um atendimento verdadeiramente humanizado. Acreditamos que toda pessoa, independentemente de sua condição social ou localização geográfica, merece ter acesso a cuidados de saúde ocular de alta qualidade.",
     pillars: [
       { icon: Heart, text: "Atendimento humanizado e acolhedor em cada consulta" },
       { icon: Award, text: "5 institutos especializados com protocolos de excelência" },
@@ -83,9 +83,9 @@ const doctors = [
     specialty: "Especialista em Catarata e Retina Cirúrgica",
     image: DR_FERNANDO_FORMAL,
     institutes: ["Instituto da Catarata", "Instituto da Retina"],
-    bio: `Médico oftalmologista com formação completa em subespecialidades de Catarata e Retina Cirúrgica pelo Hospital dos Servidores Público Estadual (HSPE). Atualmente atua como médico concursado do HSPE desde 2020, com foco no ensino prático de técnicas cirúrgicas para residentes e fellows.
+    bio: `Médico oftalmologista com formação completa nas subespecialidades de Catarata e Retina Cirúrgica pelo Hospital dos Servidores Público Estadual (HSPE). Atualmente atua como médico concursado do HSPE desde 2020, com foco no ensino prático de técnicas cirúrgicas para residentes e fellows.
 
-Além da excelência clínica, o Dr. Fernando é um profissional dedicado ao impacto social na saúde ocular da população brasileira. Participou ativamente do Projeto Oftalmologia Humanitária na Amazônia, realizando cirurgias e distribuindo óculos para comunidades ribeirinhas de difícil acesso. Por essa contribuição, recebeu a condecoração "Amigo da Marinha", importante reconhecimento concedido pela Marinha do Brasil.
+Além da excelência clínica, o Dr. Fernando é um profissional dedicado ao impacto social na saúde ocular da população brasileira. Participa há mais de 10 anos ativamente do Projeto Oftalmologia Humanitária na Amazônia, realizando cirurgias nas comunidades ribeirinhas de difícil acesso. Por essa contribuição, recebeu a condecoração "Amigo da Marinha", importante reconhecimento concedido pela Marinha do Brasil.
 
 Co-fundador da Drudi e Almeida Oftalmologia, lidera a clínica com a missão de proporcionar acesso à oftalmologia de excelência para todos.`,
     highlights: [
@@ -118,8 +118,22 @@ Mantém participação constante em congressos nacionais e internacionais, curso
 // Componente MVV — Fundo claro com foto da Amazônia
 // ============================================================
 function MVVSection() {
-  const [active, setActive] = useState("missao");
-  const current = mvv.find((m) => m.id === active)!;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const current = mvv[activeIndex];
+  const touchStartX = useRef<number | null>(null);
+
+  const goNext = () => setActiveIndex((i) => (i + 1) % mvv.length);
+  const goPrev = () => setActiveIndex((i) => (i - 1 + mvv.length) % mvv.length);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? goNext() : goPrev();
+    touchStartX.current = null;
+  };
 
   return (
     <section className="section-padding bg-cream/40 relative">
@@ -144,13 +158,13 @@ function MVVSection() {
           <div className="lg:col-span-7">
             {/* Tab navigation */}
             <div className="flex gap-2 mb-8 flex-wrap">
-              {mvv.map((item) => {
+              {mvv.map((item, idx) => {
                 const Icon = item.icon;
-                const isActive = active === item.id;
+                const isActive = activeIndex === idx;
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setActive(item.id)}
+                    onClick={() => setActiveIndex(idx)}
                     className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-ui text-sm font-semibold transition-all duration-300 border ${
                       isActive
                         ? "bg-navy text-cream border-navy shadow-md"
@@ -165,7 +179,7 @@ function MVVSection() {
             </div>
 
             {/* Content panel */}
-            <div key={active} className="animate-fade-in">
+            <div key={activeIndex} className="animate-fade-in" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
               <h3 className="font-display text-2xl md:text-3xl text-navy mb-4 leading-tight">
                 {current.title}
               </h3>
@@ -205,20 +219,39 @@ function MVVSection() {
                 </div>
               </div>
 
-              {/* Navigation dots */}
-              <div className="flex gap-3 mt-6">
-                {mvv.map((item) => (
+              {/* Navigation dots + arrows */}
+              <div className="flex items-center gap-3 mt-6">
+                {/* Prev arrow */}
+                <button
+                  onClick={goPrev}
+                  aria-label="Item anterior"
+                  className="w-8 h-8 rounded-full border border-navy/20 flex items-center justify-center text-navy/60 hover:bg-navy hover:text-cream hover:border-navy transition-all duration-200"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Dots */}
+                {mvv.map((item, idx) => (
                   <button
                     key={item.id}
-                    onClick={() => setActive(item.id)}
+                    onClick={() => setActiveIndex(idx)}
                     className={`transition-all duration-300 rounded-full ${
-                      active === item.id
+                      activeIndex === idx
                         ? "w-8 h-2 bg-navy"
                         : "w-2 h-2 bg-navy/25 hover:bg-navy/40"
                     }`}
                     aria-label={`Ver ${item.label}`}
                   />
                 ))}
+
+                {/* Next arrow */}
+                <button
+                  onClick={goNext}
+                  aria-label="Próximo item"
+                  className="w-8 h-8 rounded-full border border-navy/20 flex items-center justify-center text-navy/60 hover:bg-navy hover:text-cream hover:border-navy transition-all duration-200"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>
@@ -256,8 +289,8 @@ function MVVSection() {
                   </div>
                 </div>
 
-                {/* Floating badge */}
-                <div className="absolute bottom-2 right-2 bg-white rounded-xl shadow-lg border border-gold/20 p-3 max-w-[160px]">
+                {/* Floating badge — posicionado fora da área de texto */}
+                <div className="absolute top-4 right-4 bg-white rounded-xl shadow-lg border border-gold/20 p-3 max-w-[160px]">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
                       <Award className="w-4 h-4 text-gold" />
