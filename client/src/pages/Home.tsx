@@ -654,7 +654,23 @@ export default function Home() {
             ))}
           </div>
 
-          <AnimateOnScroll className="text-center mt-8">
+          {/* Google Maps incorporado — todas as 5 unidades */}
+          <AnimateOnScroll className="mt-8">
+            <div className="rounded-2xl overflow-hidden border border-border/60 shadow-sm" style={{ height: "420px" }}>
+              <iframe
+                title="Mapa das Unidades Drudi e Almeida"
+                src="https://maps.google.com/maps?q=Drudi+e+Almeida+Oftalmologia&output=embed&z=11"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll className="text-center mt-6">
             <Link
               href="/contato"
               className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light transition-colors"

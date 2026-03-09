@@ -210,9 +210,9 @@ export default function Header() {
           scrolled ? "bg-white shadow-sm dark:bg-background" : "bg-white dark:bg-background"
         }`}
       >
-        <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:container lg:mx-auto lg:px-8">
+        <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:container lg:mx-auto lg:px-8 gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0 mr-auto lg:mr-0">
+          <Link href="/" className="flex items-center shrink-0">
             <img
               src={LOGO_URL}
               alt="Drudi e Almeida Clínicas Oftalmológicas"
@@ -224,7 +224,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center min-w-0">
             {navLinks.map((link) =>
               link.children ? (
                 <div
@@ -334,7 +334,7 @@ export default function Header() {
           </nav>
 
           {/* CTA + Dark Mode Toggle + Mobile Toggle */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 shrink-0">
             {/* Theme toggle — left of admin/login button */}
             <button
               onClick={toggleTheme}
@@ -368,7 +368,7 @@ export default function Header() {
               user?.role === "admin" && (
                 <Link
                   href="/admin/agendamentos"
-                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+                  className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors whitespace-nowrap"
                 >
                   <LayoutDashboard className="w-3.5 h-3.5" />
                   Painel Admin
@@ -377,7 +377,7 @@ export default function Header() {
             ) : (
               <a
                 href={getLoginUrl()}
-                className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors"
+                className="hidden lg:inline-flex items-center gap-1.5 border border-border text-foreground font-ui text-xs font-semibold px-3 py-2 rounded-md hover:border-gold hover:text-gold transition-colors whitespace-nowrap"
               >
                 <LogIn className="w-3.5 h-3.5" />
                 Área Restrita
@@ -386,7 +386,7 @@ export default function Header() {
 
             <Link
               href="/agendar"
-              className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light"
+              className="hidden sm:inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-semibold px-4 py-2.5 rounded-md hover:bg-navy-light transition-colors dark:bg-gold dark:text-navy dark:hover:bg-gold-light whitespace-nowrap"
             >
               Agendar Consulta
             </Link>
