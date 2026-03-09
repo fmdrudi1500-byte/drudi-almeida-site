@@ -318,12 +318,17 @@ function MVVSection() {
                   </div>
                 </div>
 
-                {/* Selo de qualidade — canto inferior esquerdo, compacto */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-md border border-gold/30 px-2.5 py-1.5">
-                  <Award className="w-3 h-3 text-gold shrink-0" />
-                  <div>
-                    <p className="font-ui text-[9px] font-bold text-navy leading-tight">Amigo da Marinha</p>
-                    <p className="font-body text-[8px] text-muted-foreground leading-tight">Marinha do Brasil</p>
+                {/* Medalha — canto superior esquerdo */}
+                <div className="absolute -top-4 -left-4 z-10">
+                  {/* Fita da medalha */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-1.5 h-5 bg-gradient-to-b from-navy to-navy/60 rounded-t-full" />
+                    <div className="w-4 h-1 bg-gold/80" />
+                  </div>
+                  {/* Corpo circular da medalha */}
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold via-yellow-400 to-gold-light shadow-lg border-2 border-gold/60 flex flex-col items-center justify-center text-center p-1">
+                    <Award className="w-5 h-5 text-navy mb-0.5" />
+                    <p className="font-ui text-[7px] font-black text-navy leading-tight uppercase tracking-tight">Amigo<br/>Marinha</p>
                   </div>
                 </div>
               </div>
