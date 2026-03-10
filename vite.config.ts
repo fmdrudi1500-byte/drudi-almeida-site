@@ -233,10 +233,7 @@ export default defineConfig({
           ) {
             return 'vendor-trpc';
           }
-          // Radix UI — split accordion (used in Home lazy) from rest
-          if (id.includes('node_modules/@radix-ui/react-accordion')) {
-            return 'vendor-radix-accordion';
-          }
+          // Radix UI
           if (id.includes('node_modules/@radix-ui')) {
             return 'vendor-radix';
           }
@@ -251,10 +248,6 @@ export default defineConfig({
           // Wouter router
           if (id.includes('node_modules/wouter')) {
             return 'vendor-router';
-          }
-          // Streamdown (markdown renderer) — only used in lazy pages
-          if (id.includes('node_modules/streamdown')) {
-            return 'vendor-streamdown';
           }
         },
       },
