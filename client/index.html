@@ -52,6 +52,15 @@
       fetchpriority="high"
     />
 
+    <!-- Preload logo to eliminate flash during initial load (FCP improvement) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/logo-horizontal-200w_opt.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
     <!-- Google Analytics GA4 — carregado após interação para não bloquear LCP -->
     <script>
       (function() {
