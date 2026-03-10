@@ -46,11 +46,15 @@ async function run() {
       },
     });
     
+    // Remove @font-face from critical CSS — they reference Google Fonts CDN files
+    // and add 6KB of unnecessary inline CSS (fonts still load from the deferred CSS)
+    const htmlWithoutFontFaces = html.replace(/@font-face\s*\{[^}]*\}/g, '');
+    
     // Fix: Remove duplicate CSS link that `critical` leaves behind.
     // The `critical` package adds a media=print deferred link but doesn't
     // remove the original blocking link from Vite. We need to remove the
     // blocking one (without media=print) to avoid double-loading.
-    const fixedHtml = html.replace(
+    const fixedHtml = htmlWithoutFontFaces.replace(
       // Remove any <link rel="stylesheet" href="*.css"> that does NOT have media="print"
       // (the blocking one — the deferred one with media=print should stay)
       /<link rel="stylesheet"[^>]*href="([^"]*\.css)"[^>]*>(?!\s*<noscript>)/g,
