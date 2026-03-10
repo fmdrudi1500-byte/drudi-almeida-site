@@ -2,14 +2,17 @@
    Layout Component — Drudi e Almeida
    Wraps all pages with Header, Footer, and WhatsApp FAB
    ============================================================ */
-import { ReactNode } from "react";
+import { ReactNode, lazy, Suspense } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
 import MobileCTABar from "./MobileCTABar";
 import SchemaOrg from "./SchemaOrg";
 import UrgencyBar from "./UrgencyBar";
-import SocialProofToasts from "./SocialProofToasts";
+
+// Lazy load heavy below-the-fold components to reduce TBT
+const Footer = lazy(() => import("./Footer"));
+// SocialProofToasts only appears after 5s — no need to be in critical bundle
+const SocialProofToasts = lazy(() => import("./SocialProofToasts"));
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,15 +26,19 @@ export default function Layout({ children }: LayoutProps) {
       <Header />
       {/* min-h-screen reserva espaço antes da hidratação do React, eliminando CLS */}
       <main className="flex-1 min-h-screen">{children}</main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       {/* FAB circular — hidden on mobile (replaced by sticky bar) */}
       <div className="hidden md:block">
         <WhatsAppButton />
       </div>
       {/* Sticky CTA bar — mobile only */}
       <MobileCTABar />
-      {/* Social proof toasts — bottom left */}
-      <SocialProofToasts />
+      {/* Social proof toasts — bottom left, lazy loaded */}
+      <Suspense fallback={null}>
+        <SocialProofToasts />
+      </Suspense>
     </div>
   );
 }
