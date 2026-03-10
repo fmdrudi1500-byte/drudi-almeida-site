@@ -176,11 +176,12 @@ function vitePluginNonBlockingCSS(): Plugin {
       }
 
       // 2. Transform Vite-injected CSS to non-blocking
+      // Note: <noscript> fallback removed — it was causing double CSS load (blocking + non-blocking)
+      // Users without JS cannot use a React SPA anyway, so the fallback is unnecessary
       html = html.replace(
         /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
         (_, href) =>
-          `<link rel="stylesheet" crossorigin href="${href}" media="print" onload="this.media='all'">` +
-          `<noscript><link rel="stylesheet" crossorigin href="${href}"></noscript>`
+          `<link rel="stylesheet" crossorigin href="${href}" media="print" onload="this.media='all'">`
       );
 
       return html;

@@ -332,3 +332,11 @@
 - [x] PERF-A2: Corrigir TecnologiaCarousel — remover import do wouter (usa window.location)
 - [x] PERF-A3: Tornar Google Analytics verdadeiramente assíncrono (não bloquear render)
 - [x] PERF-B1: Google Maps lazy loading — componente LazyMap criado, iframes substituídos em Home.tsx e Contato.tsx
+
+## Fase Performance — Março 2026 (Rodada 2)
+- [x] PERF-A1: Remover framer-motion do package.json (não é mais usado no código)
+- [x] PERF-A2: Corrigir TecnologiaCarousel — remover import do wouter (usa window.location)
+- [x] PERF-A3: Tornar Google Analytics verdadeiramente assíncrono (não bloquear render)
+- [x] PERF-B1: Google Maps lazy loading — componente LazyMap criado, iframes substituídos em Home.tsx e Contato.tsx
+- [x] PERF-B2: Imagem quemsomos (152KB→20KB), hero-960w recomprimido, logo otimizado
+- [ ] PERF-C1: Critical CSS inline — extrair CSS above-the-fold e carregar CSS restante de forma assíncrona
