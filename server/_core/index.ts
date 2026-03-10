@@ -74,6 +74,16 @@ async function startServer() {
     next();
   });
 
+  // ============================================================
+  // Keep-Alive: /ping endpoint para monitoramento externo
+  // Configure o UptimeRobot (gratuito) para fazer GET /ping a cada 5 min
+  // URL: https://uptimerobot.com — adicione o domínio institutodrudiealmeida.com.br/ping
+  // Isso evita o cold start que causa TTFB de 3-8s e score PageSpeed de 23
+  // ============================================================
+  app.get('/ping', (_req, res) => {
+    res.status(200).json({ status: 'ok', ts: Date.now() });
+  });
+
   // Enable gzip/deflate compression for all responses
   app.use(compression());
   // Configure body parser with larger size limit for file uploads
@@ -111,6 +121,22 @@ async function startServer() {
 
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
+
+    // Auto-ping interno: faz um request a si mesmo a cada 4 minutos
+    // Isso mantém o processo Node.js ativo e evita cold start
+    // O Manus hiberna servidores inativos; este ping previne a hibernação
+    if (process.env.NODE_ENV === 'production') {
+      const selfPingUrl = `http://localhost:${port}/ping`;
+      setInterval(async () => {
+        try {
+          const res = await fetch(selfPingUrl);
+          if (!res.ok) console.warn('[keep-alive] ping failed:', res.status);
+        } catch (e) {
+          console.warn('[keep-alive] ping error:', e);
+        }
+      }, 4 * 60 * 1000); // 4 minutos
+      console.log('[keep-alive] Auto-ping ativado (a cada 4 min)');
+    }
   });
 }
 
