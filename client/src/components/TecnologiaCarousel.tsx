@@ -4,7 +4,7 @@
    Pauses on hover/touch, resumes after interaction
    ============================================================ */
 import { useRef, useEffect, useState, useCallback } from "react";
-import { Link } from "wouter";
+
 import { ArrowRight, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 
@@ -263,13 +263,13 @@ export default function TecnologiaCarousel() {
                 <div className="font-ui text-[11px] text-muted-foreground tracking-wide">Categorias</div>
               </div>
             </div>
-            <Link
+            <a
               href="/tecnologia"
               className="inline-flex items-center gap-2 bg-navy text-cream dark:bg-gold dark:text-navy font-ui text-sm font-semibold px-6 py-3 rounded-md hover:bg-navy-light dark:hover:bg-gold-light transition-colors"
             >
               Ver Todos os Equipamentos
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </AnimateOnScroll>
       </div>

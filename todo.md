@@ -326,3 +326,8 @@
 - [x] Criar keyframes goldWordReveal e goldShimmer no index.css
 - [x] Criar classe .gold-word-animate com animação fade-in + shimmer dourado
 - [x] Aplicar gold-word-animate nos spans de destaque das 5 páginas de institutos
+
+## Fase Performance — Março 2026 (Otimizações adicionais)
+- [x] PERF-A1: Remover framer-motion do package.json (não é mais usado no código)
+- [x] PERF-A2: Corrigir TecnologiaCarousel — remover import do wouter (usa window.location)
+- [x] PERF-A3: Tornar Google Analytics verdadeiramente assíncrono (não bloquear render)

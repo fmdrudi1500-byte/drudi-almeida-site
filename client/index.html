@@ -52,13 +52,37 @@
       fetchpriority="high"
     />
 
-    <!-- Google Analytics GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M"></script>
+    <!-- Google Analytics GA4 — carregado após interação para não bloquear LCP -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1Y6Z77ZK6M');
+      (function() {
+        function loadGA() {
+          if (window._gaLoaded) return;
+          window._gaLoaded = true;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-1Y6Z77ZK6M', { send_page_view: true });
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M';
+          document.head.appendChild(s);
+        }
+        // Load after first user interaction or after 5s (whichever comes first)
+        var loaded = false;
+        function onInteract() {
+          if (loaded) return;
+          loaded = true;
+          loadGA();
+          ['click','scroll','keydown','touchstart'].forEach(function(e){
+            document.removeEventListener(e, onInteract, {passive:true});
+          });
+        }
+        ['click','scroll','keydown','touchstart'].forEach(function(e){
+          document.addEventListener(e, onInteract, {passive:true});
+        });
+        setTimeout(function() { if (!loaded) { loaded = true; loadGA(); } }, 5000);
+      })();
     </script>
 
     <!-- Preconnect to external resources -->
