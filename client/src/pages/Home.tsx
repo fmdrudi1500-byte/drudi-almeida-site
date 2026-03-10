@@ -95,12 +95,12 @@ export default function Home() {
         {/* Background Image — placeholder navy já está no section acima */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src={IMAGES.responsive.heroMonet["480"]}
+            src={IMAGES.responsive.heroMonet["360"]}
             srcSet={srcSet(IMAGES.hero.main, IMAGES.responsive.heroMonet)}
             sizes="100vw"
             alt="Ponte japonesa de Monet — representação artística da visão com catarata"
             fetchPriority="high"
-            decoding="sync"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-center"
             width={1920}
             height={1072}

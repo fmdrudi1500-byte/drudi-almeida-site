@@ -68,6 +68,24 @@ export function serveStatic(app: Express) {
     })
   );
 
+  // Serve images and fonts with long-lived immutable cache (filenames contain hash)
+  app.use(
+    "/images",
+    express.static(path.join(distPath, "images"), {
+      maxAge: "1y",
+      immutable: true,
+      etag: true,
+    })
+  );
+  app.use(
+    "/fonts",
+    express.static(path.join(distPath, "fonts"), {
+      maxAge: "1y",
+      immutable: true,
+      etag: true,
+    })
+  );
+
   // Serve other static files with short cache
   app.use(
     express.static(distPath, {
@@ -78,6 +96,14 @@ export function serveStatic(app: Express) {
         // HTML files: no cache (always fresh)
         if (filePath.endsWith(".html")) {
           res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        }
+        // WebP images with hash in name: long cache
+        if (filePath.endsWith(".webp") || filePath.endsWith(".avif")) {
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        }
+        // Fonts: long cache
+        if (filePath.endsWith(".woff2") || filePath.endsWith(".woff")) {
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
         }
       },
     })
