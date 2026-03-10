@@ -331,3 +331,4 @@
 - [x] PERF-A1: Remover framer-motion do package.json (não é mais usado no código)
 - [x] PERF-A2: Corrigir TecnologiaCarousel — remover import do wouter (usa window.location)
 - [x] PERF-A3: Tornar Google Analytics verdadeiramente assíncrono (não bloquear render)
+- [x] PERF-B1: Google Maps lazy loading — componente LazyMap criado, iframes substituídos em Home.tsx e Contato.tsx

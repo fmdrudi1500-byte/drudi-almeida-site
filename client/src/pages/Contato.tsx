@@ -11,6 +11,7 @@ import { IMAGES } from "@/lib/images";
 import { useState } from "react";
 import { toast } from "sonner";
 import SEOHead from "@/components/SEOHead";
+import LazyMap from "@/components/LazyMap";
 
 interface Unidade {
   name: string;
@@ -152,17 +153,17 @@ export default function Contato() {
             </div>
             </StaggerContainer>
 
-            {/* Google Maps Embed */}
+            {/* Google Maps Embed — carregamento lazy */}
             <AnimateOnScroll delay={0.15}>
-              <div className="rounded-xl overflow-hidden border border-border/60 shadow-sm h-[420px] lg:h-full lg:min-h-[480px] sticky top-24">
-                <iframe
-                  title={`Mapa - ${unidades[activeUnit].name}`}
+              <div className="sticky top-24">
+                <LazyMap
+                  key={activeUnit}
                   src={`https://www.google.com/maps?q=${unidades[activeUnit].mapQuery}&output=embed`}
-                  className="w-full h-full"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa - ${unidades[activeUnit].name}`}
+                  height="100%"
+                  className="h-[420px] lg:min-h-[480px]"
+                  unitName={unidades[activeUnit].name}
+                  mapsUrl={`https://www.google.com/maps/search/?api=1&query=${unidades[activeUnit].mapQuery}`}
                 />
               </div>
             </AnimateOnScroll>

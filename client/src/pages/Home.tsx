@@ -15,6 +15,7 @@ import SEOHead from "@/components/SEOHead";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import ConveniosCarousel from "@/components/ConveniosCarousel";
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
+import LazyMap from "@/components/LazyMap";
 
 const institutos = [
   {
@@ -654,20 +655,15 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Google Maps incorporado — todas as 5 unidades */}
+          {/* Google Maps incorporado — carregamento lazy para melhor performance */}
           <AnimateOnScroll className="mt-8">
-            <div className="rounded-2xl overflow-hidden border border-border/60 shadow-sm" style={{ height: "420px" }}>
-              <iframe
-                title="Mapa das Unidades Drudi e Almeida"
-                src="https://maps.google.com/maps?q=Drudi+e+Almeida+Oftalmologia&output=embed&z=11"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <LazyMap
+              src="https://maps.google.com/maps?q=Drudi+e+Almeida+Oftalmologia&output=embed&z=11"
+              title="Mapa das Unidades Drudi e Almeida"
+              height={420}
+              unitName="Drudi e Almeida Oftalmologia — 5 Unidades em SP"
+              mapsUrl="https://www.google.com/maps/search/Drudi+e+Almeida+Oftalmologia"
+            />
           </AnimateOnScroll>
 
           <AnimateOnScroll className="text-center mt-6">
