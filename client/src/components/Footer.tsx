@@ -2,10 +2,9 @@
    Footer — Drudi e Almeida
    Navy background with gold accents, 5 units, links, and contact
    ============================================================ */
-import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
-const LOGO_URL = "/images/logo-horizontal-resized_e945407b.webp";
+const LOGO_URL = "/images/logo-horizontal-200w_opt.webp";
 
 const unidades = [
   { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
@@ -95,12 +94,12 @@ export default function Footer() {
                 { name: "Instituto de Estrabismo", href: "/instituto/estrabismo" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     className="font-body text-sm text-cream/70 hover:text-gold transition-colors"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -121,12 +120,12 @@ export default function Footer() {
                 { name: "Trabalhe Conosco", href: "/trabalhe-conosco" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     className="font-body text-sm text-cream/70 hover:text-gold transition-colors"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

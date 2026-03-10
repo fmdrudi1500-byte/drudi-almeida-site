@@ -16,7 +16,7 @@ import { IMAGES } from "@/lib/images";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
-const LOGO_URL = "/images/logo-horizontal-resized_e945407b.webp";
+const LOGO_URL = "/images/logo-horizontal-200w_opt.webp";
 
 const institutos = [
   {

@@ -258,11 +258,13 @@ export default function Home() {
           <AnimateOnScroll direction="left" className="relative">
             <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/quemsomos_b4aab543.png"
-                alt="Cirurgião oftalmologista realizando cirurgia ocular com microscópio Leica — Drudi e Almeida"
+                src="/images/quemsomos-600w_opt.webp"
+                srcSet="/images/quemsomos-400w_opt.webp 400w, /images/quemsomos-600w_opt.webp 600w"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt="Cirürgião oftalmologista realizando cirurgia ocular com microscópio Leica — Drudi e Almeida"
                 className="absolute inset-0 w-full h-full object-cover object-center"
-                width={412}
-                height={549}
+                width={600}
+                height={402}
                 loading="lazy"
                 decoding="async"
               />

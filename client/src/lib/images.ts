@@ -23,7 +23,7 @@ export const IMAGES = {
   responsive: {
     heroMonet: {
       "480": `${BASE}/hero-monet-480w_5af50fa4_d2802f0a.webp`,
-      "960": `${BASE}/hero-monet-960w-q65_33ebbbc1.webp`,
+      "960": `${BASE}/hero-monet-960w-q55_opt.webp`,
     },
     draPriscilla: {
       "412": `${BASE}/dra-priscilla-800w.webp`,
