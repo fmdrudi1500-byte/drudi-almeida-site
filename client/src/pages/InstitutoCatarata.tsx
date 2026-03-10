@@ -3,7 +3,7 @@
    Réplica fiel da estrutura da Central da Visão, adaptada ao
    estilo navy/gold da Drudi e Almeida.
    ============================================================ */
-import { useState, useRef } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import { Link } from "wouter";
 import {
   Eye, ChevronRight, ArrowRight, Phone, MessageCircle,
@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
-import FAQSection from "@/components/FAQSection";
-import AudioPlayer from "@/components/AudioPlayer";
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AudioPlayer = lazy(() => import("@/components/AudioPlayer"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
-import InstitutoSchema from "@/components/InstitutoSchema";
+const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Constants ---- */
@@ -244,7 +244,7 @@ export default function InstitutoCatarata() {
         ogImage="/images/monet-japanese-bridge_7feeb7be.webp"
         ogType="website"
       />
-      <InstitutoSchema instituto="catarata" />
+      <Suspense fallback={null}><InstitutoSchema instituto="catarata" /></Suspense>
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Parallax Background — Obra de Arte Impressionista */}
@@ -387,11 +387,13 @@ export default function InstitutoCatarata() {
               <AnimateOnScroll delay={0.6} className="mt-10">
                 <div className="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
                   <h3 className="font-display text-lg text-navy mb-4">Ouça nossa mensagem de boas-vindas</h3>
-                  <AudioPlayer
-                    src="/images/boas-vindas-catarata_cf3cce61.mp3"
-                    title="Instituto da Catarata"
-                    subtitle="Mensagem de boas-vindas do Dr. Fernando Drudi"
-                  />
+                  <Suspense fallback={null}>
+                    <AudioPlayer
+                      src="/images/boas-vindas-catarata_cf3cce61.mp3"
+                      title="Instituto da Catarata"
+                      subtitle="Mensagem de boas-vindas do Dr. Fernando Drudi"
+                    />
+                  </Suspense>
                 </div>
               </AnimateOnScroll>
             </div>
@@ -909,10 +911,12 @@ export default function InstitutoCatarata() {
       </section>
 
       {/* ========== 17. FAQ ========== */}
-      <FAQSection
-        items={faqItems}
-        subtitle="Tire suas dúvidas sobre a cirurgia de catarata e o pós-operatório."
-      />
+      <Suspense fallback={<div className="h-32" />}>
+        <FAQSection
+          items={faqItems}
+          subtitle="Tire suas dúvidas sobre a cirurgia de catarata e o pós-operatório."
+        />
+      </Suspense>
 
       {/* ========== 18. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

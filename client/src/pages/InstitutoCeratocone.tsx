@@ -2,7 +2,7 @@
    Instituto do Ceratocone — Drudi e Almeida
    Página educativa completa — "Uma aula ao paciente"
    ============================================================ */
-import { useState, useRef } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
@@ -12,10 +12,10 @@ import {
 import { Link } from "wouter";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
-import FAQSection from "@/components/FAQSection";
+const FAQSection = lazy(() => import("@/components/FAQSection"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
-import InstitutoSchema from "@/components/InstitutoSchema";
+const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
@@ -161,7 +161,7 @@ export default function InstitutoCeratocone() {
         ogImage="/images/van-gogh-starry-night_78be1262.webp"
         ogType="website"
       />
-      <InstitutoSchema instituto="ceratocone" />
+      <Suspense fallback={null}><InstitutoSchema instituto="ceratocone" /></Suspense>
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div
@@ -902,11 +902,13 @@ export default function InstitutoCeratocone() {
       </section>
 
       {/* ========== 15. FAQ ========== */}
-      <FAQSection
-        title="Perguntas Frequentes sobre Ceratocone"
-        subtitle="Tire todas as suas dúvidas sobre o ceratocone, seus tratamentos e o que esperar."
-        items={faqItems}
-      />
+      <Suspense fallback={<div className="h-32" />}>
+        <FAQSection
+          title="Perguntas Frequentes sobre Ceratocone"
+          subtitle="Tire todas as suas dúvidas sobre o ceratocone, seus tratamentos e o que esperar."
+          items={faqItems}
+        />
+      </Suspense>
 
       {/* ========== 15. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

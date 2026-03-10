@@ -2,7 +2,7 @@
    Instituto do Estrabismo — Drudi e Almeida
    Página educativa completa — "Uma aula ao paciente"
    ============================================================ */
-import { useState, useRef } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
@@ -12,10 +12,10 @@ import {
 import { Link } from "wouter";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
-import FAQSection from "@/components/FAQSection";
+const FAQSection = lazy(() => import("@/components/FAQSection"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
-import InstitutoSchema from "@/components/InstitutoSchema";
+const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
@@ -173,7 +173,7 @@ export default function InstitutoEstrabismo() {
         ogImage="/images/estrabismo-hero_dba86bbf.webp"
         ogType="website"
       />
-      <InstitutoSchema instituto="estrabismo" />
+      <Suspense fallback={null}><InstitutoSchema instituto="estrabismo" /></Suspense>
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center will-change-transform" style={{ backgroundImage: `url(${HERO_ART_IMG})` }} />
@@ -614,7 +614,9 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
       {/* ========== 12. FAQ ========== */}
-      <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
+      <Suspense fallback={<div className="h-32" />}>
+        <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
+      </Suspense>
 
       {/* ========== 12. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
