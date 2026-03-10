@@ -6,16 +6,20 @@
 import { Link } from "wouter";
 // framer-motion removed — hero uses CSS animations
 import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, MessageSquare, ThumbsUp, MapPin, ChevronRight, HelpCircle } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
-import TecnologiaCarousel from "@/components/TecnologiaCarousel";
 import { IMAGES, srcSet } from "@/lib/images";
-import { useMemo } from "react";
+import { useMemo, lazy, Suspense } from "react";
 import SEOHead from "@/components/SEOHead";
 import SchemaMarkup from "@/components/SchemaMarkup";
-import ConveniosCarousel from "@/components/ConveniosCarousel";
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
-import LazyMap from "@/components/LazyMap";
+// Lazy load heavy below-the-fold components to reduce TBT
+const TecnologiaCarousel = lazy(() => import("@/components/TecnologiaCarousel"));
+const ConveniosCarousel = lazy(() => import("@/components/ConveniosCarousel"));
+const LazyMap = lazy(() => import("@/components/LazyMap"));
+const Accordion = lazy(() => import("@/components/ui/accordion").then(m => ({ default: m.Accordion })));
+const AccordionContent = lazy(() => import("@/components/ui/accordion").then(m => ({ default: m.AccordionContent })));
+const AccordionItem = lazy(() => import("@/components/ui/accordion").then(m => ({ default: m.AccordionItem })));
+const AccordionTrigger = lazy(() => import("@/components/ui/accordion").then(m => ({ default: m.AccordionTrigger })));
 
 const institutos = [
   {
@@ -248,7 +252,9 @@ export default function Home() {
       </section>
 
       {/* ========== CONVENIOS ========== */}
-      <ConveniosCarousel />
+      <Suspense fallback={<div className="h-24" />}>
+        <ConveniosCarousel />
+      </Suspense>
 
       {/* ========== QUEM SOMOS ========== */}
       <section className="relative overflow-hidden">
@@ -356,7 +362,9 @@ export default function Home() {
       </section>
 
       {/* ========== TECNOLOGIA ========== */}
-      <TecnologiaCarousel />
+      <Suspense fallback={<div className="h-64" />}>
+        <TecnologiaCarousel />
+      </Suspense>
 
       {/* ========== CORPO CLÍNICO ========== */}
       <section className="section-padding">
@@ -659,13 +667,15 @@ export default function Home() {
 
           {/* Google Maps incorporado — carregamento lazy para melhor performance */}
           <AnimateOnScroll className="mt-8">
-            <LazyMap
-              src="https://maps.google.com/maps?q=Drudi+e+Almeida+Oftalmologia&output=embed&z=11"
-              title="Mapa das Unidades Drudi e Almeida"
-              height={420}
-              unitName="Drudi e Almeida Oftalmologia — 5 Unidades em SP"
-              mapsUrl="https://www.google.com/maps/search/Drudi+e+Almeida+Oftalmologia"
-            />
+            <Suspense fallback={<div className="h-[420px] bg-muted/20 rounded-xl" />}>
+              <LazyMap
+                src="https://maps.google.com/maps?q=Drudi+e+Almeida+Oftalmologia&output=embed&z=11"
+                title="Mapa das Unidades Drudi e Almeida"
+                height={420}
+                unitName="Drudi e Almeida Oftalmologia — 5 Unidades em SP"
+                mapsUrl="https://www.google.com/maps/search/Drudi+e+Almeida+Oftalmologia"
+              />
+            </Suspense>
           </AnimateOnScroll>
 
           <AnimateOnScroll className="text-center mt-6">
@@ -896,6 +906,7 @@ export default function Home() {
           </AnimateOnScroll>
 
           <div className="max-w-3xl mx-auto">
+            <Suspense fallback={<div className="h-64" />}>
             <Accordion type="single" collapsible className="space-y-3">
               {[
                 {
@@ -945,9 +956,9 @@ export default function Home() {
                   </AccordionItem>
                 </AnimateOnScroll>
               ))}
-            </Accordion>
+             </Accordion>
+            </Suspense>
           </div>
-
           <AnimateOnScroll className="text-center mt-10">
             <p className="font-body text-sm text-muted-foreground mb-4">
               Não encontrou sua dúvida? Fale conosco!
