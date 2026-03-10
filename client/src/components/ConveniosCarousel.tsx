@@ -34,7 +34,6 @@ export default function ConveniosCarousel() {
   const pausedRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const isVisibleRef = useRef(false);
 
   // Drag state
   const isDraggingRef = useRef(false);
@@ -58,22 +57,10 @@ export default function ConveniosCarousel() {
     }
   }, []);
 
-  // IntersectionObserver — só roda rAF quando o carrossel está no viewport
-  useEffect(() => {
-    const section = document.getElementById("secao-convenios");
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
-      { threshold: 0.1 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  // Loop de animação via rAF — só processa quando visível
+  // Loop de animação via rAF
   useEffect(() => {
     const tick = () => {
-      if (!pausedRef.current && isVisibleRef.current) {
+      if (!pausedRef.current) {
         posRef.current -= SPEED;
         // Reset quando passou um bloco completo (loop infinito)
         if (Math.abs(posRef.current) >= blockWidth) {
