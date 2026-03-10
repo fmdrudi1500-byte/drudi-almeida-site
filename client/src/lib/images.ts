@@ -27,8 +27,8 @@ export const IMAGES = {
       "960": `${BASE}/hero-monet-960w-q55_opt.webp`,
     },
     draPriscilla: {
-      "412": `${BASE}/dra-priscilla-800w.webp`,
-      "824": `${BASE}/dra-priscilla-800w.webp`,
+      "412": `${BASE}/dra-priscilla-412w_213372a7.webp`,
+      "824": `${BASE}/dra-priscilla-824w_baddef17.webp`,
     },
     drFernando: {
       "480": `${BASE}/dr-fernando-800w.webp`,

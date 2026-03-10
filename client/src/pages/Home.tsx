@@ -394,7 +394,7 @@ export default function Home() {
                 role: "Diretora Técnica",
                 specialty: "Córnea, Segmento Anterior e Lentes de Contato",
                 crm: "CRM-SP 148.173 | RQE 59.216",
-                image: "/images/dra-priscilla-800w.webp",
+                image: "/images/dra-priscilla-412w_213372a7.webp",
                 highlights: [
                   "Especialista em Córnea pela Escola Paulista de Medicina (EPM/UNIFESP)",
                   "Membro do Conselho Brasileiro de Oftalmologia (CBO)",

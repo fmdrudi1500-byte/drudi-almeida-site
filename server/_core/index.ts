@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import compression from "compression";
+import zlib from "zlib";
 import { createServer } from "http";
 import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
@@ -84,8 +85,30 @@ async function startServer() {
     res.status(200).json({ status: 'ok', ts: Date.now() });
   });
 
-  // Enable gzip/deflate compression for all responses
-  app.use(compression());
+  // Enable Brotli + gzip compression for all responses
+  // Brotli compresses ~15-20% better than gzip (Node.js native zlib support)
+  app.use((req, res, next) => {
+    const acceptEncoding = req.headers["accept-encoding"] || "";
+    if (/\bbr\b/.test(acceptEncoding)) {
+      const _write = res.write.bind(res);
+      const _end = res.end.bind(res);
+      const brotli = zlib.createBrotliCompress({
+        params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 4 }, // quality 4 = fast, good ratio
+      });
+      res.setHeader("Content-Encoding", "br");
+      res.removeHeader("Content-Length");
+      brotli.on("data", (chunk: Buffer) => _write(chunk));
+      brotli.on("end", () => _end());
+      (res as any).write = (chunk: any, ...args: any[]) => brotli.write(chunk);
+      (res as any).end = (chunk?: any, ...args: any[]) => {
+        if (chunk) brotli.write(chunk);
+        brotli.end();
+      };
+      return next();
+    }
+    // Fallback to gzip for browsers that don't support Brotli
+    compression()(req, res, next);
+  });
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));

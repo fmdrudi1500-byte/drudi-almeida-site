@@ -340,3 +340,8 @@
 - [x] PERF-B1: Google Maps lazy loading — componente LazyMap criado, iframes substituídos em Home.tsx e Contato.tsx
 - [x] PERF-B2: Imagem quemsomos (152KB→20KB), hero-960w recomprimido, logo otimizado
 - [ ] PERF-C1: Critical CSS inline — extrair CSS above-the-fold e carregar CSS restante de forma assíncrona
+
+## Fase Performance — Otimizações LCP (Mar 2026 Round 2)
+- [x] Lazy loading no carrossel de convênios
+- [x] Compressão Brotli/gzip no servidor Express
+- [x] Variante 400w da imagem da Dra. Priscilla

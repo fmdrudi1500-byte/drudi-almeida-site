@@ -15,7 +15,7 @@ import { useState, useRef, useCallback } from "react";
 
 // Fotos dos médicos — extensões .webp (convertidas na otimização)
 const DR_FERNANDO_FORMAL = `/images/dr-fernando-800w.webp`;
-const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-800w.webp`;
+const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-412w_213372a7.webp`;
 const DR_FERNANDO_AMAZONIA = `/images/dr-fernando-amazonia-elegant_0e59624a.webp`;
 
 // ============================================================
@@ -382,6 +382,11 @@ export default function SobreNos() {
                       <div className="relative overflow-hidden rounded-xl shadow-lg">
                         <img
                           src={doc.image}
+                          srcSet={idx === 0
+                            ? `/images/dr-fernando-800w.webp 800w`
+                            : `/images/dra-priscilla-412w_213372a7.webp 412w, /images/dra-priscilla-824w_baddef17.webp 824w`
+                          }
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                           alt={`${doc.name} — ${doc.role}, ${doc.specialty} — Drudi e Almeida Oftalmologia`}
                           className="w-full aspect-[3/4] object-cover object-top"
                           width={600}
