@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cirurgia de Catarata em São Paulo — Drudi e Almeida Oftalmologia</title>
+  <meta name="description" content="Cirurgia de catarata com tecnologia de ponta e especialistas renomados. Procedimento rápido, indolor e com recuperação em 24h. Agende sua avaliação gratuita.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Preconnect para fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload do hero -->
+  <link rel="preload" as="image" href="/images/catarata-hero-art_bd1bf3f5.webp" fetchpriority="high">
+
+  <!-- Fontes — apenas as usadas na LP -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Sans+3:wght@400;600;700&display=swap"></noscript>
+
+  <!-- Google Ads + GA4 — lazy após idle -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-1Y6Z77ZK6M', { send_page_view: true });
+    gtag('config', 'AW-7657239771');
+    function loadGA() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      window.addEventListener('load', function() {
+        requestIdleCallback(loadGA, { timeout: 6000 });
+      });
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(loadGA, 6000);
+      });
+    }
+  </script>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1e2d3d;
+      --navy-light: #2c3e50;
+      --gold: #c9a961;
+      --gold-light: #dfc07a;
+      --cream: #f8f5ef;
+      --white: #ffffff;
+      --text: #374151;
+      --text-light: #6b7280;
+      --green: #16a34a;
+      --wa-green: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== STICKY HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .header-logo { height: 36px; width: auto; }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa-green);
+      color: white;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .header-cta:hover { background: #1ebe5a; }
+    .header-cta svg { flex-shrink: 0; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/catarata-hero-art_bd1bf3f5.webp');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.45;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(30,45,61,0.92) 0%, rgba(30,45,61,0.65) 50%, rgba(30,45,61,0.4) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 60px 24px 80px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,169,97,0.15);
+      border: 1px solid rgba(201,169,97,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .hero-badge span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 28px;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+    .pill-check { color: var(--gold); font-size: 14px; }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 28px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: all 0.2s;
+    }
+    .btn-wa:hover { background: #1ebe5a; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    .btn-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .btn-tel:hover { background: rgba(255,255,255,0.1); }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .stars { color: #fbbf24; font-size: 15px; letter-spacing: 1px; }
+    .hero-trust-text { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .hero-trust-text strong { color: rgba(255,255,255,0.9); }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 64px 24px; }
+    .section-narrow { max-width: 720px; margin: 0 auto; }
+    .section-wide { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 16px 0 0;
+    }
+
+    /* ===== URGENCY BANNER ===== */
+    .urgency {
+      background: linear-gradient(135deg, #1e2d3d 0%, #2c3e50 100%);
+      padding: 18px 24px;
+      text-align: center;
+    }
+    .urgency-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .urgency-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+    }
+    .urgency-text strong { color: var(--gold); }
+    .urgency-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 18px;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+    .urgency-btn:hover { background: var(--gold-light); }
+
+    /* ===== SINTOMAS ===== */
+    .sintomas-section { background: var(--cream); }
+    .sintomas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .sintoma-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(0,0,0,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .sintoma-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(201,169,97,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+    }
+    .sintoma-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .sintoma-desc { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+    /* ===== PROCESSO ===== */
+    .processo-section { background: white; }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,169,97,0.1));
+    }
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 0;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 3px solid var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+    .step-body { padding-top: 10px; }
+    .step-title { font-weight: 700; font-size: 17px; color: var(--navy); margin-bottom: 5px; }
+    .step-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+    .step-tip {
+      display: inline-block;
+      margin-top: 8px;
+      background: rgba(201,169,97,0.1);
+      border-left: 3px solid var(--gold);
+      padding: 6px 12px;
+      font-size: 13px;
+      color: var(--navy-light);
+      font-style: italic;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ===== DEPOIMENTOS ===== */
+    .depo-section { background: var(--navy); }
+    .depo-section .section-title { color: white; }
+    .depo-section .section-desc { color: rgba(255,255,255,0.65); }
+    .depo-section .section-label { color: var(--gold); }
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .depo-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .depo-stars { color: #fbbf24; font-size: 16px; letter-spacing: 2px; margin-bottom: 12px; }
+    .depo-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .depo-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .depo-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .depo-name { font-weight: 700; font-size: 14px; color: white; }
+    .depo-meta { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .depo-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    /* ===== MÉDICOS ===== */
+    .medicos-section { background: var(--cream); }
+    .medicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .medico-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .medico-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .medico-body { padding: 20px; }
+    .medico-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .medico-crm { font-size: 12px; color: var(--text-light); margin-bottom: 10px; }
+    .medico-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .medico-tag {
+      background: rgba(201,169,97,0.1);
+      border: 1px solid rgba(201,169,97,0.25);
+      color: var(--navy-light);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f1e2d 100%);
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/catarata-hero-art_bd1bf3f5.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cta-title em { color: var(--gold); font-style: italic; }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+    .btn-wa-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--wa-green);
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 18px 36px;
+      border-radius: 12px;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.4);
+      transition: all 0.2s;
+    }
+    .btn-wa-lg:hover { background: #1ebe5a; transform: translateY(-2px); }
+    .btn-tel-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .btn-tel-lg:hover { background: rgba(255,255,255,0.08); }
+    .cta-guarantee {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ===== FOOTER LP ===== */
+    .footer-lp {
+      background: #0f1e2d;
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-lp-logo { height: 32px; margin: 0 auto 12px; opacity: 0.7; }
+    .footer-lp-text { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+    .footer-lp-text a { color: rgba(255,255,255,0.5); text-decoration: underline; }
+
+    /* ===== FLOATING WA BUTTON ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: all 0.2s;
+      animation: float-in 0.5s ease 1s both;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+    @keyframes float-in {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .hero-content { padding: 48px 20px 64px; }
+      .hero-cta-group { flex-direction: column; align-items: stretch; }
+      .btn-wa, .btn-tel { justify-content: center; }
+      .steps::before { left: 24px; }
+      .step-num { width: 48px; height: 48px; font-size: 17px; }
+      .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn-wa-lg, .btn-tel-lg { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== STICKY HEADER ===== -->
+  <header class="header">
+    <img
+      src="/images/logo-horizontal-200w_opt.webp"
+      alt="Drudi e Almeida Oftalmologia"
+      class="header-logo"
+      width="140"
+      height="36"
+    >
+    <a
+      href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia."
+      class="header-cta"
+      onclick="gtag('event', 'conversion', {'send_to': 'AW-7657239771', 'event_category': 'CTA', 'event_label': 'header_whatsapp'});"
+      target="_blank"
+      rel="noopener"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Receber Preço
+    </a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Pintura impressionista — representação artística da visão com catarata"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Instituto da Catarata — Drudi e Almeida</span>
+      </div>
+      <h1>Volte a enxergar com <em>nitidez e cores vivas</em></h1>
+      <p class="hero-sub">
+        A cirurgia de catarata é rápida, indolor e transforma sua visão em menos de 30 minutos. 
+        Especialistas renomados, tecnologia de ponta e recuperação em 24 horas.
+      </p>
+      <div class="hero-pills">
+        <span class="pill"><span class="pill-check">✓</span> Procedimento indolor</span>
+        <span class="pill"><span class="pill-check">✓</span> Recuperação em 24h</span>
+        <span class="pill"><span class="pill-check">✓</span> Aceita convênios</span>
+        <span class="pill"><span class="pill-check">✓</span> Lentes premium disponíveis</span>
+      </div>
+      <div class="hero-cta-group">
+        <a
+          href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia."
+          class="btn-wa"
+          onclick="gtag('event', 'conversion', {'send_to': 'AW-7657239771', 'event_category': 'CTA', 'event_label': 'hero_whatsapp'});"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Receber o Preço Agora
+        </a>
+        <a href="tel:+551150268521" class="btn-tel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (11) 5026-8521
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span class="hero-trust-text"><strong>+200 avaliações</strong> no Google · 5 estrelas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== URGENCY BANNER ===== -->
+  <div class="urgency">
+    <div class="urgency-inner">
+      <p class="urgency-text">
+        <strong>Bradesco, Amil, Unimed, Prevent Senior</strong> e mais — consulte sua cobertura gratuitamente
+      </p>
+      <a
+        href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Quero+verificar+a+cobertura+do+meu+conv%C3%AAnio+para+cirurgia+de+catarata."
+        class="urgency-btn"
+        onclick="gtag('event', 'conversion', {'send_to': 'AW-7657239771', 'event_category': 'CTA', 'event_label': 'urgency_convenio'});"
+        target="_blank"
+        rel="noopener"
+      >
+        Verificar Cobertura →
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== SINTOMAS ===== -->
+  <section class="section sintomas-section">
+    <div class="section-wide">
+      <p class="section-label">Você se identifica?</p>
+      <h2 class="section-title">Sinais de que sua visão <em>precisa de atenção</em></h2>
+      <p class="section-desc">A catarata evolui lentamente. Muitos pacientes só percebem o quanto estavam enxergando mal depois da cirurgia.</p>
+      <div class="gold-line"></div>
+      <div class="sintomas-grid">
+        <div class="sintoma-card">
+          <div class="sintoma-icon">🌫️</div>
+          <div>
+            <div class="sintoma-title">Visão embaçada ou turva</div>
+            <div class="sintoma-desc">Como enxergar através de um vidro fosco — mesmo com óculos novos.</div>
+          </div>
+        </div>
+        <div class="sintoma-card">
+          <div class="sintoma-icon">🌙</div>
+          <div>
+            <div class="sintoma-title">Dificuldade para dirigir à noite</div>
+            <div class="sintoma-desc">Faróis e luzes criam halos e ofuscamento intenso, tornando a direção perigosa.</div>
+          </div>
+        </div>
+        <div class="sintoma-card">
+          <div class="sintoma-icon">🎨</div>
+          <div>
+            <div class="sintoma-title">Cores desbotadas ou amareladas</div>
+            <div class="sintoma-desc">O mundo parece menos vibrante. Muitos só percebem após a cirurgia ao ver cores vivas novamente.</div>
+          </div>
+        </div>
+        <div class="sintoma-card">
+          <div class="sintoma-icon">☀️</div>
+          <div>
+            <div class="sintoma-title">Sensibilidade excessiva à luz</div>
+            <div class="sintoma-desc">Ambientes iluminados causam desconforto e necessidade de piscar constantemente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSO ===== -->
+  <section class="section processo-section">
+    <div class="section-narrow">
+      <p class="section-label">Como funciona</p>
+      <h2 class="section-title">Do diagnóstico à <em>visão restaurada</em></h2>
+      <p class="section-desc">Um processo simples, seguro e com resultados que transformam a qualidade de vida.</p>
+      <div class="gold-line"></div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Avaliação completa</div>
+            <div class="step-desc">Exames de biometria e mapeamento da retina para escolher a lente intraocular ideal para seu estilo de vida.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Cirurgia rápida e indolor</div>
+            <div class="step-desc">Facoemulsificação com microincisão de 2mm. Anestesia local por colírio — sem agulha, sem internação, sem dor.</div>
+            <span class="step-tip">⏱ Duração: 15 a 30 minutos por olho</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Implante da lente premium</div>
+            <div class="step-desc">Uma lente intraocular artificial substitui o cristalino opaco. Pode corrigir miopia, astigmatismo e presbiopia simultaneamente.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Recuperação em 24 horas</div>
+            <div class="step-desc">A maioria dos pacientes já enxerga melhor no dia seguinte. Retorno às atividades normais em 1 a 3 dias.</div>
+            <span class="step-tip">✨ Muitos pacientes relatam ver cores que não viam há anos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section class="section depo-section">
+    <div class="section-wide">
+      <p class="section-label">O que dizem nossos pacientes</p>
+      <h2 class="section-title">Resultados que <em>falam por si</em></h2>
+      <div class="gold-line"></div>
+      <div class="depo-grid">
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Fiz minha cirurgia de catarata com o Dr. Fernando e o resultado superou todas as expectativas. Equipe muito profissional e acolhedora. Recomendo de olhos fechados!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar">P</div>
+            <div>
+              <div class="depo-name">Patricia Oliveira</div>
+              <div class="depo-meta">Unidade Santana · há 2 semanas</div>
+              <div class="depo-verified">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Avaliação verificada no Google
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Minha mãe de 78 anos ficou com medo, mas a equipe foi extremamente cuidadosa e explicou cada etapa. No dia seguinte ela já estava enxergando perfeitamente. Atendimento humanizado de verdade."</p>
+          <div class="depo-author">
+            <div class="depo-avatar">F</div>
+            <div>
+              <div class="depo-name">Fernando Costa</div>
+              <div class="depo-meta">Unidade Guarulhos · há 1 mês</div>
+              <div class="depo-verified">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Avaliação verificada no Google
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÉDICOS ===== -->
+  <section class="section medicos-section">
+    <div class="section-wide">
+      <p class="section-label">Quem vai cuidar de você</p>
+      <h2 class="section-title">Especialistas de <em>referência em SP</em></h2>
+      <p class="section-desc">Mais de 10 anos de experiência em cirurgia de catarata com as mais avançadas tecnologias disponíveis.</p>
+      <div class="gold-line"></div>
+      <div class="medicos-grid">
+        <div class="medico-card">
+          <img
+            src="/images/dr-fernando-480w_ffe20b72_daaa02d9.webp"
+            alt="Dr. Fernando Drudi — Cirurgião Oftalmologista especialista em catarata"
+            class="medico-img"
+            loading="lazy"
+            width="480"
+            height="240"
+          >
+          <div class="medico-body">
+            <div class="medico-name">Dr. Fernando Drudi</div>
+            <div class="medico-crm">CRM-SP · Cirurgião Oftalmologista</div>
+            <div class="medico-tags">
+              <span class="medico-tag">Cirurgia de Catarata</span>
+              <span class="medico-tag">Lentes Premium</span>
+              <span class="medico-tag">Facoemulsificação</span>
+            </div>
+          </div>
+        </div>
+        <div class="medico-card">
+          <img
+            src="/images/dra-priscilla-412w_213372a7.webp"
+            alt="Dra. Priscilla de Almeida — Oftalmologista especialista"
+            class="medico-img"
+            loading="lazy"
+            width="412"
+            height="240"
+          >
+          <div class="medico-body">
+            <div class="medico-name">Dra. Priscilla de Almeida</div>
+            <div class="medico-crm">CRM-SP · Oftalmologista</div>
+            <div class="medico-tags">
+              <span class="medico-tag">Ceratocone</span>
+              <span class="medico-tag">Lentes de Contato</span>
+              <span class="medico-tag">Catarata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Pronto para <em>enxergar o mundo</em> com clareza?</h2>
+      <p class="cta-sub">
+        Agende agora pelo WhatsApp e receba o preço da cirurgia, informações sobre convênios 
+        e disponibilidade de agenda — sem compromisso.
+      </p>
+      <div class="cta-buttons">
+        <a
+          href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia."
+          class="btn-wa-lg"
+          onclick="gtag('event', 'conversion', {'send_to': 'AW-7657239771', 'event_category': 'CTA', 'event_label': 'cta_final_whatsapp'});"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Receber o Preço Agora
+        </a>
+        <a href="tel:+551150268521" class="btn-tel-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (11) 5026-8521
+        </a>
+      </div>
+      <p class="cta-guarantee">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Sem compromisso · Resposta em até 2 horas · Atendimento humanizado
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER LP ===== -->
+  <footer class="footer-lp">
+    <img
+      src="/images/logo-horizontal-200w_opt.webp"
+      alt="Drudi e Almeida Oftalmologia"
+      class="footer-lp-logo"
+      width="120"
+      height="30"
+      loading="lazy"
+    >
+    <p class="footer-lp-text">
+      © 2025 Drudi e Almeida Clínicas Oftalmológicas · CNPJ 00.000.000/0001-00<br>
+      Av. Braz Leme, 1717 — Santana, São Paulo · CRM-SP<br>
+      <a href="/instituto/catarata">Ver página completa do Instituto da Catarata</a>
+    </p>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a
+    href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia."
+    class="wa-float"
+    aria-label="Falar no WhatsApp"
+    onclick="gtag('event', 'conversion', {'send_to': 'AW-7657239771', 'event_category': 'CTA', 'event_label': 'float_whatsapp'});"
+    target="_blank"
+    rel="noopener"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>

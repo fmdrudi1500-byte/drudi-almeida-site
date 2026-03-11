@@ -3,6 +3,8 @@ import express from "express";
 import compression from "compression";
 import { createServer } from "http";
 import net from "net";
+import path from "path";
+import { fileURLToPath } from "url";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
@@ -11,6 +13,9 @@ import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoutes } from "../sitemap.js";
 import { registerResumeUploadRoute } from "../upload-resume.js";
 import { registerGoogleAuthRoutes } from "../google-auth-routes.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Domains that should redirect to the canonical domain (301 Permanent)
 const CANONICAL_DOMAIN = "institutodrudiealmeida.com.br";
@@ -82,6 +87,19 @@ async function startServer() {
   // ============================================================
   app.get('/ping', (_req, res) => {
     res.status(200).json({ status: 'ok', ts: Date.now() });
+  });
+
+  // ============================================================
+  // Landing Pages estáticas (HTML puro, sem React bundle)
+  // Servidas antes do Vite/static para máxima performance
+  // Objetivo: LCP < 0.8s, sem JS framework overhead
+  // ============================================================
+  const lpDir = path.resolve(__dirname, '../lp');
+
+  app.get('/lp/catarata', (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.sendFile(path.join(lpDir, 'catarata.html'));
   });
 
   // Enable gzip/deflate compression for all responses

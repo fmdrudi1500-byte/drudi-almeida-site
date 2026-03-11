@@ -340,3 +340,11 @@
 - [x] PERF-B1: Google Maps lazy loading — componente LazyMap criado, iframes substituídos em Home.tsx e Contato.tsx
 - [x] PERF-B2: Imagem quemsomos (152KB→20KB), hero-960w recomprimido, logo otimizado
 - [ ] PERF-C1: Critical CSS inline — extrair CSS above-the-fold e carregar CSS restante de forma assíncrona
+
+## Fase LP: Landing Pages para Google Ads (HTML Puro)
+- [x] Criar /lp/catarata — HTML puro sem React, LCP < 0.8s, tracking Google Ads, CTA WhatsApp
+- [ ] Criar /lp/ceratocone — mesma estrutura adaptada para ceratocone
+- [ ] Criar /lp/glaucoma — mesma estrutura adaptada para glaucoma
+- [ ] Criar /lp/retina — mesma estrutura adaptada para retina
+- [ ] Criar /lp/estrabismo — mesma estrutura adaptada para estrabismo
+- [ ] Configurar UptimeRobot para monitorar /ping e prevenir cold start
