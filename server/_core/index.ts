@@ -94,7 +94,10 @@ async function startServer() {
   // Servidas antes do Vite/static para máxima performance
   // Objetivo: LCP < 0.8s, sem JS framework overhead
   // ============================================================
-  const lpDir = path.resolve(__dirname, '../lp');
+  // Em dev: __dirname = server/_core/, '../lp' = server/lp/ ✓
+  // Em prod: __dirname = dist/, '../lp' = lp/ ✗ (arquivo não está lá)
+  // Solução: usar process.cwd() que sempre aponta para a raiz do projeto
+  const lpDir = path.join(process.cwd(), 'server', 'lp');
 
   app.get('/lp/catarata', (_req, res) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
