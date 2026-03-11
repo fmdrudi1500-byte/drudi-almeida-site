@@ -95,9 +95,13 @@ async function startServer() {
   // Objetivo: LCP < 0.8s, sem JS framework overhead
   // ============================================================
   // Em dev: __dirname = server/_core/, '../lp' = server/lp/ ✓
-  // Em prod: __dirname = dist/, '../lp' = lp/ ✗ (arquivo não está lá)
-  // Solução: usar process.cwd() que sempre aponta para a raiz do projeto
-  const lpDir = path.join(process.cwd(), 'server', 'lp');
+  // Em prod: __dirname = dist/, 'lp' = dist/lp/ ✓ (copiado pelo build script)
+  // Usar __dirname que funciona corretamente em ambos os ambientes:
+  // - dev: server/_core/ -> ../lp = server/lp/
+  // - prod: dist/ -> lp = dist/lp/
+  const lpDir = process.env.NODE_ENV === 'production'
+    ? path.join(__dirname, 'lp')
+    : path.join(__dirname, '..', 'lp');
 
   app.get('/lp/catarata', (_req, res) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
