@@ -8,16 +8,33 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="https://institutodrudiealmeida.com.br/images/van-gogh-starry-night_78be1262.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://institutodrudiealmeida.com.br">
+<link rel="preload" as="image" href="https://institutodrudiealmeida.com.br/images/van-gogh-starry-night_78be1262.webp" fetchpriority="high" type="image/webp">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<style>@font-face{font-family:'Cormorant Garamond';font-display:swap}@font-face{font-family:'DM Sans';font-display:swap}</style>
 
-<!-- GA4 + Google Ads — lazy load -->
+<!-- GA4 + Google Ads — carrega após primeira interação para não bloquear LCP/TBT -->
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
-gtag('js',new Date());gtag('config','G-1Y6Z77ZK6M',{send_page_view:true});gtag('config','AW-7657239771');
-function loadGA(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M';document.head.appendChild(s)}
-if('requestIdleCallback' in window){window.addEventListener('load',function(){requestIdleCallback(loadGA,{timeout:6000})})}else{window.addEventListener('load',function(){setTimeout(loadGA,6000)})}
+var _gaLoaded=false;
+function loadGA(){
+  if(_gaLoaded)return;_gaLoaded=true;
+  gtag('js',new Date());
+  gtag('config','G-1Y6Z77ZK6M',{send_page_view:true});
+  gtag('config','AW-7657239771');
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-1Y6Z77ZK6M';
+  document.head.appendChild(s);
+}
+// Carrega na primeira interação do usuário
+['click','touchstart','scroll','keydown'].forEach(function(e){
+  document.addEventListener(e,loadGA,{once:true,passive:true});
+});
+// Fallback: carrega após 8s mesmo sem interação
+setTimeout(loadGA,8000);
 </script>
 
 <script type="application/ld+json">
@@ -74,9 +91,12 @@ a{text-decoration:none;color:inherit}
 }
 .hero-bg{
   position:absolute;inset:0;
-  background-image:url('https://institutodrudiealmeida.com.br/images/van-gogh-starry-night_78be1262.webp');
-  background-size:cover;background-position:center;
+  overflow:hidden;
+}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
   opacity:0.4;
+  display:block;
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -288,7 +308,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <img src="https://institutodrudiealmeida.com.br/images/logo-drudi.jpg" alt="Drudi e Almeida" class="topbar-logo" width="120" height="44" loading="eager">
+  <img src="https://institutodrudiealmeida.com.br/images/logo-drudi.jpg" alt="Drudi e Almeida" class="topbar-logo" width="120" height="44" loading="eager" fetchpriority="high" decoding="sync">
   <p class="topbar-text">
     Avaliação para cirurgia de catarata<br>com preços reduzidos <strong>(vagas limitadas)</strong>
   </p>
@@ -297,7 +317,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <!-- HERO — Van Gogh Starry Night -->
 <section class="hero">
-  <div class="hero-bg" role="img" aria-label="A Noite Estrelada de Van Gogh — representação artística da visão com ceratocone e astigmatismo"></div>
+  <div class="hero-bg">
+  <img src="https://institutodrudiealmeida.com.br/images/van-gogh-starry-night_78be1262.webp" alt="" fetchpriority="high" decoding="async" width="1920" height="1080">
+</div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-badge">Instituto da Catarata — Drudi e Almeida</div>
@@ -370,7 +392,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     </div>
     <div class="doctors-grid">
       <div class="doctor-card">
-        <img src="https://institutodrudiealmeida.com.br/images/dr-fernando-800w.webp" alt="Dr. Fernando Macei Drudi — Cirurgião Oftalmologista" loading="lazy" width="400" height="533">
+        <img src="https://institutodrudiealmeida.com.br/images/dr-fernando-800w.webp" alt="Dr. Fernando Macei Drudi — Cirürgião Oftalmologista" loading="lazy" decoding="async" width="400" height="533">
         <div class="doctor-body">
           <h3 class="doctor-name">Dr. Fernando Macei Drudi</h3>
           <p class="doctor-role">Catarata e Retina Cirúrgica — CRM-SP 139.300</p>
@@ -379,7 +401,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         </div>
       </div>
       <div class="doctor-card">
-        <img src="https://institutodrudiealmeida.com.br/images/dra-priscilla-800w.webp" alt="Dra. Priscilla R. de Almeida — Oftalmologista" loading="lazy" width="400" height="533">
+        <img src="https://institutodrudiealmeida.com.br/images/dra-priscilla-800w.webp" alt="Dra. Priscilla R. de Almeida — Oftalmologista" loading="lazy" decoding="async" width="400" height="533">
         <div class="doctor-body">
           <h3 class="doctor-name">Dra. Priscilla R. de Almeida</h3>
           <p class="doctor-role">Córnea e Segmento Anterior — CRM-SP 148.173 | RQE 59.216</p>
@@ -449,7 +471,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="media-grid">
       <a class="media-card" href="https://m.youtube.com/watch?v=WQ9cAJB8FV0" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
         <div class="media-thumb">
-          <img src="https://institutodrudiealmeida.com.br/images/midia-ressoar.jpg" alt="Dr. Fernando Drudi no Programa Ressoar" loading="lazy" width="640" height="360">
+          <img src="https://institutodrudiealmeida.com.br/images/midia-ressoar.jpg" alt="Dr. Fernando Drudi no Programa Ressoar" loading="lazy" decoding="async" width="640" height="360">
           <div class="media-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
         <div class="media-body">
@@ -460,7 +482,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </a>
       <a class="media-card" href="https://www.cnnbrasil.com.br" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
         <div class="media-thumb">
-          <img src="https://institutodrudiealmeida.com.br/images/midia-cnn.jpg" alt="Dr. Fernando Drudi na CNN Brasil" loading="lazy" width="640" height="360">
+          <img src="https://institutodrudiealmeida.com.br/images/midia-cnn.jpg" alt="Dr. Fernando Drudi na CNN Brasil" loading="lazy" decoding="async" width="640" height="360">
           <div class="media-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
         <div class="media-body">
@@ -471,7 +493,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </a>
       <a class="media-card" href="https://www.tiktok.com/@dra.priscillalmeida/video/7112464428955602182" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
         <div class="media-thumb">
-          <img src="https://institutodrudiealmeida.com.br/images/midia-voce-bonita-2.jpg" alt="Dra. Priscilla no Você Bonita TV Gazeta" loading="lazy" width="640" height="360">
+          <img src="https://institutodrudiealmeida.com.br/images/midia-voce-bonita-2.jpg" alt="Dra. Priscilla no Você Bonita TV Gazeta" loading="lazy" decoding="async" width="640" height="360">
           <div class="media-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
         <div class="media-body">
@@ -482,7 +504,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </a>
       <a class="media-card" href="https://m.youtube.com/watch?v=mQ1aQH2VbYk" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
         <div class="media-thumb">
-          <img src="https://institutodrudiealmeida.com.br/images/midia-interioriza.jpg" alt="Dra. Priscilla e Dr. Fernando no Programa Interioriza" loading="lazy" width="640" height="360">
+          <img src="https://institutodrudiealmeida.com.br/images/midia-interioriza.jpg" alt="Dra. Priscilla e Dr. Fernando no Programa Interioriza" loading="lazy" decoding="async" width="640" height="360">
           <div class="media-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
         </div>
         <div class="media-body">
