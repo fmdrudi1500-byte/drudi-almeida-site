@@ -1,3 +1,5 @@
+# LP estáticas — exceções ao fallback SPA
 /lp/*  /lp/:splat  200
 /instituto/lp/*  /instituto/lp/:splat  200
+# SPA fallback — deve ser a última regra
 /*    /index.html   200
