@@ -348,3 +348,7 @@
 - [ ] Criar /lp/retina — mesma estrutura adaptada para retina
 - [ ] Criar /lp/estrabismo — mesma estrutura adaptada para estrabismo
 - [ ] Configurar UptimeRobot para monitorar /ping e prevenir cold start
+
+## Fase LP: Landing Pages para Google Ads
+- [x] LP Catarata HTML puro hospedada no GitHub Pages (https://fmdrudi1500-byte.github.io/lp-catarata/)
+- [x] Proxy reverso Express: /instituto/lp/catarata → GitHub Pages (URL permanece no domínio)

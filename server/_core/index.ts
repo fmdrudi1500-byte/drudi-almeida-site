@@ -109,6 +109,33 @@ async function startServer() {
     res.sendFile(path.join(lpDir, 'catarata.html'));
   });
 
+  // ============================================================
+  // Proxy reverso para Landing Pages hospedadas no GitHub Pages
+  // A URL no browser permanece como institutodrudiealmeida.com.br/instituto/lp/*
+  // O Express busca o HTML do GitHub Pages e serve diretamente
+  // ============================================================
+  const LP_GITHUB_PAGES = 'https://fmdrudi1500-byte.github.io/lp-catarata/';
+
+  app.get('/instituto/lp/catarata', async (_req, res) => {
+    try {
+      const upstream = await fetch(LP_GITHUB_PAGES, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DrudioProxy/1.0)' },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!upstream.ok) {
+        return res.status(upstream.status).send('Erro ao carregar a página.');
+      }
+      const html = await upstream.text();
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=60');
+      res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+      return res.send(html);
+    } catch (err) {
+      console.error('[lp-proxy] Error fetching GitHub Pages:', err);
+      return res.status(502).send('Serviço temporariamente indisponível.');
+    }
+  });
+
   // Enable gzip/deflate compression for all responses
   app.use(compression());
   // Configure body parser with larger size limit for file uploads
