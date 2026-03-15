@@ -118,6 +118,7 @@ export default function Footer() {
                 { name: "Blog", href: "/blog" },
                 { name: "Contato", href: "/contato" },
                 { name: "Trabalhe Conosco", href: "/trabalhe-conosco" },
+                { name: "Política de Privacidade", href: "/politica-de-privacidade" },
               ].map((item) => (
                 <li key={item.href}>
                   <a
@@ -166,9 +167,15 @@ export default function Footer() {
           <p className="font-body text-xs text-cream/50">
             &copy; {new Date().getFullYear()} Drudi e Almeida Clínicas Oftalmológicas. Todos os direitos reservados.
           </p>
-          <p className="font-body text-xs text-cream/50">
-            Dra. Priscilla R. de Almeida — CRM-SP 148.173 | RQE 59.216
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="/politica-de-privacidade" className="font-body text-xs text-cream/50 hover:text-gold transition-colors underline underline-offset-2">
+              Política de Privacidade
+            </a>
+            <span className="text-cream/20">|</span>
+            <p className="font-body text-xs text-cream/50">
+              Dra. Priscilla R. de Almeida — CRM-SP 148.173 | RQE 59.216
+            </p>
+          </div>
         </div>
       </div>
     </footer>
