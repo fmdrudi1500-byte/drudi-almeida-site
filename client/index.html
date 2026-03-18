@@ -61,52 +61,26 @@
       fetchpriority="high"
     />
 
-    <!-- Google Analytics GA4
-         Estratégia: carregado APENAS após window.load + requestIdleCallback
-         O Lighthouse mede até ~5s; ao usar load+idle o GA carrega após esse janela
-         Isso elimina o GA do treemap do Lighthouse e melhora TBT/TTI
-         Usuários reais ainda recebem os dados pois interagem após o carregamento -->
+    <!-- Google Analytics GA4 + Google Ads
+         Estratégia: script carregado imediatamente após window.load (sem atraso extra)
+         Garante rastreamento completo de todos os eventos e conversões -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3TM41VL1E"></script>
     <script>
-      (function() {
-        var _gaLoaded = false;
-        function loadGA() {
-          if (_gaLoaded) return;
-          _gaLoaded = true;
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-X3TM41VL1E', { send_page_view: true });
-          gtag('config', 'AW-7657239771');
-          var s = document.createElement('script');
-          s.async = true;
-          s.defer = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X3TM41VL1E';
-          document.head.appendChild(s);
-        }
-        function scheduleGA() {
-          // requestIdleCallback: carrega quando o browser está ocioso
-          // Fallback para setTimeout em browsers sem suporte (Safari)
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadGA, { timeout: 4000 });
-          } else {
-            setTimeout(loadGA, 3500);
-          }
-        }
-        // Aguarda o evento load completo antes de agendar
-        if (document.readyState === 'complete') {
-          scheduleGA();
-        } else {
-          window.addEventListener('load', scheduleGA, { once: true });
-        }
-      })();
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-X3TM41VL1E', { send_page_view: true });
+      gtag('config', 'AW-7657239771');
     </script>
 
     <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <!-- preconnect do GTM removido intencionalmente: o GA carrega após idle,
-         e o preconnect sinalizaria ao Lighthouse que o recurso será usado durante o carregamento -->
 
     <!-- Fonts: Inlined @font-face for latin subset (eliminates render-blocking Google Fonts request) -->
     <!-- INLINE_FONTS_PLACEHOLDER -->
