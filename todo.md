@@ -352,3 +352,8 @@
 ## Fase LP: Landing Pages para Google Ads
 - [x] LP Catarata HTML puro hospedada no GitHub Pages (https://fmdrudi1500-byte.github.io/lp-catarata/)
 - [x] Proxy reverso Express: /instituto/lp/catarata → GitHub Pages (URL permanece no domínio)
+
+## Fase GA4: Correção do Google Analytics (Março 2026)
+- [x] Corrigir script GA4 no site principal: trocar requestIdleCallback por implementação padrão do Google (corrigido pelo usuário via GitHub)
+- [ ] Corrigir script GA4 nas 3 LPs (Catarata, Retina, Glaucoma): mover gtag('js') para depois do script carregar
+- [ ] Verificar que dados estão chegando ao GA4 após correção
