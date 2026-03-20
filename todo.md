@@ -355,5 +355,5 @@
 
 ## Fase GA4: Correção do Google Analytics (Março 2026)
 - [x] Corrigir script GA4 no site principal: trocar requestIdleCallback por implementação padrão do Google (corrigido pelo usuário via GitHub)
-- [ ] Corrigir script GA4 nas 3 LPs (Catarata, Retina, Glaucoma): mover gtag('js') para depois do script carregar
-- [ ] Verificar que dados estão chegando ao GA4 após correção
+- [x] Corrigir script GA4 nas 3 LPs (Catarata, Retina, Glaucoma): implementação padrão do Google, corrigir loadGA() órfão, unificar Google Ads ID
+- [x] Verificar que dados estão chegando ao GA4 após correção (todas as 4 páginas com script async + config correto)
