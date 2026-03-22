@@ -429,3 +429,11 @@
 
 - [x] Links internos automáticos entre artigos relacionados no corpo do texto
 - [x] Sitemap.xml dinâmico com todos os artigos e datas corretas
+
+## Fase SEO — Schema Markup e Google Search Console
+
+- [x] Schema Markup JSON-LD Article nos artigos do blog (rich snippets)
+- [x] Schema Markup JSON-LD MedicalOrganization na página inicial
+- [x] Schema Markup JSON-LD Physician nas páginas de médicos
+- [x] Schema Markup JSON-LD MedicalClinic nas páginas de unidades
+- [x] Submissão automática do sitemap ao Google Search Console via API

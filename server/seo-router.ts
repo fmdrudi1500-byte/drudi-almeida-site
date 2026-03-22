@@ -6,6 +6,11 @@ import {
   upsertSeoSetting,
   MANAGED_PAGES,
 } from "./seo-db";
+import {
+  submitSitemapToGSC,
+  getSitemapStatus,
+  listSitemaps,
+} from "./google-search-console";
 
 export const seoRouter = router({
   // Public: get SEO settings for a specific page (used by frontend to override hardcoded values)
@@ -46,4 +51,19 @@ export const seoRouter = router({
     .mutation(async ({ input }) => {
       return upsertSeoSetting(input);
     }),
+
+  // Admin: submit sitemap to Google Search Console
+  submitSitemap: protectedProcedure.mutation(async () => {
+    return submitSitemapToGSC();
+  }),
+
+  // Admin: get current sitemap status from Google Search Console
+  getSitemapStatus: protectedProcedure.query(async () => {
+    return getSitemapStatus();
+  }),
+
+  // Admin: list all sitemaps registered in Google Search Console
+  listSitemaps: protectedProcedure.query(async () => {
+    return listSitemaps();
+  }),
 });

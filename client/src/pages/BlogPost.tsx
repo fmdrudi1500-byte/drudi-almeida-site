@@ -146,6 +146,65 @@ function DynamicBlogPost({ slug }: { slug: string }) {
   const audios = media.filter((m) => m.mediaType === "audio");
   const documents = media.filter((m) => m.mediaType === "document");
 
+  const BASE_URL = "https://institutodrudiealmeida.com.br";
+
+  // Schema.org Article JSON-LD for rich snippets
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "headline": post.seoTitle ?? post.title,
+    "description": post.seoDescription ?? post.excerpt ?? "",
+    "url": `${BASE_URL}/blog/${post.slug}`,
+    "datePublished": post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined,
+    "dateModified": post.updatedAt ? new Date(post.updatedAt).toISOString() : undefined,
+    "author": {
+      "@type": "Person",
+      "name": post.authorName ?? "Drudi e Almeida Oftalmologia",
+      "url": `${BASE_URL}/sobre`,
+    },
+    "publisher": {
+      "@type": "MedicalOrganization",
+      "name": "Drudi e Almeida Oftalmologia",
+      "url": BASE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/logo-drudi-almeida.png`,
+      },
+    },
+    "image": post.coverImageUrl
+      ? {
+          "@type": "ImageObject",
+          "url": post.coverImageUrl,
+        }
+      : undefined,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${post.slug}`,
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": category?.name ?? "Oftalmologia",
+    },
+    "keywords": post.seoKeywords ?? post.tags ?? "",
+    "inLanguage": "pt-BR",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Blog Drudi e Almeida",
+      "url": `${BASE_URL}/blog`,
+    },
+  };
+
+  // BreadcrumbList schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Início", "item": BASE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `${BASE_URL}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <>
       <SEOHead
@@ -154,6 +213,8 @@ function DynamicBlogPost({ slug }: { slug: string }) {
         keywords={post.seoKeywords ?? ""}
         canonicalPath={`/blog/${post.slug}`}
         ogImage={post.coverImageUrl ?? undefined}
+        ogType="article"
+        schema={[articleSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}

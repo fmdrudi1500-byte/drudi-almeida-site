@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { Search, Globe, Tag, FileText, CheckCircle2, AlertCircle, Pencil, X, ExternalLink } from "lucide-react";
+import { Search, Globe, Tag, FileText, CheckCircle2, AlertCircle, Pencil, X, ExternalLink, RefreshCw, Send, Map } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { Link } from "wouter";
@@ -283,6 +283,117 @@ function SEOPageCard({ page, onSaved }: { page: PageSeo; onSaved: () => void }) 
   );
 }
 
+function SitemapPanel() {
+  const submitMutation = trpc.seo.submitSitemap.useMutation({
+    onSuccess: (result) => {
+      if (result?.success) {
+        toast.success(result.message ?? "Sitemap submetido com sucesso!");
+      } else {
+        toast.error(result?.message ?? "Erro ao submeter sitemap.");
+      }
+    },
+    onError: (err) => {
+      toast.error(`Erro: ${err.message}`);
+    },
+  });
+
+  const { data: sitemapStatus, refetch: refetchStatus, isLoading: statusLoading } = trpc.seo.getSitemapStatus.useQuery(
+    undefined,
+    { retry: false }
+  );
+
+  return (
+    <div className="bg-white rounded-xl border border-border/60 shadow-sm p-5 mb-8">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-start gap-3">
+          <div className="w-9 h-9 rounded-lg bg-emerald-600/10 flex items-center justify-center shrink-0">
+            <Map className="w-4.5 h-4.5 text-emerald-700" />
+          </div>
+          <div>
+            <h2 className="font-display text-base text-navy mb-1">Google Search Console</h2>
+            <p className="font-body text-xs text-muted-foreground leading-relaxed max-w-lg">
+              Submeta o sitemap ao Google para acelerar a indexação dos artigos do blog.
+              O sitemap inclui todos os {" "}
+              <a
+                href="https://institutodrudiealmeida.com.br/sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-navy underline underline-offset-2 hover:text-gold transition-colors"
+              >
+                43+ artigos e páginas
+              </a>
+              {" "}com suas datas de publicação reais.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => refetchStatus()}
+            disabled={statusLoading}
+            className="font-ui text-xs h-8 px-3"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 mr-1.5 ${statusLoading ? "animate-spin" : ""}`} />
+            Atualizar Status
+          </Button>
+          <Button
+            size="sm"
+            onClick={() => submitMutation.mutate()}
+            disabled={submitMutation.isPending}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white font-ui text-xs h-8 px-4"
+          >
+            <Send className="w-3.5 h-3.5 mr-1.5" />
+            {submitMutation.isPending ? "Submetendo..." : "Submeter Sitemap"}
+          </Button>
+        </div>
+      </div>
+
+      {/* Status info */}
+      {sitemapStatus && (
+        <div className="mt-4 pt-4 border-t border-border/40 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="bg-muted/40 rounded-lg p-3">
+            <p className="font-ui text-[10px] font-semibold text-muted-foreground uppercase tracking-wide mb-1">Última Submissão</p>
+            <p className="font-ui text-xs text-navy font-medium">
+              {sitemapStatus.lastSubmitted
+                ? new Date(sitemapStatus.lastSubmitted).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })
+                : "—"}
+            </p>
+          </div>
+          <div className="bg-muted/40 rounded-lg p-3">
+            <p className="font-ui text-[10px] font-semibold text-muted-foreground uppercase tracking-wide mb-1">Último Download</p>
+            <p className="font-ui text-xs text-navy font-medium">
+              {sitemapStatus.lastDownloaded
+                ? new Date(sitemapStatus.lastDownloaded).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" })
+                : "—"}
+            </p>
+          </div>
+          <div className="bg-muted/40 rounded-lg p-3">
+            <p className="font-ui text-[10px] font-semibold text-muted-foreground uppercase tracking-wide mb-1">Avisos</p>
+            <p className={`font-ui text-xs font-medium ${(sitemapStatus.warnings ?? 0) > 0 ? "text-amber-600" : "text-emerald-600"}`}>
+              {sitemapStatus.warnings ?? 0}
+            </p>
+          </div>
+          <div className="bg-muted/40 rounded-lg p-3">
+            <p className="font-ui text-[10px] font-semibold text-muted-foreground uppercase tracking-wide mb-1">Erros</p>
+            <p className={`font-ui text-xs font-medium ${(sitemapStatus.errors ?? 0) > 0 ? "text-red-600" : "text-emerald-600"}`}>
+              {sitemapStatus.errors ?? 0}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {!sitemapStatus && !statusLoading && (
+        <div className="mt-3 pt-3 border-t border-border/40">
+          <p className="font-body text-xs text-muted-foreground">
+            Status não disponível. Clique em <strong>Submeter Sitemap</strong> para registrar o sitemap no Google Search Console.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function AdminSEO() {
   const { user, loading } = useAuth();
   const { data: pages, refetch, isLoading } = trpc.seo.listAll.useQuery();
@@ -365,6 +476,9 @@ export default function AdminSEO() {
             </p>
           </div>
         </div>
+
+        {/* Google Search Console — Sitemap Submission */}
+        <SitemapPanel />
 
         {/* Pages grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
