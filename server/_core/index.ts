@@ -106,6 +106,17 @@ async function startServer() {
     "/unidades": "/contato",
     "/medicos": "/sobre",
     "/especialidades": "/",
+    // Wix language routes (old site had /en, /pt-br, etc.)
+    "/en": "/",
+    "/en/": "/",
+    "/pt": "/",
+    "/pt/": "/",
+    "/pt-br": "/",
+    "/pt-br/": "/",
+    "/home": "/",
+    "/home/": "/",
+    "/index": "/",
+    "/index.html": "/",
   };
   app.use((req, res, next) => {
     const target = LEGACY_REDIRECTS[req.path];
