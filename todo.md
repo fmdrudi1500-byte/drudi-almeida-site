@@ -412,3 +412,8 @@
 - [x] NAV-01: Adicionar links clicáveis para /unidade/:slug no Footer
 - [x] NAV-02: Adicionar submenu "Unidades" no Header com dropdown para as 5 páginas
 - [x] NAV-03: Links de médicos adicionados na seção Navegação do Footer
+
+## Fase NAV: Visibilidade das Páginas de Médicos (Março 2026)
+- [x] MED-NAV-01: Adicionar submenu "Sobre Nós" no Header com links para Dr. Fernando Drudi e Dra. Priscilla Almeida (desktop + mobile)
+- [x] MED-NAV-02: Adicionar botões "Ver perfil completo" nos cards dos médicos na página Sobre Nós
+- [x] MED-NAV-03: Links para médicos já presentes no Footer (seção Navegação)

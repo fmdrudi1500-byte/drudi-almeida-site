@@ -435,7 +435,7 @@ export default function SobreNos() {
                     </div>
 
                     {/* Highlights */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                       {doc.highlights.map((h) => (
                         <div
                           key={h.text}
@@ -448,6 +448,15 @@ export default function SobreNos() {
                         </div>
                       ))}
                     </div>
+
+                    {/* CTA — Ver perfil completo */}
+                    <Link
+                      href={idx === 0 ? "/medico/dr-fernando-drudi" : "/medico/dra-priscilla-almeida"}
+                      className="inline-flex items-center gap-2 border border-navy/30 text-navy font-ui text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-navy hover:text-cream transition-colors"
+                    >
+                      Ver perfil completo
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </Link>
                   </div>
                 </div>
 

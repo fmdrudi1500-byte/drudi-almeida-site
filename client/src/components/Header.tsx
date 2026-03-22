@@ -76,9 +76,15 @@ const unidadesNav = [
   { name: "Guarulhos", href: "/unidade/guarulhos", address: "Rua Sete de Setembro, 375 — Guarulhos" },
 ];
 
+const sobreNav = [
+  { name: "Sobre a Clínica", href: "/sobre", desc: "Nossa história, missão e valores." },
+  { name: "Dr. Fernando Drudi", href: "/medico/dr-fernando-drudi", desc: "Especialista em Catarata e Retina Cirúrgica." },
+  { name: "Dra. Priscilla Almeida", href: "/medico/dra-priscilla-almeida", desc: "Especialista em Ceratocone e Lentes de Contato." },
+];
+
 const navLinks = [
   { name: "Início", href: "/" },
-  { name: "Sobre Nós", href: "/sobre" },
+  { name: "Sobre Nós", href: "/sobre", sobre: sobreNav },
   { name: "Institutos", href: "#", children: institutos },
   { name: "Unidades", href: "#", unidades: unidadesNav },
   { name: "Tecnologia", href: "/tecnologia" },
@@ -103,9 +109,12 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [unidadesDropdownOpen, setUnidadesDropdownOpen] = useState(false);
+  const [sobreDropdownOpen, setSobreDropdownOpen] = useState(false);
   const [mobileInstitutosOpen, setMobileInstitutosOpen] = useState(false);
   const [mobileUnidadesOpen, setMobileUnidadesOpen] = useState(false);
+  const [mobileSobreOpen, setMobileSobreOpen] = useState(false);
   const unidadesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sobreCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuTop, setMenuTop] = useState("5rem");
   const [location] = useLocation();
@@ -130,8 +139,10 @@ export default function Header() {
     setMobileOpen(false);
     setDropdownOpen(false);
     setUnidadesDropdownOpen(false);
+    setSobreDropdownOpen(false);
     setMobileInstitutosOpen(false);
     setMobileUnidadesOpen(false);
+    setMobileSobreOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -239,7 +250,61 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center min-w-0">
             {navLinks.map((link) =>
-              (link as any).unidades ? (
+              (link as any).sobre ? (
+                <div
+                  key={link.name}
+                  className="relative"
+                  onMouseEnter={() => { if (sobreCloseTimer.current) clearTimeout(sobreCloseTimer.current); setSobreDropdownOpen(true); }}
+                  onMouseLeave={() => { sobreCloseTimer.current = setTimeout(() => setSobreDropdownOpen(false), 120); }}
+                >
+                  <button
+                    className={`font-ui text-sm font-medium px-4 py-2 rounded-md flex items-center gap-1 transition-colors hover:text-gold ${
+                      location.startsWith("/sobre") || location.startsWith("/medico") ? "text-gold" : "text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${sobreDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {/* Dropdown de Sobre Nós */}
+                  <div
+                    className="absolute top-full left-0 pt-3"
+                    style={{
+                      opacity: sobreDropdownOpen ? 1 : 0,
+                      transform: sobreDropdownOpen ? "translateY(0) scale(1)" : "translateY(10px) scale(0.97)",
+                      pointerEvents: sobreDropdownOpen ? "auto" : "none",
+                      transition: "opacity 0.18s ease-out, transform 0.18s ease-out",
+                      transformOrigin: "top left",
+                    }}
+                    onMouseEnter={() => { if (sobreCloseTimer.current) clearTimeout(sobreCloseTimer.current); setSobreDropdownOpen(true); }}
+                    onMouseLeave={() => { sobreCloseTimer.current = setTimeout(() => setSobreDropdownOpen(false), 120); }}
+                  >
+                    <div className="bg-white dark:bg-card rounded-2xl shadow-2xl border border-border/60 p-4 w-72">
+                      <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold block mb-3 pb-3 border-b border-border/40">
+                        Sobre a Clínica
+                      </span>
+                      <ul className="space-y-1">
+                        {(link as any).sobre.map((s: { name: string; href: string; desc: string }, idx: number) => (
+                          <li key={s.href}>
+                            <Link
+                              href={s.href}
+                              onClick={() => setSobreDropdownOpen(false)}
+                              className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-navy/5 transition-colors group"
+                              style={{
+                                opacity: sobreDropdownOpen ? 1 : 0,
+                                transform: sobreDropdownOpen ? "translateY(0)" : "translateY(6px)",
+                                transition: `opacity 0.2s ease-out ${idx * 0.05}s, transform 0.2s ease-out ${idx * 0.05}s`,
+                              }}
+                            >
+                              <span className="font-ui text-sm font-semibold text-navy group-hover:text-gold transition-colors">{s.name}</span>
+                              <span className="font-body text-xs text-muted-foreground">{s.desc}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ) : (link as any).unidades ? (
                 <div
                   key={link.name}
                   className="relative"
@@ -475,7 +540,36 @@ export default function Header() {
       >
         <nav className="container py-4 flex flex-col gap-1">
           {navLinks.map((link) =>
-            (link as any).unidades ? (
+            (link as any).sobre ? (
+              <div key={link.name}>
+                <button
+                  onClick={() => setMobileSobreOpen(!mobileSobreOpen)}
+                  className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
+                >
+                  {link.name}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileSobreOpen ? "rotate-180" : ""}`} />
+                </button>
+                <div
+                  className="overflow-hidden"
+                  style={{
+                    maxHeight: mobileSobreOpen ? "300px" : "0",
+                    opacity: mobileSobreOpen ? 1 : 0,
+                    transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
+                  }}
+                >
+                  {(link as any).sobre.map((s: { name: string; href: string; desc: string }) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="flex flex-col pl-6 pr-3 py-2.5 hover:bg-muted/50 rounded-md transition-colors"
+                    >
+                      <span className="font-ui text-sm text-foreground">{s.name}</span>
+                      <span className="font-body text-xs text-muted-foreground">{s.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (link as any).unidades ? (
               <div key={link.name}>
                 <button
                   onClick={() => setMobileUnidadesOpen(!mobileUnidadesOpen)}
