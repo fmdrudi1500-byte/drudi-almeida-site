@@ -1,0 +1,76 @@
+{
+  "query": "SELECT COUNT(*) as total FROM blog_posts WHERE status = 'published'; SELECT id, title, slug FROM blog_posts WHERE status = 'published' ORDER BY id DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT COUNT(*) as total FROM blog_posts WHERE status = 'published'; SELECT id, title, slug FROM blog_posts WHERE status = 'published' ORDER BY id DESC LIMIT 20;",
+  "rows": [
+    {
+      "total": "43"
+    },
+    {
+      "total": "id\ttitle\tslug"
+    },
+    {
+      "total": "130010\tCirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos\tcirurgia-estrabismo-sao-paulo-criancas-adultos"
+    },
+    {
+      "total": "130009\tExame de Vista em São Paulo: Quando Fazer e O Que Esperar\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar"
+    },
+    {
+      "total": "130008\tClínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo"
+    },
+    {
+      "total": "130007\tEspecialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas\tespecialista-retina-sao-paulo-medico-tratamento"
+    },
+    {
+      "total": "130006\tCeratocone em São Paulo: Especialistas em Diagnóstico e Tratamento\tceratocone-sao-paulo-especialista-tratamento"
+    },
+    {
+      "total": "130005\tTratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz\ttratamento-glaucoma-sao-paulo-especialista"
+    },
+    {
+      "total": "130004\tOftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste\toftalmologista-tatua-pe-zona-leste-sao-paulo"
+    },
+    {
+      "total": "130003\tClínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo\tclinica-olhos-santana-sao-paulo-oftalmologista"
+    },
+    {
+      "total": "130002\tCirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber\tcirurgia-catarata-sao-paulo-preco-medico"
+    },
+    {
+      "total": "130001\tOftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão\toftalmologista-guarulhos-clinica-olhos"
+    },
+    {
+      "total": "120019\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida"
+    },
+    {
+      "total": "120018\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tcuidados-com-os-olhos-no-verao-guia-completo"
+    },
+    {
+      "total": "120017\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\toclusao-venosa-da-retina-causas-sintomas-tratamento"
+    },
+    {
+      "total": "120016\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\ttoxoplasmose-ocular-causas-sintomas-tratamento"
+    },
+    {
+      "total": "120015\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia"
+    },
+    {
+      "total": "120014\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tmoscas-volantes-o-que-sao-causas-quando-preocupar"
+    },
+    {
+      "total": "120013\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tceratite-infeccao-cornea-causas-sintomas-tratamento"
+    },
+    {
+      "total": "120012\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\talergia-ocular-tipos-sintomas-tratamento"
+    },
+    {
+      "total": "120011\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos"
+    },
+    {
+      "total": "120010\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\n43\nid\ttitle\tslug\n130010\tCirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos\tcirurgia-estrabismo-sao-paulo-criancas-adultos\n130009\tExame de Vista em São Paulo: Quando Fazer e O Que Esperar\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\n130008\tClínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\n130007\tEspecialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas\tespecialista-retina-sao-paulo-medico-tratamento\n130006\tCeratocone em São Paulo: Especialistas em Diagnóstico e Tratamento\tceratocone-sao-paulo-especialista-tratamento\n130005\tTratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz\ttratamento-glaucoma-sao-paulo-especialista\n130004\tOftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste\toftalmologista-tatua-pe-zona-leste-sao-paulo\n130003\tClínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo\tclinica-olhos-santana-sao-paulo-oftalmologista\n130002\tCirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber\tcirurgia-catarata-sao-paulo-preco-medico\n130001\tOftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão\toftalmologista-guarulhos-clinica-olhos\n120019\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\n120018\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tcuidados-com-os-olhos-no-verao-guia-completo\n120017\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\toclusao-venosa-da-retina-causas-sintomas-tratamento\n120016\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\ttoxoplasmose-ocular-causas-sintomas-tratamento\n120015\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\n120014\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tmoscas-volantes-o-que-sao-causas-quando-preocupar\n120013\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tceratite-infeccao-cornea-causas-sintomas-tratamento\n120012\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\talergia-ocular-tipos-sintomas-tratamento\n120011\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\n120010\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\n",
+  "stderr": "",
+  "execution_time_ms": 207
+}

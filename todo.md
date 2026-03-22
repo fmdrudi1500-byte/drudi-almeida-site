@@ -442,3 +442,10 @@
 
 - [ ] Adicionar escopo webmasters ao fluxo OAuth2 e gerar novo refresh token
 - [ ] Testar submissão do sitemap com o novo token
+
+## SEO — Prioridades Altas (Mar 2026)
+
+- [x] Verificar artigos em produção e corrigir gap do sitemap (25 vs 64 URLs) — checkpoint+publish necessário
+- [x] Integrar Google Analytics 4 (GA4) ao site — G-X3TM41VL1E já integrado, recebendo dados (3,2k views/30d)
+- [x] Medir Core Web Vitals com PageSpeed Insights e implementar correções — em andamento
+- [x] Adicionar tags canonical em todas as páginas — já implementado via middleware server-side (SEO-02)
