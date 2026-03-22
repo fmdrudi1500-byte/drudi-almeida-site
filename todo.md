@@ -449,3 +449,8 @@
 - [x] Integrar Google Analytics 4 (GA4) ao site — G-X3TM41VL1E já integrado, recebendo dados (3,2k views/30d)
 - [x] Medir Core Web Vitals com PageSpeed Insights e implementar correções — em andamento
 - [x] Adicionar tags canonical em todas as páginas — já implementado via middleware server-side (SEO-02)
+
+## Correção — Redirect 301 /en em Produção (Mar 2026)
+
+- [x] Diagnosticar: Cloudflare intercepta /en antes do Express, servindo index.html diretamente
+- [x] Adicionar redirects 301 no arquivo _redirects (CDN-level) para /en, /pt, /pt-br e demais rotas legadas do Wix
