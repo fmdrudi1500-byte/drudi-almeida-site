@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, title, slug, categoryId FROM blog_posts WHERE status = 'published' AND id >= 130001 ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, slug, categoryId FROM blog_posts WHERE status = 'published' AND id >= 130001 ORDER BY id;",
+  "rows": [
+    {
+      "id": "130001",
+      "title": "Oftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão",
+      "slug": "oftalmologista-guarulhos-clinica-olhos",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130002",
+      "title": "Cirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130003",
+      "title": "Clínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130004",
+      "title": "Oftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130005",
+      "title": "Tratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130006",
+      "title": "Ceratocone em São Paulo: Especialistas em Diagnóstico e Tratamento",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130007",
+      "title": "Especialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130008",
+      "title": "Clínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130009",
+      "title": "Exame de Vista em São Paulo: Quando Fazer e O Que Esperar",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130010",
+      "title": "Cirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos",
+      "categoryId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tslug\tcategoryId\n130001\tOftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão\toftalmologista-guarulhos-clinica-olhos\tNULL\n130002\tCirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber\tcirurgia-catarata-sao-paulo-preco-medico\tNULL\n130003\tClínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo\tclinica-olhos-santana-sao-paulo-oftalmologista\tNULL\n130004\tOftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste\toftalmologista-tatua-pe-zona-leste-sao-paulo\tNULL\n130005\tTratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz\ttratamento-glaucoma-sao-paulo-especialista\tNULL\n130006\tCeratocone em São Paulo: Especialistas em Diagnóstico e Tratamento\tceratocone-sao-paulo-especialista-tratamento\tNULL\n130007\tEspecialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas\tespecialista-retina-sao-paulo-medico-tratamento\tNULL\n130008\tClínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\tNULL\n130009\tExame de Vista em São Paulo: Quando Fazer e O Que Esperar\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\tNULL\n130010\tCirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos\tcirurgia-estrabismo-sao-paulo-criancas-adultos\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 121
+}

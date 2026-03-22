@@ -79,17 +79,35 @@ export function registerSitemapRoutes(app: Express) {
         const posts = await db
           .select({
             slug: blogPosts.slug,
+            publishedAt: blogPosts.publishedAt,
             updatedAt: blogPosts.updatedAt,
+            seoKeywords: blogPosts.seoKeywords,
           })
           .from(blogPosts)
-          .where(eq(blogPosts.status, "published"));
+          .where(eq(blogPosts.status, "published"))
+          .orderBy(blogPosts.publishedAt);
 
-        blogUrls = posts.map((p: { slug: string; updatedAt: Date | string | number | null }) => ({
-          loc: `${BASE_URL}/blog/${p.slug}`,
-          lastmod: p.updatedAt ? formatDate(p.updatedAt) : today,
-          changefreq: "weekly",
-          priority: "0.7",
-        }));
+        blogUrls = posts.map((p: { slug: string; publishedAt: Date | string | number | null; updatedAt: Date | string | number | null; seoKeywords: string | null }) => {
+          // Use publishedAt as lastmod (the canonical date for SEO)
+          // Fall back to updatedAt, then today
+          const lastmod = p.publishedAt
+            ? formatDate(p.publishedAt)
+            : p.updatedAt
+            ? formatDate(p.updatedAt)
+            : today;
+
+          // Give higher priority to local SEO articles (guarulhos, santana, tatuape, lapa, etc.)
+          const isLocalSeo = p.seoKeywords
+            ? /(guarulhos|santana|tatuap|lapa|zona leste|zona oeste|s.o paulo)/i.test(p.seoKeywords)
+            : false;
+
+          return {
+            loc: `${BASE_URL}/blog/${p.slug}`,
+            lastmod,
+            changefreq: "monthly" as const,
+            priority: isLocalSeo ? "0.8" : "0.7",
+          };
+        });
       } catch {
         // If DB query fails, continue without blog posts
       }

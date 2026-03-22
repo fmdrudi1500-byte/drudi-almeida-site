@@ -27,6 +27,8 @@ import {
   updateCategory,
   updateCommentStatus,
   updatePost,
+  getAllPostsForLinking,
+  injectInternalLinks,
 } from "./blog-db";
 import { nanoid } from "nanoid";
 
@@ -134,13 +136,19 @@ export const blogRouter = router({
         throw new TRPCError({ code: "NOT_FOUND", message: "Artigo não encontrado." });
       }
       await incrementViewCount(post.id);
-      const [media, comments, categories] = await Promise.all([
+      const [media, comments, categories, allPostsForLinks] = await Promise.all([
         getMediaByPost(post.id),
         getApprovedComments(post.id),
         getAllCategories(),
+        getAllPostsForLinking(),
       ]);
       const category = post.categoryId ? categories.find((c) => c.id === post.categoryId) : null;
-      return { post, media, comments, category };
+      // Inject internal links into article content for SEO
+      const enrichedPost = {
+        ...post,
+        content: injectInternalLinks(post.content, post.slug, allPostsForLinks),
+      };
+      return { post: enrichedPost, media, comments, category };
     }),
 
   /** List all categories */

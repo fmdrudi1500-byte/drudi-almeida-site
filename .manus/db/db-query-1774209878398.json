@@ -1,0 +1,311 @@
+{
+  "query": "SELECT id, title, slug, categoryId, tags FROM blog_posts WHERE status = 'published' ORDER BY id LIMIT 50;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, slug, categoryId, tags FROM blog_posts WHERE status = 'published' ORDER BY id LIMIT 50;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "slug": "catarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r",
+      "categoryId": "1",
+      "tags": "catarata, facoemulsificação, lente intraocular, cirurgia ocular, oftalmologia"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c",
+      "categoryId": "30001",
+      "tags": "ceratocone, crosslinking, lente escleral, córnea, oftalmologia"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "slug": "glaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c",
+      "categoryId": "30002",
+      "tags": "glaucoma, pressão intraocular, nervo óptico, campo visual, oftalmologia"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "slug": "doencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c",
+      "categoryId": "30003",
+      "tags": "retina, degeneração macular, retinopatia diabética, vitrectomia, oftalmologia"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "slug": "estrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c",
+      "categoryId": "30004",
+      "tags": "estrabismo, ambliopia, cirurgia de estrabismo, visão binocular, oftalmologia pediátrica"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "slug": "visao-embacada-sinais-alerta-oftalmologista",
+      "categoryId": "60001",
+      "tags": "NULL"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "slug": "quando-operar-catarata-guia-completo",
+      "categoryId": "1",
+      "tags": "NULL"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "slug": "crosslinking-ceratocone-como-funciona-tratamento",
+      "categoryId": "30001",
+      "tags": "NULL"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "slug": "pressao-ocular-alta-hipertensao-ocular-glaucoma",
+      "categoryId": "30002",
+      "tags": "NULL"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "slug": "miopia-criancas-sinais-precoces-tratamento",
+      "categoryId": "60001",
+      "tags": "NULL"
+    },
+    {
+      "id": "70001",
+      "title": "Síndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes",
+      "slug": "sindrome-olho-seco-causas-sintomas-tratamentos",
+      "categoryId": "60001",
+      "tags": "[\"olho seco\",\"superfície ocular\",\"lágrimas artificiais\",\"blefarite\",\"meibômio\"]"
+    },
+    {
+      "id": "70002",
+      "title": "Lentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais",
+      "slug": "lentes-contato-ceratocone-tipos-indicacoes-cuidados",
+      "categoryId": "30001",
+      "tags": "[\"ceratocone\",\"lentes de contato\",\"lentes esclerais\",\"adaptação de lentes\",\"córnea\"]"
+    },
+    {
+      "id": "70003",
+      "title": "Exame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial",
+      "slug": "exame-de-vista-completo-o-que-avalia-frequencia-importancia",
+      "categoryId": "60001",
+      "tags": "[\"exame de vista\",\"prevenção\",\"saúde ocular\",\"oftalmologista\",\"diagnóstico precoce\"]"
+    },
+    {
+      "id": "70004",
+      "title": "Glaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir",
+      "slug": "glaucoma-angulo-fechado-crise-aguda-sintomas-emergencia",
+      "categoryId": "30002",
+      "tags": "[\"glaucoma\",\"crise aguda\",\"emergência oftalmológica\",\"pressão ocular\",\"iridotomia\"]"
+    },
+    {
+      "id": "120001",
+      "title": "Conjuntivite: Tipos, Sintomas e Tratamento Completo",
+      "slug": "conjuntivite-tipos-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"conjuntivite\",\"saúde ocular\",\"oftalmologia\",\"olho vermelho\",\"tratamento ocular\"]"
+    },
+    {
+      "id": "120002",
+      "title": "Pterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria",
+      "categoryId": "60001",
+      "tags": "[\"Pterígio\",\"Cirurgia Ocular\",\"Saúde dos Olhos\",\"Prevenção\"]"
+    },
+    {
+      "id": "120003",
+      "title": "Blefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras",
+      "slug": "blefarite-causas-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"Blefarite\",\"Saúde Ocular\",\"Olho Seco\",\"Pálpebras\",\"Tratamento Oftalmológico\"]"
+    },
+    {
+      "id": "120004",
+      "title": "Astigmatismo: O Que É, Graus, Sintomas e Opções de Correção",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao",
+      "categoryId": "60001",
+      "tags": "[\"Astigmatismo\",\"Erros de Refração\",\"Cirurgia Refrativa\",\"Saúde Ocular\"]"
+    },
+    {
+      "id": "120005",
+      "title": "Hipermetropia: Causas, Sintomas e Tratamento Completo",
+      "slug": "hipermetropia-causas-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"hipermetropia\",\"saúde ocular\",\"erro de refração\",\"oftalmologia\",\"tratamento oftalmológico\"]"
+    },
+    {
+      "id": "120006",
+      "title": "Presbiopia (Vista Cansada): O Que É, Causas e Como Corrigir",
+      "slug": "presbiopia-vista-cansada-causas-correcao",
+      "categoryId": "60001",
+      "tags": "[\"Presbiopia\",\"Vista Cansada\",\"Saúde Ocular\",\"Oftalmologia\"]"
+    },
+    {
+      "id": "120007",
+      "title": "Uveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"Uveíte\",\"Inflamação Ocular\",\"Saúde Ocular\",\"Doenças Oculares\",\"Oftalmologia\"]"
+    },
+    {
+      "id": "120008",
+      "title": "Terçol e Calázio: Diferenças, Causas, Sintomas e Tratamento",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"terçol\",\"calázio\",\"hordéolo\",\"saúde ocular\",\"pálpebras\",\"infecção ocular\",\"inflamação ocular\"]"
+    },
+    {
+      "id": "120009",
+      "title": "Descolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento",
+      "categoryId": "30003",
+      "tags": "[\"descolamento de retina\",\"retina\",\"cirurgia ocular\",\"saúde ocular\",\"emergência oftalmológica\"]"
+    },
+    {
+      "id": "120010",
+      "title": "Retinopatia Diabética: Como o Diabetes Afeta a Visão",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento",
+      "categoryId": "30003",
+      "tags": "[\"Retinopatia Diabética\",\"Diabetes\",\"Saúde Ocular\",\"Prevenção\"]"
+    },
+    {
+      "id": "120011",
+      "title": "Degeneração Macular (DMRI): Tipos, Sintomas e Tratamentos",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos",
+      "categoryId": "30003",
+      "tags": "[\"DMRI\",\"Degeneração Macular\",\"Retina\",\"Visão Central\",\"Saúde Ocular\"]"
+    },
+    {
+      "id": "120012",
+      "title": "Alergia Ocular: Tipos, Sintomas e Tratamento Completo",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"Alergia Ocular\",\"Conjuntivite\",\"Saúde Ocular\",\"Coceira nos Olhos\"]"
+    },
+    {
+      "id": "120013",
+      "title": "Ceratite: Infecção da Córnea — Causas, Sintomas e Tratamento",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento",
+      "categoryId": "60001",
+      "tags": "[\"ceratite\",\"saúde ocular\",\"córnea\",\"infecção ocular\",\"lentes de contato\"]"
+    },
+    {
+      "id": "120014",
+      "title": "Moscas Volantes: O Que São, Causas e Quando se Preocupar",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar",
+      "categoryId": "30003",
+      "tags": "[\"Moscas Volantes\",\"Saúde Ocular\",\"Retina\",\"Descolamento de Retina\",\"Sintomas Oculares\"]"
+    },
+    {
+      "id": "120015",
+      "title": "Daltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia",
+      "categoryId": "60001",
+      "tags": "[\"Daltonismo\",\"Visão de Cores\",\"Saúde Ocular\",\"Teste de Ishihara\",\"Discromatopsia\"]"
+    },
+    {
+      "id": "120016",
+      "title": "Toxoplasmose Ocular: Causas, Sintomas e Tratamento Completo",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento",
+      "categoryId": "30003",
+      "tags": "[\"Toxoplasmose Ocular\",\"Uveíte\",\"Retina\",\"Doenças Oculares\",\"Saúde Ocular\"]"
+    },
+    {
+      "id": "120017",
+      "title": "Oclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo",
+      "slug": "oclusao-venosa-da-retina-causas-sintomas-tratamento",
+      "categoryId": "30003",
+      "tags": "[\"Oclusão Venosa da Retina\",\"Retina\",\"Edema Macular\",\"Hipertensão\",\"Diabetes\",\"Glaucoma\"]"
+    },
+    {
+      "id": "120018",
+      "title": "Cuidados com os Olhos no Verão: Guia Completo de Proteção",
+      "slug": "cuidados-com-os-olhos-no-verao-guia-completo",
+      "categoryId": "60001",
+      "tags": "[\"saúde ocular\",\"verão\",\"proteção uv\",\"conjuntivite\",\"prevenção\"]"
+    },
+    {
+      "id": "120019",
+      "title": "Saúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida",
+      "slug": "saude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida",
+      "categoryId": "60001",
+      "tags": "[\"Saúde Ocular\",\"Terceira Idade\",\"Catarata\",\"Glaucoma\",\"DMRI\",\"Prevenção\"]"
+    },
+    {
+      "id": "130001",
+      "title": "Oftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão",
+      "slug": "oftalmologista-guarulhos-clinica-olhos",
+      "categoryId": "NULL",
+      "tags": "[\"guarulhos\",\"oftalmologista\",\"clínica de olhos\",\"local\"]"
+    },
+    {
+      "id": "130002",
+      "title": "Cirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico",
+      "categoryId": "NULL",
+      "tags": "[\"catarata\",\"cirurgia\",\"são paulo\",\"facoemulsificação\"]"
+    },
+    {
+      "id": "130003",
+      "title": "Clínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista",
+      "categoryId": "NULL",
+      "tags": "[\"santana\",\"clínica de olhos\",\"são paulo\",\"oftalmologista\"]"
+    },
+    {
+      "id": "130004",
+      "title": "Oftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo",
+      "categoryId": "NULL",
+      "tags": "[\"tatuapé\",\"zona leste\",\"oftalmologista\",\"são paulo\"]"
+    },
+    {
+      "id": "130005",
+      "title": "Tratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista",
+      "categoryId": "NULL",
+      "tags": "[\"glaucoma\",\"tratamento\",\"são paulo\",\"especialista\"]"
+    },
+    {
+      "id": "130006",
+      "title": "Ceratocone em São Paulo: Especialistas em Diagnóstico e Tratamento",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento",
+      "categoryId": "NULL",
+      "tags": "[\"ceratocone\",\"são paulo\",\"crosslinking\",\"especialista\"]"
+    },
+    {
+      "id": "130007",
+      "title": "Especialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento",
+      "categoryId": "NULL",
+      "tags": "[\"retina\",\"são paulo\",\"especialista\",\"degeneração macular\"]"
+    },
+    {
+      "id": "130008",
+      "title": "Clínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo",
+      "categoryId": "NULL",
+      "tags": "[\"lapa\",\"zona oeste\",\"oftalmologista\",\"são paulo\"]"
+    },
+    {
+      "id": "130009",
+      "title": "Exame de Vista em São Paulo: Quando Fazer e O Que Esperar",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar",
+      "categoryId": "NULL",
+      "tags": "[\"exame de vista\",\"são paulo\",\"consulta\",\"prevenção\"]"
+    },
+    {
+      "id": "130010",
+      "title": "Cirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos",
+      "categoryId": "NULL",
+      "tags": "[\"estrabismo\",\"cirurgia\",\"são paulo\",\"crianças\"]"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tslug\tcategoryId\ttags\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\t1\tcatarata, facoemulsificação, lente intraocular, cirurgia ocular, oftalmologia\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\t30001\tceratocone, crosslinking, lente escleral, córnea, oftalmologia\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\t30002\tglaucoma, pressão intraocular, nervo óptico, campo visual, oftalmologia\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\t30003\tretina, degeneração macular, retinopatia diabética, vitrectomia, oftalmologia\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\t30004\testrabismo, ambliopia, cirurgia de estrabismo, visão binocular, oftalmologia pediátrica\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tvisao-embacada-sinais-alerta-oftalmologista\t60001\tNULL\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tquando-operar-catarata-guia-completo\t1\tNULL\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tcrosslinking-ceratocone-como-funciona-tratamento\t30001\tNULL\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tpressao-ocular-alta-hipertensao-ocular-glaucoma\t30002\tNULL\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tmiopia-criancas-sinais-precoces-tratamento\t60001\tNULL\n70001\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\tsindrome-olho-seco-causas-sintomas-tratamentos\t60001\t[\"olho seco\",\"superfície ocular\",\"lágrimas artificiais\",\"blefarite\",\"meibômio\"]\n70002\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\t30001\t[\"ceratocone\",\"lentes de contato\",\"lentes esclerais\",\"adaptação de lentes\",\"córnea\"]\n70003\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\texame-de-vista-completo-o-que-avalia-frequencia-importancia\t60001\t[\"exame de vista\",\"prevenção\",\"saúde ocular\",\"oftalmologista\",\"diagnóstico precoce\"]\n70004\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\t30002\t[\"glaucoma\",\"crise aguda\",\"emergência oftalmológica\",\"pressão ocular\",\"iridotomia\"]\n120001\tConjuntivite: Tipos, Sintomas e Tratamento Completo\tconjuntivite-tipos-sintomas-tratamento\t60001\t[\"conjuntivite\",\"saúde ocular\",\"oftalmologia\",\"olho vermelho\",\"tratamento ocular\"]\n120002\tPterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\t60001\t[\"Pterígio\",\"Cirurgia Ocular\",\"Saúde dos Olhos\",\"Prevenção\"]\n120003\tBlefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras\tblefarite-causas-sintomas-tratamento\t60001\t[\"Blefarite\",\"Saúde Ocular\",\"Olho Seco\",\"Pálpebras\",\"Tratamento Oftalmológico\"]\n120004\tAstigmatismo: O Que É, Graus, Sintomas e Opções de Correção\tastigmatismo-o-que-e-graus-sintomas-correcao\t60001\t[\"Astigmatismo\",\"Erros de Refração\",\"Cirurgia Refrativa\",\"Saúde Ocular\"]\n120005\tHipermetropia: Causas, Sintomas e Tratamento Completo\thipermetropia-causas-sintomas-tratamento\t60001\t[\"hipermetropia\",\"saúde ocular\",\"erro de refração\",\"oftalmologia\",\"tratamento oftalmológico\"]\n120006\tPresbiopia (Vista Cansada): O Que É, Causas e Como Corrigir\tpresbiopia-vista-cansada-causas-correcao\t60001\t[\"Presbiopia\",\"Vista Cansada\",\"Saúde Ocular\",\"Oftalmologia\"]\n120007\tUveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\t60001\t[\"Uveíte\",\"Inflamação Ocular\",\"Saúde Ocular\",\"Doenças Oculares\",\"Oftalmologia\"]\n120008\tTerçol e Calázio: Diferenças, Causas, Sintomas e Tratamento\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\t60001\t[\"terçol\",\"calázio\",\"hordéolo\",\"saúde ocular\",\"pálpebras\",\"infecção ocular\",\"inflamação ocular\"]\n120009\tDescolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico\tdescolamento-de-retina-sinais-riscos-tratamento\t30003\t[\"descolamento de retina\",\"retina\",\"cirurgia ocular\",\"saúde ocular\",\"emergência oftalmológica\"]\n120010\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\t30003\t[\"Retinopatia Diabética\",\"Diabetes\",\"Saúde Ocular\",\"Prevenção\"]\n120011\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\t30003\t[\"DMRI\",\"Degeneração Macular\",\"Retina\",\"Visão Central\",\"Saúde Ocular\"]\n120012\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\talergia-ocular-tipos-sintomas-tratamento\t60001\t[\"Alergia Ocular\",\"Conjuntivite\",\"Saúde Ocular\",\"Coceira nos Olhos\"]\n120013\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tceratite-infeccao-cornea-causas-sintomas-tratamento\t60001\t[\"ceratite\",\"saúde ocular\",\"córnea\",\"infecção ocular\",\"lentes de contato\"]\n120014\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tmoscas-volantes-o-que-sao-causas-quando-preocupar\t30003\t[\"Moscas Volantes\",\"Saúde Ocular\",\"Retina\",\"Descolamento de Retina\",\"Sintomas Oculares\"]\n120015\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\t60001\t[\"Daltonismo\",\"Visão de Cores\",\"Saúde Ocular\",\"Teste de Ishihara\",\"Discromatopsia\"]\n120016\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\ttoxoplasmose-ocular-causas-sintomas-tratamento\t30003\t[\"Toxoplasmose Ocular\",\"Uveíte\",\"Retina\",\"Doenças Oculares\",\"Saúde Ocular\"]\n120017\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\toclusao-venosa-da-retina-causas-sintomas-tratamento\t30003\t[\"Oclusão Venosa da Retina\",\"Retina\",\"Edema Macular\",\"Hipertensão\",\"Diabetes\",\"Glaucoma\"]\n120018\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tcuidados-com-os-olhos-no-verao-guia-completo\t60001\t[\"saúde ocular\",\"verão\",\"proteção uv\",\"conjuntivite\",\"prevenção\"]\n120019\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\t60001\t[\"Saúde Ocular\",\"Terceira Idade\",\"Catarata\",\"Glaucoma\",\"DMRI\",\"Prevenção\"]\n130001\tOftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão\toftalmologista-guarulhos-clinica-olhos\tNULL\t[\"guarulhos\",\"oftalmologista\",\"clínica de olhos\",\"local\"]\n130002\tCirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber\tcirurgia-catarata-sao-paulo-preco-medico\tNULL\t[\"catarata\",\"cirurgia\",\"são paulo\",\"facoemulsificação\"]\n130003\tClínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo\tclinica-olhos-santana-sao-paulo-oftalmologista\tNULL\t[\"santana\",\"clínica de olhos\",\"são paulo\",\"oftalmologista\"]\n130004\tOftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste\toftalmologista-tatua-pe-zona-leste-sao-paulo\tNULL\t[\"tatuapé\",\"zona leste\",\"oftalmologista\",\"são paulo\"]\n130005\tTratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz\ttratamento-glaucoma-sao-paulo-especialista\tNULL\t[\"glaucoma\",\"tratamento\",\"são paulo\",\"especialista\"]\n130006\tCeratocone em São Paulo: Especialistas em Diagnóstico e Tratamento\tceratocone-sao-paulo-especialista-tratamento\tNULL\t[\"ceratocone\",\"são paulo\",\"crosslinking\",\"especialista\"]\n130007\tEspecialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas\tespecialista-retina-sao-paulo-medico-tratamento\tNULL\t[\"retina\",\"são paulo\",\"especialista\",\"degeneração macular\"]\n130008\tClínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\tNULL\t[\"lapa\",\"zona oeste\",\"oftalmologista\",\"são paulo\"]\n130009\tExame de Vista em São Paulo: Quando Fazer e O Que Esperar\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\tNULL\t[\"exame de vista\",\"são paulo\",\"consulta\",\"prevenção\"]\n130010\tCirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos\tcirurgia-estrabismo-sao-paulo-criancas-adultos\tNULL\t[\"estrabismo\",\"cirurgia\",\"são paulo\",\"crianças\"]\n",
+  "stderr": "",
+  "execution_time_ms": 1747
+}

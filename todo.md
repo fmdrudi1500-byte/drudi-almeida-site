@@ -424,3 +424,8 @@
 - [ ] BLOG-ESC-03: Atualizar campo authorName de todos os artigos para alternar entre os dois médicos
 - [ ] BLOG-LOCAL-01: Criar 10 artigos com keywords locais de alto intent (bairro + especialidade + cidade)
 - [ ] BLOG-LOCAL-02: Gerar imagens de capa para os 10 novos artigos locais
+
+## Fase SEO Blog — Links Internos e Sitemap Dinâmico
+
+- [x] Links internos automáticos entre artigos relacionados no corpo do texto
+- [x] Sitemap.xml dinâmico com todos os artigos e datas corretas

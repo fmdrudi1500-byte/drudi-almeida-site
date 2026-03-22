@@ -311,3 +311,124 @@ export async function getRelatedPosts(currentPostId: number, categoryId: number 
 
   return posts;
 }
+
+// ── INTERNAL LINKS INJECTION ─────────────────────────────────────────────────
+
+/**
+ * Fetches all published posts (id, title, slug, tags) and builds a keyword → slug map.
+ * Used to inject internal links into article HTML content.
+ */
+export async function getAllPostsForLinking(): Promise<Array<{ id: number; title: string; slug: string; tags: string | null }>> {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select({ id: blogPosts.id, title: blogPosts.title, slug: blogPosts.slug, tags: blogPosts.tags })
+    .from(blogPosts)
+    .where(eq(blogPosts.status, "published"))
+    .orderBy(desc(blogPosts.publishedAt));
+}
+
+/**
+ * Injects internal hyperlinks into HTML article content.
+ *
+ * Strategy:
+ * - For each published post (excluding the current one), extract 2-4 keyword phrases
+ *   from the title (e.g. "catarata", "ceratocone", "glaucoma").
+ * - Scan the HTML content for the first occurrence of each phrase (case-insensitive,
+ *   outside of existing <a> tags) and wrap it with a link to /blog/<slug>.
+ * - Limit to max 5 injected links per article to avoid over-optimisation.
+ */
+export function injectInternalLinks(
+  html: string,
+  currentSlug: string,
+  allPosts: Array<{ id: number; title: string; slug: string; tags: string | null }>
+): string {
+  // Helper: normalize text for deduplication (remove accents, lowercase, alphanumeric only)
+  const normalize = (s: string) =>
+    s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s]/g, " ").trim();
+
+  // Build keyword pairs: { keywordNorm (for dedup), keywordOriginal (for matching), url, slug }
+  const pairs: Array<{ keywordNorm: string; keywordOriginal: string; url: string; slug: string }> = [];
+
+  const stopwords = new Set([
+    "como", "para", "sobre", "quando", "quais", "qual", "onde", "quem",
+    "tipos", "causas", "sinais", "riscos", "guia", "completo", "tudo",
+    "saude", "ocular", "visao", "olhos", "tratamento", "sintomas",
+  ]);
+
+  for (const post of allPosts) {
+    if (post.slug === currentSlug) continue;
+
+    const url = `/blog/${post.slug}`;
+
+    // Extract keywords from title — keep original word (with accents) for matching
+    const titleWordPairs = post.title
+      .replace(/[^\w\s\u00C0-\u024F]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 5)
+      .filter((w) => !stopwords.has(normalize(w)))
+      .map((w) => ({ norm: normalize(w), original: w }));
+
+    for (const { norm, original } of titleWordPairs.slice(0, 2)) {
+      pairs.push({ keywordNorm: norm, keywordOriginal: original, url, slug: post.slug });
+    }
+
+    // Also add tags if available
+    if (post.tags) {
+      let tagsArr: string[] = [];
+      try {
+        tagsArr = JSON.parse(post.tags);
+      } catch {
+        tagsArr = post.tags.split(",").map((t) => t.trim());
+      }
+      for (const tag of tagsArr.slice(0, 2)) {
+        const norm = normalize(tag);
+        if (norm.length >= 5 && !stopwords.has(norm)) {
+          // Use the original tag text (with accents) for matching
+          pairs.push({ keywordNorm: norm, keywordOriginal: tag.trim(), url, slug: post.slug });
+        }
+      }
+    }
+  }
+
+  // Sort by keyword length descending (match longer phrases first)
+  pairs.sort((a, b) => b.keywordOriginal.length - a.keywordOriginal.length);
+
+  // Deduplicate by normalized keyword: keep only first entry per keyword
+  const seen = new Set<string>();
+  const uniquePairs = pairs.filter((p) => {
+    if (seen.has(p.keywordNorm)) return false;
+    seen.add(p.keywordNorm);
+    return true;
+  });
+
+  let result = html;
+  let injectedCount = 0;
+  const MAX_LINKS = 5;
+  const usedSlugs = new Set<string>();
+
+  for (const { keywordOriginal, url, slug } of uniquePairs) {
+    if (injectedCount >= MAX_LINKS) break;
+    if (usedSlugs.has(slug)) continue; // one link per target article
+
+    // Escape special regex chars in the original keyword (may contain accented letters)
+    const escaped = keywordOriginal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Match keyword case-insensitively, NOT inside an existing anchor tag
+    const regex = new RegExp(
+      `(?<!<[^>]*)\\b(${escaped})\\b(?![^<]*>)(?![^<]*<\\/a>)`,
+      "i"
+    );
+
+    const newHtml = result.replace(regex, (match) => {
+      return `<a href="${url}" class="internal-link" title="Saiba mais sobre ${match}">${match}</a>`;
+    });
+
+    if (newHtml !== result) {
+      result = newHtml;
+      injectedCount++;
+      usedSlugs.add(slug);
+    }
+  }
+
+  return result;
+}
