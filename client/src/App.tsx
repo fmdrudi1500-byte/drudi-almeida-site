@@ -79,6 +79,22 @@ function Router() {
           <Route path="/unidade/:slug" component={Unidade} />
           <Route path="/medico/:slug" component={Medico} />
           <Route path="/politica-de-privacidade" component={PoliticaPrivacidade} />
+          {/* Redirects de rotas legadas do Wix — garantem 301 mesmo quando o Express não intercepta */}
+          <Route path="/en">{() => <Redirect to="/" />}</Route>
+          <Route path="/en/">{() => <Redirect to="/" />}</Route>
+          <Route path="/pt">{() => <Redirect to="/" />}</Route>
+          <Route path="/pt/">{() => <Redirect to="/" />}</Route>
+          <Route path="/pt-br">{() => <Redirect to="/" />}</Route>
+          <Route path="/pt-br/">{() => <Redirect to="/" />}</Route>
+          <Route path="/home">{() => <Redirect to="/" />}</Route>
+          <Route path="/home/">{() => <Redirect to="/" />}</Route>
+          <Route path="/index">{() => <Redirect to="/" />}</Route>
+          <Route path="/index.html">{() => <Redirect to="/" />}</Route>
+          <Route path="/catarata">{() => <Redirect to="/instituto/catarata" />}</Route>
+          <Route path="/glaucoma">{() => <Redirect to="/instituto/glaucoma" />}</Route>
+          <Route path="/retina">{() => <Redirect to="/instituto/retina" />}</Route>
+          <Route path="/ceratocone">{() => <Redirect to="/instituto/ceratocone" />}</Route>
+          <Route path="/estrabismo">{() => <Redirect to="/instituto/estrabismo" />}</Route>
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>
