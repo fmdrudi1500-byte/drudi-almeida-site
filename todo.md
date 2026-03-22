@@ -407,3 +407,8 @@
 - [x] BLOG-18: Terçol e Calázio
 - [x] BLOG-19: Ceratite
 - [ ] BLOG-20: Oclusão Vascular da Retina (falhou na geração)
+
+## Fase NAV: Visibilidade das Páginas de Unidades (Março 2026)
+- [x] NAV-01: Adicionar links clicáveis para /unidade/:slug no Footer
+- [x] NAV-02: Adicionar submenu "Unidades" no Header com dropdown para as 5 páginas
+- [x] NAV-03: Links de médicos adicionados na seção Navegação do Footer

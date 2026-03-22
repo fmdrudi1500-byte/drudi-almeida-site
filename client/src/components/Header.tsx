@@ -68,10 +68,19 @@ const anchorLinks = [
   { name: "Unidades", anchor: "#unidades" },
 ];
 
+const unidadesNav = [
+  { name: "Santana", href: "/unidade/santana", address: "Rua Dr. César, 130 — São Paulo" },
+  { name: "Tatuapé", href: "/unidade/tatuape", address: "Rua Tuiuti, 2429 — São Paulo" },
+  { name: "Lapa", href: "/unidade/lapa", address: "Rua Barão de Jundiaí, 221 — São Paulo" },
+  { name: "São Miguel", href: "/unidade/sao-miguel", address: "Rua Bernardo Marcondes, 108 — São Paulo" },
+  { name: "Guarulhos", href: "/unidade/guarulhos", address: "Rua Sete de Setembro, 375 — Guarulhos" },
+];
+
 const navLinks = [
   { name: "Início", href: "/" },
   { name: "Sobre Nós", href: "/sobre" },
   { name: "Institutos", href: "#", children: institutos },
+  { name: "Unidades", href: "#", unidades: unidadesNav },
   { name: "Tecnologia", href: "/tecnologia" },
   { name: "Convênios", href: "/convenios" },
   { name: "Blog", href: "/blog" },
@@ -93,7 +102,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [unidadesDropdownOpen, setUnidadesDropdownOpen] = useState(false);
   const [mobileInstitutosOpen, setMobileInstitutosOpen] = useState(false);
+  const [mobileUnidadesOpen, setMobileUnidadesOpen] = useState(false);
+  const unidadesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuTop, setMenuTop] = useState("5rem");
   const [location] = useLocation();
@@ -117,7 +129,9 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setUnidadesDropdownOpen(false);
     setMobileInstitutosOpen(false);
+    setMobileUnidadesOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -225,7 +239,61 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center min-w-0">
             {navLinks.map((link) =>
-              link.children ? (
+              (link as any).unidades ? (
+                <div
+                  key={link.name}
+                  className="relative"
+                  onMouseEnter={() => { if (unidadesCloseTimer.current) clearTimeout(unidadesCloseTimer.current); setUnidadesDropdownOpen(true); }}
+                  onMouseLeave={() => { unidadesCloseTimer.current = setTimeout(() => setUnidadesDropdownOpen(false), 120); }}
+                >
+                  <button
+                    className={`font-ui text-sm font-medium px-4 py-2 rounded-md flex items-center gap-1 transition-colors hover:text-gold ${
+                      location.startsWith("/unidade") ? "text-gold" : "text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${unidadesDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {/* Dropdown de Unidades */}
+                  <div
+                    className="absolute top-full left-0 pt-3"
+                    style={{
+                      opacity: unidadesDropdownOpen ? 1 : 0,
+                      transform: unidadesDropdownOpen ? "translateY(0) scale(1)" : "translateY(10px) scale(0.97)",
+                      pointerEvents: unidadesDropdownOpen ? "auto" : "none",
+                      transition: "opacity 0.18s ease-out, transform 0.18s ease-out",
+                      transformOrigin: "top left",
+                    }}
+                    onMouseEnter={() => { if (unidadesCloseTimer.current) clearTimeout(unidadesCloseTimer.current); setUnidadesDropdownOpen(true); }}
+                    onMouseLeave={() => { unidadesCloseTimer.current = setTimeout(() => setUnidadesDropdownOpen(false), 120); }}
+                  >
+                    <div className="bg-white dark:bg-card rounded-2xl shadow-2xl border border-border/60 p-4 w-72">
+                      <span className="font-ui text-xs font-semibold tracking-[0.15em] uppercase text-gold block mb-3 pb-3 border-b border-border/40">
+                        Nossas Unidades
+                      </span>
+                      <ul className="space-y-1">
+                        {(link as any).unidades.map((u: { name: string; href: string; address: string }, idx: number) => (
+                          <li key={u.href}>
+                            <Link
+                              href={u.href}
+                              onClick={() => setUnidadesDropdownOpen(false)}
+                              className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-navy/5 transition-colors group"
+                              style={{
+                                opacity: unidadesDropdownOpen ? 1 : 0,
+                                transform: unidadesDropdownOpen ? "translateY(0)" : "translateY(6px)",
+                                transition: `opacity 0.2s ease-out ${idx * 0.04}s, transform 0.2s ease-out ${idx * 0.04}s`,
+                              }}
+                            >
+                              <span className="font-ui text-sm font-semibold text-navy group-hover:text-gold transition-colors">{u.name}</span>
+                              <span className="font-body text-xs text-muted-foreground">{u.address}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ) : link.children ? (
                 <div
                   key={link.name}
                   className="relative"
@@ -407,7 +475,36 @@ export default function Header() {
       >
         <nav className="container py-4 flex flex-col gap-1">
           {navLinks.map((link) =>
-            link.children ? (
+            (link as any).unidades ? (
+              <div key={link.name}>
+                <button
+                  onClick={() => setMobileUnidadesOpen(!mobileUnidadesOpen)}
+                  className="w-full flex items-center justify-between font-ui text-sm font-medium px-3 py-3 text-foreground rounded-md hover:bg-muted transition-colors"
+                >
+                  {link.name}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileUnidadesOpen ? "rotate-180" : ""}`} />
+                </button>
+                <div
+                  className="overflow-hidden"
+                  style={{
+                    maxHeight: mobileUnidadesOpen ? "400px" : "0",
+                    opacity: mobileUnidadesOpen ? 1 : 0,
+                    transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
+                  }}
+                >
+                  {(link as any).unidades.map((u: { name: string; href: string; address: string }) => (
+                    <Link
+                      key={u.href}
+                      href={u.href}
+                      className="flex flex-col pl-6 pr-3 py-2.5 hover:bg-muted/50 rounded-md transition-colors"
+                    >
+                      <span className="font-ui text-sm text-foreground">{u.name}</span>
+                      <span className="font-body text-xs text-muted-foreground">{u.address}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : link.children ? (
               <div key={link.name}>
                 <button
                   onClick={() => setMobileInstitutosOpen(!mobileInstitutosOpen)}

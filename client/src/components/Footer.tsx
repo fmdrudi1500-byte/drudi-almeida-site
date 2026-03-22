@@ -7,11 +7,11 @@ import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 const LOGO_URL = "/images/logo-horizontal-200w_opt.webp";
 
 const unidades = [
-  { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP" },
-  { name: "Tatuapé", address: "Rua Tuiuti, 2429", city: "São Paulo - SP" },
-  { name: "Lapa", address: "Rua Barão de Jundiaí, 221", city: "São Paulo - SP" },
-  { name: "São Miguel", address: "Rua Bernardo Marcondes, 108", city: "São Paulo - SP" },
-  { name: "Guarulhos", address: "Rua Sete de Setembro, 375", city: "Guarulhos - SP" },
+  { name: "Santana", address: "Rua Dr. César, 130", city: "São Paulo - SP", slug: "santana" },
+  { name: "Tatuapé", address: "Rua Tuiuti, 2429", city: "São Paulo - SP", slug: "tatuape" },
+  { name: "Lapa", address: "Rua Barão de Jundiaí, 221", city: "São Paulo - SP", slug: "lapa" },
+  { name: "São Miguel", address: "Rua Bernardo Marcondes, 108", city: "São Paulo - SP", slug: "sao-miguel" },
+  { name: "Guarulhos", address: "Rua Sete de Setembro, 375", city: "Guarulhos - SP", slug: "guarulhos" },
 ];
 
 export default function Footer() {
@@ -72,7 +72,12 @@ export default function Footer() {
                 <li key={u.name} className="flex items-start gap-2">
                   <MapPin className="w-3 h-3 mt-1 text-gold/60 shrink-0" />
                   <div>
-                    <p className="font-ui text-xs font-semibold text-cream/90">{u.name}</p>
+                    <a
+                      href={`/unidade/${u.slug}`}
+                      className="font-ui text-xs font-semibold text-cream/90 hover:text-gold transition-colors"
+                    >
+                      {u.name}
+                    </a>
                     <p className="font-body text-xs text-cream/50">{u.address}</p>
                   </div>
                 </li>
@@ -118,6 +123,8 @@ export default function Footer() {
                 { name: "Blog", href: "/blog" },
                 { name: "Contato", href: "/contato" },
                 { name: "Trabalhe Conosco", href: "/trabalhe-conosco" },
+                { name: "Dr. Fernando Drudi", href: "/medico/dr-fernando-drudi" },
+                { name: "Dra. Priscilla Almeida", href: "/medico/dra-priscilla-almeida" },
                 { name: "Política de Privacidade", href: "/politica-de-privacidade" },
               ].map((item) => (
                 <li key={item.href}>
