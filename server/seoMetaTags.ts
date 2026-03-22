@@ -264,6 +264,16 @@ export function getMetaForRoute(pathname: string): PageMeta {
     };
   }
 
+  // Legacy Wix routes: canonical aponta para / e noindex para evitar conteúdo duplicado
+  const LEGACY_ROUTES = ["/en", "/en/", "/pt", "/pt/", "/pt-br", "/pt-br/", "/home", "/home/", "/index", "/index.html"];
+  if (LEGACY_ROUTES.includes(pathname)) {
+    return {
+      title: `${BRAND} — Clínicas Oftalmológicas em São Paulo`,
+      description: "Clínica oftalmológica com 5 institutos especializados em São Paulo. Catarata, glaucoma, retina, ceratocone e estrabismo.",
+      canonical: "/",  // canonical aponta para homepage
+    };
+  }
+
   // Admin pages: noindex
   if (pathname.startsWith("/admin")) {
     return {
@@ -360,11 +370,12 @@ export function injectMetaTags(html: string, pathname: string): string {
     `<meta name="twitter:description" content="${escapeAttr(meta.description)}" />`
   );
 
-  // Add noindex for admin pages
-  if (pathname.startsWith("/admin") || pathname.startsWith("/cancelar-agendamento")) {
+  // Add noindex for admin pages and legacy Wix routes
+  const LEGACY_NOINDEX = ["/en", "/en/", "/pt", "/pt/", "/pt-br", "/pt-br/", "/home", "/home/", "/index", "/index.html"];
+  if (pathname.startsWith("/admin") || pathname.startsWith("/cancelar-agendamento") || LEGACY_NOINDEX.includes(pathname)) {
     html = html.replace(
       /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
-      `<meta name="robots" content="noindex, nofollow" />`
+      `<meta name="robots" content="noindex, follow" />`
     );
   }
 
@@ -572,11 +583,12 @@ export async function injectMetaTagsAsync(html: string, pathname: string): Promi
     `<meta name="twitter:description" content="${escapeAttr(meta.description)}" />`
   );
 
-  // Add noindex for admin pages
-  if (pathname.startsWith("/admin") || pathname.startsWith("/cancelar-agendamento")) {
+  // Add noindex for admin pages and legacy Wix routes
+  const LEGACY_NOINDEX = ["/en", "/en/", "/pt", "/pt/", "/pt-br", "/pt-br/", "/home", "/home/", "/index", "/index.html"];
+  if (pathname.startsWith("/admin") || pathname.startsWith("/cancelar-agendamento") || LEGACY_NOINDEX.includes(pathname)) {
     html = html.replace(
       /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
-      `<meta name="robots" content="noindex, nofollow" />`
+      `<meta name="robots" content="noindex, follow" />`
     );
   }
 
