@@ -437,3 +437,8 @@
 - [x] Schema Markup JSON-LD Physician nas páginas de médicos
 - [x] Schema Markup JSON-LD MedicalClinic nas páginas de unidades
 - [x] Submissão automática do sitemap ao Google Search Console via API
+
+## Correção — Escopo OAuth2 para Google Search Console
+
+- [ ] Adicionar escopo webmasters ao fluxo OAuth2 e gerar novo refresh token
+- [ ] Testar submissão do sitemap com o novo token

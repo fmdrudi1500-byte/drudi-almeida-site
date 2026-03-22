@@ -15,6 +15,12 @@ import { createUnitCalendar, listCalendars } from "./google-calendar";
 
 const SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
+// Combined scopes: Calendar + Search Console
+const SCOPES_WITH_GSC = [
+  "https://www.googleapis.com/auth/calendar",
+  "https://www.googleapis.com/auth/webmasters",
+];
+
 function getOAuth2Client() {
   // Read redirect URI dynamically to pick up env changes without restart
   const redirectUri =
@@ -43,6 +49,26 @@ export function registerGoogleAuthRoutes(app: Express) {
       access_type: "offline",
       scope: SCOPES,
       prompt: "consent", // Force consent to always get refresh_token
+    });
+
+    res.redirect(authUrl);
+  });
+
+  /**
+   * Step 1b: Redirect to Google consent screen with Calendar + Search Console scopes.
+   * Use this to generate a new refresh token that covers both services.
+   */
+  app.get("/api/google-auth/start-gsc", (req, res) => {
+    const secret = req.query.secret as string;
+    if (secret !== "drudi2024setup") {
+      return res.status(403).send("Acesso negado.");
+    }
+
+    const oauth2Client = getOAuth2Client();
+    const authUrl = oauth2Client.generateAuthUrl({
+      access_type: "offline",
+      scope: SCOPES_WITH_GSC,
+      prompt: "consent", // Force consent to always get a fresh refresh_token with new scopes
     });
 
     res.redirect(authUrl);
