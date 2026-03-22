@@ -139,6 +139,34 @@ const ROUTE_META: Record<string, PageMeta> = {
       "Política de privacidade e proteção de dados da Drudi e Almeida Oftalmologia, conforme a LGPD.",
     canonical: "/politica-de-privacidade",
   },
+  "/medico/dr-fernando-drudi": {
+    title: `Dr. Fernando Drudi — Oftalmologista em SP | Catarata e Retina`,
+    description:
+      "Dr. Fernando Macei Drudi, CRM-SP 139.300. Oftalmologista especialista em Catarata e Retina Cirúrgica. Diretor Clínico da Drudi e Almeida. Agende: (11) 5430-2421.",
+    canonical: "/medico/dr-fernando-drudi",
+    ogType: "profile",
+    keywords:
+      "Dr Fernando Drudi, oftalmologista São Paulo, cirurgia catarata, retina cirúrgica, CRM 139300",
+    breadcrumbs: [
+      { name: "Início", url: "/" },
+      { name: "Sobre Nós", url: "/sobre" },
+      { name: "Dr. Fernando Drudi", url: "/medico/dr-fernando-drudi" },
+    ],
+  },
+  "/medico/dra-priscilla-almeida": {
+    title: `Dra. Priscilla de Almeida — Oftalmologista em SP | Córnea e Ceratocone`,
+    description:
+      "Dra. Priscilla Rodrigues de Almeida, CRM-SP 148.173. Oftalmologista especialista em Córnea e Ceratocone. Fellowship EPM/UNIFESP. Agende: (11) 5430-2421.",
+    canonical: "/medico/dra-priscilla-almeida",
+    ogType: "profile",
+    keywords:
+      "Dra Priscilla Almeida, oftalmologista São Paulo, ceratocone, córnea, lentes contato, CRM 148173",
+    breadcrumbs: [
+      { name: "Início", url: "/" },
+      { name: "Sobre Nós", url: "/sobre" },
+      { name: "Dra. Priscilla de Almeida", url: "/medico/dra-priscilla-almeida" },
+    ],
+  },
   "/unidade/guarulhos": {
     title: `Oftalmologista em Guarulhos — Clínica de Olhos — ${BRAND}`,
     description:
@@ -218,6 +246,8 @@ export function getMetaForRoute(pathname: string): PageMeta {
   }
 
   // Blog post pattern: /blog/:slug
+  // Note: getMetaForRoute is sync, so we use a cached approach.
+  // The actual DB-based meta is handled by getMetaForRouteAsync below.
   if (pathname.startsWith("/blog/")) {
     const slug = pathname.replace("/blog/", "");
     return {
@@ -225,6 +255,12 @@ export function getMetaForRoute(pathname: string): PageMeta {
       description: `Leia este artigo sobre saúde ocular no blog da ${BRAND}. Conteúdo educativo elaborado por especialistas.`,
       canonical: pathname,
       ogType: "article",
+      keywords: "saúde ocular, oftalmologia, Drudi e Almeida",
+      breadcrumbs: [
+        { name: "Início", url: "/" },
+        { name: "Blog", url: "/blog" },
+        { name: slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()), url: pathname },
+      ],
     };
   }
 
@@ -385,6 +421,7 @@ function generateBreadcrumbSchema(pathname: string, meta: PageMeta): Record<stri
     blog: "Blog",
     agendar: "Agendar",
     unidade: "Unidades",
+    medico: "Médicos",
   };
 
   let currentPath = "";
@@ -404,6 +441,155 @@ function generateBreadcrumbSchema(pathname: string, meta: PageMeta): Record<stri
       item: `${BASE_URL}${crumb.url}`,
     })),
   };
+}
+
+/**
+ * Async version that fetches blog post meta from database.
+ * Used by the middleware to get real seoTitle/seoDescription.
+ */
+export async function getMetaForRouteAsync(pathname: string): Promise<PageMeta> {
+  // For blog posts, try to fetch from DB
+  if (pathname.startsWith("/blog/") && pathname !== "/blog/") {
+    const slug = pathname.replace("/blog/", "");
+    try {
+      const { getDb } = await import("./db");
+      const db = await getDb();
+      if (db) {
+        const { blogPosts } = await import("../drizzle/schema");
+        const { eq } = await import("drizzle-orm");
+        const [post] = await db
+          .select({
+            seoTitle: blogPosts.seoTitle,
+            seoDescription: blogPosts.seoDescription,
+            seoKeywords: blogPosts.seoKeywords,
+            title: blogPosts.title,
+            excerpt: blogPosts.excerpt,
+            coverImageUrl: blogPosts.coverImageUrl,
+          })
+          .from(blogPosts)
+          .where(eq(blogPosts.slug, slug))
+          .limit(1);
+
+        if (post) {
+          return {
+            title: post.seoTitle || `${post.title} | ${BRAND}`,
+            description: post.seoDescription || post.excerpt || `Leia este artigo sobre saúde ocular no blog da ${BRAND}.`,
+            canonical: pathname,
+            ogType: "article",
+            ogImage: post.coverImageUrl || DEFAULT_OG_IMAGE,
+            keywords: post.seoKeywords || "saúde ocular, oftalmologia, Drudi e Almeida",
+            breadcrumbs: [
+              { name: "Início", url: "/" },
+              { name: "Blog", url: "/blog" },
+              { name: post.title, url: pathname },
+            ],
+          };
+        }
+      }
+    } catch (e) {
+      // Fallback to sync version on error
+    }
+  }
+
+  // Fallback to sync version
+  return getMetaForRoute(pathname);
+}
+
+/**
+ * Async version of injectMetaTags that uses DB-backed meta for blog posts.
+ */
+export async function injectMetaTagsAsync(html: string, pathname: string): Promise<string> {
+  const meta = await getMetaForRouteAsync(pathname);
+  const canonicalUrl = `${BASE_URL}${meta.canonical}`;
+  const ogImage = meta.ogImage || DEFAULT_OG_IMAGE;
+  const ogType = meta.ogType || "website";
+
+  // Replace static <title>
+  html = html.replace(
+    /<title>[^<]*<\/title>/,
+    `<title>${escapeHtml(meta.title)}</title>`
+  );
+
+  // Replace static meta description
+  html = html.replace(
+    /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="description" content="${escapeAttr(meta.description)}" />`
+  );
+
+  // Replace static meta keywords
+  if (meta.keywords) {
+    html = html.replace(
+      /<meta\s+name="keywords"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="keywords" content="${escapeAttr(meta.keywords)}" />`
+    );
+  }
+
+  // Replace canonical URL
+  html = html.replace(
+    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+    `<link rel="canonical" href="${escapeAttr(canonicalUrl)}" />`
+  );
+
+  // Replace hreflang URLs
+  html = html.replace(
+    /<link\s+rel="alternate"\s+hreflang="pt-BR"\s+href="[^"]*"\s*\/?>/,
+    `<link rel="alternate" hreflang="pt-BR" href="${escapeAttr(canonicalUrl)}" />`
+  );
+  html = html.replace(
+    /<link\s+rel="alternate"\s+hreflang="x-default"\s+href="[^"]*"\s*\/?>/,
+    `<link rel="alternate" hreflang="x-default" href="${escapeAttr(canonicalUrl)}" />`
+  );
+
+  // Replace OG tags
+  html = html.replace(
+    /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:title" content="${escapeAttr(meta.title)}" />`
+  );
+  html = html.replace(
+    /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:description" content="${escapeAttr(meta.description)}" />`
+  );
+  html = html.replace(
+    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:url" content="${escapeAttr(canonicalUrl)}" />`
+  );
+  html = html.replace(
+    /<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:type" content="${escapeAttr(ogType)}" />`
+  );
+  html = html.replace(
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:image" content="${escapeAttr(ogImage)}" />`
+  );
+
+  // Replace Twitter Card tags
+  html = html.replace(
+    /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="twitter:title" content="${escapeAttr(meta.title)}" />`
+  );
+  html = html.replace(
+    /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="twitter:description" content="${escapeAttr(meta.description)}" />`
+  );
+
+  // Add noindex for admin pages
+  if (pathname.startsWith("/admin") || pathname.startsWith("/cancelar-agendamento")) {
+    html = html.replace(
+      /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="robots" content="noindex, nofollow" />`
+    );
+  }
+
+  // Inject BreadcrumbList schema
+  const breadcrumbSchema = generateBreadcrumbSchema(pathname, meta);
+  if (breadcrumbSchema) {
+    html = html.replace(
+      "</head>",
+      `<script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>\n</head>`
+    );
+  }
+
+  return html;
 }
 
 function escapeHtml(str: string): string {

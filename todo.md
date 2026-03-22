@@ -374,7 +374,36 @@
 
 ### Fase 2 — Conteúdo e Páginas Novas
 - [x] SEO-09: Criar 5 páginas de unidades (/unidade/guarulhos, /lapa, /santana, /sao-miguel, /tatuape)
-- [ ] SEO-10: Criar páginas de médicos (/medico/dr-fernando-drudi, /dra-priscilla-almeida)
+- [x] SEO-10: Criar páginas de médicos (/medico/dr-fernando-drudi, /dra-priscilla-almeida)
 - [ ] SEO-11: Expandir conteúdo dos institutos para 2000+ palavras (long-form)
 - [x] SEO-12: Expandir Schema Markup (FAQPage, LocalBusiness, BreadcrumbList) — BreadcrumbList auto-gerado, LocalBusiness nas unidades
 - [x] SEO-13: Melhorar links internos entre páginas — componente VejaTambém em 5 institutos + links cruzados nas unidades
+
+## Fase SEO: Páginas de Médicos e 20 Artigos do Blog (Março 2026)
+
+### Páginas de Médicos
+- [x] MED-01: Criar página /medico/dr-fernando-drudi com Schema Physician
+- [x] MED-02: Criar página /medico/dra-priscilla-almeida com Schema Physician
+- [x] MED-03: Adicionar rotas e meta tags server-side para páginas de médicos
+
+### 20 Artigos do Blog — Doenças Oculares Mais Prevalentes
+- [x] BLOG-01: Catarata
+- [x] BLOG-02: Glaucoma
+- [x] BLOG-03: Degeneração Macular Relacionada à Idade (DMRI)
+- [x] BLOG-04: Retinopatia Diabética
+- [x] BLOG-05: Ceratocone
+- [x] BLOG-06: Conjuntivite
+- [x] BLOG-07: Olho Seco (Síndrome do Olho Seco)
+- [x] BLOG-08: Miopia
+- [x] BLOG-09: Hipermetropia
+- [x] BLOG-10: Astigmatismo
+- [x] BLOG-11: Presbiopia (Vista Cansada)
+- [x] BLOG-12: Estrabismo
+- [x] BLOG-13: Blefarite
+- [x] BLOG-14: Uveíte
+- [x] BLOG-15: Descolamento de Retina
+- [x] BLOG-16: Pterígio
+- [x] BLOG-17: Ambliopia (Olho Preguiçoso)
+- [x] BLOG-18: Terçol e Calázio
+- [x] BLOG-19: Ceratite
+- [ ] BLOG-20: Oclusão Vascular da Retina (falhou na geração)

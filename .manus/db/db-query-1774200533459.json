@@ -1,0 +1,56 @@
+{
+  "query": "SELECT id, name, slug FROM blog_categories ORDER BY id; SELECT id, title, slug, status, categoryId FROM blog_posts ORDER BY id LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, name, slug FROM blog_categories ORDER BY id; SELECT id, title, slug, status, categoryId FROM blog_posts ORDER BY id LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Catarata",
+      "slug": "catarata"
+    },
+    {
+      "id": "30001",
+      "name": "Ceratocone",
+      "slug": "ceratocone"
+    },
+    {
+      "id": "30002",
+      "name": "Glaucoma",
+      "slug": "glaucoma"
+    },
+    {
+      "id": "30003",
+      "name": "Retina",
+      "slug": "retina"
+    },
+    {
+      "id": "30004",
+      "name": "Estrabismo",
+      "slug": "estrabismo"
+    },
+    {
+      "id": "60001",
+      "name": "Saúde Ocular",
+      "slug": "saude-ocular"
+    }
+  ],
+  "messages": [
+    "id\ttitle\tslug\tstatus\tcategoryId",
+    "1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\tpublished\t1",
+    "30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\tpublished\t30001",
+    "30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\tpublished\t30002",
+    "30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\tpublished\t30003",
+    "30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\tpublished\t30004",
+    "60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tvisao-embacada-sinais-alerta-oftalmologista\tpublished\t60001",
+    "60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tquando-operar-catarata-guia-completo\tpublished\t1",
+    "60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tcrosslinking-ceratocone-como-funciona-tratamento\tpublished\t30001",
+    "60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tpressao-ocular-alta-hipertensao-ocular-glaucoma\tpublished\t30002",
+    "60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tmiopia-criancas-sinais-precoces-tratamento\tpublished\t60001",
+    "70001\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\tsindrome-olho-seco-causas-sintomas-tratamentos\tpublished\t60001",
+    "70002\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\tpublished\t30001",
+    "70003\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\texame-de-vista-completo-o-que-avalia-frequencia-importancia\tpublished\t60001",
+    "70004\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\tpublished\t30002"
+  ],
+  "stdout": "id\tname\tslug\n1\tCatarata\tcatarata\n30001\tCeratocone\tceratocone\n30002\tGlaucoma\tglaucoma\n30003\tRetina\tretina\n30004\tEstrabismo\testrabismo\n60001\tSaúde Ocular\tsaude-ocular\nid\ttitle\tslug\tstatus\tcategoryId\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\tpublished\t1\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\tpublished\t30001\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\tpublished\t30002\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\tpublished\t30003\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\tpublished\t30004\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tvisao-embacada-sinais-alerta-oftalmologista\tpublished\t60001\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tquando-operar-catarata-guia-completo\tpublished\t1\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tcrosslinking-ceratocone-como-funciona-tratamento\tpublished\t30001\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tpressao-ocular-alta-hipertensao-ocular-glaucoma\tpublished\t30002\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tmiopia-criancas-sinais-precoces-tratamento\tpublished\t60001\n70001\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\tsindrome-olho-seco-causas-sintomas-tratamentos\tpublished\t60001\n70002\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\tpublished\t30001\n70003\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\texame-de-vista-completo-o-que-avalia-frequencia-importancia\tpublished\t60001\n70004\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\tpublished\t30002\n",
+  "stderr": "",
+  "execution_time_ms": 642
+}

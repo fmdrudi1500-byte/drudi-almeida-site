@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
-import { injectMetaTags } from "../seoMetaTags";
+import { injectMetaTags, injectMetaTagsAsync } from "../seoMetaTags";
 
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
@@ -42,8 +42,9 @@ export async function setupVite(app: Express, server: Server) {
       let page = await vite.transformIndexHtml(url, template);
 
       // Inject route-specific meta tags for SEO (server-side)
+      // Use async version to fetch blog post meta from DB
       const pathname = new URL(url, "http://localhost").pathname;
-      page = injectMetaTags(page, pathname);
+      page = await injectMetaTagsAsync(page, pathname);
 
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
@@ -117,11 +118,12 @@ export function serveStatic(app: Express) {
 
   // fall through to index.html if the file doesn't exist
   // Inject route-specific meta tags for SEO before serving
-  app.use("*", (req, res) => {
+  // Use async version to fetch blog post meta from DB
+  app.use("*", async (req, res) => {
     const indexPath = path.resolve(distPath, "index.html");
     const html = fs.readFileSync(indexPath, "utf-8");
     const pathname = req.originalUrl.split("?")[0].split("#")[0];
-    const injected = injectMetaTags(html, pathname);
+    const injected = await injectMetaTagsAsync(html, pathname);
 
     res.setHeader("Cache-Control", "max-age=0, must-revalidate");
     res.setHeader("Content-Type", "text/html; charset=utf-8");

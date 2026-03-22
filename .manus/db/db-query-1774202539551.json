@@ -1,0 +1,35 @@
+{
+  "query": "SELECT id, slug, LEFT(seoTitle, 60) as seoTitle FROM blog_posts WHERE id > 14 ORDER BY id LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, LEFT(seoTitle, 60) as seoTitle FROM blog_posts WHERE id > 14 ORDER BY id LIMIT 5;",
+  "rows": [
+    {
+      "id": "30001",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c",
+      "seoTitle": "Ceratocone: Sintomas e Tratamento | Drudi e Almeida"
+    },
+    {
+      "id": "30002",
+      "slug": "glaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c",
+      "seoTitle": "Glaucoma: Diagnóstico e Tratamento | Drudi e Almeida"
+    },
+    {
+      "id": "30003",
+      "slug": "doencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c",
+      "seoTitle": "Doenças da Retina: DMRI e Retinopatia | Drudi e Almeida"
+    },
+    {
+      "id": "30004",
+      "slug": "estrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c",
+      "seoTitle": "Estrabismo: Tratamento em Crianças e Adultos | Drudi e Almei"
+    },
+    {
+      "id": "60001",
+      "slug": "visao-embacada-sinais-alerta-oftalmologista",
+      "seoTitle": "Visão Embaçada: Sinais de Alerta e Quando Procurar Médico"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\tseoTitle\n30001\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\tCeratocone: Sintomas e Tratamento | Drudi e Almeida\n30002\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\tGlaucoma: Diagnóstico e Tratamento | Drudi e Almeida\n30003\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\tDoenças da Retina: DMRI e Retinopatia | Drudi e Almeida\n30004\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\tEstrabismo: Tratamento em Crianças e Adultos | Drudi e Almei\n60001\tvisao-embacada-sinais-alerta-oftalmologista\tVisão Embaçada: Sinais de Alerta e Quando Procurar Médico\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

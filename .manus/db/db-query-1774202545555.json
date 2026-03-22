@@ -1,0 +1,22 @@
+{
+  "query": "SELECT id, slug FROM blog_posts WHERE slug LIKE '%conjuntivite%' OR slug LIKE '%pterigio%' OR slug LIKE '%blefarite%' LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug FROM blog_posts WHERE slug LIKE '%conjuntivite%' OR slug LIKE '%pterigio%' OR slug LIKE '%blefarite%' LIMIT 5;",
+  "rows": [
+    {
+      "id": "120003",
+      "slug": "blefarite-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120001",
+      "slug": "conjuntivite-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120002",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\n120003\tblefarite-causas-sintomas-tratamento\n120001\tconjuntivite-tipos-sintomas-tratamento\n120002\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

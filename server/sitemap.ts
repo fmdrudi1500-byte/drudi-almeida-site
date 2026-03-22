@@ -23,6 +23,8 @@ const staticPages = [
   { path: "/instituto/retina", priority: "0.9", changefreq: "monthly" },
   { path: "/instituto/estrabismo", priority: "0.9", changefreq: "monthly" },
   { path: "/blog", priority: "0.8", changefreq: "daily" },
+  { path: "/medico/dr-fernando-drudi", priority: "0.8", changefreq: "monthly" },
+  { path: "/medico/dra-priscilla-almeida", priority: "0.8", changefreq: "monthly" },
   { path: "/unidade/guarulhos", priority: "0.8", changefreq: "monthly" },
   { path: "/unidade/lapa", priority: "0.8", changefreq: "monthly" },
   { path: "/unidade/santana", priority: "0.8", changefreq: "monthly" },
