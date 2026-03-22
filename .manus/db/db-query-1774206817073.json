@@ -1,0 +1,82 @@
+{
+  "query": "SELECT id, title, authorName, publishedAt FROM blog_posts WHERE id >= 120008 ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, authorName, publishedAt FROM blog_posts WHERE id >= 120008 ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "120008",
+      "title": "Terçol e Calázio: Diferenças, Causas, Sintomas e Tratamento",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120009",
+      "title": "Descolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120010",
+      "title": "Retinopatia Diabética: Como o Diabetes Afeta a Visão",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120011",
+      "title": "Degeneração Macular (DMRI): Tipos, Sintomas e Tratamentos",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120012",
+      "title": "Alergia Ocular: Tipos, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120013",
+      "title": "Ceratite: Infecção da Córnea — Causas, Sintomas e Tratamento",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120014",
+      "title": "Moscas Volantes: O Que São, Causas e Quando se Preocupar",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120015",
+      "title": "Daltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120016",
+      "title": "Toxoplasmose Ocular: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120017",
+      "title": "Oclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120018",
+      "title": "Cuidados com os Olhos no Verão: Guia Completo de Proteção",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    },
+    {
+      "id": "120019",
+      "title": "Saúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tauthorName\tpublishedAt\n120008\tTerçol e Calázio: Diferenças, Causas, Sintomas e Tratamento\tDrudi e Almeida\t2026-03-22 17:59:02\n120009\tDescolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico\tDrudi e Almeida\t2026-03-22 17:59:02\n120010\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tDrudi e Almeida\t2026-03-22 17:59:02\n120011\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tDrudi e Almeida\t2026-03-22 17:59:02\n120012\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\n120013\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tDrudi e Almeida\t2026-03-22 17:59:02\n120014\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tDrudi e Almeida\t2026-03-22 17:59:02\n120015\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tDrudi e Almeida\t2026-03-22 17:59:02\n120016\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\n120017\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\n120018\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tDrudi e Almeida\t2026-03-22 17:59:02\n120019\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tDrudi e Almeida\t2026-03-22 17:59:02\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

@@ -417,3 +417,10 @@
 - [x] MED-NAV-01: Adicionar submenu "Sobre Nós" no Header com links para Dr. Fernando Drudi e Dra. Priscilla Almeida (desktop + mobile)
 - [x] MED-NAV-02: Adicionar botões "Ver perfil completo" nos cards dos médicos na página Sobre Nós
 - [x] MED-NAV-03: Links para médicos já presentes no Footer (seção Navegação)
+
+## Fase Blog: Escalonamento, Autoria e Keywords Locais (Março 2026)
+- [ ] BLOG-ESC-01: Escalonar datas dos 33 artigos ao longo dos últimos 6 meses (1-2 por semana)
+- [ ] BLOG-ESC-02: Atualizar todos os 33 artigos com menções dos médicos no corpo do texto (Dr. Fernando Drudi e Dra. Priscilla de Almeida como especialistas citados)
+- [ ] BLOG-ESC-03: Atualizar campo authorName de todos os artigos para alternar entre os dois médicos
+- [ ] BLOG-LOCAL-01: Criar 10 artigos com keywords locais de alto intent (bairro + especialidade + cidade)
+- [ ] BLOG-LOCAL-02: Gerar imagens de capa para os 10 novos artigos locais

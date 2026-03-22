@@ -1,0 +1,30 @@
+{
+  "query": "SELECT id, SUBSTRING(content, 1, 500) as content_start FROM blog_posts WHERE id IN (120004, 120007, 120009, 120010, 120011, 120014, 120015, 120016, 120017, 120018, 120019) LIMIT 3;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, SUBSTRING(content, 1, 500) as content_start FROM blog_posts WHERE id IN (120004, 120007, 120009, 120010, 120011, 120014, 120015, 120016, 120017, 120018, 120019) LIMIT 3;",
+  "rows": [
+    {
+      "id": "120004",
+      "content_start": ""
+    },
+    {
+      "id": "120007",
+      "content_start": ""
+    },
+    {
+      "id": "120009",
+      "content_start": "## O que é o Descolamento de Retina?"
+    }
+  ],
+  "messages": [
+    "## O Que É o Astigmatismo? Uma Visão Detalhada",
+    "O astigmatismo é um dos erros de refração mais comuns que afetam a visão, ao lado da miopia e da hipermetropia. De forma simples, ele ocorre quando a córnea (a camada transparente na frente do olho) ou, menos frequentemente, o cristalino (a lente interna do olho) possui uma curvatura irregular. ",
+    "Para entender melhor, imagine que um olho com a visão perfeita tem a córnea com um formato esférico, como uma bola de basquete. A luz que entra por ela é",
+    "## O que é Uveíte: Uma Inflamação Ocular que Exige Atenção",
+    "A uveíte é a inflamação da úvea, a camada média do olho, situada entre a esclera (a parte branca do olho) e a retina. A úvea é rica em vasos sanguíneos e é composta por três partes: a íris (a parte colorida do olho), o corpo ciliar (responsável pela produção do humor aquoso e pelo foco da visão) e a coroide (que nutre a retina). Quando qualquer uma dessas partes inflama, temos um quadro de uveíte. [1]",
+    "Trata-se de uma condição oftalmol",
+    "O descolamento de retina é uma condição ocular grave e uma emergência médica. Ele ocorre quando a retina, uma fina camada de tecido sensível à luz que reveste o interior do olho, se separa de sua posição normal. A retina é responsável por capturar as imagens que vemos e enviá-las ao cérebro através do nervo óptico. Quando ela se descola, perde o suprimento de oxigênio e nutrientes fornecido pelos vasos sanguíneos da coroide, a camada subjacente. Se não for t"
+  ],
+  "stdout": "id\tcontent_start\n120004\t\n## O Que É o Astigmatismo? Uma Visão Detalhada\n\nO astigmatismo é um dos erros de refração mais comuns que afetam a visão, ao lado da miopia e da hipermetropia. De forma simples, ele ocorre quando a córnea (a camada transparente na frente do olho) ou, menos frequentemente, o cristalino (a lente interna do olho) possui uma curvatura irregular. \n\nPara entender melhor, imagine que um olho com a visão perfeita tem a córnea com um formato esférico, como uma bola de basquete. A luz que entra por ela é\n120007\t\n## O que é Uveíte: Uma Inflamação Ocular que Exige Atenção\n\nA uveíte é a inflamação da úvea, a camada média do olho, situada entre a esclera (a parte branca do olho) e a retina. A úvea é rica em vasos sanguíneos e é composta por três partes: a íris (a parte colorida do olho), o corpo ciliar (responsável pela produção do humor aquoso e pelo foco da visão) e a coroide (que nutre a retina). Quando qualquer uma dessas partes inflama, temos um quadro de uveíte. [1]\n\nTrata-se de uma condição oftalmol\n120009\t## O que é o Descolamento de Retina?\n\nO descolamento de retina é uma condição ocular grave e uma emergência médica. Ele ocorre quando a retina, uma fina camada de tecido sensível à luz que reveste o interior do olho, se separa de sua posição normal. A retina é responsável por capturar as imagens que vemos e enviá-las ao cérebro através do nervo óptico. Quando ela se descola, perde o suprimento de oxigênio e nutrientes fornecido pelos vasos sanguíneos da coroide, a camada subjacente. Se não for t\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

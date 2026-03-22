@@ -1,0 +1,30 @@
+{
+  "query": "SELECT authorId, authorName, COUNT(*) as total FROM blog_posts GROUP BY authorId, authorName ORDER BY total DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT authorId, authorName, COUNT(*) as total FROM blog_posts GROUP BY authorId, authorName ORDER BY total DESC LIMIT 5;",
+  "rows": [
+    {
+      "authorId": "1",
+      "authorName": "Dr. Fernando Drudi",
+      "total": "17"
+    },
+    {
+      "authorId": "1",
+      "authorName": "Dra. Priscilla de Almeida",
+      "total": "14"
+    },
+    {
+      "authorId": "1",
+      "authorName": "Dra. Priscilla R. de Almeida",
+      "total": "1"
+    },
+    {
+      "authorId": "1",
+      "authorName": "Dr. Fernando Drudi & Dra. Priscilla de Almeida",
+      "total": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "authorId\tauthorName\ttotal\n1\tDr. Fernando Drudi\t17\n1\tDra. Priscilla de Almeida\t14\n1\tDra. Priscilla R. de Almeida\t1\n1\tDr. Fernando Drudi & Dra. Priscilla de Almeida\t1\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

@@ -1,0 +1,241 @@
+{
+  "query": "SELECT id, title, authorName, publishedAt, slug FROM blog_posts ORDER BY publishedAt ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, authorName, publishedAt, slug FROM blog_posts ORDER BY publishedAt ASC;",
+  "rows": [
+    {
+      "id": "70001",
+      "title": "Síndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes",
+      "authorName": "Drudi e Almeida Oftalmologia",
+      "publishedAt": "2026-02-15 05:00:00",
+      "slug": "sindrome-olho-seco-causas-sintomas-tratamentos"
+    },
+    {
+      "id": "70002",
+      "title": "Lentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais",
+      "authorName": "Drudi e Almeida Oftalmologia",
+      "publishedAt": "2026-02-20 05:00:00",
+      "slug": "lentes-contato-ceratocone-tipos-indicacoes-cuidados"
+    },
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "authorName": "Dr. Fernando Drudi & Dra. Priscilla de Almeida",
+      "publishedAt": "2026-02-28 00:33:54",
+      "slug": "catarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "authorName": "Dra. Priscilla R. de Almeida",
+      "publishedAt": "2026-02-28 04:13:04",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "authorName": "Dr. Fernando Macei Drudi",
+      "publishedAt": "2026-02-28 04:13:04",
+      "slug": "glaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "authorName": "Dr. Fernando Macei Drudi",
+      "publishedAt": "2026-02-28 04:13:04",
+      "slug": "doencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "authorName": "Equipe Drudi e Almeida",
+      "publishedAt": "2026-02-28 04:13:04",
+      "slug": "estrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c"
+    },
+    {
+      "id": "70003",
+      "title": "Exame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial",
+      "authorName": "Drudi e Almeida Oftalmologia",
+      "publishedAt": "2026-03-01 05:00:00",
+      "slug": "exame-de-vista-completo-o-que-avalia-frequencia-importancia"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "authorName": "NULL",
+      "publishedAt": "2026-03-02 23:21:54",
+      "slug": "quando-operar-catarata-guia-completo"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "authorName": "NULL",
+      "publishedAt": "2026-03-02 23:21:54",
+      "slug": "miopia-criancas-sinais-precoces-tratamento"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "authorName": "NULL",
+      "publishedAt": "2026-03-02 23:21:54",
+      "slug": "pressao-ocular-alta-hipertensao-ocular-glaucoma"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "authorName": "NULL",
+      "publishedAt": "2026-03-02 23:21:54",
+      "slug": "crosslinking-ceratocone-como-funciona-tratamento"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "authorName": "NULL",
+      "publishedAt": "2026-03-02 23:21:54",
+      "slug": "visao-embacada-sinais-alerta-oftalmologista"
+    },
+    {
+      "id": "70004",
+      "title": "Glaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir",
+      "authorName": "Drudi e Almeida Oftalmologia",
+      "publishedAt": "2026-03-05 05:00:00",
+      "slug": "glaucoma-angulo-fechado-crise-aguda-sintomas-emergencia"
+    },
+    {
+      "id": "120003",
+      "title": "Blefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "blefarite-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120010",
+      "title": "Retinopatia Diabética: Como o Diabetes Afeta a Visão",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento"
+    },
+    {
+      "id": "120001",
+      "title": "Conjuntivite: Tipos, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "conjuntivite-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120004",
+      "title": "Astigmatismo: O Que É, Graus, Sintomas e Opções de Correção",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao"
+    },
+    {
+      "id": "120005",
+      "title": "Hipermetropia: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "hipermetropia-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120006",
+      "title": "Presbiopia (Vista Cansada): O Que É, Causas e Como Corrigir",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "presbiopia-vista-cansada-causas-correcao"
+    },
+    {
+      "id": "120007",
+      "title": "Uveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120008",
+      "title": "Terçol e Calázio: Diferenças, Causas, Sintomas e Tratamento",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120009",
+      "title": "Descolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento"
+    },
+    {
+      "id": "120002",
+      "title": "Pterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria"
+    },
+    {
+      "id": "120011",
+      "title": "Degeneração Macular (DMRI): Tipos, Sintomas e Tratamentos",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos"
+    },
+    {
+      "id": "120012",
+      "title": "Alergia Ocular: Tipos, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120013",
+      "title": "Ceratite: Infecção da Córnea — Causas, Sintomas e Tratamento",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120014",
+      "title": "Moscas Volantes: O Que São, Causas e Quando se Preocupar",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar"
+    },
+    {
+      "id": "120015",
+      "title": "Daltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia"
+    },
+    {
+      "id": "120016",
+      "title": "Toxoplasmose Ocular: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120017",
+      "title": "Oclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "oclusao-venosa-da-retina-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120018",
+      "title": "Cuidados com os Olhos no Verão: Guia Completo de Proteção",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "cuidados-com-os-olhos-no-verao-guia-completo"
+    },
+    {
+      "id": "120019",
+      "title": "Saúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida",
+      "authorName": "Drudi e Almeida",
+      "publishedAt": "2026-03-22 17:59:02",
+      "slug": "saude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tauthorName\tpublishedAt\tslug\n70001\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\tDrudi e Almeida Oftalmologia\t2026-02-15 05:00:00\tsindrome-olho-seco-causas-sintomas-tratamentos\n70002\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\tDrudi e Almeida Oftalmologia\t2026-02-20 05:00:00\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tDr. Fernando Drudi & Dra. Priscilla de Almeida\t2026-02-28 00:33:54\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tDra. Priscilla R. de Almeida\t2026-02-28 04:13:04\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tDr. Fernando Macei Drudi\t2026-02-28 04:13:04\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tDr. Fernando Macei Drudi\t2026-02-28 04:13:04\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tEquipe Drudi e Almeida\t2026-02-28 04:13:04\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\n70003\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\tDrudi e Almeida Oftalmologia\t2026-03-01 05:00:00\texame-de-vista-completo-o-que-avalia-frequencia-importancia\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tNULL\t2026-03-02 23:21:54\tquando-operar-catarata-guia-completo\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tNULL\t2026-03-02 23:21:54\tmiopia-criancas-sinais-precoces-tratamento\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tNULL\t2026-03-02 23:21:54\tpressao-ocular-alta-hipertensao-ocular-glaucoma\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tNULL\t2026-03-02 23:21:54\tcrosslinking-ceratocone-como-funciona-tratamento\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tNULL\t2026-03-02 23:21:54\tvisao-embacada-sinais-alerta-oftalmologista\n70004\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\tDrudi e Almeida Oftalmologia\t2026-03-05 05:00:00\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\n120003\tBlefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras\tDrudi e Almeida\t2026-03-22 17:59:02\tblefarite-causas-sintomas-tratamento\n120010\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tDrudi e Almeida\t2026-03-22 17:59:02\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\n120001\tConjuntivite: Tipos, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\tconjuntivite-tipos-sintomas-tratamento\n120004\tAstigmatismo: O Que É, Graus, Sintomas e Opções de Correção\tDrudi e Almeida\t2026-03-22 17:59:02\tastigmatismo-o-que-e-graus-sintomas-correcao\n120005\tHipermetropia: Causas, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\thipermetropia-causas-sintomas-tratamento\n120006\tPresbiopia (Vista Cansada): O Que É, Causas e Como Corrigir\tDrudi e Almeida\t2026-03-22 17:59:02\tpresbiopia-vista-cansada-causas-correcao\n120007\tUveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento\tDrudi e Almeida\t2026-03-22 17:59:02\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\n120008\tTerçol e Calázio: Diferenças, Causas, Sintomas e Tratamento\tDrudi e Almeida\t2026-03-22 17:59:02\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\n120009\tDescolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico\tDrudi e Almeida\t2026-03-22 17:59:02\tdescolamento-de-retina-sinais-riscos-tratamento\n120002\tPterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária\tDrudi e Almeida\t2026-03-22 17:59:02\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\n120011\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tDrudi e Almeida\t2026-03-22 17:59:02\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\n120012\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\talergia-ocular-tipos-sintomas-tratamento\n120013\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tDrudi e Almeida\t2026-03-22 17:59:02\tceratite-infeccao-cornea-causas-sintomas-tratamento\n120014\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tDrudi e Almeida\t2026-03-22 17:59:02\tmoscas-volantes-o-que-sao-causas-quando-preocupar\n120015\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tDrudi e Almeida\t2026-03-22 17:59:02\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\n120016\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\ttoxoplasmose-ocular-causas-sintomas-tratamento\n120017\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\tDrudi e Almeida\t2026-03-22 17:59:02\toclusao-venosa-da-retina-causas-sintomas-tratamento\n120018\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tDrudi e Almeida\t2026-03-22 17:59:02\tcuidados-com-os-olhos-no-verao-guia-completo\n120019\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tDrudi e Almeida\t2026-03-22 17:59:02\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\n",
+  "stderr": "",
+  "execution_time_ms": 124
+}
