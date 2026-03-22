@@ -19,6 +19,7 @@ import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
+import VejaTambem from "@/components/VejaTambem";
 
 /* ---- Constants ---- */
 const HERO_ART_IMG = `/images/catarata-hero-art_bd1bf3f5.webp`;
@@ -917,6 +918,9 @@ export default function InstitutoCatarata() {
           subtitle="Tire suas dúvidas sobre a cirurgia de catarata e o pós-operatório."
         />
       </Suspense>
+
+      {/* ========== VEJA TAMBÉM ========== */}
+      <VejaTambem currentInstituto="catarata" />
 
       {/* ========== 18. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

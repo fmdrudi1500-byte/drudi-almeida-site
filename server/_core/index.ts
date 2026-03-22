@@ -64,12 +64,48 @@ async function startServer() {
 
   // Redirect legacy URLs (404s from old site structure) to correct paths
   const LEGACY_REDIRECTS: Record<string, string> = {
+    // Internal legacy URLs
     "/instituto-catarata": "/instituto/catarata",
     "/instituto-ceratocone": "/instituto/ceratocone",
     "/instituto-glaucoma": "/instituto/glaucoma",
     "/instituto-retina": "/instituto/retina",
     "/instituto-estrabismo": "/instituto/estrabismo",
     "/agendamento": "/agendar",
+    // Wix legacy URLs (antigo site)
+    "/copia-home": "/",
+    "/blank": "/",
+    "/blank-1": "/",
+    "/blank-2": "/",
+    "/blank-3": "/",
+    "/blog-1": "/blog",
+    "/contato-1": "/contato",
+    "/sobre-1": "/sobre",
+    "/servicos": "/",
+    "/services": "/",
+    "/galeria": "/tecnologia",
+    "/gallery": "/tecnologia",
+    "/equipe": "/sobre",
+    "/team": "/sobre",
+    "/faq": "/",
+    "/depoimentos": "/",
+    "/testimonials": "/",
+    "/agendamento-1": "/agendar",
+    "/agendar-consulta": "/agendar",
+    // Short specialty URLs → institute pages
+    "/catarata": "/instituto/catarata",
+    "/glaucoma": "/instituto/glaucoma",
+    "/retina": "/instituto/retina",
+    "/ceratocone": "/instituto/ceratocone",
+    "/estrabismo": "/instituto/estrabismo",
+    "/cirurgia-de-catarata": "/instituto/catarata",
+    "/tratamento-glaucoma": "/instituto/glaucoma",
+    // Common Wix patterns
+    "/nossos-medicos": "/sobre",
+    "/nossos-servicos": "/",
+    "/nossas-unidades": "/contato",
+    "/unidades": "/contato",
+    "/medicos": "/sobre",
+    "/especialidades": "/",
   };
   app.use((req, res, next) => {
     const target = LEGACY_REDIRECTS[req.path];

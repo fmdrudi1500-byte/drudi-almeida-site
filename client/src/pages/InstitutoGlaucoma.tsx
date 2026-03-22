@@ -19,6 +19,7 @@ const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
+import VejaTambem from "@/components/VejaTambem";
 const HERO_ART_IMG = "/images/glaucoma-hero_degas_a3f7c912.webp"; // Edgar Degas — Green Landscape (Paysage vert), c.1890
 const IMG_TONOMETRIA = "/images/tech-tonometria_972f4a09.webp";
 const IMG_CAMPO_VISUAL = "/images/tech-campo-visual_ab0cb609.webp";
@@ -674,6 +675,9 @@ export default function InstitutoGlaucoma() {
       <Suspense fallback={<div className="h-32" />}>
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre o glaucoma e seus tratamentos." />
       </Suspense>
+
+      {/* ========== VEJA TAMBÉM ========== */}
+      <VejaTambem currentInstituto="glaucoma" />
 
       {/* ========== 14. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

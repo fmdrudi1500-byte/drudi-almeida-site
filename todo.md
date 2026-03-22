@@ -357,3 +357,24 @@
 - [x] Corrigir script GA4 no site principal: trocar requestIdleCallback por implementação padrão do Google (corrigido pelo usuário via GitHub)
 - [x] Corrigir script GA4 nas 3 LPs (Catarata, Retina, Glaucoma): implementação padrão do Google, corrigir loadGA() órfão, unificar Google Ads ID
 - [x] Verificar que dados estão chegando ao GA4 após correção (todas as 4 páginas com script async + config correto)
+- [x] Trocar src do gtag.js no site principal de G-X3TM41VL1E para AW-17598191636 (conforme recomendado pelo Google nas instruções da tag)
+- [x] Trocar src do gtag.js nas 3 LPs de G-X3TM41VL1E para AW-17598191636 (push realizado com PAT do usuário)
+
+## Fase SEO: Plano de Liderança Orgânica (Março 2026)
+
+### Fase 1 — Correções Técnicas Urgentes
+- [x] SEO-01: Middleware server-side para injetar meta tags por rota (title, description, canonical, OG) no HTML antes de servir
+- [x] SEO-02: Canonical dinâmica via middleware (substitui a estática do index.html para cada rota)
+- [x] SEO-03: Meta tags dinâmicas via middleware (substituem as estáticas do index.html para cada rota)
+- [x] SEO-04: Atualizar title tags únicos para cada página conforme plano SEO
+- [x] SEO-05: Atualizar meta descriptions únicas para cada página conforme plano SEO
+- [x] SEO-06: Garantir H1 único e correto em cada página (otimizados com keywords)
+- [x] SEO-07: Redirects 301 do site Wix antigo (30+ URLs legadas mapeadas para rotas corretas)
+- [x] SEO-08: Corrigir cache headers do HTML (max-age=0, must-revalidate em vez de no-store)
+
+### Fase 2 — Conteúdo e Páginas Novas
+- [x] SEO-09: Criar 5 páginas de unidades (/unidade/guarulhos, /lapa, /santana, /sao-miguel, /tatuape)
+- [ ] SEO-10: Criar páginas de médicos (/medico/dr-fernando-drudi, /dra-priscilla-almeida)
+- [ ] SEO-11: Expandir conteúdo dos institutos para 2000+ palavras (long-form)
+- [x] SEO-12: Expandir Schema Markup (FAQPage, LocalBusiness, BreadcrumbList) — BreadcrumbList auto-gerado, LocalBusiness nas unidades
+- [x] SEO-13: Melhorar links internos entre páginas — componente VejaTambém em 5 institutos + links cruzados nas unidades

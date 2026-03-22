@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
+import { injectMetaTags } from "../seoMetaTags";
 
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
@@ -38,7 +39,12 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`
       );
-      const page = await vite.transformIndexHtml(url, template);
+      let page = await vite.transformIndexHtml(url, template);
+
+      // Inject route-specific meta tags for SEO (server-side)
+      const pathname = new URL(url, "http://localhost").pathname;
+      page = injectMetaTags(page, pathname);
+
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
@@ -93,9 +99,9 @@ export function serveStatic(app: Express) {
       etag: true,
       lastModified: true,
       setHeaders(res, filePath) {
-        // HTML files: no cache (always fresh)
+        // HTML files: short cache to allow meta tag updates
         if (filePath.endsWith(".html")) {
-          res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+          res.setHeader("Cache-Control", "max-age=0, must-revalidate");
         }
         // WebP images with hash in name: long cache
         if (filePath.endsWith(".webp") || filePath.endsWith(".avif")) {
@@ -110,8 +116,15 @@ export function serveStatic(app: Express) {
   );
 
   // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.sendFile(path.resolve(distPath, "index.html"));
+  // Inject route-specific meta tags for SEO before serving
+  app.use("*", (req, res) => {
+    const indexPath = path.resolve(distPath, "index.html");
+    const html = fs.readFileSync(indexPath, "utf-8");
+    const pathname = req.originalUrl.split("?")[0].split("#")[0];
+    const injected = injectMetaTags(html, pathname);
+
+    res.setHeader("Cache-Control", "max-age=0, must-revalidate");
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.send(injected);
   });
 }

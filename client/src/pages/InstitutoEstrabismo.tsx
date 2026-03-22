@@ -19,6 +19,7 @@ const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
+import VejaTambem from "@/components/VejaTambem";
 const HERO_ART_IMG = "/images/estrabismo-hero_dba86bbf.webp";
 const IMG_TESTE_COBERTURA = "/images/estrabismo-teste-cobertura_f146cd75.webp";
 
@@ -617,6 +618,9 @@ export default function InstitutoEstrabismo() {
       <Suspense fallback={<div className="h-32" />}>
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
       </Suspense>
+
+      {/* ========== VEJA TAMBÉM ========== */}
+      <VejaTambem currentInstituto="estrabismo" />
 
       {/* ========== 12. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

@@ -205,7 +205,7 @@ export default function Tecnologia() {
         canonicalPath="/tecnologia"
       />
       <InstitutoHero
-        title="Tecnologia de Ponta"
+        title="Tecnologia de Ponta em Oftalmologia"
         subtitle="Investimos continuamente nos equipamentos mais modernos para garantir diagnósticos precisos e tratamentos seguros."
         imageUrl={IMAGES.hero.main}
         breadcrumb="Tecnologia"

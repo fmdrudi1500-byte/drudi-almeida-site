@@ -23,6 +23,13 @@ const staticPages = [
   { path: "/instituto/retina", priority: "0.9", changefreq: "monthly" },
   { path: "/instituto/estrabismo", priority: "0.9", changefreq: "monthly" },
   { path: "/blog", priority: "0.8", changefreq: "daily" },
+  { path: "/unidade/guarulhos", priority: "0.8", changefreq: "monthly" },
+  { path: "/unidade/lapa", priority: "0.8", changefreq: "monthly" },
+  { path: "/unidade/santana", priority: "0.8", changefreq: "monthly" },
+  { path: "/unidade/sao-miguel", priority: "0.8", changefreq: "monthly" },
+  { path: "/unidade/tatuape", priority: "0.8", changefreq: "monthly" },
+  { path: "/trabalhe-conosco", priority: "0.5", changefreq: "monthly" },
+  { path: "/politica-de-privacidade", priority: "0.3", changefreq: "yearly" },
 ];
 
 function formatDate(date: Date | string | number): string {

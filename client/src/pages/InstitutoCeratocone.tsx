@@ -19,6 +19,7 @@ const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
+import VejaTambem from "@/components/VejaTambem";
 const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.webp`;
 const IMG_PENTACAM = `/images/ceratocone-pentacam_54c0177a.webp`;
 const IMG_LENTES_ESCLERAIS = `/images/ceratocone-lentes-esclerais_be81ebed.webp`;
@@ -909,6 +910,9 @@ export default function InstitutoCeratocone() {
           items={faqItems}
         />
       </Suspense>
+
+      {/* ========== VEJA TAMBÉM ========== */}
+      <VejaTambem currentInstituto="ceratocone" />
 
       {/* ========== 15. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

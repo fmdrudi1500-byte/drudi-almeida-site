@@ -98,7 +98,7 @@ export default function Convenios() {
         canonicalPath="/convenios"
       />
       <InstitutoHero
-        title="Convênios"
+        title="Convênios e Planos de Saúde Aceitos"
         subtitle="Atendemos os principais planos de saúde para facilitar o seu acesso à oftalmologia de excelência."
         imageUrl={IMAGES.hero.starryNight}
         breadcrumb="Convênios"

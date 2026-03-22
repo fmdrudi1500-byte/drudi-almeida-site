@@ -79,7 +79,7 @@ export default function Contato() {
         canonicalPath="/contato"
       />
       <InstitutoHero
-        title="Entre em Contato"
+        title="Contato e Unidades em São Paulo"
         subtitle="Estamos prontos para atender você. Agende sua consulta ou tire suas dúvidas em qualquer uma das nossas 5 unidades."
         imageUrl="https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/contato-hero-bg-SYdyEfHTHwPVqu9kUP76fc.webp"
         breadcrumb="Contato"

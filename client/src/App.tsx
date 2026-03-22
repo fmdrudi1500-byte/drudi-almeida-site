@@ -33,6 +33,7 @@ const CancelarAgendamento = lazy(() => import("./pages/CancelarAgendamento"));
 const AdminAgendamentos = lazy(() => import("./pages/admin/AdminAgendamentos"));
 const AdminCandidaturas = lazy(() => import("./pages/admin/AdminCandidaturas"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
+const Unidade = lazy(() => import("./pages/Unidade"));
 
 function PageLoader() {
   return (
@@ -74,6 +75,7 @@ function Router() {
           <Route path="/admin/agendamentos" component={AdminAgendamentos} />
           <Route path="/admin/candidaturas" component={AdminCandidaturas} />
           <Route path="/admin/seo" component={AdminSEO} />
+          <Route path="/unidade/:slug" component={Unidade} />
           <Route path="/politica-de-privacidade" component={PoliticaPrivacidade} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

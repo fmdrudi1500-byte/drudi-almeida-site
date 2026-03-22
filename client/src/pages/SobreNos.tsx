@@ -347,7 +347,7 @@ export default function SobreNos() {
         canonicalPath="/sobre"
       />
       <InstitutoHero
-        title="Sobre a Drudi e Almeida"
+        title="Sobre a Drudi e Almeida Oftalmologia"
         subtitle="Tradição, inovação e compromisso com a saúde ocular de cada paciente."
         imageUrl={IMAGES.hero.degasHero}
         breadcrumb="Sobre Nós"

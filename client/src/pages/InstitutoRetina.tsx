@@ -18,6 +18,7 @@ const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
+import VejaTambem from "@/components/VejaTambem";
 const HERO_ART_IMG = "/images/retina-hero_cb57f973.webp";
 const IMG_OCT_SCAN = "/images/tech-oct-scan_d39e3a25.webp";
 const IMG_INJECAO = "/images/retina-injecao_154af844.webp";
@@ -540,6 +541,9 @@ export default function InstitutoRetina() {
       <Suspense fallback={<div className="h-32" />}>
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre doenças retinianas e seus tratamentos." />
       </Suspense>
+
+      {/* ========== VEJA TAMBÉM ========== */}
+      <VejaTambem currentInstituto="retina" />
 
       {/* ========== 10. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
