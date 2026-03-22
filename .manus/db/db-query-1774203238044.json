@@ -1,0 +1,160 @@
+{
+  "query": "SELECT id, slug, title, coverImageUrl FROM blog_posts WHERE id >= 60001 ORDER BY id LIMIT 25;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, title, coverImageUrl FROM blog_posts WHERE id >= 60001 ORDER BY id LIMIT 25;",
+  "rows": [
+    {
+      "id": "60001",
+      "slug": "visao-embacada-sinais-alerta-oftalmologista",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "coverImageUrl": "/images/blog-visao-embacada.webp"
+    },
+    {
+      "id": "60002",
+      "slug": "quando-operar-catarata-guia-completo",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "coverImageUrl": "/images/blog-catarata-quando-operar.webp"
+    },
+    {
+      "id": "60003",
+      "slug": "crosslinking-ceratocone-como-funciona-tratamento",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "coverImageUrl": "/images/blog-crosslinking-ceratocone.webp"
+    },
+    {
+      "id": "60004",
+      "slug": "pressao-ocular-alta-hipertensao-ocular-glaucoma",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "coverImageUrl": "/images/blog-pressao-ocular.webp"
+    },
+    {
+      "id": "60005",
+      "slug": "miopia-criancas-sinais-precoces-tratamento",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "coverImageUrl": "/images/blog-miopia-criancas.webp"
+    },
+    {
+      "id": "70001",
+      "slug": "sindrome-olho-seco-causas-sintomas-tratamentos",
+      "title": "Síndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-olho-seco-cover_0e6667c9.png"
+    },
+    {
+      "id": "70002",
+      "slug": "lentes-contato-ceratocone-tipos-indicacoes-cuidados",
+      "title": "Lentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-lentes-ceratocone-cover_1d53aa9f.png"
+    },
+    {
+      "id": "70003",
+      "slug": "exame-de-vista-completo-o-que-avalia-frequencia-importancia",
+      "title": "Exame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-exame-vista-cover_293dfb94.png"
+    },
+    {
+      "id": "70004",
+      "slug": "glaucoma-angulo-fechado-crise-aguda-sintomas-emergencia",
+      "title": "Glaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir",
+      "coverImageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-glaucoma-angulo-cover_1cc4342c.png"
+    },
+    {
+      "id": "120001",
+      "slug": "conjuntivite-tipos-sintomas-tratamento",
+      "title": "Conjuntivite: Tipos, Sintomas e Tratamento Completo",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120002",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria",
+      "title": "Pterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120003",
+      "slug": "blefarite-causas-sintomas-tratamento",
+      "title": "Blefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120004",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao",
+      "title": "Astigmatismo: O Que É, Graus, Sintomas e Opções de Correção",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120005",
+      "slug": "hipermetropia-causas-sintomas-tratamento",
+      "title": "Hipermetropia: Causas, Sintomas e Tratamento Completo",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120006",
+      "slug": "presbiopia-vista-cansada-causas-correcao",
+      "title": "Presbiopia (Vista Cansada): O Que É, Causas e Como Corrigir",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120007",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento",
+      "title": "Uveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120008",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento",
+      "title": "Terçol e Calázio: Diferenças, Causas, Sintomas e Tratamento",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120009",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento",
+      "title": "Descolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120010",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento",
+      "title": "Retinopatia Diabética: Como o Diabetes Afeta a Visão",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120011",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos",
+      "title": "Degeneração Macular (DMRI): Tipos, Sintomas e Tratamentos",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120012",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento",
+      "title": "Alergia Ocular: Tipos, Sintomas e Tratamento Completo",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120013",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento",
+      "title": "Ceratite: Infecção da Córnea — Causas, Sintomas e Tratamento",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120014",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar",
+      "title": "Moscas Volantes: O Que São, Causas e Quando se Preocupar",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120015",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia",
+      "title": "Daltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia",
+      "coverImageUrl": "NULL"
+    },
+    {
+      "id": "120016",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento",
+      "title": "Toxoplasmose Ocular: Causas, Sintomas e Tratamento Completo",
+      "coverImageUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tcoverImageUrl\n60001\tvisao-embacada-sinais-alerta-oftalmologista\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\t/images/blog-visao-embacada.webp\n60002\tquando-operar-catarata-guia-completo\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\t/images/blog-catarata-quando-operar.webp\n60003\tcrosslinking-ceratocone-como-funciona-tratamento\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\t/images/blog-crosslinking-ceratocone.webp\n60004\tpressao-ocular-alta-hipertensao-ocular-glaucoma\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\t/images/blog-pressao-ocular.webp\n60005\tmiopia-criancas-sinais-precoces-tratamento\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\t/images/blog-miopia-criancas.webp\n70001\tsindrome-olho-seco-causas-sintomas-tratamentos\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-olho-seco-cover_0e6667c9.png\n70002\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-lentes-ceratocone-cover_1d53aa9f.png\n70003\texame-de-vista-completo-o-que-avalia-frequencia-importancia\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-exame-vista-cover_293dfb94.png\n70004\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\thttps://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-glaucoma-angulo-cover_1cc4342c.png\n120001\tconjuntivite-tipos-sintomas-tratamento\tConjuntivite: Tipos, Sintomas e Tratamento Completo\tNULL\n120002\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\tPterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária\tNULL\n120003\tblefarite-causas-sintomas-tratamento\tBlefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras\tNULL\n120004\tastigmatismo-o-que-e-graus-sintomas-correcao\tAstigmatismo: O Que É, Graus, Sintomas e Opções de Correção\tNULL\n120005\thipermetropia-causas-sintomas-tratamento\tHipermetropia: Causas, Sintomas e Tratamento Completo\tNULL\n120006\tpresbiopia-vista-cansada-causas-correcao\tPresbiopia (Vista Cansada): O Que É, Causas e Como Corrigir\tNULL\n120007\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\tUveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento\tNULL\n120008\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\tTerçol e Calázio: Diferenças, Causas, Sintomas e Tratamento\tNULL\n120009\tdescolamento-de-retina-sinais-riscos-tratamento\tDescolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico\tNULL\n120010\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tNULL\n120011\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tNULL\n120012\talergia-ocular-tipos-sintomas-tratamento\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\tNULL\n120013\tceratite-infeccao-cornea-causas-sintomas-tratamento\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tNULL\n120014\tmoscas-volantes-o-que-sao-causas-quando-preocupar\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tNULL\n120015\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tNULL\n120016\ttoxoplasmose-ocular-causas-sintomas-tratamento\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 108
+}
