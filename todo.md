@@ -503,3 +503,11 @@
 - [x] COMERCIAL-07: /blog/tratamento-glaucoma-coli-rio-cirurgia-convenio (id: 150002, Dr. Fernando Drudi)
 - [x] COMERCIAL-08: /blog/glaucoma-tem-cura-tratamento-sao-paulo (id: 150003, Dra. Priscilla de Almeida)
 - [x] COMERCIAL-09: /blog/cirurgia-estrabismo-adulto-vale-a-pena (id: 150001, Dr. Fernando Drudi)
+
+## Fase 41: Imagens e Links Cruzados para Artigos de Estrabismo e Glaucoma
+- [x] IMG-01: Gerar imagem de capa para /blog/cirurgia-estrabismo-sao-paulo-preco-convenio (split olho+consulta, azul marinho+dourado)
+- [x] IMG-02: Gerar imagem de capa para /blog/cirurgia-estrabismo-adulto-vale-a-pena (retrato mulher confiante, fundo navy+bokeh dourado)
+- [x] IMG-03: Gerar imagem de capa para /blog/tratamento-glaucoma-coli-rio-cirurgia-convenio (macro gota+tonometro, cinematic)
+- [x] IMG-04: Gerar imagem de capa para /blog/glaucoma-tem-cura-tratamento-sao-paulo (senhor feliz ao ar livre, tom esperançoso)
+- [x] CROSS-01: Links cruzados entre artigos de estrabismo (preço ↔ adulto ↔ pillar page ↔ artigo base)
+- [x] CROSS-02: Links cruzados entre artigos de glaucoma (colírio ↔ tem cura ↔ pillar page ↔ pressão ocular)

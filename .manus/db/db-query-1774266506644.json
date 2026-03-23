@@ -1,0 +1,9 @@
+{
+  "query": "\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-cirurgia-estrabismo-preco-ArxvuaKvForqdKjNYFefhA.webp' WHERE id = 150000;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-estrabismo-adulto-jWeonVtExtxzHBdYHp59rP.webp' WHERE id = 150001;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-glaucoma-coli-rio-cirurgia-bLh2VAfEArsQ7vLykE8F95.webp' WHERE id = 150002;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-glaucoma-tem-cura-Hk6YTNn5zDiDC3PM4qhFUX.webp' WHERE id = 150003;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-cirurgia-estrabismo-preco-ArxvuaKvForqdKjNYFefhA.webp' WHERE id = 150000;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-estrabismo-adulto-jWeonVtExtxzHBdYHp59rP.webp' WHERE id = 150001;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-glaucoma-coli-rio-cirurgia-bLh2VAfEArsQ7vLykE8F95.webp' WHERE id = 150002;\nUPDATE blog_posts SET coverImageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/blog-capa-glaucoma-tem-cura-Hk6YTNn5zDiDC3PM4qhFUX.webp' WHERE id = 150003;\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 121
+}
