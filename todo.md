@@ -472,3 +472,6 @@
 
 ## Fase 34: Credibilidade do Blog
 - [x] Remover badge "0 visualizações" dos cards do blog (sinal negativo de credibilidade)
+
+## Fase 35: SEO Local — Links Internos das Unidades
+- [x] Corrigir hrefs dos cards de unidades na homepage para /unidade/[cidade] (manter botão secundário Google Maps)
