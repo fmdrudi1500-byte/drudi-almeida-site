@@ -491,3 +491,8 @@
 - [x] COMERCIAL-03: /blog/lente-intraocular-monofocal-vs-multifocal-vs-trifocal — comparação técnica, tabela, indicações (id: 140002)
 - [x] COMERCIAL-04: /blog/crosslinking-preco-e-recuperacao — custo, convênio, recuperação dia a dia (id: 140003)
 - [x] COMERCIAL-05: /blog/injecao-intravitrea-anti-vegf-como-funciona — o que é, doenças, frequência, custo, cobertura (id: 140004)
+
+## Fase 39: Melhorias nos Artigos Comerciais (Março 2026)
+- [x] MELHORIA-01: Schema FAQPage dinâmico via JSON-LD no componente BlogPost (detecta <h3> no conteúdo, injeta FAQPage se ≥2 pares Q&A)
+- [x] MELHORIA-02: Gerar imagens de capa para os 5 artigos comerciais (ids 140000-140004) — CDN CloudFront
+- [x] MELHORIA-03: Links internos cruzados entre artigos comerciais (bloco "Leia Também" inserido antes do FAQ de cada artigo)

@@ -256,6 +256,40 @@ function DynamicBlogPost({ slug }: { slug: string }) {
     ],
   };
 
+  // FAQPage schema — dynamically extracts Q&A pairs from <h3> + following <p> in article content
+  const faqSchema = (() => {
+    if (!post.content || typeof window === 'undefined') return null;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(post.content, 'text/html');
+    const h3s = Array.from(doc.querySelectorAll('h3'));
+    if (h3s.length < 2) return null;
+    const entities = h3s.map(h3 => {
+      const question = h3.textContent?.trim() ?? '';
+      let answer = '';
+      let sibling = h3.nextElementSibling;
+      while (sibling && !['H2', 'H3', 'H4'].includes(sibling.tagName)) {
+        answer += (sibling.textContent?.trim() ?? '') + ' ';
+        sibling = sibling.nextElementSibling;
+      }
+      return { question, answer: answer.trim() };
+    }).filter(e => e.question && e.answer.length > 10);
+    if (entities.length < 2) return null;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': entities.map(e => ({
+        '@type': 'Question',
+        'name': e.question,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': e.answer.slice(0, 500),
+        },
+      })),
+    };
+  })();
+
+  const schemas = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
+
   return (
     <>
       <SEOHead
@@ -265,7 +299,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
         canonicalPath={`/blog/${post.slug}`}
         ogImage={post.coverImageUrl ?? undefined}
         ogType="article"
-        schema={[articleSchema, breadcrumbSchema]}
+        schema={schemas}
       />
 
       {/* Breadcrumb */}
