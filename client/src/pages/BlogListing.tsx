@@ -216,10 +216,7 @@ export default function BlogListing() {
                               <Clock className="w-3.5 h-3.5" />
                               {featuredPost.readingTimeMin} min de leitura
                             </span>
-                            <span className="flex items-center gap-1">
-                              <Eye className="w-3.5 h-3.5" />
-                              {featuredPost.viewCount} visualizações
-                            </span>
+
                           </div>
                           <span className="inline-flex items-center gap-2 font-ui text-sm font-semibold text-navy group-hover:text-gold transition-colors">
                             Ler artigo completo
@@ -297,10 +294,7 @@ export default function BlogListing() {
                                 <Clock className="w-3 h-3" />
                                 {post.readingTimeMin} min
                               </span>
-                              <span className="flex items-center gap-1">
-                                <Eye className="w-3 h-3" />
-                                {post.viewCount}
-                              </span>
+
                             </div>
                             {post.publishedAt && (
                               <span className="font-body text-[11px] text-muted-foreground">

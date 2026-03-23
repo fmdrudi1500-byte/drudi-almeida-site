@@ -469,3 +469,6 @@
 - [ ] SCHEMA-04: MedicalWebPage + author nos artigos do blog (referenciando médico revisor)
 - [ ] SCHEMA-05: BreadcrumbList em todas as páginas internas (já existe visualmente)
 - [ ] SCHEMA-06: MedicalProcedure na página de Catarata (facoemulsificação)
+
+## Fase 34: Credibilidade do Blog
+- [x] Remover badge "0 visualizações" dos cards do blog (sinal negativo de credibilidade)

@@ -300,10 +300,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                       <Clock className="w-3.5 h-3.5" />
                       {post.readingTimeMin} min de leitura
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Eye className="w-3.5 h-3.5" />
-                      {post.viewCount} visualizações
-                    </span>
+
                     <button onClick={handleShare} className="flex items-center gap-1 hover:text-navy transition-colors">
                       <Share2 className="w-3.5 h-3.5" /> Compartilhar
                     </button>
