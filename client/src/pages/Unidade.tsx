@@ -31,6 +31,8 @@ interface UnidadeData {
   description: string;
   nearbyLandmarks: string[];
   image: string;
+  lat: number;
+  lng: number;
 }
 
 const unidadesData: Record<string, UnidadeData> = {
@@ -48,6 +50,8 @@ const unidadesData: Record<string, UnidadeData> = {
     description: "Nossa unidade em Guarulhos Centro oferece atendimento oftalmológico completo com equipamentos de última geração. Localizada no coração de Guarulhos, com fácil acesso por transporte público e estacionamento próximo, atendemos pacientes de toda a região metropolitana.",
     nearbyLandmarks: ["Próximo ao Calçadão de Guarulhos", "Centro Comercial de Guarulhos", "Fácil acesso pela Rodovia Presidente Dutra"],
     image: "/images/clinica_guarulhos_8e7690c7.webp",
+    lat: -23.4628,
+    lng: -46.5333,
   },
   lapa: {
     slug: "lapa",
@@ -63,6 +67,8 @@ const unidadesData: Record<string, UnidadeData> = {
     description: "Nossa unidade na Lapa, zona oeste de São Paulo, conta com infraestrutura moderna e fácil acesso por trem e ônibus. Oferecemos o mesmo padrão de excelência em todas as especialidades oftalmológicas.",
     nearbyLandmarks: ["Próximo à Estação Lapa (CPTM)", "Shopping Lapa", "Fácil acesso pela Marginal Tietê"],
     image: "/images/consultorio_lapa_be866546.webp",
+    lat: -23.5261,
+    lng: -46.7007,
   },
   santana: {
     slug: "santana",
@@ -78,6 +84,8 @@ const unidadesData: Record<string, UnidadeData> = {
     description: "Nossa unidade em Santana é a sede principal da Drudi e Almeida Oftalmologia. Localizada na zona norte de São Paulo, próxima ao metrô, oferece atendimento completo com todos os equipamentos e especialistas disponíveis.",
     nearbyLandmarks: ["Próximo ao Metrô Santana", "Shopping Santana Parque", "Fácil acesso pela Av. Cruzeiro do Sul"],
     image: "/images/sala_espera_sofa_bege_v1_3860a616.webp",
+    lat: -23.5087,
+    lng: -46.6278,
   },
   "sao-miguel": {
     slug: "sao-miguel",
@@ -93,6 +101,8 @@ const unidadesData: Record<string, UnidadeData> = {
     description: "Nossa unidade em São Miguel Paulista atende a zona leste de São Paulo com a mesma qualidade e tecnologia de todas as nossas clínicas. Acesso fácil por transporte público, atendendo pacientes de toda a região leste.",
     nearbyLandmarks: ["Próximo à Estação São Miguel Paulista (CPTM)", "Centro Comercial de São Miguel", "Fácil acesso pela Av. Marechal Tito"],
     image: "/images/sala_espera_sofa_bege_v4_0b2982e6.webp",
+    lat: -23.5132,
+    lng: -46.4452,
   },
   tatuape: {
     slug: "tatuape",
@@ -108,6 +118,8 @@ const unidadesData: Record<string, UnidadeData> = {
     description: "Nossa unidade no Tatuapé oferece atendimento especializado com infraestrutura completa e equipe altamente qualificada. Localizada em uma das regiões mais acessíveis da zona leste, próxima ao metrô.",
     nearbyLandmarks: ["Próximo ao Metrô Carrão", "Shopping Metrô Tatuapé", "Fácil acesso pela Radial Leste"],
     image: "/images/sala_espera_sofa_bege_v3_5717e0c0.webp",
+    lat: -23.5375,
+    lng: -46.5765,
   },
 };
 
@@ -153,8 +165,8 @@ export default function Unidade() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: unidade.slug === "santana" ? -23.5087 : undefined,
-      longitude: unidade.slug === "santana" ? -46.6278 : undefined,
+      latitude: unidade.lat,
+      longitude: unidade.lng,
     },
     openingHoursSpecification: [
       {
@@ -193,6 +205,16 @@ export default function Unidade() {
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Nossas Unidades", item: `${BASE_URL}/contato` },
+      { "@type": "ListItem", position: 3, name: unidade.fullName, item: `${BASE_URL}/unidade/${unidade.slug}` },
+    ],
+  };
+
   return (
     <>
       <SEOHead
@@ -204,6 +226,10 @@ export default function Unidade() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* ========== HERO ========== */}

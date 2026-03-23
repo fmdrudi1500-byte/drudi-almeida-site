@@ -460,3 +460,12 @@
 - [x] PILLAR-01: Expandir InstitutoGlaucoma.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)
 - [x] PILLAR-02: Expandir InstitutoRetina.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)
 - [x] PILLAR-03: Expandir InstitutoEstrabismo.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)
+
+## Fase Schema Markup Completo (Mar 2026)
+
+- [ ] SCHEMA-01: MedicalClinic/LocalBusiness nas 5 páginas de unidades (endereço, telefone, horários, geo-coordenadas, rating)
+- [ ] SCHEMA-02: Physician nas páginas de médicos (CRM, especialidade, afiliação)
+- [ ] SCHEMA-03: FAQPage na homepage e nas 5 pillar pages de instituto
+- [ ] SCHEMA-04: MedicalWebPage + author nos artigos do blog (referenciando médico revisor)
+- [ ] SCHEMA-05: BreadcrumbList em todas as páginas internas (já existe visualmente)
+- [ ] SCHEMA-06: MedicalProcedure na página de Catarata (facoemulsificação)

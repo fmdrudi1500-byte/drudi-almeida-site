@@ -246,6 +246,57 @@ export default function InstitutoCatarata() {
         ogType="website"
       />
       <Suspense fallback={null}><InstitutoSchema instituto="catarata" /></Suspense>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://institutodrudiealmeida.com.br/instituto/catarata#facoemulsificacao",
+            "name": "Facoemulsificação com Implante de Lente Intraocular",
+            "alternateName": ["Cirurgia de Catarata", "Phacoemulsification", "Cirurgia de Catarata com Lente Premium"],
+            "description": "A facoemulsificação é a técnica padrão-ouro para cirurgia de catarata. Utiliza ultrassom para fragmentar e aspirar o cristalino opacificado, com implante de lente intraocular (LIO) monofocal, multifocal ou tórica. Procedimento ambulatorial com anestesia local, duração de 15 a 30 minutos por olho.",
+            "procedureType": "Surgical",
+            "bodyLocation": "Olho",
+            "preparation": "Exame pré-operatório completo, biometria ocular para cálculo da lente, suspensão de anticoagulantes conforme orientação médica, jejum de 4 horas.",
+            "followup": "Colirírios antibióticos e anti-inflamatórios por 4 semanas. Retornos em 1 dia, 1 semana, 1 mês e 3 meses após a cirurgia.",
+            "howPerformed": "Incisão de 2,2 mm na córnea, remoção do cristalino por ultrassom (facoemulsificação), implante da lente intraocular dobravel no saco capsular. Sem pontos, cicatrização autossealante.",
+            "status": "ActiveActionStatus",
+            "recognizingAuthority": {
+              "@type": "MedicalOrganization",
+              "name": "Conselho Brasileiro de Oftalmologia (CBO)",
+              "url": "https://www.cbo.net.br"
+            },
+            "relevantSpecialty": {
+              "@type": "MedicalSpecialty",
+              "name": "Ophthalmology"
+            },
+            "performer": {
+              "@type": "Physician",
+              "name": "Dr. Fernando Macei Drudi",
+              "url": "https://institutodrudiealmeida.com.br/medico/dr-fernando-drudi",
+              "identifier": [
+                { "@type": "PropertyValue", "name": "CRM-SP", "value": "139300" },
+                { "@type": "PropertyValue", "name": "RQE", "value": "50645" }
+              ],
+              "worksFor": { "@type": "MedicalOrganization", "name": "Drudi e Almeida Oftalmologia", "url": "https://institutodrudiealmeida.com.br" }
+            },
+            "location": {
+              "@type": "MedicalClinic",
+              "name": "Instituto da Catarata — Drudi e Almeida",
+              "url": "https://institutodrudiealmeida.com.br/instituto/catarata",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Dr. César, 130",
+                "addressLocality": "São Paulo",
+                "addressRegion": "SP",
+                "postalCode": "02013-001",
+                "addressCountry": "BR"
+              }
+            }
+          })
+        }}
+      />
       {/* ========== 1. HERO WITH PARALLAX ========== */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Parallax Background — Obra de Arte Impressionista */}

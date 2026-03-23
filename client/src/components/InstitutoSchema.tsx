@@ -77,6 +77,12 @@ const institutos: Record<InstitutoType, InstitutoConfig> = {
       "Instituto especializado no diagnóstico precoce e tratamento do glaucoma. Tonometria, campo visual computadorizado, OCT de nervo óptico e camada de fibras nervosas. Tratamento clínico, laser (trabeculoplastia) e cirúrgico (trabeculectomia).",
     specialty: ["Ophthalmology", "Glaucoma Treatment"],
     url: `${BASE_URL}/instituto/glaucoma`,
+    physician: {
+      name: "Dr. Fernando Macei Drudi",
+      crm: "139300",
+      rqe: "50645",
+      specialty: ["Ophthalmology", "Glaucoma Treatment", "Cataract Surgery"],
+    },
   },
   retina: {
     name: "Instituto da Retina — Drudi e Almeida",
@@ -97,6 +103,12 @@ const institutos: Record<InstitutoType, InstitutoConfig> = {
       "Instituto especializado no diagnóstico e tratamento cirúrgico do estrabismo em crianças e adultos. Correção do desalinhamento ocular, tratamento da ambliopia (olho preguiçoso) e reabilitação da visão binocular.",
     specialty: ["Ophthalmology", "Strabismus Treatment"],
     url: `${BASE_URL}/instituto/estrabismo`,
+    physician: {
+      name: "Dra. Priscilla Rodrigues de Almeida",
+      crm: "148173",
+      rqe: "59216",
+      specialty: ["Ophthalmology", "Strabismus Treatment", "Corneal Disease Treatment"],
+    },
   },
 };
 
@@ -179,10 +191,27 @@ export default function InstitutoSchema({ instituto }: Props) {
     };
   }
 
+  // BreadcrumbList
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Institutos", item: `${BASE_URL}/#institutos` },
+      { "@type": "ListItem", position: 3, name: config.name, item: config.url },
+    ],
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 0) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 0) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
   );
 }

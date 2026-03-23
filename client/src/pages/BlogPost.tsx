@@ -157,11 +157,42 @@ function DynamicBlogPost({ slug }: { slug: string }) {
     "url": `${BASE_URL}/blog/${post.slug}`,
     "datePublished": post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined,
     "dateModified": post.updatedAt ? new Date(post.updatedAt).toISOString() : undefined,
-    "author": {
-      "@type": "Person",
-      "name": post.authorName ?? "Drudi e Almeida Oftalmologia",
-      "url": `${BASE_URL}/sobre`,
-    },
+    "author": (() => {
+      const authorName = post.authorName ?? "Drudi e Almeida Oftalmologia";
+      const isFernando = authorName.toLowerCase().includes("fernando") || authorName.toLowerCase().includes("drudi");
+      const isPriscilla = authorName.toLowerCase().includes("priscilla") || authorName.toLowerCase().includes("almeida");
+      if (isFernando) {
+        return {
+          "@type": "Physician",
+          "name": "Dr. Fernando Macei Drudi",
+          "url": `${BASE_URL}/medico/dr-fernando-drudi`,
+          "identifier": [
+            { "@type": "PropertyValue", "name": "CRM-SP", "value": "139300" },
+            { "@type": "PropertyValue", "name": "RQE", "value": "50645" },
+          ],
+          "medicalSpecialty": ["Ophthalmology", "Cataract Surgery", "Glaucoma Treatment"],
+          "worksFor": { "@type": "MedicalOrganization", "name": "Drudi e Almeida Oftalmologia", "url": BASE_URL },
+        };
+      }
+      if (isPriscilla) {
+        return {
+          "@type": "Physician",
+          "name": "Dra. Priscilla Rodrigues de Almeida",
+          "url": `${BASE_URL}/medico/dra-priscilla-almeida`,
+          "identifier": [
+            { "@type": "PropertyValue", "name": "CRM-SP", "value": "148173" },
+            { "@type": "PropertyValue", "name": "RQE", "value": "59216" },
+          ],
+          "medicalSpecialty": ["Ophthalmology", "Corneal Disease Treatment", "Strabismus Treatment"],
+          "worksFor": { "@type": "MedicalOrganization", "name": "Drudi e Almeida Oftalmologia", "url": BASE_URL },
+        };
+      }
+      return {
+        "@type": "Organization",
+        "name": authorName,
+        "url": `${BASE_URL}/sobre`,
+      };
+    })(),
     "publisher": {
       "@type": "MedicalOrganization",
       "name": "Drudi e Almeida Oftalmologia",
