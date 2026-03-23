@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, slug FROM blog_posts WHERE status = 'published' AND id >= 130001 AND id < 140000 ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug FROM blog_posts WHERE status = 'published' AND id >= 130001 AND id < 140000 ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "130001",
+      "slug": "oftalmologista-guarulhos-clinica-olhos"
+    },
+    {
+      "id": "130002",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico"
+    },
+    {
+      "id": "130003",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista"
+    },
+    {
+      "id": "130004",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo"
+    },
+    {
+      "id": "130005",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista"
+    },
+    {
+      "id": "130006",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento"
+    },
+    {
+      "id": "130007",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento"
+    },
+    {
+      "id": "130008",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo"
+    },
+    {
+      "id": "130009",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar"
+    },
+    {
+      "id": "130010",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\n130001\toftalmologista-guarulhos-clinica-olhos\n130002\tcirurgia-catarata-sao-paulo-preco-medico\n130003\tclinica-olhos-santana-sao-paulo-oftalmologista\n130004\toftalmologista-tatua-pe-zona-leste-sao-paulo\n130005\ttratamento-glaucoma-sao-paulo-especialista\n130006\tceratocone-sao-paulo-especialista-tratamento\n130007\tespecialista-retina-sao-paulo-medico-tratamento\n130008\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\n130009\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\n130010\tcirurgia-estrabismo-sao-paulo-criancas-adultos\n",
+  "stderr": "",
+  "execution_time_ms": 63
+}

@@ -1,0 +1,146 @@
+{
+  "query": "SELECT id, slug FROM blog_posts WHERE status = 'published' AND id >= 110001 ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug FROM blog_posts WHERE status = 'published' AND id >= 110001 ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "120001",
+      "slug": "conjuntivite-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120002",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria"
+    },
+    {
+      "id": "120003",
+      "slug": "blefarite-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120004",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao"
+    },
+    {
+      "id": "120005",
+      "slug": "hipermetropia-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120006",
+      "slug": "presbiopia-vista-cansada-causas-correcao"
+    },
+    {
+      "id": "120007",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120008",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120009",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento"
+    },
+    {
+      "id": "120010",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento"
+    },
+    {
+      "id": "120011",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos"
+    },
+    {
+      "id": "120012",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento"
+    },
+    {
+      "id": "120013",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120014",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar"
+    },
+    {
+      "id": "120015",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia"
+    },
+    {
+      "id": "120016",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120017",
+      "slug": "oclusao-venosa-da-retina-causas-sintomas-tratamento"
+    },
+    {
+      "id": "120018",
+      "slug": "cuidados-com-os-olhos-no-verao-guia-completo"
+    },
+    {
+      "id": "120019",
+      "slug": "saude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida"
+    },
+    {
+      "id": "130001",
+      "slug": "oftalmologista-guarulhos-clinica-olhos"
+    },
+    {
+      "id": "130002",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico"
+    },
+    {
+      "id": "130003",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista"
+    },
+    {
+      "id": "130004",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo"
+    },
+    {
+      "id": "130005",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista"
+    },
+    {
+      "id": "130006",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento"
+    },
+    {
+      "id": "130007",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento"
+    },
+    {
+      "id": "130008",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo"
+    },
+    {
+      "id": "130009",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar"
+    },
+    {
+      "id": "130010",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos"
+    },
+    {
+      "id": "140000",
+      "slug": "cirurgia-catarata-preco-sao-paulo-2026"
+    },
+    {
+      "id": "140001",
+      "slug": "cirurgia-catarata-pelo-convenio"
+    },
+    {
+      "id": "140002",
+      "slug": "lente-intraocular-monofocal-vs-multifocal-vs-trifocal"
+    },
+    {
+      "id": "140003",
+      "slug": "crosslinking-preco-e-recuperacao"
+    },
+    {
+      "id": "140004",
+      "slug": "injecao-intravitrea-anti-vegf-como-funciona"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\n120001\tconjuntivite-tipos-sintomas-tratamento\n120002\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\n120003\tblefarite-causas-sintomas-tratamento\n120004\tastigmatismo-o-que-e-graus-sintomas-correcao\n120005\thipermetropia-causas-sintomas-tratamento\n120006\tpresbiopia-vista-cansada-causas-correcao\n120007\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\n120008\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\n120009\tdescolamento-de-retina-sinais-riscos-tratamento\n120010\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\n120011\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\n120012\talergia-ocular-tipos-sintomas-tratamento\n120013\tceratite-infeccao-cornea-causas-sintomas-tratamento\n120014\tmoscas-volantes-o-que-sao-causas-quando-preocupar\n120015\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\n120016\ttoxoplasmose-ocular-causas-sintomas-tratamento\n120017\toclusao-venosa-da-retina-causas-sintomas-tratamento\n120018\tcuidados-com-os-olhos-no-verao-guia-completo\n120019\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\n130001\toftalmologista-guarulhos-clinica-olhos\n130002\tcirurgia-catarata-sao-paulo-preco-medico\n130003\tclinica-olhos-santana-sao-paulo-oftalmologista\n130004\toftalmologista-tatua-pe-zona-leste-sao-paulo\n130005\ttratamento-glaucoma-sao-paulo-especialista\n130006\tceratocone-sao-paulo-especialista-tratamento\n130007\tespecialista-retina-sao-paulo-medico-tratamento\n130008\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\n130009\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\n130010\tcirurgia-estrabismo-sao-paulo-criancas-adultos\n140000\tcirurgia-catarata-preco-sao-paulo-2026\n140001\tcirurgia-catarata-pelo-convenio\n140002\tlente-intraocular-monofocal-vs-multifocal-vs-trifocal\n140003\tcrosslinking-preco-e-recuperacao\n140004\tinjecao-intravitrea-anti-vegf-como-funciona\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}

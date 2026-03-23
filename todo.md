@@ -496,3 +496,10 @@
 - [x] MELHORIA-01: Schema FAQPage dinâmico via JSON-LD no componente BlogPost (detecta <h3> no conteúdo, injeta FAQPage se ≥2 pares Q&A)
 - [x] MELHORIA-02: Gerar imagens de capa para os 5 artigos comerciais (ids 140000-140004) — CDN CloudFront
 - [x] MELHORIA-03: Links internos cruzados entre artigos comerciais (bloco "Leia Também" inserido antes do FAQ de cada artigo)
+
+## Fase 40: Escalonamento de Datas e Artigos Comerciais (Março 2026)
+- [x] DATA-01: Escalonar datas de publicação dos 48 artigos ao longo de 12 meses (abr/2025 a mar/2026, 1–2 por semana)
+- [x] COMERCIAL-06: /blog/cirurgia-estrabismo-sao-paulo-preco-convenio (id: 150000, Dr. Fernando Drudi)
+- [x] COMERCIAL-07: /blog/tratamento-glaucoma-coli-rio-cirurgia-convenio (id: 150002, Dr. Fernando Drudi)
+- [x] COMERCIAL-08: /blog/glaucoma-tem-cura-tratamento-sao-paulo (id: 150003, Dra. Priscilla de Almeida)
+- [x] COMERCIAL-09: /blog/cirurgia-estrabismo-adulto-vale-a-pena (id: 150001, Dr. Fernando Drudi)

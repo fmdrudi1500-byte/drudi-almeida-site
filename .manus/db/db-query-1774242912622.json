@@ -1,0 +1,250 @@
+{
+  "query": "SELECT id, slug, publishedAt FROM blog_posts WHERE status = 'published' ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, publishedAt FROM blog_posts WHERE status = 'published' ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "1",
+      "slug": "catarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r",
+      "publishedAt": "2026-02-28 00:33:54"
+    },
+    {
+      "id": "30001",
+      "slug": "ceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c",
+      "publishedAt": "2026-02-28 04:13:04"
+    },
+    {
+      "id": "30002",
+      "slug": "glaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c",
+      "publishedAt": "2026-02-28 04:13:04"
+    },
+    {
+      "id": "30003",
+      "slug": "doencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c",
+      "publishedAt": "2026-02-28 04:13:04"
+    },
+    {
+      "id": "30004",
+      "slug": "estrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c",
+      "publishedAt": "2026-02-28 04:13:04"
+    },
+    {
+      "id": "60001",
+      "slug": "visao-embacada-sinais-alerta-oftalmologista",
+      "publishedAt": "2026-03-02 23:21:54"
+    },
+    {
+      "id": "60002",
+      "slug": "quando-operar-catarata-guia-completo",
+      "publishedAt": "2026-03-02 23:21:54"
+    },
+    {
+      "id": "60003",
+      "slug": "crosslinking-ceratocone-como-funciona-tratamento",
+      "publishedAt": "2026-03-02 23:21:54"
+    },
+    {
+      "id": "60004",
+      "slug": "pressao-ocular-alta-hipertensao-ocular-glaucoma",
+      "publishedAt": "2026-03-02 23:21:54"
+    },
+    {
+      "id": "60005",
+      "slug": "miopia-criancas-sinais-precoces-tratamento",
+      "publishedAt": "2026-03-02 23:21:54"
+    },
+    {
+      "id": "70001",
+      "slug": "sindrome-olho-seco-causas-sintomas-tratamentos",
+      "publishedAt": "2026-02-15 05:00:00"
+    },
+    {
+      "id": "70002",
+      "slug": "lentes-contato-ceratocone-tipos-indicacoes-cuidados",
+      "publishedAt": "2026-02-20 05:00:00"
+    },
+    {
+      "id": "70003",
+      "slug": "exame-de-vista-completo-o-que-avalia-frequencia-importancia",
+      "publishedAt": "2026-03-01 05:00:00"
+    },
+    {
+      "id": "70004",
+      "slug": "glaucoma-angulo-fechado-crise-aguda-sintomas-emergencia",
+      "publishedAt": "2026-03-05 05:00:00"
+    },
+    {
+      "id": "120001",
+      "slug": "conjuntivite-tipos-sintomas-tratamento",
+      "publishedAt": "2025-09-08 09:00:00"
+    },
+    {
+      "id": "120002",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria",
+      "publishedAt": "2025-09-16 10:30:00"
+    },
+    {
+      "id": "120003",
+      "slug": "blefarite-causas-sintomas-tratamento",
+      "publishedAt": "2025-09-23 09:00:00"
+    },
+    {
+      "id": "120004",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao",
+      "publishedAt": "2025-10-01 10:00:00"
+    },
+    {
+      "id": "120005",
+      "slug": "hipermetropia-causas-sintomas-tratamento",
+      "publishedAt": "2025-10-09 09:30:00"
+    },
+    {
+      "id": "120006",
+      "slug": "presbiopia-vista-cansada-causas-correcao",
+      "publishedAt": "2025-10-17 10:00:00"
+    },
+    {
+      "id": "120007",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento",
+      "publishedAt": "2025-10-27 09:00:00"
+    },
+    {
+      "id": "120008",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento",
+      "publishedAt": "2025-11-04 10:30:00"
+    },
+    {
+      "id": "120009",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento",
+      "publishedAt": "2025-11-12 09:00:00"
+    },
+    {
+      "id": "120010",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento",
+      "publishedAt": "2025-11-20 10:00:00"
+    },
+    {
+      "id": "120011",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos",
+      "publishedAt": "2025-11-28 09:30:00"
+    },
+    {
+      "id": "120012",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento",
+      "publishedAt": "2025-12-05 10:00:00"
+    },
+    {
+      "id": "120013",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento",
+      "publishedAt": "2025-12-12 09:00:00"
+    },
+    {
+      "id": "120014",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar",
+      "publishedAt": "2025-12-19 10:30:00"
+    },
+    {
+      "id": "120015",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia",
+      "publishedAt": "2026-01-07 09:00:00"
+    },
+    {
+      "id": "120016",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento",
+      "publishedAt": "2026-01-15 10:00:00"
+    },
+    {
+      "id": "120017",
+      "slug": "oclusao-venosa-da-retina-causas-sintomas-tratamento",
+      "publishedAt": "2026-01-23 09:30:00"
+    },
+    {
+      "id": "120018",
+      "slug": "cuidados-com-os-olhos-no-verao-guia-completo",
+      "publishedAt": "2026-02-02 10:00:00"
+    },
+    {
+      "id": "120019",
+      "slug": "saude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida",
+      "publishedAt": "2026-02-10 09:00:00"
+    },
+    {
+      "id": "130001",
+      "slug": "oftalmologista-guarulhos-clinica-olhos",
+      "publishedAt": "2026-02-24 09:00:00"
+    },
+    {
+      "id": "130002",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico",
+      "publishedAt": "2026-03-03 09:00:00"
+    },
+    {
+      "id": "130003",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista",
+      "publishedAt": "2026-03-08 10:00:00"
+    },
+    {
+      "id": "130004",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo",
+      "publishedAt": "2026-03-10 09:30:00"
+    },
+    {
+      "id": "130005",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista",
+      "publishedAt": "2026-03-13 09:00:00"
+    },
+    {
+      "id": "130006",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento",
+      "publishedAt": "2026-03-15 10:00:00"
+    },
+    {
+      "id": "130007",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento",
+      "publishedAt": "2026-03-17 09:00:00"
+    },
+    {
+      "id": "130008",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo",
+      "publishedAt": "2026-03-18 10:00:00"
+    },
+    {
+      "id": "130009",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar",
+      "publishedAt": "2026-03-19 10:00:00"
+    },
+    {
+      "id": "130010",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos",
+      "publishedAt": "2026-03-20 09:00:00"
+    },
+    {
+      "id": "140000",
+      "slug": "cirurgia-catarata-preco-sao-paulo-2026",
+      "publishedAt": "2026-01-06 10:00:00"
+    },
+    {
+      "id": "140001",
+      "slug": "cirurgia-catarata-pelo-convenio",
+      "publishedAt": "2026-01-20 10:00:00"
+    },
+    {
+      "id": "140002",
+      "slug": "lente-intraocular-monofocal-vs-multifocal-vs-trifocal",
+      "publishedAt": "2026-02-03 10:00:00"
+    },
+    {
+      "id": "140003",
+      "slug": "crosslinking-preco-e-recuperacao",
+      "publishedAt": "2026-02-17 10:00:00"
+    },
+    {
+      "id": "140004",
+      "slug": "injecao-intravitrea-anti-vegf-como-funciona",
+      "publishedAt": "2026-03-03 10:00:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\tpublishedAt\n1\tcatarata-sintomas-diagnostico-tratamento-facoemulsificacao-mm5vyl9r\t2026-02-28 00:33:54\n30001\tceratocone-sintomas-diagnostico-tratamentos-crosslinking-mm63sf9c\t2026-02-28 04:13:04\n30002\tglaucoma-diagnostico-precoce-tratamento-pressao-intraocular-mm63sf9c\t2026-02-28 04:13:04\n30003\tdoencas-retina-degeneracao-macular-retinopatia-diabetica-mm63sf9c\t2026-02-28 04:13:04\n30004\testrabismo-causas-diagnostico-tratamento-cirurgia-mm63sf9c\t2026-02-28 04:13:04\n60001\tvisao-embacada-sinais-alerta-oftalmologista\t2026-03-02 23:21:54\n60002\tquando-operar-catarata-guia-completo\t2026-03-02 23:21:54\n60003\tcrosslinking-ceratocone-como-funciona-tratamento\t2026-03-02 23:21:54\n60004\tpressao-ocular-alta-hipertensao-ocular-glaucoma\t2026-03-02 23:21:54\n60005\tmiopia-criancas-sinais-precoces-tratamento\t2026-03-02 23:21:54\n70001\tsindrome-olho-seco-causas-sintomas-tratamentos\t2026-02-15 05:00:00\n70002\tlentes-contato-ceratocone-tipos-indicacoes-cuidados\t2026-02-20 05:00:00\n70003\texame-de-vista-completo-o-que-avalia-frequencia-importancia\t2026-03-01 05:00:00\n70004\tglaucoma-angulo-fechado-crise-aguda-sintomas-emergencia\t2026-03-05 05:00:00\n120001\tconjuntivite-tipos-sintomas-tratamento\t2025-09-08 09:00:00\n120002\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\t2025-09-16 10:30:00\n120003\tblefarite-causas-sintomas-tratamento\t2025-09-23 09:00:00\n120004\tastigmatismo-o-que-e-graus-sintomas-correcao\t2025-10-01 10:00:00\n120005\thipermetropia-causas-sintomas-tratamento\t2025-10-09 09:30:00\n120006\tpresbiopia-vista-cansada-causas-correcao\t2025-10-17 10:00:00\n120007\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\t2025-10-27 09:00:00\n120008\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\t2025-11-04 10:30:00\n120009\tdescolamento-de-retina-sinais-riscos-tratamento\t2025-11-12 09:00:00\n120010\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\t2025-11-20 10:00:00\n120011\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\t2025-11-28 09:30:00\n120012\talergia-ocular-tipos-sintomas-tratamento\t2025-12-05 10:00:00\n120013\tceratite-infeccao-cornea-causas-sintomas-tratamento\t2025-12-12 09:00:00\n120014\tmoscas-volantes-o-que-sao-causas-quando-preocupar\t2025-12-19 10:30:00\n120015\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\t2026-01-07 09:00:00\n120016\ttoxoplasmose-ocular-causas-sintomas-tratamento\t2026-01-15 10:00:00\n120017\toclusao-venosa-da-retina-causas-sintomas-tratamento\t2026-01-23 09:30:00\n120018\tcuidados-com-os-olhos-no-verao-guia-completo\t2026-02-02 10:00:00\n120019\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\t2026-02-10 09:00:00\n130001\toftalmologista-guarulhos-clinica-olhos\t2026-02-24 09:00:00\n130002\tcirurgia-catarata-sao-paulo-preco-medico\t2026-03-03 09:00:00\n130003\tclinica-olhos-santana-sao-paulo-oftalmologista\t2026-03-08 10:00:00\n130004\toftalmologista-tatua-pe-zona-leste-sao-paulo\t2026-03-10 09:30:00\n130005\ttratamento-glaucoma-sao-paulo-especialista\t2026-03-13 09:00:00\n130006\tceratocone-sao-paulo-especialista-tratamento\t2026-03-15 10:00:00\n130007\tespecialista-retina-sao-paulo-medico-tratamento\t2026-03-17 09:00:00\n130008\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\t2026-03-18 10:00:00\n130009\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\t2026-03-19 10:00:00\n130010\tcirurgia-estrabismo-sao-paulo-criancas-adultos\t2026-03-20 09:00:00\n140000\tcirurgia-catarata-preco-sao-paulo-2026\t2026-01-06 10:00:00\n140001\tcirurgia-catarata-pelo-convenio\t2026-01-20 10:00:00\n140002\tlente-intraocular-monofocal-vs-multifocal-vs-trifocal\t2026-02-03 10:00:00\n140003\tcrosslinking-preco-e-recuperacao\t2026-02-17 10:00:00\n140004\tinjecao-intravitrea-anti-vegf-como-funciona\t2026-03-03 10:00:00\n",
+  "stderr": "",
+  "execution_time_ms": 68
+}
