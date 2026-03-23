@@ -30,6 +30,25 @@
     <meta name="twitter:description" content="5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. Agende: (11) 5430-2421." />
     <meta name="twitter:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/TAgHZnKQbefMatka.png" />
 
+    <!-- Redirect imediato para rotas legadas do Wix (antes do React carregar) -->
+    <script>
+      (function() {
+        var legacyRoutes = [
+          '/en', '/en/', '/pt', '/pt/', '/pt-br', '/pt-br/',
+          '/home', '/home/', '/index', '/index.html',
+          '/copia-home', '/blank', '/blank-1', '/blank-2', '/blank-3',
+          '/servicos', '/services', '/faq', '/depoimentos', '/testimonials',
+          '/nossos-servicos', '/especialidades', '/galeria', '/gallery',
+          '/equipe', '/team', '/nossos-medicos', '/medicos',
+          '/nossas-unidades', '/agendamento-1', '/agendar-consulta'
+        ];
+        var path = window.location.pathname.replace(/\/+$/, '') || '/';
+        if (legacyRoutes.indexOf(path) !== -1 || legacyRoutes.indexOf(path + '/') !== -1) {
+          window.location.replace('/');
+        }
+      })();
+    </script>
+
     <!-- Canonical URL: domínio principal -->
     <link rel="canonical" href="https://institutodrudiealmeida.com.br/" />
     <!-- hreflang: domínio principal pt-BR -->
