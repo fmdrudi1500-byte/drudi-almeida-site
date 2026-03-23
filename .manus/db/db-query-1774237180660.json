@@ -1,0 +1,55 @@
+{
+  "query": "SELECT id, title, slug, authorName, categoryId, status, publishedAt FROM blog_posts WHERE id >= 140000 ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, slug, authorName, categoryId, status, publishedAt FROM blog_posts WHERE id >= 140000 ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "140000",
+      "title": "Cirurgia de Catarata em SP: Preço, Convênios e O Que Esperar [2026]",
+      "slug": "cirurgia-catarata-preco-sao-paulo-2026",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "1",
+      "status": "published",
+      "publishedAt": "2026-01-06 10:00:00"
+    },
+    {
+      "id": "140001",
+      "title": "Cirurgia de Catarata pelo Convênio: Como Funciona, Quais Planos Cobrem e Passo a Passo",
+      "slug": "cirurgia-catarata-pelo-convenio",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "1",
+      "status": "published",
+      "publishedAt": "2026-01-20 10:00:00"
+    },
+    {
+      "id": "140002",
+      "title": "Lente Intraocular: Monofocal, Multifocal ou Trifocal? Qual é a Melhor para Você?",
+      "slug": "lente-intraocular-monofocal-vs-multifocal-vs-trifocal",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "1",
+      "status": "published",
+      "publishedAt": "2026-02-03 10:00:00"
+    },
+    {
+      "id": "140003",
+      "title": "Crosslinking para Ceratocone em SP: Preço, Convênio e Recuperação Completa [2026]",
+      "slug": "crosslinking-preco-e-recuperacao",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30001",
+      "status": "published",
+      "publishedAt": "2026-02-17 10:00:00"
+    },
+    {
+      "id": "140004",
+      "title": "Injeção Intravítrea Anti-VEGF: O Que É, Para Quem É Indicada e Como Funciona",
+      "slug": "injecao-intravitrea-anti-vegf-como-funciona",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30003",
+      "status": "published",
+      "publishedAt": "2026-03-03 10:00:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tslug\tauthorName\tcategoryId\tstatus\tpublishedAt\n140000\tCirurgia de Catarata em SP: Preço, Convênios e O Que Esperar [2026]\tcirurgia-catarata-preco-sao-paulo-2026\tDr. Fernando Drudi\t1\tpublished\t2026-01-06 10:00:00\n140001\tCirurgia de Catarata pelo Convênio: Como Funciona, Quais Planos Cobrem e Passo a Passo\tcirurgia-catarata-pelo-convenio\tDr. Fernando Drudi\t1\tpublished\t2026-01-20 10:00:00\n140002\tLente Intraocular: Monofocal, Multifocal ou Trifocal? Qual é a Melhor para Você?\tlente-intraocular-monofocal-vs-multifocal-vs-trifocal\tDr. Fernando Drudi\t1\tpublished\t2026-02-03 10:00:00\n140003\tCrosslinking para Ceratocone em SP: Preço, Convênio e Recuperação Completa [2026]\tcrosslinking-preco-e-recuperacao\tDra. Priscilla de Almeida\t30001\tpublished\t2026-02-17 10:00:00\n140004\tInjeção Intravítrea Anti-VEGF: O Que É, Para Quem É Indicada e Como Funciona\tinjecao-intravitrea-anti-vegf-como-funciona\tDr. Fernando Drudi\t30003\tpublished\t2026-03-03 10:00:00\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

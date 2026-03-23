@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, name, slug FROM blog_categories ORDER BY id ASC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, name, slug FROM blog_categories ORDER BY id ASC;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Catarata",
+      "slug": "catarata"
+    },
+    {
+      "id": "30001",
+      "name": "Ceratocone",
+      "slug": "ceratocone"
+    },
+    {
+      "id": "30002",
+      "name": "Glaucoma",
+      "slug": "glaucoma"
+    },
+    {
+      "id": "30003",
+      "name": "Retina",
+      "slug": "retina"
+    },
+    {
+      "id": "30004",
+      "name": "Estrabismo",
+      "slug": "estrabismo"
+    },
+    {
+      "id": "60001",
+      "name": "Saúde Ocular",
+      "slug": "saude-ocular"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\n1\tCatarata\tcatarata\n30001\tCeratocone\tceratocone\n30002\tGlaucoma\tglaucoma\n30003\tRetina\tretina\n30004\tEstrabismo\testrabismo\n60001\tSaúde Ocular\tsaude-ocular\n",
+  "stderr": "",
+  "execution_time_ms": 79
+}

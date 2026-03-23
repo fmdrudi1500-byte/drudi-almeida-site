@@ -484,3 +484,10 @@
 - [x] LINK-02: Páginas de unidade → links para institutos disponíveis naquela unidade (já existia)
 - [x] LINK-03: Páginas de médico → links para artigos que cada médico revisou (seção SatelliteArticles)
 - [x] LINK-04: Pillar pages de instituto → links para artigos satélites no blog (seção SatelliteArticles em todas as 5 pillar pages)
+
+## Fase 38: Conteúdo de Alto Intent Comercial (Março 2026)
+- [x] COMERCIAL-01: /blog/cirurgia-catarata-preco-sao-paulo-2026 — preço, fatores, convênios, CTA (id: 140000)
+- [x] COMERCIAL-02: /blog/cirurgia-catarata-pelo-convenio — cobertura, convênios, lente básica vs premium, passo a passo (id: 140001)
+- [x] COMERCIAL-03: /blog/lente-intraocular-monofocal-vs-multifocal-vs-trifocal — comparação técnica, tabela, indicações (id: 140002)
+- [x] COMERCIAL-04: /blog/crosslinking-preco-e-recuperacao — custo, convênio, recuperação dia a dia (id: 140003)
+- [x] COMERCIAL-05: /blog/injecao-intravitrea-anti-vegf-como-funciona — o que é, doenças, frequência, custo, cobertura (id: 140004)
