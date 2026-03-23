@@ -511,3 +511,12 @@
 - [x] IMG-04: Gerar imagem de capa para /blog/glaucoma-tem-cura-tratamento-sao-paulo (senhor feliz ao ar livre, tom esperançoso)
 - [x] CROSS-01: Links cruzados entre artigos de estrabismo (preço ↔ adulto ↔ pillar page ↔ artigo base)
 - [x] CROSS-02: Links cruzados entre artigos de glaucoma (colírio ↔ tem cura ↔ pillar page ↔ pressão ocular)
+
+## Fase 42: Sitemap XML Dinâmico e Open Graph / Twitter Card
+- [ ] SEO-01: Endpoint GET /sitemap.xml dinâmico com todos os artigos, pillar pages, unidades e médicos
+- [ ] SEO-02: Metatags og:image, og:title, og:description, twitter:card no SEOHead e BlogPost
+
+## Fase 43: Correções de Indexação SEO
+- [x] INDEX-01: Corrigir canonical duplicado — removido canonical hardcoded do index.html; SEOHead dinâmico injeta canonical correto por página
+- [x] INDEX-02: Adicionar prioritizeSeoTags ao HelmetProvider para garantir que metatags dinâmicas sobrescrevam as estáticas
+- [ ] INDEX-03: Implementar SSR/pre-rendering para metatags críticas (title, canonical, og:title) — requer migração para SSR

@@ -12,22 +12,24 @@
     <meta name="author" content="Drudi e Almeida Oftalmologia" />
     <meta name="geo.region" content="BR-SP" />
     <meta name="geo.placename" content="São Paulo" />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Drudi e Almeida Oftalmologia — Referência em Saúde Ocular" />
-    <meta property="og:description" content="5 institutos especializados: Catarata, Ceratocone, Glaucoma, Retina e Estrabismo. Tecnologia de ponta e cuidado humanizado em 5 unidades em SP." />
-    <meta property="og:type" content="website" />
+    <!-- Open Graph: metatags globais (não sobrescritas pelo SEOHead) -->
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Drudi e Almeida Oftalmologia" />
-    <meta property="og:url" content="https://institutodrudiealmeida.com.br" />
+    <!-- og:title, og:description, og:type, og:url, og:image, twitter:* são gerenciados pelo SEOHead dinâmico em cada página -->
+    <!-- Fallback estático para crawlers que não executam JS (WhatsApp, Telegram, etc.) -->
+    <meta property="og:title" content="Drudi e Almeida Oftalmologia | Clínica de Olhos SP" />
+    <meta property="og:description" content="Clínica oftalmológica em SP com 5 institutos especializados: catarata, ceratocone, glaucoma, retina e estrabismo. Agende: (11) 5430-2421." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://institutodrudiealmeida.com.br/" />
     <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/TAgHZnKQbefMatka.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Drudi e Almeida Oftalmologia — Clínica de Olhos" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card: fallback estático -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Drudi e Almeida Oftalmologia — Referência em Saúde Ocular" />
-    <meta name="twitter:description" content="5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. Agende: (11) 5430-2421." />
+    <meta name="twitter:title" content="Drudi e Almeida Oftalmologia | Clínica de Olhos SP" />
+    <meta name="twitter:description" content="Clínica oftalmológica em SP com 5 institutos especializados: catarata, ceratocone, glaucoma, retina e estrabismo. Agende: (11) 5430-2421." />
     <meta name="twitter:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/TAgHZnKQbefMatka.png" />
 
     <!-- Redirect imediato para rotas legadas do Wix (antes do React carregar) -->
@@ -49,8 +51,7 @@
       })();
     </script>
 
-    <!-- Canonical URL: domínio principal -->
-    <link rel="canonical" href="https://institutodrudiealmeida.com.br/" />
+    <!-- Canonical URL: injetado dinamicamente pelo SEOHead (react-helmet-async) em cada página -->
     <!-- hreflang: domínio principal pt-BR -->
     <link rel="alternate" hreflang="pt-BR" href="https://institutodrudiealmeida.com.br/" />
     <link rel="alternate" hreflang="x-default" href="https://institutodrudiealmeida.com.br/" />
