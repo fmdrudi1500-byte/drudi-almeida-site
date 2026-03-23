@@ -171,9 +171,14 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-cream/10">
         <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-body text-xs text-cream/50">
-            &copy; {new Date().getFullYear()} Drudi e Almeida Clínicas Oftalmológicas. Todos os direitos reservados.
-          </p>
+          <div className="flex flex-col gap-0.5">
+            <p className="font-body text-xs text-cream/50">
+              &copy; {new Date().getFullYear()} Drudi e Almeida Clínicas Oftalmológicas. Todos os direitos reservados.
+            </p>
+            <p className="font-body text-xs text-cream/40">
+              Drudi e Almeida Participações LTDA — CNPJ 40.106.607/0001-75
+            </p>
+          </div>
           <div className="flex items-center gap-4">
             <a href="/politica-de-privacidade" className="font-body text-xs text-cream/50 hover:text-gold transition-colors underline underline-offset-2">
               Política de Privacidade

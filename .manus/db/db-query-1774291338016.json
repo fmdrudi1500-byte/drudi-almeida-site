@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, slug, title, seoTitle, seoDescription FROM blog_posts WHERE id >= 140000 LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, title, seoTitle, seoDescription FROM blog_posts WHERE id >= 140000 LIMIT 5;",
+  "rows": [
+    {
+      "id": "140000",
+      "slug": "cirurgia-catarata-preco-sao-paulo-2026",
+      "title": "Cirurgia de Catarata em SP: Preço, Convênios e O Que Esperar [2026]",
+      "seoTitle": "Cirurgia de Catarata SP 2026: Preço, Convênios e Mais",
+      "seoDescription": "Saiba o preço da cirurgia de catarata em SP 2026, convênios aceitos e o que esperar na Drudi e Almeida. Agende sua consulta e recupere sua visão!"
+    },
+    {
+      "id": "140001",
+      "slug": "cirurgia-catarata-pelo-convenio",
+      "title": "Cirurgia de Catarata pelo Convênio: Como Funciona, Quais Planos Cobrem e Passo a Passo",
+      "seoTitle": "Cirurgia de Catarata pelo Convênio em SP e Guarulhos - Drudi e Almeida",
+      "seoDescription": "Saiba como funciona a cirurgia de catarata pelo convênio, quais planos cobrem (Bradesco, Amil, Unimed) e o passo a passo na Drudi e Almeida. Agende sua consulta!"
+    },
+    {
+      "id": "140002",
+      "slug": "lente-intraocular-monofocal-vs-multifocal-vs-trifocal",
+      "title": "Lente Intraocular: Monofocal, Multifocal ou Trifocal? Qual é a Melhor para Você?",
+      "seoTitle": "Lente Intraocular: Monofocal, Multifocal ou Trifocal? Qual a Melhor?",
+      "seoDescription": "Descubra as diferenças entre lentes intraoculares monofocais, multifocais e trifocais. Encontre a melhor opção para sua visão na Drudi e Almeida Oftalmologia. Agende sua consulta!"
+    },
+    {
+      "id": "140003",
+      "slug": "crosslinking-preco-e-recuperacao",
+      "title": "Crosslinking para Ceratocone em SP: Preço, Convênio e Recuperação Completa [2026]",
+      "seoTitle": "Crosslinking Ceratocone SP: Preço, Convênio e Recuperação [2026]",
+      "seoDescription": "Saiba tudo sobre crosslinking para ceratocone em SP: preço, cobertura por convênio e recuperação. Estabilize sua visão com a Dra. Priscilla de Almeida. Agende já!"
+    },
+    {
+      "id": "140004",
+      "slug": "injecao-intravitrea-anti-vegf-como-funciona",
+      "title": "Injeção Intravítrea Anti-VEGF: O Que É, Para Quem É Indicada e Como Funciona",
+      "seoTitle": "Injeção Intravítrea Anti-VEGF: O Que É e Como Funciona",
+      "seoDescription": "Saiba tudo sobre a injeção intravítrea anti-VEGF na Drudi e Almeida Oftalmologia em SP e Guarulhos. Tratamento eficaz para DMRI, retinopatia diabética e mais. Agende sua consulta!"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tseoTitle\tseoDescription\n140000\tcirurgia-catarata-preco-sao-paulo-2026\tCirurgia de Catarata em SP: Preço, Convênios e O Que Esperar [2026]\tCirurgia de Catarata SP 2026: Preço, Convênios e Mais\tSaiba o preço da cirurgia de catarata em SP 2026, convênios aceitos e o que esperar na Drudi e Almeida. Agende sua consulta e recupere sua visão!\n140001\tcirurgia-catarata-pelo-convenio\tCirurgia de Catarata pelo Convênio: Como Funciona, Quais Planos Cobrem e Passo a Passo\tCirurgia de Catarata pelo Convênio em SP e Guarulhos - Drudi e Almeida\tSaiba como funciona a cirurgia de catarata pelo convênio, quais planos cobrem (Bradesco, Amil, Unimed) e o passo a passo na Drudi e Almeida. Agende sua consulta!\n140002\tlente-intraocular-monofocal-vs-multifocal-vs-trifocal\tLente Intraocular: Monofocal, Multifocal ou Trifocal? Qual é a Melhor para Você?\tLente Intraocular: Monofocal, Multifocal ou Trifocal? Qual a Melhor?\tDescubra as diferenças entre lentes intraoculares monofocais, multifocais e trifocais. Encontre a melhor opção para sua visão na Drudi e Almeida Oftalmologia. Agende sua consulta!\n140003\tcrosslinking-preco-e-recuperacao\tCrosslinking para Ceratocone em SP: Preço, Convênio e Recuperação Completa [2026]\tCrosslinking Ceratocone SP: Preço, Convênio e Recuperação [2026]\tSaiba tudo sobre crosslinking para ceratocone em SP: preço, cobertura por convênio e recuperação. Estabilize sua visão com a Dra. Priscilla de Almeida. Agende já!\n140004\tinjecao-intravitrea-anti-vegf-como-funciona\tInjeção Intravítrea Anti-VEGF: O Que É, Para Quem É Indicada e Como Funciona\tInjeção Intravítrea Anti-VEGF: O Que É e Como Funciona\tSaiba tudo sobre a injeção intravítrea anti-VEGF na Drudi e Almeida Oftalmologia em SP e Guarulhos. Tratamento eficaz para DMRI, retinopatia diabética e mais. Agende sua consulta!\n",
+  "stderr": "",
+  "execution_time_ms": 60
+}

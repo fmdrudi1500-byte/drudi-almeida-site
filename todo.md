@@ -520,3 +520,7 @@
 - [x] INDEX-01: Corrigir canonical duplicado — removido canonical hardcoded do index.html; SEOHead dinâmico injeta canonical correto por página
 - [x] INDEX-02: Adicionar prioritizeSeoTags ao HelmetProvider para garantir que metatags dinâmicas sobrescrevam as estáticas
 - [ ] INDEX-03: Implementar SSR/pre-rendering para metatags críticas (title, canonical, og:title) — requer migração para SSR
+
+## Fase 44: SSR de Metatags (Pre-rendering no Servidor)
+- [ ] SSR-01: Middleware Express que injeta title, canonical, og:title, og:description, og:image no HTML para páginas de artigo (/blog/:slug)
+- [ ] SSR-02: Estender middleware para pillar pages (/instituto/:slug), médicos (/medico/:slug) e unidades (/unidade/:slug)
