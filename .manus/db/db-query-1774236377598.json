@@ -1,0 +1,9 @@
+{
+  "query": "\n-- Transferir artigos gerais para Dra. Priscilla para equilibrar (27 → 22 / 16 → 21)\n-- Miopia em crianças → Dra. Priscilla (refração/óculos é área dela também)\n-- Olho seco → Dra. Priscilla\n-- Exame de vista → Dra. Priscilla\n-- Conjuntivite → Dra. Priscilla\n-- Saúde ocular terceira idade → Dra. Priscilla\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (60005, 70001, 70003, 120001, 120019);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \n-- Transferir artigos gerais para Dra. Priscilla para equilibrar (27 → 22 / 16 → 21)\n-- Miopia em crianças → Dra. Priscilla (refração/óculos é área dela também)\n-- Olho seco → Dra. Priscilla\n-- Exame de vista → Dra. Priscilla\n-- Conjuntivite → Dra. Priscilla\n-- Saúde ocular terceira idade → Dra. Priscilla\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (60005, 70001, 70003, 120001, 120019);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 59
+}

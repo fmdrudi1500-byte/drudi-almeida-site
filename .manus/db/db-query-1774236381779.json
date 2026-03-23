@@ -1,0 +1,18 @@
+{
+  "query": "SELECT authorName, COUNT(*) as total FROM blog_posts GROUP BY authorName ORDER BY total DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT authorName, COUNT(*) as total FROM blog_posts GROUP BY authorName ORDER BY total DESC;",
+  "rows": [
+    {
+      "authorName": "Dr. Fernando Drudi",
+      "total": "22"
+    },
+    {
+      "authorName": "Dra. Priscilla de Almeida",
+      "total": "21"
+    }
+  ],
+  "messages": [],
+  "stdout": "authorName\ttotal\nDr. Fernando Drudi\t22\nDra. Priscilla de Almeida\t21\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

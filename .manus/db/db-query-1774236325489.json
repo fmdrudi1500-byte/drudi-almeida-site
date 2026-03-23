@@ -1,0 +1,206 @@
+{
+  "query": "SELECT id, slug, title, authorName, categoryId FROM blog_posts WHERE id >= 120002 ORDER BY id ASC LIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, slug, title, authorName, categoryId FROM blog_posts WHERE id >= 120002 ORDER BY id ASC LIMIT 30;",
+  "rows": [
+    {
+      "id": "120002",
+      "slug": "pterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria",
+      "title": "Pterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120003",
+      "slug": "blefarite-causas-sintomas-tratamento",
+      "title": "Blefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120004",
+      "slug": "astigmatismo-o-que-e-graus-sintomas-correcao",
+      "title": "Astigmatismo: O Que É, Graus, Sintomas e Opções de Correção",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120005",
+      "slug": "hipermetropia-causas-sintomas-tratamento",
+      "title": "Hipermetropia: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120006",
+      "slug": "presbiopia-vista-cansada-causas-correcao",
+      "title": "Presbiopia (Vista Cansada): O Que É, Causas e Como Corrigir",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120007",
+      "slug": "uveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento",
+      "title": "Uveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120008",
+      "slug": "tercol-e-calazio-diferencas-causas-sintomas-tratamento",
+      "title": "Terçol e Calázio: Diferenças, Causas, Sintomas e Tratamento",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120009",
+      "slug": "descolamento-de-retina-sinais-riscos-tratamento",
+      "title": "Descolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120010",
+      "slug": "retinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento",
+      "title": "Retinopatia Diabética: Como o Diabetes Afeta a Visão",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120011",
+      "slug": "degeneracao-macular-dmri-tipos-sintomas-tratamentos",
+      "title": "Degeneração Macular (DMRI): Tipos, Sintomas e Tratamentos",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120012",
+      "slug": "alergia-ocular-tipos-sintomas-tratamento",
+      "title": "Alergia Ocular: Tipos, Sintomas e Tratamento Completo",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120013",
+      "slug": "ceratite-infeccao-cornea-causas-sintomas-tratamento",
+      "title": "Ceratite: Infecção da Córnea — Causas, Sintomas e Tratamento",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120014",
+      "slug": "moscas-volantes-o-que-sao-causas-quando-preocupar",
+      "title": "Moscas Volantes: O Que São, Causas e Quando se Preocupar",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120015",
+      "slug": "daltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia",
+      "title": "Daltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120016",
+      "slug": "toxoplasmose-ocular-causas-sintomas-tratamento",
+      "title": "Toxoplasmose Ocular: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120017",
+      "slug": "oclusao-venosa-da-retina-causas-sintomas-tratamento",
+      "title": "Oclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30003"
+    },
+    {
+      "id": "120018",
+      "slug": "cuidados-com-os-olhos-no-verao-guia-completo",
+      "title": "Cuidados com os Olhos no Verão: Guia Completo de Proteção",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120019",
+      "slug": "saude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida",
+      "title": "Saúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "130001",
+      "slug": "oftalmologista-guarulhos-clinica-olhos",
+      "title": "Oftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130002",
+      "slug": "cirurgia-catarata-sao-paulo-preco-medico",
+      "title": "Cirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130003",
+      "slug": "clinica-olhos-santana-sao-paulo-oftalmologista",
+      "title": "Clínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130004",
+      "slug": "oftalmologista-tatua-pe-zona-leste-sao-paulo",
+      "title": "Oftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130005",
+      "slug": "tratamento-glaucoma-sao-paulo-especialista",
+      "title": "Tratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130006",
+      "slug": "ceratocone-sao-paulo-especialista-tratamento",
+      "title": "Ceratocone em São Paulo: Especialistas em Diagnóstico e Tratamento",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130007",
+      "slug": "especialista-retina-sao-paulo-medico-tratamento",
+      "title": "Especialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130008",
+      "slug": "clinica-oftalmologica-lapa-zona-oeste-sao-paulo",
+      "title": "Clínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130009",
+      "slug": "exame-de-vista-sao-paulo-quando-fazer-o-que-esperar",
+      "title": "Exame de Vista em São Paulo: Quando Fazer e O Que Esperar",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "NULL"
+    },
+    {
+      "id": "130010",
+      "slug": "cirurgia-estrabismo-sao-paulo-criancas-adultos",
+      "title": "Cirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tauthorName\tcategoryId\n120002\tpterigio-o-que-e-causas-fatores-de-risco-e-quando-a-cirurgia-e-necessaria\tPterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária\tDra. Priscilla de Almeida\t60001\n120003\tblefarite-causas-sintomas-tratamento\tBlefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras\tDr. Fernando Drudi\t60001\n120004\tastigmatismo-o-que-e-graus-sintomas-correcao\tAstigmatismo: O Que É, Graus, Sintomas e Opções de Correção\tDra. Priscilla de Almeida\t60001\n120005\thipermetropia-causas-sintomas-tratamento\tHipermetropia: Causas, Sintomas e Tratamento Completo\tDr. Fernando Drudi\t60001\n120006\tpresbiopia-vista-cansada-causas-correcao\tPresbiopia (Vista Cansada): O Que É, Causas e Como Corrigir\tDra. Priscilla de Almeida\t60001\n120007\tuveite-inflamacao-intraocular-causas-tipos-sintomas-tratamento\tUveíte: Inflamação Intraocular — Causas, Tipos, Sintomas e Tratamento\tDr. Fernando Drudi\t60001\n120008\ttercol-e-calazio-diferencas-causas-sintomas-tratamento\tTerçol e Calázio: Diferenças, Causas, Sintomas e Tratamento\tDra. Priscilla de Almeida\t60001\n120009\tdescolamento-de-retina-sinais-riscos-tratamento\tDescolamento de Retina: Sinais, Riscos e Tratamento Cirúrgico\tDr. Fernando Drudi\t30003\n120010\tretinopatia-diabetica-diabetes-afeta-visao-prevencao-diagnostico-tratamento\tRetinopatia Diabética: Como o Diabetes Afeta a Visão\tDra. Priscilla de Almeida\t30003\n120011\tdegeneracao-macular-dmri-tipos-sintomas-tratamentos\tDegeneração Macular (DMRI): Tipos, Sintomas e Tratamentos\tDr. Fernando Drudi\t30003\n120012\talergia-ocular-tipos-sintomas-tratamento\tAlergia Ocular: Tipos, Sintomas e Tratamento Completo\tDra. Priscilla de Almeida\t60001\n120013\tceratite-infeccao-cornea-causas-sintomas-tratamento\tCeratite: Infecção da Córnea — Causas, Sintomas e Tratamento\tDr. Fernando Drudi\t60001\n120014\tmoscas-volantes-o-que-sao-causas-quando-preocupar\tMoscas Volantes: O Que São, Causas e Quando se Preocupar\tDra. Priscilla de Almeida\t30003\n120015\tdaltonismo-o-que-e-tipos-diagnostico-impacto-dia-a-dia\tDaltonismo: O Que É, Tipos, Como Diagnosticar e Impacto no Dia a Dia\tDr. Fernando Drudi\t60001\n120016\ttoxoplasmose-ocular-causas-sintomas-tratamento\tToxoplasmose Ocular: Causas, Sintomas e Tratamento Completo\tDra. Priscilla de Almeida\t30003\n120017\toclusao-venosa-da-retina-causas-sintomas-tratamento\tOclusão Venosa da Retina: Causas, Sintomas e Tratamento Completo\tDr. Fernando Drudi\t30003\n120018\tcuidados-com-os-olhos-no-verao-guia-completo\tCuidados com os Olhos no Verão: Guia Completo de Proteção\tDra. Priscilla de Almeida\t60001\n120019\tsaude-ocular-na-terceira-idade-doencas-prevencao-qualidade-de-vida\tSaúde Ocular na Terceira Idade: Doenças, Prevenção e Qualidade de Vida\tDr. Fernando Drudi\t60001\n130001\toftalmologista-guarulhos-clinica-olhos\tOftalmologista em Guarulhos: Cuidado Especializado com a Sua Visão\tDr. Fernando Drudi\tNULL\n130002\tcirurgia-catarata-sao-paulo-preco-medico\tCirurgia de Catarata em São Paulo: Tudo que Você Precisa Saber\tDr. Fernando Drudi\tNULL\n130003\tclinica-olhos-santana-sao-paulo-oftalmologista\tClínica de Olhos no Santana: Oftalmologia Especializada no Norte de São Paulo\tDra. Priscilla de Almeida\tNULL\n130004\toftalmologista-tatua-pe-zona-leste-sao-paulo\tOftalmologista no Tatuapé: Especialistas em Saúde Ocular na Zona Leste\tDr. Fernando Drudi\tNULL\n130005\ttratamento-glaucoma-sao-paulo-especialista\tTratamento de Glaucoma em São Paulo: Diagnóstico Precoce e Controle Eficaz\tDr. Fernando Drudi\tNULL\n130006\tceratocone-sao-paulo-especialista-tratamento\tCeratocone em São Paulo: Especialistas em Diagnóstico e Tratamento\tDra. Priscilla de Almeida\tNULL\n130007\tespecialista-retina-sao-paulo-medico-tratamento\tEspecialista em Retina em São Paulo: Diagnóstico e Tratamento de Doenças Retinianas\tDr. Fernando Drudi\tNULL\n130008\tclinica-oftalmologica-lapa-zona-oeste-sao-paulo\tClínica Oftalmológica na Lapa: Saúde Ocular na Zona Oeste de São Paulo\tDra. Priscilla de Almeida\tNULL\n130009\texame-de-vista-sao-paulo-quando-fazer-o-que-esperar\tExame de Vista em São Paulo: Quando Fazer e O Que Esperar\tDra. Priscilla de Almeida\tNULL\n130010\tcirurgia-estrabismo-sao-paulo-criancas-adultos\tCirurgia de Estrabismo em São Paulo: Correção para Crianças e Adultos\tDr. Fernando Drudi\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

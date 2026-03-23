@@ -1,0 +1,9 @@
+{
+  "query": "\n-- Artigos GERAIS de saúde ocular (categoryId = 60001) — alternando por especialidade\n-- Dr. Fernando Drudi: visão embaçada, miopia crianças, olho seco, exame de vista, conjuntivite, blefarite, hipermetropia, uveíte, ceratite, daltonismo, saúde ocular terceira idade\nUPDATE blog_posts SET authorName = 'Dr. Fernando Drudi' WHERE id IN (60001, 60005, 70001, 70003, 120001, 120003, 120005, 120007, 120013, 120015, 120019);\n\n-- Dra. Priscilla de Almeida: pterígio, astigmatismo, presbiopia, terçol/calázio, alergia ocular, cuidados verão\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (120002, 120004, 120006, 120008, 120012, 120018);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \n-- Artigos GERAIS de saúde ocular (categoryId = 60001) — alternando por especialidade\n-- Dr. Fernando Drudi: visão embaçada, miopia crianças, olho seco, exame de vista, conjuntivite, blefarite, hipermetropia, uveíte, ceratite, daltonismo, saúde ocular terceira idade\nUPDATE blog_posts SET authorName = 'Dr. Fernando Drudi' WHERE id IN (60001, 60005, 70001, 70003, 120001, 120003, 120005, 120007, 120013, 120015, 120019);\n\n-- Dra. Priscilla de Almeida: pterígio, astigmatismo, presbiopia, terçol/calázio, alergia ocular, cuidados verão\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (120002, 120004, 120006, 120008, 120012, 120018);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 63
+}

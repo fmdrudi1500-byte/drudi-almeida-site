@@ -1,0 +1,130 @@
+{
+  "query": "SELECT id, title, authorName, categoryId FROM blog_posts ORDER BY id ASC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute SELECT id, title, authorName, categoryId FROM blog_posts ORDER BY id ASC LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Catarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "1"
+    },
+    {
+      "id": "30001",
+      "title": "Ceratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30001"
+    },
+    {
+      "id": "30002",
+      "title": "Glaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30002"
+    },
+    {
+      "id": "30003",
+      "title": "Doenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30003"
+    },
+    {
+      "id": "30004",
+      "title": "Estrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30004"
+    },
+    {
+      "id": "60001",
+      "title": "Visão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "60002",
+      "title": "Quando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "1"
+    },
+    {
+      "id": "60003",
+      "title": "Crosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30001"
+    },
+    {
+      "id": "60004",
+      "title": "Pressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30002"
+    },
+    {
+      "id": "60005",
+      "title": "Miopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "70001",
+      "title": "Síndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "70002",
+      "title": "Lentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "30001"
+    },
+    {
+      "id": "70003",
+      "title": "Exame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "70004",
+      "title": "Glaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "30002"
+    },
+    {
+      "id": "120001",
+      "title": "Conjuntivite: Tipos, Sintomas e Tratamento Completo",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120002",
+      "title": "Pterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120003",
+      "title": "Blefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120004",
+      "title": "Astigmatismo: O Que É, Graus, Sintomas e Opções de Correção",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120005",
+      "title": "Hipermetropia: Causas, Sintomas e Tratamento Completo",
+      "authorName": "Dr. Fernando Drudi",
+      "categoryId": "60001"
+    },
+    {
+      "id": "120006",
+      "title": "Presbiopia (Vista Cansada): O Que É, Causas e Como Corrigir",
+      "authorName": "Dra. Priscilla de Almeida",
+      "categoryId": "60001"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tauthorName\tcategoryId\n1\tCatarata: Sintomas, Diagnóstico e Tratamento com Cirurgia de Facoemulsificação\tDr. Fernando Drudi\t1\n30001\tCeratocone: O Que É, Sintomas, Diagnóstico e Tratamentos Modernos\tDra. Priscilla de Almeida\t30001\n30002\tGlaucoma: O Ladrão Silencioso da Visão — Diagnóstico Precoce e Tratamento\tDr. Fernando Drudi\t30002\n30003\tDoenças da Retina: Degeneração Macular, Retinopatia Diabética e Descolamento\tDr. Fernando Drudi\t30003\n30004\tEstrabismo: Causas, Diagnóstico e Tratamento em Crianças e Adultos\tDr. Fernando Drudi\t30004\n60001\tVisão Embaçada: Quando É Sinal de Alerta e Quando Procurar um Oftalmologista\tDr. Fernando Drudi\t60001\n60002\tQuando Operar Catarata? Guia Completo para Entender o Momento Certo da Cirurgia\tDr. Fernando Drudi\t1\n60003\tCrosslinking para Ceratocone: Como Funciona o Tratamento e Quem Pode Fazer\tDra. Priscilla de Almeida\t30001\n60004\tPressão Ocular Alta: O Que É Hipertensão Ocular e Como Controlar para Prevenir o Glaucoma\tDr. Fernando Drudi\t30002\n60005\tMiopia em Crianças: Como Identificar os Sinais Precoces e Qual o Tratamento Ideal\tDr. Fernando Drudi\t60001\n70001\tSíndrome do Olho Seco: Causas, Sintomas e Tratamentos Eficazes\tDr. Fernando Drudi\t60001\n70002\tLentes de Contato para Ceratocone: Tipos, Indicações e Cuidados Essenciais\tDra. Priscilla de Almeida\t30001\n70003\tExame de Vista Completo: O Que Avalia, Com Que Frequência Fazer e Por Que É Essencial\tDr. Fernando Drudi\t60001\n70004\tGlaucoma de Ângulo Fechado: Sintomas de Emergência e Como Agir\tDr. Fernando Drudi\t30002\n120001\tConjuntivite: Tipos, Sintomas e Tratamento Completo\tDr. Fernando Drudi\t60001\n120002\tPterígio: O Que É, Causas, Fatores de Risco e Quando a Cirurgia É Necessária\tDra. Priscilla de Almeida\t60001\n120003\tBlefarite: Causas, Sintomas e Tratamento da Inflamação das Pálpebras\tDr. Fernando Drudi\t60001\n120004\tAstigmatismo: O Que É, Graus, Sintomas e Opções de Correção\tDra. Priscilla de Almeida\t60001\n120005\tHipermetropia: Causas, Sintomas e Tratamento Completo\tDr. Fernando Drudi\t60001\n120006\tPresbiopia (Vista Cansada): O Que É, Causas e Como Corrigir\tDra. Priscilla de Almeida\t60001\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

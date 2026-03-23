@@ -421,7 +421,7 @@
 ## Fase Blog: Escalonamento, Autoria e Keywords Locais (Março 2026)
 - [ ] BLOG-ESC-01: Escalonar datas dos 33 artigos ao longo dos últimos 6 meses (1-2 por semana)
 - [ ] BLOG-ESC-02: Atualizar todos os 33 artigos com menções dos médicos no corpo do texto (Dr. Fernando Drudi e Dra. Priscilla de Almeida como especialistas citados)
-- [ ] BLOG-ESC-03: Atualizar campo authorName de todos os artigos para alternar entre os dois médicos
+- [x] BLOG-ESC-03: Atualizar campo authorName de todos os artigos para alternar entre os dois médicos (22 Dr. Fernando / 21 Dra. Priscilla, distribuição por especialidade)
 - [ ] BLOG-LOCAL-01: Criar 10 artigos com keywords locais de alto intent (bairro + especialidade + cidade)
 - [ ] BLOG-LOCAL-02: Gerar imagens de capa para os 10 novos artigos locais
 

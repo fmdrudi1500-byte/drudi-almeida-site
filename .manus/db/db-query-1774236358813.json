@@ -1,0 +1,9 @@
+{
+  "query": "\n-- Artigos LOCAIS (SEO local, categoryId = NULL) — alternando por tema\n-- Dr. Fernando Drudi: Guarulhos, cirurgia catarata SP, Tatuapé, glaucoma SP, retina SP, estrabismo SP\nUPDATE blog_posts SET authorName = 'Dr. Fernando Drudi' WHERE id IN (130001, 130002, 130004, 130005, 130007, 130010);\n\n-- Dra. Priscilla de Almeida: Santana, ceratocone SP, Lapa, exame de vista SP\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (130003, 130006, 130008, 130009);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user QFvPm5Jiq2VbcdU.33b2dcb6631d --database bJpZLaNUAwiEuNvz3b7LGz --execute \n-- Artigos LOCAIS (SEO local, categoryId = NULL) — alternando por tema\n-- Dr. Fernando Drudi: Guarulhos, cirurgia catarata SP, Tatuapé, glaucoma SP, retina SP, estrabismo SP\nUPDATE blog_posts SET authorName = 'Dr. Fernando Drudi' WHERE id IN (130001, 130002, 130004, 130005, 130007, 130010);\n\n-- Dra. Priscilla de Almeida: Santana, ceratocone SP, Lapa, exame de vista SP\nUPDATE blog_posts SET authorName = 'Dra. Priscilla de Almeida' WHERE id IN (130003, 130006, 130008, 130009);\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 60
+}
