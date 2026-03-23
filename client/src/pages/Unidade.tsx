@@ -145,16 +145,23 @@ export default function Unidade() {
     return <Redirect to="/contato" />;
   }
 
-  // Schema LocalBusiness JSON-LD
+  // Schema MedicalClinic/LocalBusiness JSON-LD — completo para rich snippets
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["Ophthalmologist", "MedicalClinic", "LocalBusiness"],
     "@id": `${BASE_URL}/unidade/${unidade.slug}#clinic`,
     name: unidade.fullName,
+    alternateName: `Drudi e Almeida ${unidade.name}`,
     description: unidade.description,
     url: `${BASE_URL}/unidade/${unidade.slug}`,
     telephone: "+551154302421",
-    image: `${BASE_URL}${unidade.image}`,
+    faxNumber: "+551154302421",
+    email: "contato@drudiealmeida.com",
+    image: [
+      `${BASE_URL}${unidade.image}`,
+      `${BASE_URL}/images/logo_drudi_almeida_horizontal_b6a3e29c.webp`,
+    ],
+    logo: `${BASE_URL}/images/logo_drudi_almeida_horizontal_b6a3e29c.webp`,
     address: {
       "@type": "PostalAddress",
       streetAddress: unidade.address,
@@ -168,6 +175,7 @@ export default function Unidade() {
       latitude: unidade.lat,
       longitude: unidade.lng,
     },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${unidade.address}, ${unidade.neighborhood}, ${unidade.city} - ${unidade.state}`)}`,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -184,7 +192,7 @@ export default function Unidade() {
     ],
     priceRange: "$$",
     currenciesAccepted: "BRL",
-    paymentAccepted: "Dinheiro, Cartão de Crédito, Cartão de Débito, Convênio",
+    paymentAccepted: "Dinheiro, Cartão de Crédito, Cartão de Débito, Convênio Médico",
     medicalSpecialty: [
       "Ophthalmology",
       "Cataract Surgery",
@@ -192,6 +200,82 @@ export default function Unidade() {
       "Retina Surgery",
       "Keratoconus Treatment",
       "Strabismus Treatment",
+    ],
+    availableService: [
+      {
+        "@type": "MedicalProcedure",
+        name: "Cirurgia de Catarata",
+        procedureType: "https://schema.org/SurgicalProcedure",
+        description: "Facoemulsificação com implante de lente intraocular premium",
+        url: `${BASE_URL}/instituto/catarata`,
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Tratamento de Ceratocone",
+        procedureType: "https://schema.org/TherapeuticProcedure",
+        description: "Crosslinking de colágeno e adaptação de lentes especiais",
+        url: `${BASE_URL}/instituto/ceratocone`,
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Tratamento de Glaucoma",
+        procedureType: "https://schema.org/TherapeuticProcedure",
+        description: "Diagnóstico precoce, colírios, laser e cirurgia para controle do glaucoma",
+        url: `${BASE_URL}/instituto/glaucoma`,
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Cirurgia de Retina",
+        procedureType: "https://schema.org/SurgicalProcedure",
+        description: "Vitrectomia, fotocoagulação a laser e injeções intravítreas",
+        url: `${BASE_URL}/instituto/retina`,
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Cirurgia de Estrabismo",
+        procedureType: "https://schema.org/SurgicalProcedure",
+        description: "Correção cirúrgica do estrabismo para crianças e adultos",
+        url: `${BASE_URL}/instituto/estrabismo`,
+      },
+      {
+        "@type": "MedicalTherapy",
+        name: "Consulta Oftalmológica",
+        description: "Exame de vista completo com refração, biomicroscopia e mapeamento de retina",
+      },
+    ],
+    amenityFeature: [
+      { "@type": "LocationFeatureSpecification", name: "Estacionamento", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Acessibilidade para Cadeirantes", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Wi-Fi", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Sala de Espera Climatizada", value: true },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+551154302421",
+        contactType: "customer service",
+        areaServed: "BR",
+        availableLanguage: "Portuguese",
+        hoursAvailable: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "08:00",
+          closes: "18:00",
+        },
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: "+5511916544653",
+        contactType: "reservations",
+        contactOption: "TollFree",
+        areaServed: "BR",
+        availableLanguage: "Portuguese",
+        description: "WhatsApp para agendamento",
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/drudiealmeida/",
+      "https://www.facebook.com/drudiealmeida/",
     ],
     parentOrganization: {
       "@id": `${BASE_URL}/#organization`,
@@ -203,6 +287,11 @@ export default function Unidade() {
       bestRating: "5",
       worstRating: "1",
     },
+    isAccessibleForFree: false,
+    knowsAbout: [
+      "Oftalmologia", "Catarata", "Ceratocone", "Glaucoma", "Retina", "Estrabismo",
+      "Cirurgia Refrativa", "Lentes de Contato", "Exame de Vista",
+    ],
   };
 
   const breadcrumbSchema = {

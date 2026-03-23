@@ -475,3 +475,6 @@
 
 ## Fase 35: SEO Local — Links Internos das Unidades
 - [x] Corrigir hrefs dos cards de unidades na homepage para /unidade/[cidade] (manter botão secundário Google Maps)
+
+## Fase 36: Schema MedicalClinic por Unidade
+- [x] Implementar MedicalClinic Schema completo em cada página /unidade/[cidade] com nome, endereço, telefone, horários, geo-coordenadas, URL, rating e serviços médicos
