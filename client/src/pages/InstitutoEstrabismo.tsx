@@ -21,6 +21,7 @@ import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 import VejaTambem from "@/components/VejaTambem";
+import SatelliteArticles from "@/components/SatelliteArticles";
 const HERO_ART_IMG = "/images/estrabismo-hero_dba86bbf.webp";
 const IMG_TESTE_COBERTURA = "/images/estrabismo-teste-cobertura_f146cd75.webp";
 
@@ -729,6 +730,15 @@ export default function InstitutoEstrabismo() {
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre estrabismo, ambliopia e cirurgia." />
       </Suspense>
 
+      {/* ========== ARTIGOS DO BLOG ========== */}
+      <SatelliteArticles
+        mode="category"
+        query="estrabismo"
+        title="Artigos sobre Estrabismo"
+        subtitle="Saiba mais sobre estrabismo, ambliopia e cirurgia com nossos artigos escritos por especialistas."
+        limit={4}
+        accentColor="#8e44ad"
+      />
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="estrabismo" />
 

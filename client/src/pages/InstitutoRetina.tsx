@@ -20,6 +20,7 @@ import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 import VejaTambem from "@/components/VejaTambem";
+import SatelliteArticles from "@/components/SatelliteArticles";
 const HERO_ART_IMG = "/images/retina-hero_cb57f973.webp";
 const IMG_OCT_SCAN = "/images/tech-oct-scan_d39e3a25.webp";
 const IMG_INJECAO = "/images/retina-injecao_154af844.webp";
@@ -694,6 +695,15 @@ export default function InstitutoRetina() {
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre doenças retinianas e seus tratamentos." />
       </Suspense>
 
+      {/* ========== ARTIGOS DO BLOG ========== */}
+      <SatelliteArticles
+        mode="category"
+        query="retina"
+        title="Artigos sobre Retina"
+        subtitle="Aprofunde seu conhecimento sobre doenças da retina, tratamentos e como proteger sua visão."
+        limit={4}
+        accentColor="#e74c3c"
+      />
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="retina" />
 

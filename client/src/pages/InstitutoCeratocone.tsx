@@ -20,6 +20,7 @@ import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 import VejaTambem from "@/components/VejaTambem";
+import SatelliteArticles from "@/components/SatelliteArticles";
 const HERO_ART_IMG = `/images/ceratocone-hero_4839850a.webp`;
 const IMG_PENTACAM = `/images/ceratocone-pentacam_54c0177a.webp`;
 const IMG_LENTES_ESCLERAIS = `/images/ceratocone-lentes-esclerais_be81ebed.webp`;
@@ -911,6 +912,15 @@ export default function InstitutoCeratocone() {
         />
       </Suspense>
 
+      {/* ========== ARTIGOS DO BLOG ========== */}
+      <SatelliteArticles
+        mode="category"
+        query="ceratocone"
+        title="Artigos sobre Ceratocone"
+        subtitle="Saiba mais sobre ceratocone, tratamentos e adaptação de lentes com nossos artigos especializados."
+        limit={4}
+        accentColor="#27ae60"
+      />
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="ceratocone" />
 

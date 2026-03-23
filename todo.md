@@ -478,3 +478,9 @@
 
 ## Fase 36: Schema MedicalClinic por Unidade
 - [x] Implementar MedicalClinic Schema completo em cada página /unidade/[cidade] com nome, endereço, telefone, horários, geo-coordenadas, URL, rating e serviços médicos
+
+## Fase 37: Rede de Links Internos (Internal Linking)
+- [x] LINK-01: Artigos do blog → link para instituto correspondente + médico revisor (sidebar com cards de link)
+- [x] LINK-02: Páginas de unidade → links para institutos disponíveis naquela unidade (já existia)
+- [x] LINK-03: Páginas de médico → links para artigos que cada médico revisou (seção SatelliteArticles)
+- [x] LINK-04: Pillar pages de instituto → links para artigos satélites no blog (seção SatelliteArticles em todas as 5 pillar pages)

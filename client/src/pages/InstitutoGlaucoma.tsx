@@ -21,6 +21,7 @@ import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 
 /* ---- Image URLs ---- */
 import VejaTambem from "@/components/VejaTambem";
+import SatelliteArticles from "@/components/SatelliteArticles";
 const HERO_ART_IMG = "/images/glaucoma-hero_degas_a3f7c912.webp"; // Edgar Degas — Green Landscape (Paysage vert), c.1890
 const IMG_TONOMETRIA = "/images/tech-tonometria_972f4a09.webp";
 const IMG_CAMPO_VISUAL = "/images/tech-campo-visual_ab0cb609.webp";
@@ -849,6 +850,15 @@ export default function InstitutoGlaucoma() {
         <FAQSection items={faqItems} subtitle="Tire suas dúvidas sobre o glaucoma e seus tratamentos." />
       </Suspense>
 
+      {/* ========== ARTIGOS DO BLOG ========== */}
+      <SatelliteArticles
+        mode="category"
+        query="glaucoma"
+        title="Artigos sobre Glaucoma"
+        subtitle="Entenda melhor o glaucoma, seus fatores de risco e como o tratamento pode preservar sua visão."
+        limit={4}
+        accentColor="#e67e22"
+      />
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="glaucoma" />
 

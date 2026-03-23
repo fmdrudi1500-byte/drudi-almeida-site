@@ -4,7 +4,7 @@
    ============================================================ */
 import { useState } from "react";
 import { useParams, Link } from "wouter";
-import { ArrowLeft, Calendar, Clock, Share2, Eye, Tag, MessageSquare, Send, Loader2, FileText, Video, Music, GalleryHorizontal, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Share2, Eye, Tag, MessageSquare, Send, Loader2, FileText, Video, Music, GalleryHorizontal, ChevronRight, ExternalLink, Stethoscope } from "lucide-react";
 
 import { blogArticles } from "./Blog";
 import { trpc } from "@/lib/trpc";
@@ -143,6 +143,26 @@ function DynamicBlogPost({ slug }: { slug: string }) {
   const { post, media, comments, category } = data;
   const images = media.filter((m) => m.mediaType === "image");
   const videos = media.filter((m) => m.mediaType === "video");
+
+  // ── Internal linking: map category slug → instituto page ──────────────────
+  const CATEGORY_TO_INSTITUTO: Record<string, { href: string; name: string; color: string }> = {
+    catarata:    { href: "/instituto/catarata",   name: "Instituto da Catarata",   color: "#2c3e50" },
+    ceratocone:  { href: "/instituto/ceratocone", name: "Instituto do Ceratocone", color: "#27ae60" },
+    glaucoma:    { href: "/instituto/glaucoma",   name: "Instituto do Glaucoma",   color: "#e67e22" },
+    retina:      { href: "/instituto/retina",     name: "Instituto da Retina",     color: "#e74c3c" },
+    estrabismo:  { href: "/instituto/estrabismo", name: "Instituto de Estrabismo", color: "#8e44ad" },
+  };
+  const institutoLink = category?.slug ? CATEGORY_TO_INSTITUTO[category.slug] : null;
+
+  // ── Internal linking: map author name → médico page ───────────────────────
+  const authorName = post.authorName ?? "";
+  const isFernandoAuthor = authorName.toLowerCase().includes("fernando") || authorName.toLowerCase().includes("drudi");
+  const isPriscillaAuthor = authorName.toLowerCase().includes("priscilla") || authorName.toLowerCase().includes("almeida");
+  const medicoLink = isFernandoAuthor
+    ? { href: "/medico/dr-fernando-drudi",   name: "Dr. Fernando Drudi",        specialty: "Catarata e Retina Cirúrgica" }
+    : isPriscillaAuthor
+    ? { href: "/medico/dra-priscilla-almeida", name: "Dra. Priscilla de Almeida", specialty: "Ceratocone e Córnea" }
+    : null;
   const audios = media.filter((m) => m.mediaType === "audio");
   const documents = media.filter((m) => m.mediaType === "document");
 
@@ -509,6 +529,64 @@ function DynamicBlogPost({ slug }: { slug: string }) {
                   Ligar: (11) 5430-2421
                 </a>
               </div>
+              {/* Link para instituto correspondente — internal linking SEO */}
+              {institutoLink && (
+                <Link href={institutoLink.href}>
+                  <div
+                    className="group rounded-xl border-2 p-4 hover:shadow-md transition-all duration-300 cursor-pointer"
+                    style={{ borderColor: `${institutoLink.color}30`, backgroundColor: `${institutoLink.color}08` }}
+                  >
+                    <p className="font-ui text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                      Especialidade Relacionada
+                    </p>
+                    <h4
+                      className="font-display text-base group-hover:opacity-80 transition-opacity font-bold"
+                      style={{ color: institutoLink.color }}
+                    >
+                      {institutoLink.name}
+                    </h4>
+                    <p className="font-body text-xs text-muted-foreground mt-1 mb-3">
+                      Saiba tudo sobre diagnóstico, tratamento e tecnologias disponíveis.
+                    </p>
+                    <span
+                      className="inline-flex items-center gap-1 font-ui text-xs font-semibold group-hover:gap-2 transition-all"
+                      style={{ color: institutoLink.color }}
+                    >
+                      Conhecer o instituto
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              )}
+
+              {/* Link para médico revisor — internal linking SEO */}
+              {medicoLink && (
+                <Link href={medicoLink.href}>
+                  <div className="group rounded-xl border border-border/60 bg-white p-4 hover:shadow-md hover:border-gold/30 transition-all duration-300 cursor-pointer">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 rounded-full bg-navy/8 flex items-center justify-center shrink-0">
+                        <Stethoscope className="w-4 h-4 text-navy" />
+                      </div>
+                      <div>
+                        <p className="font-ui text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Revisado por
+                        </p>
+                        <h4 className="font-display text-sm text-navy group-hover:text-gold transition-colors font-bold">
+                          {medicoLink.name}
+                        </h4>
+                      </div>
+                    </div>
+                    <p className="font-body text-xs text-muted-foreground mb-2">
+                      {medicoLink.specialty}
+                    </p>
+                    <span className="inline-flex items-center gap-1 font-ui text-xs font-semibold text-gold group-hover:gap-2 transition-all">
+                      Ver perfil completo
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              )}
+
               <Link href="/blog">
                 <div className="flex items-center gap-2 text-navy hover:text-gold transition-colors font-ui text-sm font-semibold cursor-pointer">
                   <ArrowLeft className="w-4 h-4" /> Voltar ao Blog

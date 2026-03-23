@@ -156,6 +156,27 @@ export const blogRouter = router({
     return getAllCategories();
   }),
 
+  /** List posts by category slug — used by pillar pages to show satellite articles */
+  listByCategorySlug: cachedPublicProcedure
+    .input(z.object({ categorySlug: z.string(), limit: z.number().min(1).max(12).default(6) }))
+    .query(async ({ input }) => {
+      const categories = await getAllCategories();
+      const category = categories.find((c) => c.slug === input.categorySlug);
+      if (!category) return { posts: [], total: 0 };
+      return getPublishedPosts({ categoryId: category.id, limit: input.limit });
+    }),
+
+  /** List posts by author name keyword — used by doctor pages to show reviewed articles */
+  listByAuthorKeyword: cachedPublicProcedure
+    .input(z.object({ keyword: z.string(), limit: z.number().min(1).max(12).default(6) }))
+    .query(async ({ input }) => {
+      const db = await (await import("./blog-db")).getPublishedPosts({});
+      const filtered = db.posts
+        .filter((p) => p.authorName?.toLowerCase().includes(input.keyword.toLowerCase()))
+        .slice(0, input.limit);
+      return { posts: filtered, total: filtered.length };
+    }),
+
   /** Get related posts for a given post */
   getRelated: cachedPublicProcedure
     .input(z.object({ postId: z.number(), categoryId: z.number().nullable().optional(), limit: z.number().min(1).max(6).default(3) }))

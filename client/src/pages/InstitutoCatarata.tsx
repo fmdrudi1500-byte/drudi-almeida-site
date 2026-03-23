@@ -20,6 +20,7 @@ import SEOHead from "@/components/SEOHead";
 const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
 import VejaTambem from "@/components/VejaTambem";
+import SatelliteArticles from "@/components/SatelliteArticles";
 
 /* ---- Constants ---- */
 const HERO_ART_IMG = `/images/catarata-hero-art_bd1bf3f5.webp`;
@@ -970,6 +971,15 @@ export default function InstitutoCatarata() {
         />
       </Suspense>
 
+      {/* ========== ARTIGOS DO BLOG ========== */}
+      <SatelliteArticles
+        mode="category"
+        query="catarata"
+        title="Artigos sobre Catarata"
+        subtitle="Aprofunde seu conhecimento sobre catarata, cirurgia e recuperação com nossos artigos escritos por especialistas."
+        limit={4}
+        accentColor="#2c3e50"
+      />
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="catarata" />
 

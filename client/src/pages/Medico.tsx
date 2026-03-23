@@ -24,6 +24,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import SEOHead from "@/components/SEOHead";
 import InstitutoCTA from "@/components/InstitutoCTA";
 import Breadcrumb from "@/components/Breadcrumb";
+import SatelliteArticles from "@/components/SatelliteArticles";
 import NotFound from "./NotFound";
 
 /* ============================================================
@@ -499,6 +500,14 @@ export default function Medico() {
         </div>
       </section>
 
+      {/* ========== ARTIGOS REVISADOS ========== */}
+      <SatelliteArticles
+        mode="author"
+        query={doctor.slug === "dr-fernando-drudi" ? "fernando" : "priscilla"}
+        title={`Artigos revisados por ${doctor.name}`}
+        subtitle={`Conteúdo científico sobre oftalmologia revisado e aprovado por ${doctor.name}, garantindo informações precisas e atualizadas para nossos pacientes.`}
+        limit={4}
+      />
       {/* ========== CTA ========== */}
       <InstitutoCTA
         title={`Agende com o ${doctor.name}`}
