@@ -2,7 +2,7 @@
    Instituto da Retina — Drudi e Almeida
    Página educativa completa — "Uma aula ao paciente"
    ============================================================ */
-import { useState, useRef, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
@@ -12,6 +12,7 @@ import { Link } from "wouter";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AudioPlayer = lazy(() => import("@/components/AudioPlayer"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
@@ -191,6 +192,42 @@ const tratamentos = [
     indications: "Descolamento regmatogênico superior com rasgadura única",
     type: "Procedimento",
     hasImg: false,
+  },
+];
+
+/* ---- Fatores de Risco ---- */
+const fatoresRisco = [
+  { factor: "Diabetes mellitus", detail: "Principal causa de retinopatia diabética. Controle glicêmico rigoroso (HbA1c < 7%) reduz o risco em até 76%" },
+  { factor: "Idade acima de 60 anos", detail: "Principal fator de risco para DMRI — a mácula envelhece com o organismo" },
+  { factor: "Miopia elevada (> -6D)", detail: "Olhos míopes têm retina mais esticada e fina, mais suscetível a rasgaduras e descolamento" },
+  { factor: "Histórico familiar de DMRI", detail: "Parentes de 1º grau com DMRI aumentam o risco em 3-4 vezes" },
+  { factor: "Tabagismo", detail: "Fumantes têm risco 2-4x maior de DMRI. O tabagismo compromete a circulação retiniana" },
+  { factor: "Hipertensão e dislipidemia", detail: "Fatores cardiovasculares aumentam o risco de oclusões vasculares retinianas" },
+  { factor: "Trauma ocular prévio", detail: "Impactos no olho podem causar rasgaduras de retina e descolamento tardio" },
+  { factor: "Cirurgia de catarata", detail: "Pequeno aumento no risco de descolamento de retina, especialmente em míopes" },
+];
+
+/* ---- Como Funciona ---- */
+const comoFunciona = [
+  {
+    step: 1,
+    title: "Consulta com retinólogo especialista",
+    description: "Avaliação completa com o Dr. Fernando Drudi, especialista em retina cirúrgica. Inclui anamnese detalhada, medida da acuidade visual e biomicroscopia.",
+  },
+  {
+    step: 2,
+    title: "Exames de imagem de alta resolução",
+    description: "OCT de última geração, mapeamento de retina e, quando indicado, angiofluoresceinografia ou OCT-Angiografia. Na maioria dos casos, realizados no mesmo dia.",
+  },
+  {
+    step: 3,
+    title: "Diagnóstico preciso e plano terapêutico",
+    description: "O especialista explica o diagnóstico com imagens do seu próprio exame e apresenta as opções de tratamento — injeção intravítrea, laser ou cirurgia — com linguagem acessível.",
+  },
+  {
+    step: 4,
+    title: "Tratamento e acompanhamento personalizado",
+    description: "Realizamos o tratamento na própria clínica. O acompanhamento com OCT periódico garante que a resposta ao tratamento seja monitorada e ajustada conforme necessário.",
   },
 ];
 
@@ -459,7 +496,122 @@ export default function InstitutoRetina() {
           </StaggerContainer>
         </div>
       </section>
-      {/* ========== 8. ARTE E VISÃO — DEGAS ========== */}
+      {/* ========== 8. FATORES DE RISCO ========== */}
+      <section className="section-padding bg-cream/50">
+        <div className="container">
+          <AnimateOnScroll className="text-center mb-12">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Prevenção</span>
+            <h2 className="font-display text-3xl md:text-4xl text-navy mt-3">Fatores de Risco para Doenças Retinianas</h2>
+            <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mt-4">Conhecer os fatores de risco é o primeiro passo para a prevenção. Quem tem um ou mais fatores deve realizar exames regulares.</p>
+            <div className="gold-line max-w-[80px] mx-auto mt-5" />
+          </AnimateOnScroll>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            {fatoresRisco.map((fr, i) => (
+              <StaggerItem key={fr.factor}>
+                <div className="h-full">
+                <div className="flex items-start gap-4 p-5 bg-white rounded-xl border border-border/60 hover:shadow-md hover:border-gold/30 transition-all">
+                  <AlertCircle className="w-5 h-5 text-gold mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="font-display text-sm text-navy mb-1">{fr.factor}</h4>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed">{fr.detail}</p>
+                  </div>
+                </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ========== 8b. COMO FUNCIONA ========== */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <AnimateOnScroll>
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Passo a Passo</span>
+              <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-3">Como funciona o atendimento?</h2>
+              <p className="font-body text-base text-muted-foreground mb-10 leading-relaxed">
+                Do agendamento ao acompanhamento — entenda cada etapa do cuidado com a retina na Drudi e Almeida.
+              </p>
+            </AnimateOnScroll>
+            <StaggerContainer className="space-y-6">
+              {comoFunciona.map((item) => (
+                <StaggerItem key={item.step}>
+                  <div className="h-full">
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center shrink-0 font-display text-sm font-bold">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-base text-navy mb-1">{item.title}</h3>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <AnimateOnScroll delay={0.5}>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 text-white font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20">
+                  <MessageCircle className="w-4 h-4" />Agende pelo WhatsApp
+                </a>
+                <AgendarOnlineBtn variant="light" />
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.6} className="mt-10">
+              <div className="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                <h3 className="font-display text-lg text-navy mb-4">Ouça nossa mensagem de boas-vindas</h3>
+                <Suspense fallback={null}>
+                  <AudioPlayer
+                    src="/images/boas-vindas-retina_cf3cce61.mp3"
+                    title="Instituto da Retina"
+                    subtitle="Mensagem de boas-vindas — Drudi e Almeida"
+                  />
+                </Suspense>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 8c. RESULTADOS ESPERADOS ========== */}
+      <section className="section-padding bg-navy">
+        <div className="container">
+          <AnimateOnScroll>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl text-cream mb-6">
+                <span className="text-gold">Resultados esperados</span> com o tratamento
+              </h2>
+              <div className="space-y-4 font-body text-base text-cream/80 leading-relaxed">
+                <p>
+                  Os avanços nos tratamentos retinianos transformaram o progóstico de doenças que antes levavam à cegueira. <strong className="text-cream">As injeções de anti-VEGF previnem a piora da visão em 95% dos casos de DMRI úmida</strong> e podem até melhorar a acuidade visual em muitos pacientes.
+                </p>
+                <p>
+                  Na retinopatia diabética, o tratamento oportuno com laser e anti-VEGF, combinado ao controle glicêmico, <strong className="text-cream">reduz em 95% o risco de cegueira</strong>. O descolamento de retina tratado em até 48 horas tem excelente progóstico de recuperação visual.
+                </p>
+                <p>
+                  A vitrectomia moderna com instrumentos 25-27G oferece <strong className="text-cream">recuperação rápida e menor risco de complicações</strong>. A maioria dos pacientes retorna às atividades normais em 2–4 semanas.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                {[
+                  { value: "95%", label: "Prevenção de piora com anti-VEGF" },
+                  { value: "90%+", label: "Fechamento de buraco macular" },
+                  { value: "24-48h", label: "Janela ideal no descolamento" },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-white/10 rounded-xl p-5 text-center border border-cream/10">
+                    <p className="font-display text-2xl text-gold mb-1">{stat.value}</p>
+                    <p className="font-body text-xs text-cream/70">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ========== 9. ARTE E VISÃO — DEGAS ========== */}
       <section className="section-padding bg-navy text-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
         <div className="container relative">

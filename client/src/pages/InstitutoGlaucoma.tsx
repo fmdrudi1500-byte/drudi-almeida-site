@@ -2,7 +2,7 @@
    Instituto do Glaucoma — Drudi e Almeida
    Página educativa completa — "Uma aula ao paciente"
    ============================================================ */
-import { useState, useRef, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
@@ -13,6 +13,7 @@ import { Link } from "wouter";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AudioPlayer = lazy(() => import("@/components/AudioPlayer"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
@@ -191,6 +192,54 @@ const fatoresRisco = [
   { factor: "Córneas mais finas", detail: "Espessura corneana < 555 μm é fator de risco independente" },
   { factor: "Diabetes e hipertensão", detail: "Doenças vasculares comprometem a irrigação do nervo óptico" },
   { factor: "Uso de corticosteroides", detail: "Uso prolongado de corticoides (colírios, pomadas, sistêmicos) pode elevar a PIO" },
+];
+
+/* ---- Como Funciona ---- */
+const comoFunciona = [
+  {
+    step: 1,
+    title: "Agende uma consulta de avaliação",
+    description: "Entre em contato pelo WhatsApp ou telefone. Nossa equipe agenda sua consulta com um especialista em glaucoma na unidade mais conveniente para você.",
+  },
+  {
+    step: 2,
+    title: "Avaliação completa com exames modernos",
+    description: "Realizamos tonometria, campo visual computadorizado, OCT do nervo óptico e gonioscopia. Na maioria dos casos, os exames são feitos no mesmo dia da consulta.",
+  },
+  {
+    step: 3,
+    title: "Diagnóstico e plano de tratamento individualizado",
+    description: "Com base nos resultados, o especialista explica o estágio da doença e apresenta as opções de tratamento — colírios, laser ou cirurgia — de forma clara e acolhedora.",
+  },
+  {
+    step: 4,
+    title: "Acompanhamento contínuo e monitoramento",
+    description: "O glaucoma exige acompanhamento regular. Realizamos consultas periódicas para verificar a pressão, o campo visual e a estabilidade do nervo óptico, ajustando o tratamento conforme necessário.",
+  },
+];
+
+/* ---- Cuidados e Vida com Glaucoma ---- */
+const cuidadosVida = [
+  {
+    title: "Use os colírios no horário certo",
+    desc: "A eficácia do tratamento depende da regularidade. Use os colírios sempre no mesmo horário, mesmo quando se sentir bem. A interrupção pode levar à progressão silenciosa da doença.",
+    color: "bg-sky-50 border-sky-200",
+  },
+  {
+    title: "Não falte às consultas de acompanhamento",
+    desc: "O glaucoma pode progredir sem sintomas perceptíveis. Consultas regulares (a cada 3–6 meses) são essenciais para detectar progressão precocemente e ajustar o tratamento.",
+    color: "bg-emerald-50 border-emerald-200",
+  },
+  {
+    title: "Evite atividades que elevam a pressão ocular",
+    desc: "Exercícios de alta intensidade, instrumentos de sopro e posições invertidas podem elevar temporariamente a PIO. Converse com seu médico sobre as atividades físicas mais seguras para o seu caso.",
+    color: "bg-amber-50 border-amber-200",
+  },
+  {
+    title: "Informe todos os médicos sobre o glaucoma",
+    desc: "Alguns medicamentos sistêmicos (corticosteroides, anticolinérgicos) podem elevar a PIO ou interagir com os colírios antiglaucomatosos. Sempre informe seu histórico oftalmológico a qualquer médico que te atenda.",
+    color: "bg-violet-50 border-violet-200",
+  },
 ];
 
 /* ---- FAQ ---- */
@@ -559,7 +608,59 @@ export default function InstitutoGlaucoma() {
         </div>
       </section>
 
-      {/* ========== 11. CAMPO VISUAL — IMPORTÂNCIA ========== */}
+      {/* ========== 11. COMO FUNCIONA ========== */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <AnimateOnScroll>
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Passo a Passo</span>
+              <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-3">Como funciona o atendimento?</h2>
+              <p className="font-body text-base text-muted-foreground mb-10 leading-relaxed">
+                Do agendamento ao acompanhamento — entenda cada etapa do cuidado com o glaucoma na Drudi e Almeida.
+              </p>
+            </AnimateOnScroll>
+            <StaggerContainer className="space-y-6">
+              {comoFunciona.map((item) => (
+                <StaggerItem key={item.step}>
+                  <div className="h-full">
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center shrink-0 font-display text-sm font-bold">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-base text-navy mb-1">{item.title}</h3>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <AnimateOnScroll delay={0.5}>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 text-white font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20">
+                  <MessageCircle className="w-4 h-4" />Agende pelo WhatsApp
+                </a>
+                <AgendarOnlineBtn variant="light" />
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.6} className="mt-10">
+              <div className="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                <h3 className="font-display text-lg text-navy mb-4">Ouça nossa mensagem de boas-vindas</h3>
+                <Suspense fallback={null}>
+                  <AudioPlayer
+                    src="/images/boas-vindas-glaucoma_cf3cce61.mp3"
+                    title="Instituto do Glaucoma"
+                    subtitle="Mensagem de boas-vindas — Drudi e Almeida"
+                  />
+                </Suspense>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 11b. CAMPO VISUAL — IMPORTÂNCIA ========== */}
       <section className="section-padding">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -592,7 +693,79 @@ export default function InstitutoGlaucoma() {
         </div>
       </section>
 
-      {/* ========== 12. ARTE E VISÃO — EL GRECO ========== */}
+      {/* ========== 12. RESULTADOS ESPERADOS ========== */}
+      <section className="section-padding bg-navy">
+        <div className="container">
+          <AnimateOnScroll>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl text-cream mb-6">
+                <span className="text-gold">Resultados esperados</span> com o tratamento
+              </h2>
+              <div className="space-y-4 font-body text-base text-cream/80 leading-relaxed">
+                <p>
+                  Com diagnóstico precoce e tratamento adequado, <strong className="text-cream">a grande maioria dos pacientes com glaucoma mantém visão funcional por toda a vida</strong>. O objetivo do tratamento não é curar, mas estabilizar a doença e preservar a qualidade de vida.
+                </p>
+                <p>
+                  Pacientes que seguem o tratamento corretamente — usando os colírios no horário certo e comparecendo às consultas de acompanhamento — <strong className="text-cream">têm excelente progóstico</strong>. A pressão intraocular pode ser controlada em mais de 80% dos casos com colírios.
+                </p>
+                <p>
+                  Quando o tratamento clínico não é suficiente, procedimentos a laser (SLT) e cirurgias modernas como MIGS oferecem <strong className="text-cream">redução significativa da pressão com recuperação rápida</strong> e menor necessidade de colírios.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                {[
+                  { value: "80%+", label: "Controlados com colírios" },
+                  { value: "20-30%", label: "Redução de PIO com SLT" },
+                  { value: "3-6 meses", label: "Intervalo de consultas" },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-white/10 rounded-xl p-5 text-center border border-cream/10">
+                    <p className="font-display text-2xl text-gold mb-1">{stat.value}</p>
+                    <p className="font-body text-xs text-cream/70">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ========== 12b. VIDA COM GLAUCOMA ========== */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+            <AnimateOnScroll>
+              <div>
+                <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Orientações</span>
+                <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-6">
+                  <span className="text-gold">Vida com Glaucoma</span>: cuidados essenciais
+                </h2>
+                <div className="space-y-4 font-body text-sm text-muted-foreground leading-relaxed">
+                  <p>
+                    O glaucoma é uma doença crônica, mas com os cuidados certos é possível manter uma vida plena e ativa. A <strong className="text-navy">adesão ao tratamento</strong> é o fator mais importante para preservar a visão a longo prazo.
+                  </p>
+                  <p>
+                    Confira os cuidados fundamentais para quem convive com o glaucoma:
+                  </p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+            <StaggerContainer className="space-y-4">
+              {cuidadosVida.map((cuidado, i) => (
+                <StaggerItem key={i}>
+                  <div className="h-full">
+                  <div className={`rounded-xl p-5 border border-l-4 border-l-gold ${cuidado.color}`}>
+                    <h4 className="font-display text-sm text-navy mb-2">{cuidado.title}</h4>
+                    <p className="font-body text-sm text-navy/70 leading-relaxed">{cuidado.desc}</p>
+                  </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 13. ARTE E VISÃO — EL GRECO ========== */}
       <section className="section-padding bg-navy text-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
         <div className="container relative">

@@ -454,3 +454,9 @@
 
 - [x] Diagnosticar: Cloudflare intercepta /en antes do Express, servindo index.html diretamente
 - [x] Adicionar redirects 301 no arquivo _redirects (CDN-level) para /en, /pt, /pt-br e demais rotas legadas do Wix
+
+## Fase SEO: Expansão de Pillar Pages (Mar 2026)
+
+- [x] PILLAR-01: Expandir InstitutoGlaucoma.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)
+- [x] PILLAR-02: Expandir InstitutoRetina.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)
+- [x] PILLAR-03: Expandir InstitutoEstrabismo.tsx para 2.000+ palavras (sintomas, procedimentos, FAQ, Schema)

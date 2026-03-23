@@ -2,7 +2,7 @@
    Instituto do Estrabismo — Drudi e Almeida
    Página educativa completa — "Uma aula ao paciente"
    ============================================================ */
-import { useState, useRef, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import {
   Eye, ChevronRight, Phone, MessageCircle, DollarSign,
   AlertCircle, CheckCircle, Palette, Star, MapPin, Users,
@@ -13,6 +13,7 @@ import { Link } from "wouter";
 
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const AudioPlayer = lazy(() => import("@/components/AudioPlayer"));
 import { IMAGES } from "@/lib/images";
 import SEOHead from "@/components/SEOHead";
 const InstitutoSchema = lazy(() => import("@/components/InstitutoSchema"));
@@ -530,6 +531,115 @@ export default function InstitutoEstrabismo() {
               </div>
             </AnimateOnScroll>
           </div>
+        </div>
+      </section>
+
+      {/* ========== 9b. COMO FUNCIONA ========== */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <AnimateOnScroll>
+              <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Passo a Passo</span>
+              <h2 className="font-display text-3xl md:text-4xl text-navy mt-3 mb-3">Como funciona o atendimento?</h2>
+              <p className="font-body text-base text-muted-foreground mb-10 leading-relaxed">
+                Do primeiro exame à cirurgia e ao acompanhamento — entenda cada etapa do cuidado com o estrabismo na Drudi e Almeida.
+              </p>
+            </AnimateOnScroll>
+            <StaggerContainer className="space-y-6">
+              {[
+                {
+                  step: 1,
+                  title: "Consulta com especialista em estrabismo",
+                  description: "Avaliação completa com exame de motilidade ocular, cover test, medida do desvio com prismas e avaliação sensorial. Em crianças, inclui refração sob cicloplegia.",
+                },
+                {
+                  step: 2,
+                  title: "Diagnóstico e plano de tratamento",
+                  description: "O especialista explica o tipo de estrabismo, as opções de tratamento (óculos, oclução, exercícios, toxina botulínica ou cirurgia) e o prognóstico esperado com linguagem acessível.",
+                },
+                {
+                  step: 3,
+                  title: "Tratamento clínico (quando indicado)",
+                  description: "Óculos, tampons para ambliopia e exercícios ortópticos são iniciados antes da cirurgia quando indicados. O controle da ambliopia é fundamental para o sucesso cirúrgico.",
+                },
+                {
+                  step: 4,
+                  title: "Cirurgia e acompanhamento pós-operatório",
+                  description: "Procedimento ambulatorial com alta no mesmo dia. Acompanhamento regular para avaliar o alinhamento, ajustar o tratamento e monitorar o desenvolvimento visual, especialmente em crianças.",
+                },
+              ].map((item) => (
+                <StaggerItem key={item.step}>
+                  <div className="h-full">
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-navy text-cream flex items-center justify-center shrink-0 font-display text-sm font-bold">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-base text-navy mb-1">{item.title}</h3>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <AnimateOnScroll delay={0.5}>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 text-white font-ui text-sm font-bold px-6 py-3.5 rounded-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20">
+                  <MessageCircle className="w-4 h-4" />Agende pelo WhatsApp
+                </a>
+                <AgendarOnlineBtn variant="light" />
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.6} className="mt-10">
+              <div className="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                <h3 className="font-display text-lg text-navy mb-4">Ouça nossa mensagem de boas-vindas</h3>
+                <Suspense fallback={null}>
+                  <AudioPlayer
+                    src="/images/boas-vindas-estrabismo_cf3cce61.mp3"
+                    title="Instituto do Estrabismo"
+                    subtitle="Mensagem de boas-vindas — Drudi e Almeida"
+                  />
+                </Suspense>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 9c. RESULTADOS ESPERADOS ========== */}
+      <section className="section-padding bg-navy">
+        <div className="container">
+          <AnimateOnScroll>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl text-cream mb-6">
+                <span className="text-gold">Resultados esperados</span> com o tratamento
+              </h2>
+              <div className="space-y-4 font-body text-base text-cream/80 leading-relaxed">
+                <p>
+                  A cirurgia de estrabismo tem <strong className="text-cream">taxa de sucesso de 60–90% na primeira intervenção</strong>, com alinhamento satisfatório dos olhos. O uso de suturas ajustáveis melhora significativamente os resultados em casos complexos e reoperações.
+                </p>
+                <p>
+                  Em crianças, o tratamento precoce da ambliopia associado à cirurgia pode <strong className="text-cream">restaurar a visão binocular e a percepção de profundidade</strong>. Em adultos, a cirurgia elimina a visão dupla, melhora a autoestima e tem impacto positivo nas relações sociais e profissionais.
+                </p>
+                <p>
+                  A recuperação é rápida: <strong className="text-cream">alta no mesmo dia, retorno às atividades em 1–2 semanas</strong> e resultado estético final avaliado em 4–6 semanas.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                {[
+                  { value: "60-90%", label: "Taxa de sucesso na 1ª cirurgia" },
+                  { value: "1-2 sem", label: "Retorno às atividades" },
+                  { value: "4%", label: "Prevalência na população" },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-white/10 rounded-xl p-5 text-center border border-cream/10">
+                    <p className="font-display text-2xl text-gold mb-1">{stat.value}</p>
+                    <p className="font-body text-xs text-cream/70">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
