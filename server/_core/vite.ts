@@ -124,9 +124,11 @@ export function serveStatic(app: Express) {
     const html = fs.readFileSync(indexPath, "utf-8");
     const pathname = req.originalUrl.split("?")[0].split("#")[0];
     const injected = await injectMetaTagsAsync(html, pathname);
+    // Debug: add SSR marker to confirm Express is processing the request
+    const debugMarked = injected.replace("</head>", `<!-- SSR-ACTIVE:${pathname} --></head>`);
 
     res.setHeader("Cache-Control", "max-age=0, must-revalidate");
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.send(injected);
+    res.send(debugMarked);
   });
 }
