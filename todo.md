@@ -541,3 +541,9 @@
 - [x] Corrigir CEPs das unidades (Lapa: 05040-010, Santana: 02013-001, Guarulhos: 07011-020, São Miguel: 08010-060)
 - [x] Corrigir URL sem www em SchemaMarkup (era www.institutodrudiealmeida.com.br)
 - [x] Corrigir endereços fictícios no Medico.tsx (Rua Galvão Bueno → Rua Dr. César; Rua Dona Primitiva Vianco → Rua Sete de Setembro)
+
+## Fase 47: Otimizações Core Web Vitals (TBT/LCP/FCP)
+- [x] PERF-25: Remover vendor-trpc e vendor-radix do modulepreload inicial no index.html (reduz parse/compile no thread principal)
+- [x] PERF-26: Adiar Google Tag Manager para depois do load event via requestIdleCallback (reduz TBT 50-150ms)
+- [x] PERF-27: Lazy-load SocialProofToasts e UrgencyBar no Layout.tsx (removê-los do bundle inicial)
+- [x] PERF-28: Inline do CSS crítico above-the-fold no index.html (já estava implementado via scripts/inline-critical-css.mjs — 1.3KB inlined)
