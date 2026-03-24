@@ -531,3 +531,13 @@
 - [x] FIX-01: Adicionar logging ao catch do seoMetaTags para capturar erros silenciosos
 - [ ] FIX-02: Criar novo checkpoint e republicar para forçar deploy do código mais recente
 - [ ] FIX-03: Verificar se o SSR está funcionando no site publicado após o deploy
+
+## Fase 46: Correção de Dados Estruturados (Google Rich Results)
+- [x] Corrigir endereços incorretos nos schemas (SchemaMarkup, SchemaOrg, Unidade, Medico)
+- [x] Corrigir URL do logo para logo-horizontal-200w_opt.webp em todos os schemas
+- [x] Corrigir sameAs do Instagram e Facebook (adicionar trailing slash, URL correta)
+- [x] Remover faxNumber não-padrão do schema da Unidade
+- [x] Adicionar @id e identifier (CRM) aos schemas de Physician
+- [x] Corrigir CEPs das unidades (Lapa: 05040-010, Santana: 02013-001, Guarulhos: 07011-020, São Miguel: 08010-060)
+- [x] Corrigir URL sem www em SchemaMarkup (era www.institutodrudiealmeida.com.br)
+- [x] Corrigir endereços fictícios no Medico.tsx (Rua Galvão Bueno → Rua Dr. César; Rua Dona Primitiva Vianco → Rua Sete de Setembro)
