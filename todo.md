@@ -524,3 +524,10 @@
 ## Fase 44: SSR de Metatags (Pre-rendering no Servidor)
 - [ ] SSR-01: Middleware Express que injeta title, canonical, og:title, og:description, og:image no HTML para páginas de artigo (/blog/:slug)
 - [ ] SSR-02: Estender middleware para pillar pages (/instituto/:slug), médicos (/medico/:slug) e unidades (/unidade/:slug)
+
+## Fase 45: Diagnóstico e Correção do SSR em Produção
+- [x] DIAG-01: SSR implementado e funcionando localmente (dev e produção)
+- [x] DIAG-02: Problema identificado: servidor publicado não está injetando metatags corretas
+- [x] FIX-01: Adicionar logging ao catch do seoMetaTags para capturar erros silenciosos
+- [ ] FIX-02: Criar novo checkpoint e republicar para forçar deploy do código mais recente
+- [ ] FIX-03: Verificar se o SSR está funcionando no site publicado após o deploy
