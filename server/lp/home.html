@@ -107,8 +107,8 @@
 
     /* ===== GOLD LINE ===== */
     .gold-line {
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
       border-radius: 2px;
     }
 
@@ -139,7 +139,7 @@
     }
     #urgency-bar .ub-close:hover { color: rgba(248,245,239,0.9); }
     @media (max-width: 640px) {
-      #urgency-bar .ub-text { display: none; }
+      #urgency-bar .ub-text { font-size: 11px; }
     }
 
     /* ===== HEADER ===== */
@@ -311,12 +311,13 @@
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: white;
-      border: 1px solid rgba(30,45,61,0.15);
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(201,169,97,0.35);
       border-radius: 999px;
-      padding: 6px 16px;
+      padding: 7px 18px;
       margin-bottom: 1.5rem;
       animation: hero-fade-up 0.6s 0.2s both;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
     .hero-badge svg { color: var(--navy); }
     .hero-badge span { font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.1em; }
@@ -349,6 +350,7 @@
       font-weight: 700; font-size: 14px;
       padding: 14px 28px; border-radius: 8px;
       transition: background 0.2s;
+      min-height: 52px;
     }
     .btn-wa:hover { background: var(--gold-light); }
     .btn-agendar-online {
@@ -357,6 +359,8 @@
       border: 1px solid rgba(201,169,97,0.4);
       background: var(--navy);
       transition: border-color 0.2s, background 0.2s;
+      min-height: 52px;
+      justify-content: center;
     }
     .btn-agendar-online:hover { border-color: rgba(201,169,97,0.6); background: rgba(30,45,61,0.8); }
     .btn-agendar-online .main-label {
@@ -393,8 +397,8 @@
     .stats-grid {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+      border: 1px solid rgba(201,169,97,0.15);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
@@ -481,13 +485,12 @@
     .quem-somos-card-float {
       position: absolute;
       bottom: 1.5rem; left: 1.5rem;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
       padding: 1rem;
       max-width: 220px;
-      border: 1px solid rgba(201,169,97,0.2);
+      border: 1px solid rgba(201,169,97,0.25);
       z-index: 2;
     }
     .float-stars { display: flex; align-items: center; gap: 3px; margin-bottom: 6px; }
@@ -576,6 +579,123 @@
     .conv-logo-card img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(30%); transition: filter 0.2s; }
     .conv-logo-card:hover img { filter: grayscale(0%); }
 
+
+    /* ===== TECNOLOGIA ===== */
+    .tech-carousel-wrapper {
+      position: relative;
+      margin: 0 -1rem;
+    }
+    .tech-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 0 1rem 1.5rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .tech-carousel::-webkit-scrollbar { display: none; }
+    .tech-card {
+      flex-shrink: 0;
+      width: 280px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: white;
+      overflow: hidden;
+      scroll-snap-align: start;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    @media (min-width: 768px) { .tech-card { width: 300px; } }
+    .tech-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-color: rgba(201,169,97,0.4); }
+    .tech-card-img {
+      position: relative;
+      height: 192px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+    .tech-card-img img {
+      max-height: 100%; max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.5s;
+    }
+    .tech-card:hover .tech-card-img img { transform: scale(1.08); }
+    .tech-badge {
+      position: absolute; top: 12px; right: 12px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .tech-badge-diag { background: #dbeafe; color: #1e40af; }
+    .tech-badge-trat { background: #d1fae5; color: #065f46; }
+    .tech-badge-cir  { background: #fef3c7; color: #92400e; }
+    .tech-card-body { padding: 1.25rem; }
+    .tech-card-name { font-size: 1.1rem; color: var(--navy); margin-bottom: 2px; transition: color 0.2s; }
+    .tech-card:hover .tech-card-name { color: var(--gold); }
+    .tech-card-brand { font-size: 12px; color: var(--muted); margin-bottom: 0.75rem; }
+    .tech-card-highlight {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(201,169,97,0.08);
+      border: 1px solid rgba(201,169,97,0.15);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px; font-weight: 500; color: var(--navy);
+    }
+    .tech-card-highlight svg { color: var(--gold); flex-shrink: 0; }
+    .tech-arrow {
+      display: none;
+      position: absolute;
+      top: 50%; transform: translateY(-60%);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--navy);
+      transition: border-color 0.2s, color 0.2s;
+      z-index: 2;
+    }
+    @media (min-width: 768px) { .tech-arrow { display: flex; } }
+    .tech-arrow:hover { border-color: var(--gold); color: var(--gold); }
+    .tech-arrow-left  { left: -8px; }
+    .tech-arrow-right { right: -8px; }
+    .tech-dots {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-top: 1.25rem;
+    }
+    .tech-dot {
+      width: 10px; height: 10px;
+      border-radius: 100px;
+      background: var(--border);
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .tech-dot-active {
+      background: var(--gold);
+      transform: scaleX(2.8);
+      transform-origin: left;
+    }
+    .tech-stats-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (min-width: 640px) { .tech-stats-row { flex-direction: row; justify-content: center; } }
+    .tech-stat-group {
+      display: flex; align-items: center; gap: 2rem; text-align: center;
+    }
+    .tech-stat-item {}
+    .tech-stat-num { font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+    .tech-stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.03em; margin-top: 2px; }
+    .tech-stat-divider { width: 1px; height: 32px; background: var(--border); }
+    /* dark mode tech */
+    body.dark-mode .tech-card { background: rgba(255,255,255,0.04); }
+    body.dark-mode .tech-card-img { background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); }
+    body.dark-mode .tech-arrow { background: #1a2535; border-color: rgba(255,255,255,0.1); color: var(--cream); }
     /* ===== FUNDADORES ===== */
     .fundadores-grid {
       display: grid;
@@ -667,14 +787,16 @@
     .unidade-card {
       background: white;
       border-radius: 16px;
-      overflow: hidden;
+      overflow: visible;
       border: 1px solid rgba(0,0,0,0.08);
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       transition: box-shadow 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     .unidade-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: rgba(201,169,97,0.3); }
-    .unidade-card-img { height: 192px; overflow: hidden; position: relative; }
-    .unidade-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .unidade-card-img { height: 192px; overflow: hidden; position: relative; flex-shrink: 0; }
+    .unidade-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; max-height: 192px; }
     .unidade-card:hover .unidade-card-img img { transform: scale(1.05); }
     .unidade-card-body { padding: 1.25rem 1.25rem 0.75rem; }
     .unidade-card-body .loc-row { display: flex; align-items: flex-start; gap: 8px; }
@@ -683,7 +805,7 @@
     .unidade-card:hover .unidade-card-body h3 { color: var(--gold); }
     .unidade-card-body .addr { font-size: 12px; color: var(--muted); }
     .unidade-card-body .city { font-size: 12px; font-weight: 700; color: var(--gold); }
-    .unidade-card-footer { padding: 0.75rem 1.25rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .unidade-card-footer { padding: 0.75rem 1.25rem 1rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.06); margin-top: 0.5rem; }
     .unidade-card-footer a { font-size: 12px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
     .unidade-card-footer a:hover { color: var(--gold); }
     .map-container { margin-top: 2rem; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); }
@@ -862,7 +984,7 @@
     }
     #fab-wa:hover { transform: scale(1.05); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
     @media (max-width: 640px) {
-      #fab-wa { bottom: 5rem; right: 1rem; padding: 12px 16px; font-size: 13px; }
+      #fab-wa { display: none !important; }
     }
     #sticky-cta-bar {
       display: none;
@@ -1116,6 +1238,246 @@
   </div>
 </section>
 
+<!-- ===== NOSSOS INSTITUTOS ===== -->
+<section id="institutos" class="section-padding">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-eyebrow">Acessibilidade e Especialização</span>
+      <h2 class="section-title font-display">Nossos Institutos</h2>
+      <p class="section-desc">Cada instituto é dedicado a uma especialidade, garantindo que você receba o cuidado mais especializado e atualizado para a sua condição.</p>
+      <div class="gold-line" style="max-width:80px;margin:1.5rem auto 0"></div>
+    </div>
+    <div class="institutos-grid">
+      <a href="/instituto/catarata" class="instituto-card animate-on-scroll">
+        <img src="/images/logo-catarata-128_4016b3c8.webp" alt="Instituto da Catarata" loading="lazy" decoding="async" width="56" height="56">
+        <h3 class="font-display">Instituto da Catarata</h3>
+        <p>Cirurgia de catarata, especialistas renomados, tecnologia de ponta para restaurar a clareza da sua visão.</p>
+        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="/instituto/ceratocone" class="instituto-card animate-on-scroll">
+        <img src="/images/logo-ceratocone-128_5f37b031.webp" alt="Instituto do Ceratocone" loading="lazy" decoding="async" width="56" height="56">
+        <h3 class="font-display">Instituto do Ceratocone</h3>
+        <p>Adaptação de lente de contato, Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.</p>
+        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="/instituto/glaucoma" class="instituto-card animate-on-scroll">
+        <img src="/images/logo-glaucoma-128_c3ccf9c1.webp" alt="Instituto do Glaucoma" loading="lazy" decoding="async" width="56" height="56">
+        <h3 class="font-display">Instituto do Glaucoma</h3>
+        <p>Diagnóstico precoce e tratamento contínuo para preservar sua visão do glaucoma.</p>
+        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="/instituto/retina" class="instituto-card animate-on-scroll">
+        <img src="/images/logo-retina-128_88ef0fac.webp" alt="Instituto da Retina" loading="lazy" decoding="async" width="56" height="56">
+        <h3 class="font-display">Instituto da Retina</h3>
+        <p>Tratamento especializado para doenças da retina com tecnologia de última geração.</p>
+        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a href="/instituto/estrabismo" class="instituto-card animate-on-scroll">
+        <img src="/images/logo-estrabismo-128_b8ca4997.webp" alt="Instituto de Estrabismo" loading="lazy" decoding="async" width="56" height="56">
+        <h3 class="font-display">Instituto de Estrabismo</h3>
+        <p>Cirurgia para correção do estrabismo para crianças e adultos com técnicas modernas.</p>
+        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONVÊNIOS ===== -->
+<section id="secao-convenios" class="section-padding" style="padding-bottom:3rem">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:0.75rem">
+        <span style="width:20px;height:1px;background:rgba(201,169,97,0.5);display:inline-block"></span>
+        <span class="section-eyebrow" style="margin:0">Convênios Aceitos</span>
+        <span style="width:20px;height:1px;background:rgba(201,169,97,0.5);display:inline-block"></span>
+      </div>
+      <h2 class="section-title font-display">Atendemos os principais convênios</h2>
+      <p class="section-desc">Trabalhamos com os principais planos de saúde para facilitar o acesso ao cuidado oftalmológico.</p>
+    </div>
+  </div>
+  <!-- Carrossel de logos -->
+  <div class="convenios-strip" style="margin-bottom:2rem">
+    <div style="overflow:hidden;position:relative">
+      <div class="convenios-track" id="convenios-track">
+        <div class="conv-logo-card"><img src="/images/prevent-senior-188w_60641e66.webp" alt="Prevent Senior" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/bradesco-188w_b58e35a5.webp" alt="Bradesco Saúde" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/tech-mediservice-188w_ba541991.webp" alt="Mediservice" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/logo-propm-188w_44c9af21.webp" alt="Instituto Pró-PM" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/amil-188w_94445080.webp" alt="Amil" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/unimed-188w_3728f5a6.webp" alt="Unimed Seguros" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/ameplam-188w_df6e92d3.webp" alt="Ameplam" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/prevent-senior-188w_60641e66.webp" alt="Prevent Senior" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/bradesco-188w_b58e35a5.webp" alt="Bradesco Saúde" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/tech-mediservice-188w_ba541991.webp" alt="Mediservice" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/logo-propm-188w_44c9af21.webp" alt="Instituto Pró-PM" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/amil-188w_94445080.webp" alt="Amil" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/unimed-188w_3728f5a6.webp" alt="Unimed Seguros" loading="lazy" decoding="async"></div>
+        <div class="conv-logo-card"><img src="/images/ameplam-188w_df6e92d3.webp" alt="Ameplam" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer do carrossel -->
+  <div class="container">
+    <div style="text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:white;font-size:13px;font-weight:500;padding:10px 20px;border-radius:100px;margin-bottom:14px;line-height:1">
+        <span style="font-weight:800;color:var(--gold);font-size:15px">7+</span>
+        convênios aceitos
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:0.75rem">
+        Não encontrou seu plano?
+        <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Gostaria+de+consultar+a+cobertura+do+meu+conv%C3%AAnio." target="_blank" rel="noopener noreferrer" style="color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px">Consulte pelo WhatsApp</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== TECNOLOGIA / INFRAESTRUTURA ===== -->
+<section id="tecnologia" class="section-padding" style="background:linear-gradient(to bottom, var(--background), rgba(248,245,239,0.3), var(--background))">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-eyebrow">Infraestrutura</span>
+      <h2 class="section-title font-display">Tecnologia de Ponta</h2>
+      <p class="section-desc">Contamos com <strong>14 equipamentos de última geração</strong> para garantir diagnósticos precisos e tratamentos seguros.</p>
+      <div class="gold-line" style="max-width:80px;margin:1.5rem auto 0"></div>
+    </div>
+    <!-- Carrossel de equipamentos -->
+    <div class="tech-carousel-wrapper">
+      <div class="tech-carousel" id="tech-carousel">
+        <!-- Card 1 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/tech-ervHszJT_dbcd90e3.webp" alt="OCT com Angio-OCT — Maestro 2 Topcon" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-diag">Diagnóstico</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">OCT com Angio-OCT</h3>
+            <p class="tech-card-brand">Maestro 2 — Topcon</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Automatizado — resultado em segundos
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/tech-BjIDRRibGgbqaEgW_c47e0e8a.webp" alt="Pentacam AXL — Oculus" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-diag">Diagnóstico</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">Pentacam AXL</h3>
+            <p class="tech-card-brand">Oculus</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Análise completa do segmento anterior
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/tech-uqfZPyapWiDmhgjZ_6136865e.webp" alt="Campo Visual — Humphrey 750i Zeiss" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-diag">Diagnóstico</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">Campo Visual</h3>
+            <p class="tech-card-brand">Humphrey 750i — Zeiss</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Padrão-ouro para glaucoma
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/tech-LUSoVEgfmutwLJEX_87a665d8.webp" alt="Laser Argônio Multipoint — Vitra 2 Quantel" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-trat">Tratamento</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">Laser Argônio Multipoint</h3>
+            <p class="tech-card-brand">Vitra 2 — Quantel Medical</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Multispot — tratamento mais rápido
+            </div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/other-tHthjLAV_ae6c8b04.webp" alt="OPD-Scan III — Nidek" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-diag">Diagnóstico</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">OPD-Scan III</h3>
+            <p class="tech-card-brand">Nidek</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              5 exames em 1 único aparelho
+            </div>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="tech-card">
+          <div class="tech-card-img">
+            <img src="/images/other-uNpBHQmk_5cf97577.webp" alt="Yag Laser — Optimis II Quantel" loading="lazy" decoding="async">
+            <span class="tech-badge tech-badge-cir">Cirúrgico</span>
+          </div>
+          <div class="tech-card-body">
+            <h3 class="tech-card-name font-display">Yag Laser</h3>
+            <p class="tech-card-brand">Optimis II — Quantel Medical</p>
+            <div class="tech-card-highlight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Precisão com mínima energia
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Setas de navegação -->
+      <button class="tech-arrow tech-arrow-left" id="tech-prev" aria-label="Equipamento anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="tech-arrow tech-arrow-right" id="tech-next" aria-label="Próximo equipamento">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <!-- Dots de progresso -->
+    <div class="tech-dots" id="tech-dots">
+      <button class="tech-dot tech-dot-active" data-idx="0" aria-label="Equipamento 1"></button>
+      <button class="tech-dot" data-idx="1" aria-label="Equipamento 2"></button>
+      <button class="tech-dot" data-idx="2" aria-label="Equipamento 3"></button>
+      <button class="tech-dot" data-idx="3" aria-label="Equipamento 4"></button>
+      <button class="tech-dot" data-idx="4" aria-label="Equipamento 5"></button>
+      <button class="tech-dot" data-idx="5" aria-label="Equipamento 6"></button>
+    </div>
+    <!-- Stats + CTA -->
+    <div class="tech-stats-row animate-on-scroll">
+      <div class="tech-stat-group">
+        <div class="tech-stat-item">
+          <div class="tech-stat-num font-display">14</div>
+          <div class="tech-stat-label">Equipamentos</div>
+        </div>
+        <div class="tech-stat-divider"></div>
+        <div class="tech-stat-item">
+          <div class="tech-stat-num font-display">6</div>
+          <div class="tech-stat-label">Fabricantes</div>
+        </div>
+        <div class="tech-stat-divider"></div>
+        <div class="tech-stat-item">
+          <div class="tech-stat-num font-display">3</div>
+          <div class="tech-stat-label">Categorias</div>
+        </div>
+      </div>
+      <a href="/tecnologia" class="btn-agendar" style="display:inline-flex;align-items:center;gap:8px">
+        Ver Todos os Equipamentos
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== QUEM SOMOS ===== -->
 <section id="quem-somos">
   <div class="quem-somos-grid">
@@ -1177,72 +1539,6 @@
   </div>
 </section>
 
-<!-- ===== NOSSOS INSTITUTOS ===== -->
-<section id="institutos" class="section-padding">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <span class="section-eyebrow">Acessibilidade e Especialização</span>
-      <h2 class="section-title font-display">Nossos Institutos</h2>
-      <p class="section-desc">Cada instituto é dedicado a uma especialidade, garantindo que você receba o cuidado mais especializado e atualizado para a sua condição.</p>
-      <div class="gold-line" style="max-width:80px;margin:1.5rem auto 0"></div>
-    </div>
-    <div class="institutos-grid">
-      <a href="/instituto/catarata" class="instituto-card animate-on-scroll">
-        <img src="/images/logo-catarata-128_4016b3c8.webp" alt="Instituto da Catarata" loading="lazy" decoding="async" width="56" height="56">
-        <h3 class="font-display">Instituto da Catarata</h3>
-        <p>Cirurgia de catarata, especialistas renomados, tecnologia de ponta para restaurar a clareza da sua visão.</p>
-        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a href="/instituto/ceratocone" class="instituto-card animate-on-scroll">
-        <img src="/images/logo-ceratocone-128_5f37b031.webp" alt="Instituto do Ceratocone" loading="lazy" decoding="async" width="56" height="56">
-        <h3 class="font-display">Instituto do Ceratocone</h3>
-        <p>Adaptação de lente de contato, Crosslinking e tratamentos avançados para estabilizar e tratar o ceratocone.</p>
-        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a href="/instituto/glaucoma" class="instituto-card animate-on-scroll">
-        <img src="/images/logo-glaucoma-128_c3ccf9c1.webp" alt="Instituto do Glaucoma" loading="lazy" decoding="async" width="56" height="56">
-        <h3 class="font-display">Instituto do Glaucoma</h3>
-        <p>Diagnóstico precoce e tratamento contínuo para preservar sua visão do glaucoma.</p>
-        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a href="/instituto/retina" class="instituto-card animate-on-scroll">
-        <img src="/images/logo-retina-128_88ef0fac.webp" alt="Instituto da Retina" loading="lazy" decoding="async" width="56" height="56">
-        <h3 class="font-display">Instituto da Retina</h3>
-        <p>Tratamento especializado para doenças da retina com tecnologia de última geração.</p>
-        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-      <a href="/instituto/estrabismo" class="instituto-card animate-on-scroll">
-        <img src="/images/logo-estrabismo-128_b8ca4997.webp" alt="Instituto de Estrabismo" loading="lazy" decoding="async" width="56" height="56">
-        <h3 class="font-display">Instituto de Estrabismo</h3>
-        <p>Cirurgia para correção do estrabismo para crianças e adultos com técnicas modernas.</p>
-        <span class="card-link">Saiba mais <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONVÊNIOS ===== -->
-<div class="convenios-strip">
-  <div style="overflow:hidden;position:relative">
-    <div class="convenios-track" id="convenios-track">
-      <div class="conv-logo-card"><img src="/images/prevent-senior-188w_60641e66.webp" alt="Prevent Senior" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/bradesco-188w_b58e35a5.webp" alt="Bradesco Saúde" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/tech-mediservice-188w_ba541991.webp" alt="Mediservice" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/logo-propm-188w_44c9af21.webp" alt="Instituto Pró-PM" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/amil-188w_94445080.webp" alt="Amil" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/unimed-188w_3728f5a6.webp" alt="Unimed Seguros" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/ameplam-188w_df6e92d3.webp" alt="Ameplam" loading="lazy" decoding="async"></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="conv-logo-card"><img src="/images/prevent-senior-188w_60641e66.webp" alt="Prevent Senior" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/bradesco-188w_b58e35a5.webp" alt="Bradesco Saúde" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/tech-mediservice-188w_ba541991.webp" alt="Mediservice" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/logo-propm-188w_44c9af21.webp" alt="Instituto Pró-PM" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/amil-188w_94445080.webp" alt="Amil" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/unimed-188w_3728f5a6.webp" alt="Unimed Seguros" loading="lazy" decoding="async"></div>
-      <div class="conv-logo-card"><img src="/images/ameplam-188w_df6e92d3.webp" alt="Ameplam" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-</div>
 
 <!-- ===== FUNDADORES ===== -->
 <section class="section-padding">
@@ -1415,7 +1711,7 @@
         </div>
         <div class="unidade-card-footer">
           <a href="/unidade/guarulhos">Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>
-          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px">Google Maps</a>
+          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>Google Maps</a>
         </div>
       </div>
       <div class="unidade-card animate-on-scroll">
@@ -1434,7 +1730,7 @@
         </div>
         <div class="unidade-card-footer">
           <a href="/unidade/lapa">Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>
-          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Lapa+Rua+Barao+de+Jundiai+221" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px">Google Maps</a>
+          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Lapa+Rua+Barao+de+Jundiai+221" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>Google Maps</a>
         </div>
       </div>
       <div class="unidade-card animate-on-scroll">
@@ -1453,7 +1749,7 @@
         </div>
         <div class="unidade-card-footer">
           <a href="/unidade/santana">Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>
-          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Santana+Rua+Dr+Cesar+130" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px">Google Maps</a>
+          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Santana+Rua+Dr+Cesar+130" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>Google Maps</a>
         </div>
       </div>
       <div class="unidade-card animate-on-scroll">
@@ -1472,7 +1768,7 @@
         </div>
         <div class="unidade-card-footer">
           <a href="/unidade/sao-miguel">Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>
-          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Sao+Miguel+Rua+Bernardo+Marcondes+108" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px">Google Maps</a>
+          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Sao+Miguel+Rua+Bernardo+Marcondes+108" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>Google Maps</a>
         </div>
       </div>
       <div class="unidade-card animate-on-scroll">
@@ -1491,7 +1787,7 @@
         </div>
         <div class="unidade-card-footer">
           <a href="/unidade/tatuape">Ver detalhes <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>
-          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Tatuape+Rua+Tuiuti+2429" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px">Google Maps</a>
+          <a href="https://www.google.com/maps/search/Drudi+e+Almeida+Tatuape+Rua+Tuiuti+2429" target="_blank" rel="noopener noreferrer" style="color:var(--muted);font-size:12px;display:flex;align-items:center;gap:4px"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>Google Maps</a>
         </div>
       </div>
     </div>
@@ -1851,5 +2147,54 @@
     container.appendChild(iframe);
   }
 </script>
+
+  <!-- Script do carrossel de tecnologia -->
+  <script>
+    (function() {
+      var carousel = document.getElementById('tech-carousel');
+      var dots = document.querySelectorAll('.tech-dot');
+      var prevBtn = document.getElementById('tech-prev');
+      var nextBtn = document.getElementById('tech-next');
+      if (!carousel) return;
+      var CARD_W = window.innerWidth >= 768 ? 320 : 300;
+      var activeIdx = 0;
+      function updateDots(idx) {
+        dots.forEach(function(d, i) {
+          d.classList.toggle('tech-dot-active', i === idx);
+        });
+        activeIdx = idx;
+      }
+      function scrollToIdx(idx) {
+        carousel.scrollTo({ left: idx * CARD_W, behavior: 'smooth' });
+        updateDots(idx);
+      }
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        scrollToIdx(Math.max(0, activeIdx - 1));
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        scrollToIdx(Math.min(5, activeIdx + 1));
+      });
+      dots.forEach(function(d) {
+        d.addEventListener('click', function() {
+          scrollToIdx(parseInt(d.getAttribute('data-idx')));
+        });
+      });
+      carousel.addEventListener('scroll', function() {
+        var idx = Math.round(carousel.scrollLeft / CARD_W);
+        if (idx !== activeIdx) updateDots(idx);
+      });
+      // Auto-scroll
+      var autoTimer = setInterval(function() {
+        var next = (activeIdx + 1) % 6;
+        scrollToIdx(next);
+      }, 3500);
+      carousel.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+      carousel.addEventListener('mouseleave', function() {
+        autoTimer = setInterval(function() {
+          scrollToIdx((activeIdx + 1) % 6);
+        }, 3500);
+      });
+    })();
+  </script>
 </body>
 </html>
