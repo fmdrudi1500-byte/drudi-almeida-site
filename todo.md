@@ -547,3 +547,9 @@
 - [x] PERF-26: Adiar Google Tag Manager para depois do load event via requestIdleCallback (reduz TBT 50-150ms)
 - [x] PERF-27: Lazy-load SocialProofToasts e UrgencyBar no Layout.tsx (removê-los do bundle inicial)
 - [x] PERF-28: Inline do CSS crítico above-the-fold no index.html (já estava implementado via scripts/inline-critical-css.mjs — 1.3KB inlined)
+
+## Fase 51: Prerender Estático da Homepage (Static HTML Prerender)
+- [x] PRERENDER-01: Criar script scripts/prerender-homepage.mjs usando Puppeteer para capturar HTML pós-React
+- [x] PRERENDER-02: Integrar prerender ao script de build (pnpm build)
+- [x] PRERENDER-03: Verificar HTML pré-renderizado contém conteúdo completo (655KB, Instituto da Catarata, hero)
+- [x] PRERENDER-04: Testar servidor de produção servindo HTML pré-renderizado corretamente

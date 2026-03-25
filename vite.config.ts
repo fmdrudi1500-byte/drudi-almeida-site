@@ -277,6 +277,10 @@ export default defineConfig({
       },
     },
   },
+  // SSR configuration: force CJS-only packages to be bundled (not externalized)
+  ssr: {
+    noExternal: ['react-helmet-async'],
+  },
   server: {
     host: true,
     allowedHosts: [
