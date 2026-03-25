@@ -24,11 +24,11 @@
 
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="/images/hero-monet-360w.webp" fetchpriority="high"
-    imagesrcset="/images/hero-monet-360w.webp 360w, /images/hero-monet-480w_5af50fa4_d2802f0a.webp 480w, /images/hero-monet-960w-q55_opt.webp 960w, /images/hero-monet-resized_00e348d0.webp 1920w"
+    imagesrcset="/images/hero-monet-360w.webp 360w, /images/hero-monet-480w-q45.webp 480w, /images/hero-monet-960w-q40.webp 960w, /images/hero-monet-resized_00e348d0.webp 1920w"
     imagesizes="100vw">
 
-  <!-- Fonts — lazy load -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+  <!-- Fonts — non-blocking: inject after idle to avoid render-blocking -->
+  <script>function loadFonts(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@400;600;700&display=swap';document.head.appendChild(l);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){if('requestIdleCallback'in window){requestIdleCallback(loadFonts,{timeout:3000});}else{setTimeout(loadFonts,300);}});}else{if('requestIdleCallback'in window){requestIdleCallback(loadFonts,{timeout:3000});}else{setTimeout(loadFonts,300);}}</script>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@400;600;700&display=swap"></noscript>
 
   <!-- Google Analytics — lazy after idle -->
@@ -225,7 +225,7 @@
 <section id="hero">
   <img id="hero-img"
     src="/images/hero-monet-360w.webp"
-    srcset="/images/hero-monet-360w.webp 360w, /images/hero-monet-480w_5af50fa4_d2802f0a.webp 480w, /images/hero-monet-960w-q55_opt.webp 960w, /images/hero-monet-resized_00e348d0.webp 1920w"
+    srcset="/images/hero-monet-360w.webp 360w, /images/hero-monet-480w-q45.webp 480w, /images/hero-monet-960w-q40.webp 960w, /images/hero-monet-resized_00e348d0.webp 1920w"
     sizes="100vw"
     alt="Ponte japonesa de Monet — representação artística da visão com catarata"
     fetchpriority="high"
@@ -388,7 +388,7 @@
         <!-- Card 1 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/tech-ervHszJT_dbcd90e3.webp" alt="OCT com Angio-OCT — Maestro 2 Topcon" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/tech-ervH-400w.webp" srcset="/images/tech-ervH-216w.webp 216w, /images/tech-ervH-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="OCT com Angio-OCT — Maestro 2 Topcon" loading="lazy" decoding="async" width="400" height="284">
             <span class="tech-badge tech-badge-diag">Diagnóstico</span>
           </div>
           <div class="tech-card-body">
@@ -403,7 +403,7 @@
         <!-- Card 2 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/tech-BjIDRRibGgbqaEgW_c47e0e8a.webp" alt="Pentacam AXL — Oculus" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/tech-BjID-400w.webp" srcset="/images/tech-BjID-216w.webp 216w, /images/tech-BjID-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="Pentacam AXL — Oculus" loading="lazy" decoding="async" width="400" height="266">
             <span class="tech-badge tech-badge-diag">Diagnóstico</span>
           </div>
           <div class="tech-card-body">
@@ -418,7 +418,7 @@
         <!-- Card 3 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/tech-uqfZPyapWiDmhgjZ_6136865e.webp" alt="Campo Visual — Humphrey 750i Zeiss" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/tech-uqfZ-400w.webp" srcset="/images/tech-uqfZ-216w.webp 216w, /images/tech-uqfZ-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="Campo Visual — Humphrey 750i Zeiss" loading="lazy" decoding="async" width="400" height="344">
             <span class="tech-badge tech-badge-diag">Diagnóstico</span>
           </div>
           <div class="tech-card-body">
@@ -433,7 +433,7 @@
         <!-- Card 4 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/tech-LUSoVEgfmutwLJEX_87a665d8.webp" alt="Laser Argônio Multipoint — Vitra 2 Quantel" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/tech-LUSo-400w.webp" srcset="/images/tech-LUSo-216w.webp 216w, /images/tech-LUSo-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="Laser Argônio Multipoint — Vitra 2 Quantel" loading="lazy" decoding="async" width="400" height="315">
             <span class="tech-badge tech-badge-trat">Tratamento</span>
           </div>
           <div class="tech-card-body">
@@ -448,7 +448,7 @@
         <!-- Card 5 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/other-tHthjLAV_ae6c8b04.webp" alt="OPD-Scan III — Nidek" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/other-tHth-400w.webp" srcset="/images/other-tHth-216w.webp 216w, /images/other-tHth-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="OPD-Scan III — Nidek" loading="lazy" decoding="async" width="400" height="400">
             <span class="tech-badge tech-badge-diag">Diagnóstico</span>
           </div>
           <div class="tech-card-body">
@@ -463,7 +463,7 @@
         <!-- Card 6 -->
         <div class="tech-card">
           <div class="tech-card-img">
-            <img src="/images/other-uNpBHQmk_5cf97577.webp" alt="Yag Laser — Optimis II Quantel" loading="lazy" decoding="async" width="400" height="300">
+            <img src="/images/other-uNpB-400w.webp" srcset="/images/other-uNpB-216w.webp 216w, /images/other-uNpB-400w.webp 400w" sizes="(max-width:640px) 216px, 400px" alt="Yag Laser — Optimis II Quantel" loading="lazy" decoding="async" width="400" height="300">
             <span class="tech-badge tech-badge-cir">Cirúrgico</span>
           </div>
           <div class="tech-card-body">
