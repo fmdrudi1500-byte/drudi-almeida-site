@@ -151,30 +151,6 @@ function vitePluginManusDebugCollector(): Plugin {
 }
 
 // =============================================================================
-// Deferred Modulepreload Plugin
-// Removes modulepreload for non-critical vendor chunks (trpc, radix) from the
-// initial HTML. These chunks are still loaded on demand when needed, but are
-// not pre-parsed during initial page load, reducing TBT on mobile.
-// =============================================================================
-function vitePluginDeferredModulepreload(): Plugin {
-  return {
-    name: 'vite-plugin-deferred-modulepreload',
-    apply: 'build',
-    transformIndexHtml(html) {
-      // Remove modulepreload for chunks that are NOT needed on the initial render:
-      // - vendor-trpc: only needed when React components make tRPC calls (after hydration)
-      // - vendor-radix: only needed for interactive UI components (after hydration)
-      // Removing these reduces the browser's initial parse/compile workload (TBT)
-      html = html.replace(
-        /<link rel="modulepreload" crossorigin href="\/assets\/(vendor-trpc|vendor-radix)[^"]*\.js">/g,
-        ''
-      );
-      return html;
-    },
-  };
-}
-
-// =============================================================================
 // Non-blocking CSS Plugin
 // 1. Inlines @font-face declarations (eliminates Google Fonts render-blocking request)
 // 2. Transforms Vite-injected <link rel="stylesheet"> to use media=print trick
@@ -213,7 +189,7 @@ function vitePluginNonBlockingCSS(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginDeferredModulepreload(), vitePluginNonBlockingCSS()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginNonBlockingCSS()];
 
 export default defineConfig({
   plugins,
@@ -276,10 +252,6 @@ export default defineConfig({
         },
       },
     },
-  },
-  // SSR configuration: force CJS-only packages to be bundled (not externalized)
-  ssr: {
-    noExternal: ['react-helmet-async'],
   },
   server: {
     host: true,

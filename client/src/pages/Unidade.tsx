@@ -155,17 +155,13 @@ export default function Unidade() {
     description: unidade.description,
     url: `${BASE_URL}/unidade/${unidade.slug}`,
     telephone: "+551154302421",
+    faxNumber: "+551154302421",
     email: "contato@drudiealmeida.com",
     image: [
       `${BASE_URL}${unidade.image}`,
-      `${BASE_URL}/images/logo-horizontal-200w_opt.webp`,
+      `${BASE_URL}/images/logo_drudi_almeida_horizontal_b6a3e29c.webp`,
     ],
-    logo: {
-      "@type": "ImageObject",
-      url: `${BASE_URL}/images/logo-horizontal-200w_opt.webp`,
-      width: 200,
-      height: 60,
-    },
+    logo: `${BASE_URL}/images/logo_drudi_almeida_horizontal_b6a3e29c.webp`,
     address: {
       "@type": "PostalAddress",
       streetAddress: unidade.address,

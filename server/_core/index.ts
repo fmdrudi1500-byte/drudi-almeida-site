@@ -150,13 +150,6 @@ async function startServer() {
     ? path.join(__dirname, 'lp')
     : path.join(__dirname, '..', 'lp');
 
-  // Homepage estática (HTML puro, sem React bundle) — máximo PageSpeed
-  app.get('/', (_req, res) => {
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.sendFile(path.join(lpDir, 'home.html'));
-  });
-
   app.get('/lp/catarata', (_req, res) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.setHeader('Content-Type', 'text/html; charset=utf-8');

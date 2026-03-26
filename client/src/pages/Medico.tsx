@@ -157,43 +157,31 @@ function PhysicianSchema({ doctor }: { doctor: DoctorData }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Physician",
-    "@id": `https://institutodrudiealmeida.com.br/medico/${doctor.slug}#physician`,
     name: doctor.fullName,
-    image: {
-      "@type": "ImageObject",
-      url: `https://institutodrudiealmeida.com.br${doctor.image}`,
-      width: 800,
-      height: 1067,
-    },
+    image: `https://institutodrudiealmeida.com.br${doctor.image}`,
     description: doctor.seo.description,
     medicalSpecialty: "Ophthalmology",
     jobTitle: doctor.role,
-    identifier: {
-      "@type": "PropertyValue",
-      name: "CRM-SP",
-      value: doctor.crm.replace(/[^0-9]/g, ""),
-    },
     worksFor: {
       "@type": "MedicalClinic",
-      "@id": "https://institutodrudiealmeida.com.br/#organization",
       name: "Drudi e Almeida Clínicas Oftalmológicas",
       url: "https://institutodrudiealmeida.com.br",
       telephone: "+55-11-5430-2421",
       address: [
         {
           "@type": "PostalAddress",
-          streetAddress: "Rua Dr. César, 130",
+          streetAddress: "Rua Galvão Bueno, 425 - Sala 1",
           addressLocality: "São Paulo",
           addressRegion: "SP",
-          postalCode: "02013-001",
+          postalCode: "01506-000",
           addressCountry: "BR",
         },
         {
           "@type": "PostalAddress",
-          streetAddress: "Rua Sete de Setembro, 375",
+          streetAddress: "Rua Dona Primitiva Vianco, 740",
           addressLocality: "Guarulhos",
           addressRegion: "SP",
-          postalCode: "07011-020",
+          postalCode: "07041-000",
           addressCountry: "BR",
         },
       ],
@@ -206,6 +194,7 @@ function PhysicianSchema({ doctor }: { doctor: DoctorData }) {
       })),
     knowsAbout: doctor.areas,
     url: `https://institutodrudiealmeida.com.br/medico/${doctor.slug}`,
+    sameAs: [],
   };
 
   return (

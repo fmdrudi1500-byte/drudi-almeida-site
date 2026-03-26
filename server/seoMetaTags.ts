@@ -499,7 +499,6 @@ export async function getMetaForRouteAsync(pathname: string): Promise<PageMeta> 
       }
     } catch (e) {
       // Fallback to sync version on error
-      console.error('[seoMetaTags] Error fetching blog post meta from DB for slug:', slug, e);
     }
   }
 

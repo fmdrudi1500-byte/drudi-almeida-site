@@ -35,12 +35,7 @@ const organizationSchema = {
   description:
     "Clínica oftalmológica de referência em São Paulo com 5 institutos especializados: Catarata, Ceratocone, Glaucoma, Retina e Estrabismo. Tecnologia de ponta, cuidado humanizado e mais de 50.000 pacientes atendidos.",
   url: BASE_URL,
-  logo: {
-    "@type": "ImageObject",
-    url: `${BASE_URL}/images/logo-horizontal-200w_opt.webp`,
-    width: 200,
-    height: 60,
-  },
+  logo: `${BASE_URL}/logo.png`,
   image: `${BASE_URL}/og-image.jpg`,
   telephone: PHONE,
   email: EMAIL,
@@ -73,8 +68,9 @@ const organizationSchema = {
   ],
   hasMap: "https://maps.google.com/maps?q=Drudi+e+Almeida+Santana",
   sameAs: [
-    "https://www.instagram.com/drudiealmeida/",
-    "https://www.facebook.com/drudiealmeida/",
+    "https://instagram.com/drudialmeida",
+    "https://facebook.com/drudialmeida",
+    "https://www.google.com/maps/place/Drudi+e+Almeida/",
   ],
   aggregateRating: {
     "@type": "AggregateRating",
@@ -191,7 +187,7 @@ const units = [
   {
     name: "Drudi e Almeida — Unidade Tatuapé",
     street: "Rua Tuiuti, 2429",
-    postal: "03307-005",
+    postal: "03307-001",
     lat: -23.5399,
     lng: -46.5739,
     map: "https://maps.google.com/maps?q=Drudi+e+Almeida+Tatuapé+Rua+Tuiuti+2429",
@@ -199,7 +195,7 @@ const units = [
   {
     name: "Drudi e Almeida — Unidade Lapa",
     street: "Rua Barão de Jundiaí, 221",
-    postal: "05040-010",
+    postal: "05073-001",
     lat: -23.5238,
     lng: -46.7014,
     map: "https://maps.google.com/maps?q=Drudi+e+Almeida+Lapa+Rua+Barão+de+Jundiaí+221",
@@ -207,7 +203,7 @@ const units = [
   {
     name: "Drudi e Almeida — Unidade São Miguel",
     street: "Rua Bernardo Marcondes, 108",
-    postal: "08010-060",
+    postal: "08010-001",
     lat: -23.4975,
     lng: -46.4401,
     map: "https://maps.google.com/maps?q=Drudi+e+Almeida+São+Miguel+Rua+Bernardo+Marcondes+108",
@@ -215,7 +211,7 @@ const units = [
   {
     name: "Drudi e Almeida — Unidade Guarulhos",
     street: "Rua Sete de Setembro, 375",
-    postal: "07011-020",
+    postal: "07010-001",
     lat: -23.4628,
     lng: -46.5333,
     map: "https://maps.google.com/maps?q=Drudi+e+Almeida+Guarulhos+Rua+Sete+de+Setembro+375",
