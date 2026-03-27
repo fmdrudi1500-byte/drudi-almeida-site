@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cirurgia de Catarata em SP | Drudi e Almeida Clínicas Oftalmológicas</title>
-  <meta name="description" content="Cirurgia de catarata com tecnologia de ponta e especialistas renomados. Procedimento rápido, indolor e com recuperação em 24h. Aceita convênios. Agende agora.">
+  <title>Tratamento de Retina em SP | Drudi e Almeida Clínicas Oftalmológicas</title>
+  <meta name="description" content="Diagnóstico e tratamento especializado de doenças da retina: degeneração macular, retinopatia diabética, descolamento de retina. Tecnologia de ponta em SP. Agende agora.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="/images/catarata-hero-art_bd1bf3f5.webp" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Sans+3:wght@400;600;700&display=swap"></noscript>
   <script>
@@ -44,6 +43,7 @@
       --green: #16a34a;
       --wa-green: #25D366;
       --wa-dark: #1ebe5a;
+      --accent: #7c3aed;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -61,16 +61,16 @@
     @media (min-width: 640px) { .header-phone { display: flex; } .header-cta { font-size: 15px; padding: 10px 20px; } }
 
     /* URGENCY BAR */
-    .urgency-bar { background: linear-gradient(90deg, #b45309, #d97706, #b45309); background-size: 200% 100%; animation: shimmer 3s ease infinite; padding: 10px 20px; text-align: center; }
+    .urgency-bar { background: linear-gradient(90deg, #7c3aed, #9333ea, #7c3aed); background-size: 200% 100%; animation: shimmer 3s ease infinite; padding: 10px 20px; text-align: center; }
     @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
     .urgency-bar p { color: white; font-size: 13px; font-weight: 600; }
-    .urgency-bar strong { color: #fef3c7; }
+    .urgency-bar strong { color: #e9d5ff; }
     @media (min-width: 640px) { .urgency-bar p { font-size: 14px; } }
 
     /* HERO */
     .hero { position: relative; min-height: 85vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('/images/catarata-hero-art_bd1bf3f5.webp'); background-size: cover; background-position: center 30%; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,45,61,0.92) 0%, rgba(30,45,61,0.75) 50%, rgba(30,45,61,0.5) 100%); }
+    .hero-bg { position: absolute; inset: 0; background-image: url('/images/retina-hero_cb57f973.webp'); background-size: cover; background-position: center 40%; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,45,61,0.93) 0%, rgba(30,45,61,0.78) 50%, rgba(30,45,61,0.55) 100%); }
     .hero-content { position: relative; z-index: 2; max-width: 680px; padding: 60px 24px 80px; margin: 0 auto; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,169,97,0.15); border: 1px solid rgba(201,169,97,0.35); border-radius: 100px; padding: 6px 14px; margin-bottom: 20px; }
     .hero-badge-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease infinite; }
@@ -114,13 +114,30 @@
     .section-desc { font-size: 16px; color: var(--text-light); line-height: 1.7; max-width: 640px; margin-bottom: 40px; }
     .gold-line { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0 36px; }
 
-    /* SINTOMAS */
-    .sintomas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .sintoma-card { background: white; border: 1px solid #e5e0d5; border-radius: 12px; padding: 20px; display: flex; align-items: flex-start; gap: 14px; transition: box-shadow 0.2s; }
-    .sintoma-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-    .sintoma-img { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-    .sintoma-text h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .sintoma-text p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+    /* ALERTA URGÊNCIA */
+    .alerta-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 2px solid #f59e0b; border-radius: 14px; padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start; margin-bottom: 40px; }
+    .alerta-icon { font-size: 32px; flex-shrink: 0; }
+    .alerta-text h3 { font-size: 17px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+    .alerta-text p { font-size: 15px; color: #78350f; line-height: 1.6; }
+
+    /* DOENCAS */
+    .doencas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .doenca-card { background: white; border: 1px solid #e5e0d5; border-radius: 12px; padding: 22px; transition: all 0.2s; }
+    .doenca-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .doenca-icon { font-size: 28px; margin-bottom: 12px; }
+    .doenca-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .doenca-card p { font-size: 14px; color: var(--text-light); line-height: 1.55; }
+    .doenca-tag { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+    .tag-urgente { background: #fee2e2; color: #dc2626; }
+    .tag-cronico { background: #dbeafe; color: #2563eb; }
+    .tag-comum { background: #d1fae5; color: #059669; }
+
+    /* TECNOLOGIAS */
+    .tec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .tec-card { background: var(--navy); border-radius: 14px; padding: 24px; color: white; }
+    .tec-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .tec-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .tec-card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.55; }
 
     /* PROCESSO */
     .processo-steps { display: flex; flex-direction: column; gap: 0; }
@@ -137,25 +154,6 @@
     /* CONVENIOS */
     .convenios-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 24px; margin-bottom: 20px; }
     .convenio-logo { height: 44px; width: auto; object-fit: contain; }
-
-    /* PRECOS */
-    .precos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .preco-card { background: white; border: 2px solid #e5e0d5; border-radius: 16px; padding: 28px 24px; position: relative; transition: all 0.2s; }
-    .preco-card:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-    .preco-card.destaque { border-color: var(--gold); box-shadow: 0 8px 30px rgba(201,169,97,0.2); }
-    .preco-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: 100px; white-space: nowrap; letter-spacing: 0.05em; }
-    .preco-nome { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .preco-desc { font-size: 14px; color: var(--text-light); margin-bottom: 20px; line-height: 1.5; }
-    .preco-valor { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); font-weight: 700; margin-bottom: 4px; }
-    .preco-valor small { font-family: 'Source Sans 3', sans-serif; font-size: 14px; color: var(--text-light); font-weight: 400; }
-    .preco-parcel { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
-    .preco-items { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-    .preco-items li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text); }
-    .preco-items li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .btn-preco { display: block; text-align: center; background: var(--wa-green); color: white; font-weight: 700; font-size: 15px; padding: 13px; border-radius: 10px; transition: background 0.2s; }
-    .btn-preco:hover { background: var(--wa-dark); }
-    .btn-preco-outline { background: transparent; border: 2px solid var(--navy); color: var(--navy); }
-    .btn-preco-outline:hover { background: var(--navy); color: white; }
 
     /* DEPOIMENTOS */
     .depo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
@@ -251,36 +249,36 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         (11) 5026-8521
       </a>
-      <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia." class="header-cta" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'header_wa'});">
+      <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta." class="header-cta" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'retina_header_wa'});">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Receber Preço
+        Agendar Consulta
       </a>
     </div>
   </header>
 
   <!-- URGENCY BAR -->
   <div class="urgency-bar">
-    <p>🔴 <strong>Vagas limitadas esta semana</strong> — Bradesco, Amil, Unimed, Prevent Senior e mais. <strong>Consulte sua cobertura gratuitamente.</strong></p>
+    <p>⚠️ <strong>Doenças da retina podem causar cegueira irreversível</strong> — O diagnóstico precoce é a única forma de preservar sua visão. <strong>Agende hoje.</strong></p>
   </div>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" role="img" aria-label="Arte impressionista representando a visão com catarata"></div>
+    <div class="hero-bg" role="img" aria-label="Instituto da Retina Drudi e Almeida"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge"><div class="hero-badge-dot"></div><span>Instituto da Catarata — Drudi e Almeida</span></div>
-      <h1>Volte a enxergar com <em>nitidez e cores vivas</em></h1>
-      <p class="hero-sub">A cirurgia de catarata é rápida, indolor e transforma sua visão em menos de 30 minutos. Especialistas renomados, tecnologia de ponta e recuperação em 24 horas.</p>
+      <div class="hero-badge"><div class="hero-badge-dot"></div><span>Instituto da Retina — Drudi e Almeida</span></div>
+      <h1>Proteja sua visão com o <em>diagnóstico certo</em> na hora certa</h1>
+      <p class="hero-sub">As doenças da retina evoluem silenciosamente. Nosso instituto oferece diagnóstico de alta precisão e tratamentos modernos para preservar sua visão com segurança.</p>
       <div class="hero-pills">
-        <span class="pill"><span class="pill-check">✓</span> Procedimento indolor</span>
-        <span class="pill"><span class="pill-check">✓</span> Recuperação em 24h</span>
+        <span class="pill"><span class="pill-check">✓</span> Diagnóstico de alta precisão</span>
+        <span class="pill"><span class="pill-check">✓</span> OCT e Angiofluoresceinografia</span>
         <span class="pill"><span class="pill-check">✓</span> Aceita convênios</span>
-        <span class="pill"><span class="pill-check">✓</span> Lentes premium disponíveis</span>
+        <span class="pill"><span class="pill-check">✓</span> Tratamento com laser e injeção</span>
       </div>
       <div class="hero-cta-group">
-        <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia." class="btn-wa" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'hero_wa'});">
+        <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta." class="btn-wa" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'retina_hero_wa'});">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Receber o Preço Agora
+          Agendar Consulta Agora
         </a>
         <a href="tel:+551150268521" class="btn-tel">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -304,11 +302,124 @@
     </div>
   </div>
 
+  <!-- ALERTA URGÊNCIA -->
+  <section class="section section-white">
+    <div class="section-inner">
+      <div class="alerta-box">
+        <div class="alerta-icon">⚠️</div>
+        <div class="alerta-text">
+          <h3>Atenção: doenças da retina podem não ter sintomas iniciais</h3>
+          <p>Condições como degeneração macular e retinopatia diabética evoluem silenciosamente. Quando os sintomas aparecem, parte da visão já pode ter sido perdida de forma permanente. O exame preventivo anual é essencial para quem tem diabetes, histórico familiar ou mais de 50 anos.</p>
+        </div>
+      </div>
+
+      <p class="section-label">Condições que tratamos</p>
+      <h2 class="section-title">Doenças da retina que <em>exigem atenção especializada</em></h2>
+      <p class="section-desc">Nosso instituto é referência no diagnóstico e tratamento das principais doenças da retina.</p>
+      <div class="doencas-grid">
+        <div class="doenca-card">
+          <div class="doenca-icon">🩸</div>
+          <h3>Retinopatia Diabética</h3>
+          <p>Complicação do diabetes que afeta os vasos da retina. Principal causa de cegueira em adultos em idade ativa.</p>
+          <span class="doenca-tag tag-urgente">Atenção: diabéticos</span>
+        </div>
+        <div class="doenca-card">
+          <div class="doenca-icon">🔵</div>
+          <h3>Degeneração Macular (DMRI)</h3>
+          <p>Afeta a mácula, região central da retina. Causa perda progressiva da visão central, especialmente em maiores de 50 anos.</p>
+          <span class="doenca-tag tag-cronico">Tratamento contínuo</span>
+        </div>
+        <div class="doenca-card">
+          <div class="doenca-icon">💧</div>
+          <h3>Edema Macular</h3>
+          <p>Acúmulo de líquido na mácula que distorce a visão central. Pode ser causado por diabetes, oclusão venosa ou inflamação.</p>
+          <span class="doenca-tag tag-cronico">Tratamento com injeção</span>
+        </div>
+        <div class="doenca-card">
+          <div class="doenca-icon">⚡</div>
+          <h3>Descolamento de Retina</h3>
+          <p>Emergência oftalmológica. Requer tratamento imediato para evitar perda permanente da visão. Flashes e moscas volantes são sinais de alerta.</p>
+          <span class="doenca-tag tag-urgente">Emergência</span>
+        </div>
+        <div class="doenca-card">
+          <div class="doenca-icon">🔴</div>
+          <h3>Oclusão Vascular</h3>
+          <p>Obstrução de veias ou artérias da retina que pode causar perda súbita de visão. Requer diagnóstico e tratamento rápidos.</p>
+          <span class="doenca-tag tag-urgente">Urgência</span>
+        </div>
+        <div class="doenca-card">
+          <div class="doenca-icon">🟡</div>
+          <h3>Buraco e Membrana Epirretiniana</h3>
+          <p>Alterações estruturais da mácula que causam distorção visual e redução da acuidade. Tratamento cirúrgico disponível.</p>
+          <span class="doenca-tag tag-comum">Cirurgia vitreoretiniana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS -->
+  <section class="section section-cream">
+    <div class="section-inner">
+      <p class="section-label">Nossa Tecnologia</p>
+      <h2 class="section-title">Diagnóstico de alta precisão com <em>equipamentos de última geração</em></h2>
+      <p class="section-desc">Investimos nas melhores tecnologias para oferecer diagnósticos mais precisos e tratamentos mais eficazes.</p>
+      <div class="tec-grid">
+        <div class="tec-card">
+          <div class="tec-num">OCT</div>
+          <h3>Tomografia de Coerência Óptica</h3>
+          <p>Imagens de alta resolução das camadas da retina, permitindo detectar alterações mínimas antes que causem sintomas.</p>
+        </div>
+        <div class="tec-card">
+          <div class="tec-num">AFG</div>
+          <h3>Angiofluoresceinografia</h3>
+          <p>Mapeamento detalhado dos vasos sanguíneos da retina para diagnóstico preciso de retinopatia diabética e DMRI.</p>
+        </div>
+        <div class="tec-card">
+          <div class="tec-num">532</div>
+          <h3>Laser Verde 532nm</h3>
+          <p>Fotocoagulação a laser para tratamento de retinopatia diabética, roturas e descolamentos de retina.</p>
+        </div>
+        <div class="tec-card">
+          <div class="tec-num">Anti-VEGF</div>
+          <h3>Injeção Intravítrea</h3>
+          <p>Tratamento com anti-VEGF (Lucentis, Eylea, Avastin) para DMRI úmida e edema macular diabético.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section section-white">
+    <div class="section-inner">
+      <p class="section-label">Como funciona</p>
+      <h2 class="section-title">Da consulta ao <em>tratamento personalizado</em></h2>
+      <p class="section-desc">Um protocolo completo para garantir o diagnóstico correto e o melhor tratamento para o seu caso.</p>
+      <div class="processo-steps">
+        <div class="step">
+          <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Consulta e anamnese detalhada</h3><p>Avaliação completa do histórico médico, sintomas e fatores de risco como diabetes, hipertensão e histórico familiar.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Exames de imagem de alta resolução</h3><p>OCT, retinografia, angiofluoresceinografia e outros exames para mapeamento preciso da retina e estruturas adjacentes.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Diagnóstico e plano de tratamento</h3><p>Laudo detalhado e explicação clara do diagnóstico. Definição do melhor tratamento: acompanhamento, laser, injeção ou cirurgia.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">4</div></div>
+          <div class="step-content"><h3>Acompanhamento contínuo</h3><p>Retornos periódicos para monitorar a evolução e ajustar o tratamento conforme necessário, garantindo a preservação da visão.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONVENIOS -->
   <section class="section section-cream">
     <div class="section-inner" style="text-align:center;">
       <p class="section-label">Convênios Aceitos</p>
-      <h2 class="section-title" style="text-align:center;">Seu plano pode <em>cobrir a cirurgia</em></h2>
+      <h2 class="section-title" style="text-align:center;">Seu plano pode <em>cobrir a consulta</em></h2>
       <div class="gold-line" style="margin:16px auto 32px;"></div>
       <div class="convenios-grid">
         <img src="/images/bradesco-188w_b58e35a5.webp" alt="Bradesco Saúde" class="convenio-logo" width="94" height="44" loading="lazy">
@@ -319,121 +430,7 @@
         <img src="/images/logo-propm-188w_44c9af21.webp" alt="Pró-PM" class="convenio-logo" width="94" height="44" loading="lazy">
         <img src="/images/ameplam-188w_df6e92d3.webp" alt="Ameplam" class="convenio-logo" width="94" height="44" loading="lazy">
       </div>
-      <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-light);">Não encontrou seu convênio? <a href="https://wa.me/5511916544653?text=Quero+verificar+se+meu+conv%C3%AAnio+cobre+cirurgia+de+catarata." target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;text-decoration:underline;">Consulte pelo WhatsApp →</a></p>
-    </div>
-  </section>
-
-  <!-- SINTOMAS -->
-  <section class="section section-white">
-    <div class="section-inner">
-      <p class="section-label">Você se identifica?</p>
-      <h2 class="section-title">Sinais de que sua visão <em>precisa de atenção</em></h2>
-      <p class="section-desc">A catarata evolui lentamente. Muitos pacientes só percebem o quanto estavam enxergando mal depois da cirurgia.</p>
-      <div class="sintomas-grid">
-        <div class="sintoma-card">
-          <img src="/images/catarata-visao-embacada_c12f98d4.webp" alt="Visão embaçada" class="sintoma-img" width="72" height="72" loading="lazy">
-          <div class="sintoma-text"><h3>Visão embaçada ou turva</h3><p>Como se houvesse um véu ou névoa permanente na frente dos olhos.</p></div>
-        </div>
-        <div class="sintoma-card">
-          <img src="/images/catarata-cores-desbotadas_3f160022.webp" alt="Cores desbotadas" class="sintoma-img" width="72" height="72" loading="lazy">
-          <div class="sintoma-text"><h3>Cores desbotadas ou amareladas</h3><p>As cores perdem vivacidade e o mundo parece mais opaco.</p></div>
-        </div>
-        <div class="sintoma-card">
-          <img src="/images/catarata-sensibilidade-luz_9e2c2355.webp" alt="Sensibilidade à luz" class="sintoma-img" width="72" height="72" loading="lazy">
-          <div class="sintoma-text"><h3>Sensibilidade à luz e halos</h3><p>Dificuldade com luz solar intensa ou faróis de carro à noite.</p></div>
-        </div>
-        <div class="sintoma-card">
-          <img src="/images/catarata-dificuldade-noite_f2a9f190.webp" alt="Dificuldade à noite" class="sintoma-img" width="72" height="72" loading="lazy">
-          <div class="sintoma-text"><h3>Dificuldade para dirigir à noite</h3><p>Visão noturna comprometida, especialmente com luzes brilhantes.</p></div>
-        </div>
-        <div class="sintoma-card">
-          <img src="/images/catarata-diplopia_75d41ba4.webp" alt="Visão dupla" class="sintoma-img" width="72" height="72" loading="lazy">
-          <div class="sintoma-text"><h3>Visão dupla em um olho</h3><p>Imagens sobrepostas ou duplicadas mesmo com um olho fechado.</p></div>
-        </div>
-        <div class="sintoma-card" style="background:var(--navy);border-color:var(--navy);">
-          <div style="width:72px;height:72px;background:rgba(201,169,97,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:28px;">👁️</div>
-          <div class="sintoma-text"><h3 style="color:white;">Troca frequente de óculos</h3><p style="color:rgba(255,255,255,0.65);">Necessidade de receitas cada vez mais fortes sem melhora satisfatória.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESSO -->
-  <section class="section section-cream">
-    <div class="section-inner">
-      <p class="section-label">Como funciona</p>
-      <h2 class="section-title">Do diagnóstico à <em>visão restaurada</em></h2>
-      <p class="section-desc">Um processo simples, seguro e com resultados que transformam a qualidade de vida.</p>
-      <div class="processo-steps">
-        <div class="step">
-          <div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div>
-          <div class="step-content"><h3>Avaliação oftalmológica completa</h3><p>Exames de biometria, topografia e mapeamento de retina para planejar a cirurgia ideal para o seu caso.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div>
-          <div class="step-content"><h3>Escolha da lente intraocular</h3><p>Monofocal, multifocal ou tórica — seu médico indica a melhor opção para sua rotina e necessidades visuais.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div>
-          <div class="step-content"><h3>Cirurgia com facoemulsificação</h3><p>Técnica ultrassônica de última geração. Procedimento ambulatorial de 20 a 30 minutos, sem internação.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-left"><div class="step-num">4</div></div>
-          <div class="step-content"><h3>Recuperação rápida em 24 horas</h3><p>Na maioria dos casos, o paciente já enxerga melhor no dia seguinte. Retorno às atividades em poucos dias.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRECOS -->
-  <section class="section section-white">
-    <div class="section-inner">
-      <p class="section-label">Investimento</p>
-      <h2 class="section-title">Transparência no preço, <em>excelência no cuidado</em></h2>
-      <p class="section-desc">Pacotes completos com tudo incluso. Sem surpresas na hora da cirurgia.</p>
-      <div class="precos-grid">
-        <div class="preco-card">
-          <div class="preco-nome">Pacote Monofocal</div>
-          <div class="preco-desc">Ideal para quem busca excelente qualidade visual para longe, podendo usar óculos para perto.</div>
-          <div class="preco-valor">R$ 2.800 <small>por olho</small></div>
-          <div class="preco-parcel">até 10x sem juros</div>
-          <ul class="preco-items">
-            <li>Consulta pré-operatória completa</li>
-            <li>Cirurgia com facoemulsificação</li>
-            <li>Lente monofocal premium</li>
-            <li>Acompanhamento pós-operatório</li>
-          </ul>
-          <a href="https://wa.me/5511916544653?text=Quero+saber+mais+sobre+o+pacote+monofocal+de+catarata." class="btn-preco btn-preco-outline" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'preco_monofocal'});">Consultar pelo WhatsApp</a>
-        </div>
-        <div class="preco-card destaque">
-          <div class="preco-badge">MAIS ESCOLHIDO</div>
-          <div class="preco-nome">Pacote Premium</div>
-          <div class="preco-desc">Lente multifocal: liberdade de enxergar de perto, intermediário e longe sem óculos.</div>
-          <div class="preco-valor">R$ 5.500 <small>por olho</small></div>
-          <div class="preco-parcel">até 10x sem juros</div>
-          <ul class="preco-items">
-            <li>Consulta pré-operatória completa</li>
-            <li>Cirurgia com facoemulsificação</li>
-            <li>Lente multifocal de última geração</li>
-            <li>Acompanhamento pós-operatório</li>
-            <li>Suporte prioritário pós-cirurgia</li>
-          </ul>
-          <a href="https://wa.me/5511916544653?text=Quero+saber+mais+sobre+o+pacote+premium+de+catarata." class="btn-preco" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'preco_premium'});">Receber Preço no WhatsApp</a>
-        </div>
-        <div class="preco-card">
-          <div class="preco-nome">Pelo Convênio</div>
-          <div class="preco-desc">Aceitamos os principais planos de saúde. Consulte a cobertura do seu convênio sem compromisso.</div>
-          <div class="preco-valor" style="font-size:1.5rem;color:var(--gold);">Consulte</div>
-          <div class="preco-parcel">cobertura do seu plano</div>
-          <ul class="preco-items">
-            <li>Bradesco, Amil, Unimed</li>
-            <li>Prevent Senior, Mediservice</li>
-            <li>Pró-PM, Ameplam e outros</li>
-            <li>Verificação gratuita de cobertura</li>
-          </ul>
-          <a href="https://wa.me/5511916544653?text=Quero+verificar+se+meu+conv%C3%AAnio+cobre+cirurgia+de+catarata." class="btn-preco btn-preco-outline" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'preco_convenio'});">Verificar Cobertura</a>
-        </div>
-      </div>
+      <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-light);">Não encontrou seu convênio? <a href="https://wa.me/5511916544653?text=Quero+verificar+se+meu+conv%C3%AAnio+cobre+consulta+de+retina." target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;text-decoration:underline;">Consulte pelo WhatsApp →</a></p>
     </div>
   </section>
 
@@ -441,25 +438,25 @@
   <section class="section section-navy">
     <div class="section-inner">
       <p class="section-label" style="color:var(--gold);">O que dizem nossos pacientes</p>
-      <h2 class="section-title section-title-white">Resultados que <em>falam por si</em></h2>
+      <h2 class="section-title section-title-white">Visão preservada, <em>vida transformada</em></h2>
       <div class="gold-line" style="margin-bottom:36px;"></div>
       <div class="depo-grid">
         <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Fiz a cirurgia de catarata com o Dr. Fernando e foi incrível. No dia seguinte já enxergava com clareza. Profissional excelente, equipe atenciosa. Recomendo demais!"</p>
-          <div class="depo-author">Maria Aparecida S.</div>
-          <div class="depo-meta">Unidade Santana · há 2 semanas</div>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Tinha muito medo da cirurgia, mas a Dra. Priscilla me deixou completamente tranquila. Resultado perfeito, enxergo melhor do que há 20 anos. Gratidão enorme!"</p>
-          <div class="depo-author">José Carlos M.</div>
+          <p class="depo-text">"Tenho diabetes há 15 anos e o Dr. Fernando detectou a retinopatia antes que eu perdesse a visão. O tratamento com laser foi rápido e eficaz. Sou eternamente grato."</p>
+          <div class="depo-author">Roberto A. S.</div>
           <div class="depo-meta">Unidade Guarulhos · há 1 mês</div>
         </div>
         <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
-          <p class="depo-text">"Minha mãe de 78 anos fez a cirurgia e voltou a enxergar as cores com vivacidade. Ela chora de emoção toda vez que conta. Equipe humanizada e muito competente."</p>
-          <div class="depo-author">Ana Paula R.</div>
+          <p class="depo-text">"Acordei com flashes no olho e fui ao pronto-socorro. Me indicaram o Instituto da Retina. Em 24h fiz a cirurgia de descolamento e hoje enxergo perfeitamente. Salvaram minha visão."</p>
+          <div class="depo-author">Cláudia M. F.</div>
+          <div class="depo-meta">Unidade Santana · há 2 semanas</div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Minha mãe tem DMRI e está sendo acompanhada há 2 anos. As injeções mantiveram a visão estável. Equipe extremamente atenciosa e profissional. Recomendo muito."</p>
+          <div class="depo-author">Fernanda L. P.</div>
           <div class="depo-meta">Unidade Tatuapé · há 3 semanas</div>
         </div>
       </div>
@@ -471,15 +468,15 @@
     <div class="section-inner">
       <p class="section-label">Quem vai cuidar de você</p>
       <h2 class="section-title">Especialistas de <em>referência em SP</em></h2>
-      <p class="section-desc">Mais de 10 anos de experiência em cirurgia de catarata com as mais avançadas tecnologias disponíveis.</p>
+      <p class="section-desc">Mais de 10 anos de experiência no diagnóstico e tratamento das doenças da retina.</p>
       <div class="medicos-grid">
         <div class="medico-card">
-          <img src="/images/dr-fernando-lp-400w.webp" alt="Dr. Fernando Macei Drudi — Cirurgião Oftalmologista" class="medico-img" width="400" height="240" loading="lazy">
+          <img src="/images/dr-fernando-lp-400w.webp" alt="Dr. Fernando Macei Drudi — Especialista em Retina" class="medico-img" width="400" height="240" loading="lazy">
           <div class="medico-info">
             <div class="medico-nome">Dr. Fernando Macei Drudi</div>
             <div class="medico-crm">CRM-SP 116.682 · RQE 37.680</div>
-            <p class="medico-bio">Especialista em cirurgia de catarata e retina. Formado pela USP com fellowship internacional em técnicas avançadas de facoemulsificação.</p>
-            <div class="medico-tags"><span class="medico-tag">Catarata</span><span class="medico-tag">Retina</span><span class="medico-tag">Cirurgia Refrativa</span></div>
+            <p class="medico-bio">Especialista em retina e vítreo. Formado pela USP com fellowship em cirurgia vitreoretiniana. Referência no tratamento de descolamento de retina e retinopatia diabética.</p>
+            <div class="medico-tags"><span class="medico-tag">Retina</span><span class="medico-tag">Vítreo</span><span class="medico-tag">Cirurgia Vitreoretiniana</span></div>
           </div>
         </div>
         <div class="medico-card">
@@ -487,8 +484,8 @@
           <div class="medico-info">
             <div class="medico-nome">Dra. Priscilla R. de Almeida</div>
             <div class="medico-crm">CRM-SP 140.832 · RQE 52.449</div>
-            <p class="medico-bio">Especialista em catarata, ceratocone e adaptação de lentes de contato. Referência em lentes multifocais e cirurgia refrativa em SP.</p>
-            <div class="medico-tags"><span class="medico-tag">Catarata</span><span class="medico-tag">Ceratocone</span><span class="medico-tag">Lentes Multifocais</span></div>
+            <p class="medico-bio">Especialista em retina clínica, DMRI e retinopatia diabética. Experiência em tratamento com anti-VEGF e acompanhamento de doenças crônicas da retina.</p>
+            <div class="medico-tags"><span class="medico-tag">Retina Clínica</span><span class="medico-tag">DMRI</span><span class="medico-tag">Anti-VEGF</span></div>
           </div>
         </div>
       </div>
@@ -526,32 +523,32 @@
   <section class="section section-cream">
     <div class="section-inner">
       <p class="section-label">Perguntas Frequentes</p>
-      <h2 class="section-title">Tudo que você precisa <em>saber antes de decidir</em></h2>
+      <h2 class="section-title">Tudo que você precisa <em>saber antes de agendar</em></h2>
       <div class="gold-line"></div>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)"><span>A cirurgia de catarata dói?</span><div class="faq-icon">+</div></button>
-          <div class="faq-answer">Não. A cirurgia é realizada com anestesia local em colírio, portanto você fica acordado mas não sente dor. O procedimento dura entre 20 e 30 minutos e a maioria dos pacientes relata apenas uma leve pressão durante a cirurgia.</div>
+          <button class="faq-question" onclick="toggleFaq(this)"><span>Quais são os sinais de alerta para doenças da retina?</span><div class="faq-icon">+</div></button>
+          <div class="faq-answer">Fique atento a: flashes de luz, aumento súbito de moscas volantes (floaters), sombra ou cortina no campo visual, distorção de linhas retas, visão central embaçada ou mancha escura no centro da visão. Qualquer um desses sintomas requer avaliação urgente.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)"><span>Quanto tempo leva a recuperação?</span><div class="faq-icon">+</div></button>
-          <div class="faq-answer">Na maioria dos casos, a visão já melhora significativamente no dia seguinte à cirurgia. A recuperação completa ocorre em 4 a 6 semanas, mas você pode retomar atividades leves em 24 a 48 horas.</div>
+          <button class="faq-question" onclick="toggleFaq(this)"><span>Diabéticos precisam fazer exame de retina mesmo sem sintomas?</span><div class="faq-icon">+</div></button>
+          <div class="faq-answer">Sim, é fundamental. A retinopatia diabética não causa dor e pode não ter sintomas visíveis até estágios avançados. Todo diabético deve fazer exame de retina anualmente, ou com mais frequência se já houver alterações. O diagnóstico precoce é a única forma de evitar a perda de visão.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)"><span>Meu convênio cobre a cirurgia de catarata?</span><div class="faq-icon">+</div></button>
-          <div class="faq-answer">A maioria dos planos de saúde cobre a cirurgia de catarata quando há indicação médica. Aceitamos Bradesco, Amil, Unimed, Prevent Senior, Mediservice, Pró-PM, Ameplam e outros. Entre em contato pelo WhatsApp para verificar a cobertura do seu plano gratuitamente.</div>
+          <button class="faq-question" onclick="toggleFaq(this)"><span>O que é a injeção intravítrea e dói?</span><div class="faq-icon">+</div></button>
+          <div class="faq-answer">A injeção intravítrea é um procedimento ambulatorial realizado com anestesia local em colírio. É rápida (menos de 5 minutos) e a maioria dos pacientes relata apenas uma leve pressão. É o tratamento padrão para DMRI úmida, edema macular diabético e outras condições que envolvem neovascularização.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)"><span>Qual a diferença entre lente monofocal e multifocal?</span><div class="faq-icon">+</div></button>
-          <div class="faq-answer">A lente monofocal corrige a visão para uma distância (geralmente longe), sendo necessário usar óculos para perto. A lente multifocal permite enxergar bem de perto, intermediário e longe sem óculos. Seu médico indicará a melhor opção para o seu estilo de vida.</div>
+          <button class="faq-question" onclick="toggleFaq(this)"><span>Meu convênio cobre o tratamento de retina?</span><div class="faq-icon">+</div></button>
+          <div class="faq-answer">A maioria dos planos de saúde cobre consultas, exames e procedimentos para doenças da retina quando há indicação médica. Aceitamos Bradesco, Amil, Unimed, Prevent Senior, Mediservice, Pró-PM, Ameplam e outros. Entre em contato pelo WhatsApp para verificar a cobertura do seu plano.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)"><span>A catarata pode voltar após a cirurgia?</span><div class="faq-icon">+</div></button>
-          <div class="faq-answer">Não. A catarata é a opacificação do cristalino natural, que é removido durante a cirurgia e substituído por uma lente artificial. A lente artificial não desenvolve catarata. Em alguns casos pode ocorrer a "catarata secundária", uma opacificação da cápsula que envolve a lente, facilmente tratada com laser.</div>
+          <button class="faq-question" onclick="toggleFaq(this)"><span>A visão pode ser recuperada após doença de retina?</span><div class="faq-icon">+</div></button>
+          <div class="faq-answer">Depende da doença e do estágio. Em muitos casos, o tratamento precoce pode estabilizar ou melhorar a visão. No descolamento de retina, a cirurgia imediata tem alta taxa de sucesso. Em doenças crônicas como DMRI, o objetivo principal é preservar a visão existente e evitar a progressão. Por isso o diagnóstico precoce é tão importante.</div>
         </div>
       </div>
       <div style="text-align:center;margin-top:32px;">
-        <a href="https://wa.me/5511916544653?text=Tenho+d%C3%BAvidas+sobre+a+cirurgia+de+catarata." class="btn-wa" style="display:inline-flex;" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511916544653?text=Tenho+d%C3%BAvidas+sobre+doen%C3%A7as+da+retina." class="btn-wa" style="display:inline-flex;" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Perguntar pelo WhatsApp
         </a>
@@ -613,9 +610,9 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="cta-final-inner">
-      <div class="cta-badge"><div class="cta-badge-dot"></div><span>Vagas Limitadas Esta Semana</span></div>
-      <h2 class="cta-title">Pronto para recuperar a <em>clareza da sua visão</em>?</h2>
-      <p class="cta-sub">Fale com nossa equipe pelo WhatsApp e receba o preço da cirurgia, informações sobre convênios e disponibilidade de agenda — sem compromisso.</p>
+      <div class="cta-badge"><div class="cta-badge-dot"></div><span>Não Espere os Sintomas Aparecerem</span></div>
+      <h2 class="cta-title">Agende sua consulta e <em>proteja sua visão hoje</em></h2>
+      <p class="cta-sub">Fale com nossa equipe pelo WhatsApp e agende sua consulta com o especialista em retina mais próximo de você. Atendemos convênios e particular.</p>
       <div class="cta-selector">
         <select id="unitSelect" onchange="updateWaLink(this.value)">
           <option value="">Selecione a unidade mais próxima</option>
@@ -627,9 +624,9 @@
         </select>
       </div>
       <div class="cta-buttons">
-        <a id="ctaWaBtn" href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia." class="btn-wa-lg" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'cta_final_wa'});">
+        <a id="ctaWaBtn" href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta." class="btn-wa-lg" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'retina_cta_final_wa'});">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Receber Preço no WhatsApp
+          Agendar pelo WhatsApp
         </a>
         <a href="tel:+551150268521" class="btn-tel-lg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -648,18 +645,18 @@
     <img src="/images/logo-horizontal-200w_opt.webp" alt="Drudi e Almeida Oftalmologia" class="footer-lp-logo" width="120" height="28" loading="lazy">
     <p class="footer-lp-text">
       © 2025 Drudi e Almeida Clínicas Oftalmológicas · Atendemos de seg. a sáb. das 8h às 18h<br>
-      <a href="/instituto/catarata">Ver página completa do Instituto da Catarata</a> · <a href="/politica-de-privacidade">Política de Privacidade</a>
+      <a href="/instituto/retina">Ver página completa do Instituto da Retina</a> · <a href="/politica-de-privacidade">Política de Privacidade</a>
     </p>
   </footer>
 
   <!-- FLOATING WA -->
-  <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia." class="wa-float" aria-label="Falar no WhatsApp" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'float_wa'});">
+  <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta." class="wa-float" aria-label="Falar no WhatsApp" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'retina_float_wa'});">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <!-- STICKY BOTTOM BAR -->
   <div class="sticky-bar">
-    <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia." class="sticky-bar-wa" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'sticky_wa'});">
+    <a href="https://wa.me/5511916544653?text=Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta." class="sticky-bar-wa" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-7657239771','event_category':'CTA','event_label':'retina_sticky_wa'});">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
@@ -679,7 +676,7 @@
     function updateWaLink(unit) {
       var btn = document.getElementById('ctaWaBtn');
       if (!btn) return;
-      var base = 'Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+catarata+e+gostaria+de+receber+o+pre%C3%A7o+da+cirurgia.';
+      var base = 'Ol%C3%A1%21+Vim+pela+p%C3%A1gina+de+retina+e+gostaria+de+agendar+uma+consulta.';
       var msg = unit ? base + '+Prefiro+a+unidade+' + unit + '.' : base;
       btn.href = 'https://wa.me/5511916544653?text=' + msg;
     }

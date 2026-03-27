@@ -155,6 +155,16 @@ async function startServer() {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.sendFile(path.join(lpDir, 'catarata.html'));
   });
+  app.get('/lp/retina', (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.sendFile(path.join(lpDir, 'retina.html'));
+  });
+  app.get('/lp/glaucoma', (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.sendFile(path.join(lpDir, 'glaucoma.html'));
+  });
 
   // ============================================================
   // Proxy reverso para Landing Pages hospedadas no GitHub Pages
