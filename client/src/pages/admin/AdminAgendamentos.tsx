@@ -48,12 +48,27 @@ import {
   Stethoscope,
   CreditCard,
   MessageSquare,
+  Download,
+  Filter,
 } from "lucide-react";
 import { toast } from "sonner";
 import { getLoginUrl } from "@/const";
 
 const UNITS = ["Santana", "Guarulhos", "Tatuapé", "São Miguel", "Lapa"] as const;
 type Unit = (typeof UNITS)[number];
+
+const SPECIALTIES_FILTER = [
+  "Catarata",
+  "Ceratocone",
+  "Glaucoma",
+  "Retina",
+  "Estrabismo",
+  "Consulta Geral",
+  "Cirurgia Refrativa",
+  "Lentes de Contato",
+  "Oftalmopediatria",
+  "Plástica Ocular",
+] as const;
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
   pending: { label: "Pendente", color: "bg-amber-100 text-amber-800 border-amber-200" },
@@ -308,15 +323,49 @@ function AppointmentsTab() {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [filterUnit, setFilterUnit] = useState<string>("all");
   const [filterDate, setFilterDate] = useState<string>("");
+  const [filterSpecialty, setFilterSpecialty] = useState<string>("all");
 
   const { data: appointments, isLoading, refetch } = trpc.appointment.listAppointments.useQuery(
     {
       status: filterStatus as "all" | "pending" | "confirmed" | "cancelled",
       unit: filterUnit,
       date: filterDate || undefined,
+      specialty: filterSpecialty === "all" ? undefined : filterSpecialty,
     },
     { refetchInterval: 30000 }
   );
+
+  function exportCSV() {
+    if (!appointments || appointments.length === 0) {
+      toast.error("Nenhum agendamento para exportar.");
+      return;
+    }
+    const headers = ["ID", "Paciente", "Telefone", "E-mail", "Unidade", "Data", "Hora", "Especialidade", "Convênio", "Tipo", "Status", "Observações"];
+    const rows = appointments.map((a) => [
+      a.id,
+      `"${a.patientName}"`,
+      a.patientPhone,
+      a.patientEmail ?? "",
+      a.unit,
+      a.appointmentDate,
+      formatSlot(a.appointmentHour, a.appointmentMinute),
+      a.specialty ?? "",
+      a.healthPlan ?? "",
+      a.appointmentType === "retorno" ? "Retorno" : "Primeira vez",
+      STATUS_LABELS[a.status]?.label ?? a.status,
+      `"${(a.notes ?? "").replace(/"/g, "'")}"`
+    ]);
+    const csv = [headers.join(";"), ...rows.map((r) => r.join(";"))].join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    const today = new Date().toISOString().split("T")[0];
+    link.download = `agendamentos-drudi-${today}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+    toast.success(`${appointments.length} agendamento(s) exportado(s) com sucesso.`);
+  }
 
   const updateMutation = trpc.appointment.updateStatus.useMutation({
     onSuccess: () => {
@@ -394,6 +443,19 @@ function AppointmentsTab() {
           )}
         </div>
 
+        <Select value={filterSpecialty} onValueChange={setFilterSpecialty}>
+          <SelectTrigger className="w-52">
+            <Filter className="w-3.5 h-3.5 mr-1 text-muted-foreground" />
+            <SelectValue placeholder="Especialidade" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Todas as especialidades</SelectItem>
+            {SPECIALTIES_FILTER.map((s) => (
+              <SelectItem key={s} value={s}>{s}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         <Button
           variant="outline"
           size="sm"
@@ -401,6 +463,16 @@ function AppointmentsTab() {
           className="gap-2"
         >
           <RefreshCw className="w-3.5 h-3.5" /> Atualizar
+        </Button>
+
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={exportCSV}
+          disabled={!appointments || appointments.length === 0}
+          className="gap-2 border-green-200 text-green-700 hover:bg-green-50"
+        >
+          <Download className="w-3.5 h-3.5" /> Exportar CSV
         </Button>
 
         <span className="font-ui text-sm text-muted-foreground ml-auto">

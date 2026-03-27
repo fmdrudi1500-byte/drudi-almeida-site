@@ -291,6 +291,7 @@ export const appointmentRouter = router({
         status: z.enum(["pending", "confirmed", "cancelled", "all"]).default("all"),
         unit: z.enum([...UNITS, "all"] as [string, ...string[]]).default("all"),
         date: z.string().optional(),
+        specialty: z.enum([...SPECIALTIES, "all"] as [string, ...string[]]).default("all"),
       })
     )
     .query(async ({ input, ctx }) => {
@@ -314,6 +315,9 @@ export const appointmentRouter = router({
       }
       if (input.date) {
         filtered = filtered.filter((r: AppointmentRow) => r.appointmentDate === input.date);
+      }
+      if (input.specialty !== "all") {
+        filtered = filtered.filter((r: AppointmentRow) => r.specialty === input.specialty);
       }
 
       return filtered;

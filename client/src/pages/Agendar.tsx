@@ -11,11 +11,33 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import SEOHead from "@/components/SEOHead";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import { MapPin, Calendar, Clock, User, CheckCircle, ChevronRight, ChevronLeft, Phone, Mail, Loader2 } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MapPin, Calendar, Clock, User, CheckCircle, ChevronRight, ChevronLeft, Phone, Mail, Loader2, Stethoscope, CreditCard } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const UNITS = ["Santana", "Guarulhos", "Tatuapé", "São Miguel", "Lapa"] as const;
+
+const SPECIALTIES = [
+  { value: "Consulta Geral", label: "Consulta Geral / Rotina" },
+  { value: "Catarata", label: "Catarata" },
+  { value: "Ceratocone", label: "Ceratocone" },
+  { value: "Glaucoma", label: "Glaucoma" },
+  { value: "Retina", label: "Retina" },
+  { value: "Estrabismo", label: "Estrabismo" },
+] as const;
+
+const HEALTH_PLANS = [
+  "Particular",
+  "Prevent Senior",
+  "Bradesco Saúde",
+  "Mediservice",
+  "Instituto Pró-PM",
+  "Amil",
+  "Unimed Seguros",
+  "Ameplam",
+  "Outro",
+] as const;
 type Unit = (typeof UNITS)[number];
 
 const UNIT_ADDRESSES: Record<Unit, string> = {
@@ -350,6 +372,55 @@ export default function Agendar() {
                 </div>
 
                 <div className="space-y-4">
+
+                  {/* Especialidade */}
+                  <div>
+                    <Label className="font-ui text-sm font-medium mb-1.5 block">
+                      <span className="flex items-center gap-1.5"><Stethoscope className="w-3.5 h-3.5" /> Especialidade</span>
+                    </Label>
+                    <Select
+                      value={selectedSpecialty}
+                      onValueChange={(v) => setSelectedSpecialty(v as typeof selectedSpecialty)}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Selecione a especialidade" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {SPECIALTIES.map((s) => (
+                          <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Plano de saúde */}
+                  <div>
+                    <Label className="font-ui text-sm font-medium mb-1.5 block">
+                      <span className="flex items-center gap-1.5"><CreditCard className="w-3.5 h-3.5" /> Plano de saúde</span>
+                    </Label>
+                    <Select
+                      value={healthPlan || "Particular"}
+                      onValueChange={(v) => setHealthPlan(v)}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Selecione o plano" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {HEALTH_PLANS.map((p) => (
+                          <SelectItem key={p} value={p}>{p}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {(healthPlan === "Outro" || !HEALTH_PLANS.includes(healthPlan as any)) && healthPlan !== "" && healthPlan !== "Particular" && (
+                      <Input
+                        className="mt-2"
+                        placeholder="Nome do seu plano de saúde"
+                        value={healthPlan === "Outro" ? "" : healthPlan}
+                        onChange={(e) => setHealthPlan(e.target.value)}
+                      />
+                    )}
+                  </div>
+
                   <div>
                     <Label htmlFor="name" className="font-ui text-sm font-medium mb-1.5 block">
                       Nome completo <span className="text-red-500">*</span>
@@ -467,6 +538,14 @@ export default function Agendar() {
                   <div className="flex items-center gap-3 text-sm">
                     <Clock className="w-4 h-4 text-gold flex-shrink-0" />
                     <span><strong>Horário:</strong> {selectedSlot ? formatHour(selectedSlot.hour, selectedSlot.minute) : ""}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Stethoscope className="w-4 h-4 text-gold flex-shrink-0" />
+                    <span><strong>Especialidade:</strong> {selectedSpecialty}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <CreditCard className="w-4 h-4 text-gold flex-shrink-0" />
+                    <span><strong>Plano:</strong> {healthPlan || "Particular"}</span>
                   </div>
                 </div>
 
