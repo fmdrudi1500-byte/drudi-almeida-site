@@ -190,7 +190,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
             { "@type": "PropertyValue", "name": "CRM-SP", "value": "139300" },
             { "@type": "PropertyValue", "name": "RQE", "value": "50645" },
           ],
-          "medicalSpecialty": ["Ophthalmology", "Cataract Surgery", "Glaucoma Treatment"],
+          "medicalSpecialty": ["http://schema.org/Optometric", "http://schema.org/Surgical"],
           "worksFor": { "@type": "MedicalOrganization", "name": "Drudi e Almeida Oftalmologia", "url": BASE_URL },
         };
       }
@@ -203,7 +203,7 @@ function DynamicBlogPost({ slug }: { slug: string }) {
             { "@type": "PropertyValue", "name": "CRM-SP", "value": "148173" },
             { "@type": "PropertyValue", "name": "RQE", "value": "59216" },
           ],
-          "medicalSpecialty": ["Ophthalmology", "Corneal Disease Treatment", "Strabismus Treatment"],
+          "medicalSpecialty": ["http://schema.org/Optometric", "http://schema.org/Surgical"],
           "worksFor": { "@type": "MedicalOrganization", "name": "Drudi e Almeida Oftalmologia", "url": BASE_URL },
         };
       }

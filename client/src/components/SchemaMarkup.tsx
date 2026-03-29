@@ -36,7 +36,7 @@ const CLINIC_BASE = {
   email: "contato@drudiealmeida.com",
   description:
     "Clínica oftalmológica com 5 institutos especializados em catarata, ceratocone, glaucoma, retina e estrabismo. 5 unidades em São Paulo e Guarulhos.",
-  medicalSpecialty: "Ophthalmology",
+  medicalSpecialty: "http://schema.org/Optometric",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -129,7 +129,7 @@ const PHYSICIANS = {
     description:
       "Médico oftalmologista especializado em retina cirúrgica, com mais de 10 anos de experiência. Participa do Projeto Oftalmologia Humanitária na Amazônia.",
     url: "https://www.institutodrudiealmeida.com.br/sobre-nos",
-    medicalSpecialty: "Ophthalmology",
+    medicalSpecialty: "http://schema.org/Optometric",
     worksFor: {
       "@type": "MedicalClinic",
       name: "Drudi e Almeida Clínicas Oftalmológicas",
@@ -148,7 +148,7 @@ const PHYSICIANS = {
     description:
       "Médica oftalmologista especializada em ceratocone, crosslinking e adaptação de lentes de contato especiais.",
     url: "https://www.institutodrudiealmeida.com.br/sobre-nos",
-    medicalSpecialty: "Ophthalmology",
+    medicalSpecialty: "http://schema.org/Optometric",
     worksFor: {
       "@type": "MedicalClinic",
       name: "Drudi e Almeida Clínicas Oftalmológicas",

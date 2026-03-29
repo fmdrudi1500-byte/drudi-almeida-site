@@ -193,14 +193,7 @@ export default function Unidade() {
     priceRange: "$$",
     currenciesAccepted: "BRL",
     paymentAccepted: "Dinheiro, Cartão de Crédito, Cartão de Débito, Convênio Médico",
-    medicalSpecialty: [
-      "Ophthalmology",
-      "Cataract Surgery",
-      "Glaucoma Treatment",
-      "Retina Surgery",
-      "Keratoconus Treatment",
-      "Strabismus Treatment",
-    ],
+    medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     availableService: [
       {
         "@type": "MedicalProcedure",

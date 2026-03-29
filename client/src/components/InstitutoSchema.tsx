@@ -49,65 +49,65 @@ const institutos: Record<InstitutoType, InstitutoConfig> = {
     name: "Instituto da Catarata — Drudi e Almeida",
     description:
       "Instituto especializado em diagnóstico e tratamento cirúrgico da catarata. Cirurgia de facoemulsificação com lentes intraoculares premium (monofocais, trifocais e tóricas). Tecnologia de laser femtossegundo e biometria óptica de alta precisão.",
-    specialty: ["Ophthalmology", "Cataract Surgery"],
+    specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     url: `${BASE_URL}/instituto/catarata`,
     physician: {
       name: "Dr. Fernando Macei Drudi",
       crm: "139300",
       rqe: "50645",
-      specialty: ["Ophthalmology", "Cataract Surgery", "Retina Surgery"],
+      specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     },
   },
   ceratocone: {
     name: "Instituto do Ceratocone — Drudi e Almeida",
     description:
       "Instituto especializado no diagnóstico e tratamento do ceratocone. Crosslinking de colágeno corneal, implante de anel de Ferrara, adaptação de lentes de contato especiais (RGP, esclerais, híbridas). Diagnóstico com Pentacam e OPD-Scan.",
-    specialty: ["Ophthalmology", "Corneal Disease Treatment", "Keratoconus Treatment", "Contact Lens Fitting"],
+    specialty: ["http://schema.org/Optometric"],
     url: `${BASE_URL}/instituto/ceratocone`,
     physician: {
       name: "Dra. Priscilla Rodrigues de Almeida",
       crm: "148173",
       rqe: "59216",
-      specialty: ["Ophthalmology", "Corneal Disease Treatment", "Keratoconus Treatment"],
+      specialty: ["http://schema.org/Optometric"],
     },
   },
   glaucoma: {
     name: "Instituto do Glaucoma — Drudi e Almeida",
     description:
       "Instituto especializado no diagnóstico precoce e tratamento do glaucoma. Tonometria, campo visual computadorizado, OCT de nervo óptico e camada de fibras nervosas. Tratamento clínico, laser (trabeculoplastia) e cirúrgico (trabeculectomia).",
-    specialty: ["Ophthalmology", "Glaucoma Treatment"],
+    specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     url: `${BASE_URL}/instituto/glaucoma`,
     physician: {
       name: "Dr. Fernando Macei Drudi",
       crm: "139300",
       rqe: "50645",
-      specialty: ["Ophthalmology", "Glaucoma Treatment", "Cataract Surgery"],
+      specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     },
   },
   retina: {
     name: "Instituto da Retina — Drudi e Almeida",
     description:
       "Instituto especializado em doenças da retina e vítreo. Vitrectomia, injeções intravítreas de anti-VEGF, fotocoagulação a laser, tratamento de retinopatia diabética, degeneração macular e descolamento de retina.",
-    specialty: ["Ophthalmology", "Retina Surgery"],
+    specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     url: `${BASE_URL}/instituto/retina`,
     physician: {
       name: "Dr. Fernando Macei Drudi",
       crm: "139300",
       rqe: "50645",
-      specialty: ["Ophthalmology", "Retina Surgery", "Cataract Surgery"],
+      specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     },
   },
   estrabismo: {
     name: "Instituto de Estrabismo — Drudi e Almeida",
     description:
       "Instituto especializado no diagnóstico e tratamento cirúrgico do estrabismo em crianças e adultos. Correção do desalinhamento ocular, tratamento da ambliopia (olho preguiçoso) e reabilitação da visão binocular.",
-    specialty: ["Ophthalmology", "Strabismus Treatment"],
+    specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     url: `${BASE_URL}/instituto/estrabismo`,
     physician: {
       name: "Dra. Priscilla Rodrigues de Almeida",
       crm: "148173",
       rqe: "59216",
-      specialty: ["Ophthalmology", "Strabismus Treatment", "Corneal Disease Treatment"],
+      specialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
     },
   },
 };

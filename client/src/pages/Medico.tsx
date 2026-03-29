@@ -160,7 +160,7 @@ function PhysicianSchema({ doctor }: { doctor: DoctorData }) {
     name: doctor.fullName,
     image: `https://institutodrudiealmeida.com.br${doctor.image}`,
     description: doctor.seo.description,
-    medicalSpecialty: "Ophthalmology",
+    medicalSpecialty: "http://schema.org/Optometric",
     jobTitle: doctor.role,
     worksFor: {
       "@type": "MedicalClinic",

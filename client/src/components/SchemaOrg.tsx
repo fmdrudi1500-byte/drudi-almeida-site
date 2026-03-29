@@ -56,16 +56,7 @@ const organizationSchema = {
     longitude: -46.6268,
   },
   openingHoursSpecification: openingHours,
-  medicalSpecialty: [
-    "Ophthalmology",
-    "Cataract Surgery",
-    "Glaucoma Treatment",
-    "Retina Treatment",
-    "Strabismus Treatment",
-    "Keratoconus Treatment",
-    "Corneal Disease Treatment",
-    "Contact Lens Fitting",
-  ],
+  medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
   hasMap: "https://maps.google.com/maps?q=Drudi+e+Almeida+Santana",
   sameAs: [
     "https://instagram.com/drudialmeida",
@@ -92,7 +83,7 @@ const drFernandoSchema = {
   honorificPrefix: "Dr.",
   description:
     "Oftalmologista especialista em Catarata e Retina Cirúrgica. Diretor Clínico da Drudi e Almeida Oftalmologia. Membro do Conselho Brasileiro de Oftalmologia (CBO). Preceptor de Retina e Catarata na Residência Médica do IAMSPE.",
-  medicalSpecialty: ["Ophthalmology", "Cataract Surgery", "Retina Surgery"],
+  medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
   identifier: {
     "@type": "PropertyValue",
     name: "CRM-SP",
@@ -132,12 +123,7 @@ const draPriscillaSchema = {
   honorificPrefix: "Dra.",
   description:
     "Oftalmologista especialista em Córnea, Segmento Anterior e Lentes de Contato Especiais. Diretora Técnica da Drudi e Almeida Oftalmologia. Fellowship em Córnea e Doenças Externas pela EPM/UNIFESP. Especialista em adaptação de lentes para ceratocone.",
-  medicalSpecialty: [
-    "Ophthalmology",
-    "Corneal Disease Treatment",
-    "Keratoconus Treatment",
-    "Contact Lens Fitting",
-  ],
+  medicalSpecialty: ["http://schema.org/Optometric"],
   identifier: [
     {
       "@type": "PropertyValue",
@@ -239,7 +225,7 @@ const localBusinessSchemas = units.map((u) => ({
   },
   hasMap: u.map,
   openingHoursSpecification: openingHours,
-  medicalSpecialty: "Ophthalmology",
+  medicalSpecialty: "http://schema.org/Optometric",
   priceRange: "$$",
 }));
 
