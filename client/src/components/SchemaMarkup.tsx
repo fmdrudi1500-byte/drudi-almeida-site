@@ -4,8 +4,10 @@
  * Usage:
  *   <SchemaMarkup type="clinic" />                 → MedicalClinic (all pages)
  *   <SchemaMarkup type="physician" name="Fernando" /> → Physician schema
- *   <SchemaMarkup type="specialty" specialty="Cataract Surgery" /> → MedicalSpecialty
+ *   <SchemaMarkup type="specialty" specialty="Cataract Surgery" /> → MedicalSpecialty + MedicalWebPage
  */
+
+const BASE_URL = "https://institutodrudiealmeida.com.br";
 
 interface ClinicSchemaProps {
   type: "clinic";
@@ -29,9 +31,9 @@ const CLINIC_BASE = {
   "@type": "MedicalClinic",
   name: "Drudi e Almeida Clínicas Oftalmológicas",
   alternateName: "Instituto Drudi e Almeida",
-  url: "https://www.institutodrudiealmeida.com.br",
-  logo: "https://www.institutodrudiealmeida.com.br/logo-drudi-almeida.svg",
-  image: "https://www.institutodrudiealmeida.com.br/og-image.jpg",
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo-drudi-almeida.svg`,
+  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028489100/TAgHZnKQbefMatka.png",
   telephone: "+55-11-5430-2421",
   email: "contato@drudiealmeida.com",
   description:
@@ -56,28 +58,23 @@ const CLINIC_BASE = {
     "https://www.facebook.com/drudiealmeida",
   ],
   hasMap: "https://maps.google.com/?q=Drudi+e+Almeida+Oftalmologia+São+Paulo",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "850",
+    bestRating: "5",
+    worstRating: "1",
+  },
   location: [
-    {
-      "@type": "Place",
-      name: "Unidade Lapa",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Av. Pompeia, 1200",
-        addressLocality: "São Paulo",
-        addressRegion: "SP",
-        postalCode: "05023-000",
-        addressCountry: "BR",
-      },
-    },
     {
       "@type": "Place",
       name: "Unidade Santana",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Av. Braz Leme, 1717",
+        streetAddress: "Rua Dr. César, 130",
         addressLocality: "São Paulo",
         addressRegion: "SP",
-        postalCode: "02511-000",
+        postalCode: "02013-001",
         addressCountry: "BR",
       },
     },
@@ -86,10 +83,22 @@ const CLINIC_BASE = {
       name: "Unidade Tatuapé",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "R. Tuiuti, 1700",
+        streetAddress: "Rua Tuiuti, 2429",
         addressLocality: "São Paulo",
         addressRegion: "SP",
-        postalCode: "03307-005",
+        postalCode: "03307-001",
+        addressCountry: "BR",
+      },
+    },
+    {
+      "@type": "Place",
+      name: "Unidade Lapa",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Rua Barão de Jundiaí, 221",
+        addressLocality: "São Paulo",
+        addressRegion: "SP",
+        postalCode: "05073-001",
         addressCountry: "BR",
       },
     },
@@ -98,10 +107,10 @@ const CLINIC_BASE = {
       name: "Unidade São Miguel",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Av. Marechal Tito, 3900",
+        streetAddress: "Rua Bernardo Marcondes, 108",
         addressLocality: "São Paulo",
         addressRegion: "SP",
-        postalCode: "08110-000",
+        postalCode: "08010-001",
         addressCountry: "BR",
       },
     },
@@ -110,10 +119,10 @@ const CLINIC_BASE = {
       name: "Unidade Guarulhos",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "R. Sete de Setembro, 1000",
+        streetAddress: "Rua Sete de Setembro, 375",
         addressLocality: "Guarulhos",
         addressRegion: "SP",
-        postalCode: "07020-000",
+        postalCode: "07010-001",
         addressCountry: "BR",
       },
     },
@@ -123,35 +132,63 @@ const CLINIC_BASE = {
 const PHYSICIANS = {
   Fernando: {
     "@type": "Physician",
-    name: "Dr. Fernando Drudi",
+    name: "Dr. Fernando Macei Drudi",
     honorificPrefix: "Dr.",
-    jobTitle: "Oftalmologista — Especialista em Retina Cirúrgica",
+    jobTitle: "Oftalmologista — Especialista em Retina Cirúrgica e Catarata",
     description:
-      "Médico oftalmologista especializado em retina cirúrgica, com mais de 10 anos de experiência. Participa do Projeto Oftalmologia Humanitária na Amazônia.",
-    url: "https://www.institutodrudiealmeida.com.br/sobre-nos",
-    medicalSpecialty: "http://schema.org/Optometric",
+      "Médico oftalmologista especializado em retina cirúrgica e cirurgia de catarata. Diretor Clínico da Drudi e Almeida Oftalmologia. Membro do Conselho Brasileiro de Oftalmologia (CBO). Preceptor de Retina e Catarata na Residência Médica do IAMSPE.",
+    url: `${BASE_URL}/sobre`,
+    medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
+    identifier: {
+      "@type": "PropertyValue",
+      name: "CRM-SP",
+      value: "139300",
+    },
     worksFor: {
       "@type": "MedicalClinic",
       name: "Drudi e Almeida Clínicas Oftalmológicas",
     },
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "Universidade de São Paulo (USP)",
+      name: "IAMSPE — Instituto de Assistência Médica ao Servidor Público Estadual",
     },
-    award: "Amigo da Marinha — Marinha do Brasil",
+    memberOf: {
+      "@type": "MedicalOrganization",
+      name: "Conselho Brasileiro de Oftalmologia (CBO)",
+    },
   },
   Priscilla: {
     "@type": "Physician",
     name: "Dra. Priscilla R. de Almeida",
     honorificPrefix: "Dra.",
-    jobTitle: "Oftalmologista — Especialista em Ceratocone e Córnea",
+    jobTitle: "Oftalmologista — Especialista em Córnea e Ceratocone",
     description:
-      "Médica oftalmologista especializada em ceratocone, crosslinking e adaptação de lentes de contato especiais.",
-    url: "https://www.institutodrudiealmeida.com.br/sobre-nos",
+      "Médica oftalmologista especializada em córnea, ceratocone, crosslinking e adaptação de lentes de contato especiais. Diretora Técnica da Drudi e Almeida Oftalmologia. Fellowship em Córnea e Doenças Externas pela EPM/UNIFESP.",
+    url: `${BASE_URL}/sobre`,
     medicalSpecialty: "http://schema.org/Optometric",
+    identifier: [
+      {
+        "@type": "PropertyValue",
+        name: "CRM-SP",
+        value: "148173",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "RQE",
+        value: "59216",
+      },
+    ],
     worksFor: {
       "@type": "MedicalClinic",
       name: "Drudi e Almeida Clínicas Oftalmológicas",
+    },
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Escola Paulista de Medicina — EPM/UNIFESP",
+    },
+    memberOf: {
+      "@type": "MedicalOrganization",
+      name: "Conselho Brasileiro de Oftalmologia (CBO)",
     },
   },
 };
@@ -165,12 +202,12 @@ export default function SchemaMarkup(props: SchemaMarkupProps) {
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://institutodrudiealmeida.com.br/#organization",
-          name: "Drudi e Almeida Cl\u00ednicas Oftalmol\u00f3gicas",
-          url: "https://institutodrudiealmeida.com.br",
+          "@id": `${BASE_URL}/#organization`,
+          name: "Drudi e Almeida Clínicas Oftalmológicas",
+          url: BASE_URL,
           logo: {
             "@type": "ImageObject",
-            url: "https://institutodrudiealmeida.com.br/logo-drudi-almeida.svg",
+            url: `${BASE_URL}/logo-drudi-almeida.svg`,
             width: 200,
             height: 60,
           },
@@ -181,9 +218,9 @@ export default function SchemaMarkup(props: SchemaMarkupProps) {
         },
         {
           ...CLINIC_BASE,
-          "@id": "https://institutodrudiealmeida.com.br/#clinic",
+          "@id": `${BASE_URL}/#clinic`,
           parentOrganization: {
-            "@id": "https://institutodrudiealmeida.com.br/#organization",
+            "@id": `${BASE_URL}/#organization`,
           },
         },
       ],
@@ -194,21 +231,34 @@ export default function SchemaMarkup(props: SchemaMarkupProps) {
       ...PHYSICIANS[props.name],
     };
   } else {
-    // specialty
+    // specialty — MedicalWebPage + MedicalCondition
     schema = {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
       name: props.specialty,
       description: props.description,
-      url: props.url,
+      url: props.url.startsWith("http") ? props.url : `${BASE_URL}${props.url}`,
+      lastReviewed: new Date().toISOString().split("T")[0],
+      medicalAudience: {
+        "@type": "PatientAudience",
+        audienceType: "Patient",
+      },
       about: {
         "@type": "MedicalCondition",
         name: props.specialty,
+        associatedAnatomy: {
+          "@type": "AnatomicalStructure",
+          name: "Olho",
+        },
       },
       isPartOf: {
+        "@id": `${BASE_URL}/#website`,
+      },
+      mainEntity: {
         "@type": "MedicalClinic",
+        "@id": `${BASE_URL}/#clinic`,
         name: "Drudi e Almeida Clínicas Oftalmológicas",
-        url: "https://www.institutodrudiealmeida.com.br",
+        url: BASE_URL,
       },
     };
   }
@@ -216,7 +266,7 @@ export default function SchemaMarkup(props: SchemaMarkupProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 0) }}
     />
   );
 }

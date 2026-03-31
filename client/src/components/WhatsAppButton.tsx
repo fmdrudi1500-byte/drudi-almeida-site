@@ -6,6 +6,7 @@
    ============================================================ */
 import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 // ============================================================
 // CONFIGURAÇÃO
@@ -117,6 +118,8 @@ export default function WhatsAppButton() {
     const url = `https://wa.me/${CONFIG.phone}?text=${message}`;
     if (badgeRef.current) badgeRef.current.style.display = "none";
     closeTooltip();
+    // Rastrear conversão: GA4 + Meta Pixel
+    trackWhatsAppClick("fab_desktop");
     // Use anchor click to reliably open WhatsApp in new tab
     const a = document.createElement("a");
     a.href = url;

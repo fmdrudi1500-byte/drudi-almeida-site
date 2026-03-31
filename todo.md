@@ -520,3 +520,23 @@
 - [x] INDEX-01: Corrigir canonical duplicado — removido canonical hardcoded do index.html; SEOHead dinâmico injeta canonical correto por página
 - [x] INDEX-02: Adicionar prioritizeSeoTags ao HelmetProvider para garantir que metatags dinâmicas sobrescrevam as estáticas
 - [ ] INDEX-03: Implementar SSR/pre-rendering para metatags críticas (title, canonical, og:title) — requer migração para SSR
+
+## Fase 48: Tags de Conversão e Auditoria
+- [x] Implementar Meta Pixel (Fernando Drudi Pixel: 1829566917408954) no index.html
+- [x] Adicionar evento de conversão fbq('track', 'Schedule') ao concluir agendamento
+- [x] Adicionar evento de conversão gtag('event', 'conversion') ao concluir agendamento
+- [x] Adicionar evento fbq('track', 'Lead') no clique do WhatsApp
+- [x] Corrigir TS error em AdminAgendamentos.tsx (appointmentType)
+- [x] Auditoria completa de links internos
+- [x] Verificar canonical tags em todas as páginas
+- [x] Adicionar evento fbq('track', 'Contact') no clique do telefone
+- [x] Adicionar evento fbq('track', 'InitiateCheckout') no clique Agendar Online
+- [x] Adicionar evento fbq('track', 'ViewContent') na página de agendamento
+- [x] Corrigir endereços no SchemaMarkup.tsx (endereços reais das unidades)
+- [x] Adicionar MedicalWebPage schema nos 5 institutos
+- [x] Adicionar AggregateRating no SchemaMarkup clinic
+- [x] Adicionar anchor id="tecnologia" na Home (fix menu link)
+- [x] Mover noscript do Meta Pixel para o body (fix parse5 error)
+- [x] Adicionar trackWhatsAppClick no WhatsAppButton flutuante
+- [x] Adicionar trackWhatsAppClick nos links WhatsApp da Home.tsx (hero, FAQ, CTA final)
+- [x] Testes vitest para analytics tags (10 testes passando)

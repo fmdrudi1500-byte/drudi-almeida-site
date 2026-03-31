@@ -2,7 +2,7 @@
    Agendar Consulta — Drudi e Almeida
    Multi-step form: Unidade → Data/Hora → Dados → Confirmação
    ============================================================ */
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import SEOHead from "@/components/SEOHead";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Calendar, Clock, User, CheckCircle, ChevronRight, ChevronLeft, Phone, Mail, Loader2, Stethoscope, CreditCard } from "lucide-react";
+import { trackAppointmentCompleted, trackAgendarPageView } from "@/lib/analytics";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -151,6 +152,11 @@ export default function Agendar() {
 
   const days = useMemo(() => getNext30Days(), []);
 
+  // Rastrear visualização da página de agendamento (Meta Pixel ViewContent)
+  useEffect(() => {
+    trackAgendarPageView();
+  }, []);
+
   // Fetch available slots when unit + date are selected
   const slotsQuery = trpc.appointment.getAvailableSlots.useQuery(
     { unit: selectedUnit!, date: selectedDate },
@@ -161,6 +167,8 @@ export default function Agendar() {
     onSuccess: () => {
       setSubmitted(true);
       setStep(3);
+      // Rastrear conversão: GA4 + Google Ads + Meta Pixel
+      trackAppointmentCompleted(selectedUnit ?? "desconhecida", selectedSpecialty || "Consulta Geral");
     },
     onError: (err) => {
       setError(err.message);

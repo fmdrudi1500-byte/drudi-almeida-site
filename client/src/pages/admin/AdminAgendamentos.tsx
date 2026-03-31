@@ -351,7 +351,7 @@ function AppointmentsTab() {
       formatSlot(a.appointmentHour, a.appointmentMinute),
       a.specialty ?? "",
       a.healthPlan ?? "",
-      a.appointmentType === "retorno" ? "Retorno" : "Primeira vez",
+      "Primeira vez",
       STATUS_LABELS[a.status]?.label ?? a.status,
       `"${(a.notes ?? "").replace(/"/g, "'")}"`
     ]);

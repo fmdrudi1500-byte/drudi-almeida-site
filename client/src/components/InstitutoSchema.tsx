@@ -202,6 +202,34 @@ export default function InstitutoSchema({ instituto }: Props) {
     ],
   };
 
+  // MedicalWebPage schema for AI search and rich results
+  const medicalWebPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: config.name,
+    description: config.description,
+    url: config.url,
+    lastReviewed: new Date().toISOString().split("T")[0],
+    medicalAudience: {
+      "@type": "PatientAudience",
+      audienceType: "Patient",
+    },
+    about: {
+      "@type": "MedicalCondition",
+      name: config.name.replace(/ — Drudi e Almeida$/, "").replace(/^Instituto (da |do |de )?/, ""),
+      associatedAnatomy: {
+        "@type": "AnatomicalStructure",
+        name: "Olho",
+      },
+    },
+    isPartOf: {
+      "@id": `${BASE_URL}/#website`,
+    },
+    mainEntity: {
+      "@id": `${config.url}#instituto`,
+    },
+  };
+
   return (
     <>
       <script
@@ -211,6 +239,10 @@ export default function InstitutoSchema({ instituto }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema, null, 0) }}
       />
     </>
   );

@@ -9,6 +9,7 @@ import { ArrowRight, Eye, Shield, Heart, Zap, Users, Star, Palette, Award, Messa
 import AnimateOnScroll, { StaggerContainer, StaggerItem } from "@/components/AnimateOnScroll";
 import { IMAGES, srcSet } from "@/lib/images";
 import { useMemo, lazy, Suspense } from "react";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import SEOHead from "@/components/SEOHead";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import AgendarOnlineBtn from "@/components/AgendarOnlineBtn";
@@ -150,6 +151,7 @@ export default function Home() {
                 href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("hero")}
                 className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-3.5 rounded-md hover:bg-gold-light transition-colors"
               >
                 Agendar pelo WhatsApp
@@ -362,9 +364,11 @@ export default function Home() {
       </section>
 
       {/* ========== TECNOLOGIA ========== */}
+      <section id="tecnologia">
       <Suspense fallback={<div className="h-64" />}>
         <TecnologiaCarousel />
       </Suspense>
+      </section>
 
       {/* ========== CORPO CLÍNICO ========== */}
       <section className="section-padding">
@@ -979,6 +983,7 @@ export default function Home() {
               href="https://wa.me/5511916544653?text=Olá! Tenho uma dúvida sobre..."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("faq")}
               className="inline-flex items-center gap-2 bg-[#25D366] text-white font-ui text-sm font-bold px-6 py-3 rounded-md hover:bg-[#20BD5A] transition-colors"
             >
               <MessageSquare className="w-4 h-4" />
@@ -1010,6 +1015,7 @@ export default function Home() {
                 href="https://wa.me/5511916544653?text=Olá! Gostaria de agendar uma consulta."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("cta_final")}
                 className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-8 py-4 rounded-md hover:bg-gold-light transition-colors"
               >
                 Agendar pelo WhatsApp
