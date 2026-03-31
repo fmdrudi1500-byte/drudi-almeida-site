@@ -9,9 +9,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Sender address — must be a verified domain in Resend.
-// While the domain is not verified, Resend allows sending from onboarding@resend.dev (test only).
-const FROM_ADDRESS = "Drudi e Almeida <onboarding@resend.dev>";
+// Sender address — verified domain institutodrudiealmeida.com.br.
+const FROM_ADDRESS = "Drudi e Almeida <no-reply@institutodrudiealmeida.com.br>";
+const REPLY_TO = "contato@drudiealmeida.com";
 const CLINIC_EMAIL = "contato@drudiealmeida.com";
 
 const WEEKDAY_NAMES: Record<number, string> = {
@@ -169,6 +169,7 @@ export async function sendPatientConfirmation(data: AppointmentEmailData): Promi
   try {
     const { error } = await resend.emails.send({
       from: FROM_ADDRESS,
+      replyTo: REPLY_TO,
       to: [data.patientEmail],
       subject: `✅ Solicitação de consulta recebida — Drudi e Almeida`,
       html,
@@ -255,6 +256,7 @@ export async function sendClinicNotification(data: AppointmentEmailData): Promis
   try {
     const { error } = await resend.emails.send({
       from: FROM_ADDRESS,
+      replyTo: REPLY_TO,
       to: [CLINIC_EMAIL],
       subject: `🗓 Novo agendamento — ${data.patientName} | ${data.unit} | ${formattedDate} ${formattedHour}`,
       html,
