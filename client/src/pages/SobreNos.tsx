@@ -16,7 +16,7 @@ import { useState, useRef, useCallback } from "react";
 // Fotos dos médicos — extensões .webp (convertidas na otimização)
 const DR_FERNANDO_FORMAL = `/images/dr-fernando-800w.webp`;
 const DRA_PRISCILLA_FORMAL = `/images/dra-priscilla-800w.webp`;
-const DR_FERNANDO_AMAZONIA = `/images/dr-fernando-amazonia-elegant_0e59624a.webp`;
+const DR_FERNANDO_AMAZONIA = `https://d2xsxph8kpxj0f.cloudfront.net/310419663028489100/bJpZLaNUAwiEuNvz3b7LGz/humanitario-cirurgia-oftalmo-VqbmUJvwBaMj95doQUPKf2.webp`;
 
 // ============================================================
 // Missão, Visão e Valores — dados interativos
