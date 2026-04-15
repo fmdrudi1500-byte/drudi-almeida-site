@@ -269,3 +269,41 @@ export const jobApplications = mysqlTable("job_applications", {
 
 export type JobApplication = typeof jobApplications.$inferSelect;
 export type InsertJobApplication = typeof jobApplications.$inferInsert;
+
+/**
+ * GEO Monitor Results — tracks AI visibility for Drudi e Almeida
+ * Stores results of manual or automated prompts sent to AI engines
+ */
+export const geoMonitorResults = mysqlTable("geo_monitor_results", {
+  id: int("id").autoincrement().primaryKey(),
+
+  // Which AI engine was tested
+  engine: mysqlEnum("engine", ["chatgpt", "gemini", "perplexity", "copilot", "claude"]).notNull(),
+
+  // The prompt used
+  prompt: text("prompt").notNull(),
+  promptCategory: varchar("promptCategory", { length: 100 }), // e.g. "catarata", "retina", "geral"
+
+  // Was Drudi e Almeida mentioned?
+  mentioned: boolean("mentioned").default(false).notNull(),
+
+  // Position in the response (1 = first mention, null = not mentioned)
+  mentionPosition: int("mentionPosition"),
+
+  // The actual AI response (truncated to 2000 chars)
+  aiResponse: text("aiResponse"),
+
+  // Score 0-100 based on mention quality
+  score: int("score").default(0),
+
+  // Notes from the person who ran the test
+  notes: text("notes"),
+
+  // Who ran the test
+  testedBy: varchar("testedBy", { length: 200 }),
+
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type GeoMonitorResult = typeof geoMonitorResults.$inferSelect;
+export type InsertGeoMonitorResult = typeof geoMonitorResults.$inferInsert;

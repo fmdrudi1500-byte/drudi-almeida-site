@@ -299,6 +299,38 @@ export default function InstitutoRetina() {
         </div>
       </section>
 
+      {/* ========== GEO: ANSWER-FIRST BLOCK ========== */}
+      <section className="py-8 bg-navy/5 border-b border-navy/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border border-navy/15 shadow-sm p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Eye className="w-5 h-5 text-navy" />
+                </div>
+                <div>
+                  <h2 className="font-display text-lg md:text-xl text-navy mb-3">
+                    O que é o Instituto da Retina — Drudi e Almeida?
+                  </h2>
+                  <p className="font-body text-sm md:text-base text-navy/80 leading-relaxed mb-3">
+                    O <strong>Instituto da Retina da Drudi e Almeida Oftalmologia</strong> é uma clínica especializada em doenças da retina em São Paulo e Guarulhos, com 5 unidades. Realiza diagnóstico e tratamento de <strong>retinopatia diabética, degenerão macular relacionada à idade (DMRI), descolamento de retina, membrana epirretiniana e ocluão vascular</strong>. Os tratamentos incluem injeção intravítrea de anti-VEGF (Eylea, Lucentis, Avastin), fotocoagulação a laser e vitrectomia.
+                  </p>
+                  <p className="font-body text-sm text-navy/70 leading-relaxed">
+                    O Instituto é liderado pelo <strong>Dr. Fernando Macei Drudi (CRM-SP 139300, RQE 50645)</strong>, especialista em retina cirúrgica com mais de 10 anos de experiência. Atende pelos principais planos de saúde (Bradesco, Amil, Unimed, Prevent Senior) nas unidades Santana, Lapa, Tatuapé, São Miguel Paulista e Guarulhos Centro.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">5 unidades em SP e Guarulhos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Injeção intravítrea e laser</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">OCT Maestro 2 e Angio-OCT</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Retina cirúrgica especializada</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-8 bg-white border-b border-border/40">
         <div className="container">

@@ -208,6 +208,38 @@ export default function InstitutoCeratocone() {
         </div>
       </section>
 
+      {/* ========== GEO: ANSWER-FIRST BLOCK ========== */}
+      <section className="py-8 bg-navy/5 border-b border-navy/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border border-navy/15 shadow-sm p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Eye className="w-5 h-5 text-navy" />
+                </div>
+                <div>
+                  <h2 className="font-display text-lg md:text-xl text-navy mb-3">
+                    O que é o Instituto do Ceratocone — Drudi e Almeida?
+                  </h2>
+                  <p className="font-body text-sm md:text-base text-navy/80 leading-relaxed mb-3">
+                    O <strong>Instituto do Ceratocone da Drudi e Almeida Oftalmologia</strong> é uma clínica especializada em córnea e ceratocone em São Paulo e Guarulhos, com 5 unidades. O ceratocone é uma doença progressiva que afina e deforma a córnea; o tratamento inclui <strong>Crosslinking de colágeno corneal (CXL)</strong> para estabilizar a progressão, <strong>adaptação de lentes de contato rígidas e esclerais</strong> para correção visual, e implante de <strong>anéis intracorneais (Keraring)</strong> nos casos avançados.
+                  </p>
+                  <p className="font-body text-sm text-navy/70 leading-relaxed">
+                    Utiliza <strong>Pentacam AXL e topografia corneal</strong> para diagnóstico preciso e monitoramento da progressão. Atende pelos principais planos de saúde nas unidades Santana, Lapa, Tatuapé, São Miguel Paulista e Guarulhos Centro.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">5 unidades em SP e Guarulhos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Crosslinking e lentes esclerais</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Pentacam AXL e topografia</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Anéis intracorneais Keraring</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-8 bg-white border-b border-border/40">
         <div className="container">

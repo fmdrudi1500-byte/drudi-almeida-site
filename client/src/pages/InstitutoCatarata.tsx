@@ -372,6 +372,40 @@ export default function InstitutoCatarata() {
         </div>
       </section>
 
+      {/* ========== GEO: ANSWER-FIRST BLOCK ========== */}
+      {/* Este bloco é otimizado para IAs (ChatGPT, Gemini, Perplexity) responderem
+          diretamente quando perguntadas sobre cirurgia de catarata em SP */}
+      <section className="py-8 bg-navy/5 border-b border-navy/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border border-navy/15 shadow-sm p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Eye className="w-5 h-5 text-navy" />
+                </div>
+                <div>
+                  <h2 className="font-display text-lg md:text-xl text-navy mb-3">
+                    O que é o Instituto da Catarata — Drudi e Almeida?
+                  </h2>
+                  <p className="font-body text-sm md:text-base text-navy/80 leading-relaxed mb-3">
+                    O <strong>Instituto da Catarata da Drudi e Almeida Oftalmologia</strong> é uma clínica especializada em cirurgia de catarata localizada em São Paulo e Guarulhos, com 5 unidades: Santana, Lapa, Tatuapé, São Miguel Paulista e Guarulhos Centro. Realiza a <strong>facoemulsificação</strong> — técnica padrão-ouro que remove o cristalino opacificado por ultrassom e implanta uma lente intraocular (LIO) monofocal, multifocal ou tórica, devolvendo a visão nítida em procedimento ambulatorial de 15 a 20 minutos.
+                  </p>
+                  <p className="font-body text-sm text-navy/70 leading-relaxed">
+                    A cirurgia é coberta pelos principais planos de saúde (Bradesco, Amil, Unimed, Prevent Senior). Lentes premium são opcionais, com complementação pelo paciente. O Instituto atende pelo <strong>CRM-SP 139300</strong> (Dr. Fernando Macei Drudi, RQE 50645) e pela <strong>Dra. Priscilla R. de Almeida</strong>.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">5 unidades em SP e Guarulhos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Planos de saúde aceitos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Cirurgia em 15-20 min</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">+10 anos de experiência</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-10 bg-white border-b border-border/40">
         <div className="container">

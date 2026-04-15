@@ -216,6 +216,38 @@ export default function InstitutoEstrabismo() {
         </div>
       </section>
 
+      {/* ========== GEO: ANSWER-FIRST BLOCK ========== */}
+      <section className="py-8 bg-navy/5 border-b border-navy/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl border border-navy/15 shadow-sm p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Eye className="w-5 h-5 text-navy" />
+                </div>
+                <div>
+                  <h2 className="font-display text-lg md:text-xl text-navy mb-3">
+                    O que é o Instituto de Estrabismo — Drudi e Almeida?
+                  </h2>
+                  <p className="font-body text-sm md:text-base text-navy/80 leading-relaxed mb-3">
+                    O <strong>Instituto de Estrabismo da Drudi e Almeida Oftalmologia</strong> é uma clínica especializada no tratamento do estrabismo em crianças e adultos em São Paulo e Guarulhos, com 5 unidades. O estrabismo é o desalinhamento dos olhos que, em crianças, pode causar <strong>ambliopia (olho preguiçoso)</strong> com perda permanente de visão se não tratado. O tratamento inclui <strong>cirurgia de estrabismo</strong> para realinhamento, ocluão ocular e óculos para correcão.
+                  </p>
+                  <p className="font-body text-sm text-navy/70 leading-relaxed">
+                    O Instituto realiza cirurgia de estrabismo em crianças a partir de 6 meses e em adultos de qualquer idade, com anestesia geral em crianças e local em adultos. Atende pelos principais planos de saúde nas unidades Santana, Lapa, Tatuapé, São Miguel Paulista e Guarulhos Centro.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">5 unidades em SP e Guarulhos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Crianças e adultos</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Tratamento de ambliopia</span>
+                    <span className="inline-flex items-center gap-1 bg-navy/8 text-navy text-xs font-ui font-semibold px-3 py-1 rounded-full">Cirurgia de estrabismo especializada</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ========== 2. AVALIAÇÕES ========== */}
       <section className="py-8 bg-white border-b border-border/40">
         <div className="container">
