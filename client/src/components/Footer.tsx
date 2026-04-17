@@ -121,6 +121,7 @@ export default function Footer() {
                 { name: "Tecnologia", href: "/tecnologia" },
                 { name: "Convênios", href: "/convenios" },
                 { name: "Blog", href: "/blog" },
+                { name: "Ferramentas Gratuitas", href: "/ferramentas" },
                 { name: "Contato", href: "/contato" },
                 { name: "Trabalhe Conosco", href: "/trabalhe-conosco" },
                 { name: "Dr. Fernando Drudi", href: "/medico/dr-fernando-drudi" },

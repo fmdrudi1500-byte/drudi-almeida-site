@@ -953,8 +953,30 @@ export default function InstitutoCeratocone() {
         limit={4}
         accentColor="#27ae60"
       />
-      {/* ========== VEJA TAMBÉM ========== */}
+       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="ceratocone" />
+
+      {/* ========== FERRAMENTA INTERATIVA ========== */}
+      <section className="section-padding bg-gradient-to-br from-cream/40 to-background">
+        <div className="container">
+          <AnimateOnScroll className="max-w-3xl mx-auto text-center">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Ferramenta Gratuita</span>
+            <h2 className="font-display text-2xl md:text-3xl text-navy mt-3 mb-4">
+              Descubra seu risco de ceratocone em 3 minutos
+            </h2>
+            <p className="font-body text-base text-muted-foreground leading-relaxed mb-6">
+              Responda 7 perguntas baseadas em critérios clínicos validados e receba uma avaliação personalizada do seu risco. Desenvolvido pelos especialistas da Drudi e Almeida.
+            </p>
+            <Link
+              href="/ferramentas"
+              className="inline-flex items-center gap-2 bg-navy text-cream font-ui text-sm font-bold px-7 py-4 rounded-xl hover:bg-navy-light transition-colors shadow-md"
+            >
+              Fazer o Teste de Risco de Ceratocone
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
 
       {/* ========== 15. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">

@@ -36,6 +36,7 @@ const AdminGEO = lazy(() => import("./pages/admin/AdminGEO"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const Unidade = lazy(() => import("./pages/Unidade"));
 const Medico = lazy(() => import("./pages/Medico"));
+const Ferramentas = lazy(() => import("./pages/Ferramentas"));
 
 function PageLoader() {
   return (
@@ -81,6 +82,7 @@ function Router() {
           <Route path="/unidade/:slug" component={Unidade} />
           <Route path="/medico/:slug" component={Medico} />
           <Route path="/politica-de-privacidade" component={PoliticaPrivacidade} />
+          <Route path="/ferramentas" component={Ferramentas} />
           {/* Redirects de rotas legadas do Wix — garantem 301 mesmo quando o Express não intercepta */}
           <Route path="/en">{() => <Redirect to="/" />}</Route>
           <Route path="/en/">{() => <Redirect to="/" />}</Route>

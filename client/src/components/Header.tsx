@@ -90,6 +90,7 @@ const navLinks = [
   { name: "Tecnologia", href: "/tecnologia" },
   { name: "Convênios", href: "/convenios" },
   { name: "Blog", href: "/blog" },
+  { name: "Ferramentas", href: "/ferramentas" },
   { name: "Contato", href: "/contato" },
 ];
 

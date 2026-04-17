@@ -1017,6 +1017,28 @@ export default function InstitutoCatarata() {
       {/* ========== VEJA TAMBÉM ========== */}
       <VejaTambem currentInstituto="catarata" />
 
+      {/* ========== FERRAMENTA INTERATIVA ========== */}
+      <section className="section-padding bg-gradient-to-br from-cream/40 to-background">
+        <div className="container">
+          <AnimateOnScroll className="max-w-3xl mx-auto text-center">
+            <span className="font-ui text-xs font-semibold tracking-[0.2em] uppercase text-gold">Ferramenta Gratuita</span>
+            <h2 className="font-display text-2xl md:text-3xl text-navy mt-3 mb-4">
+              Avalie o estágio da sua catarata em 2 minutos
+            </h2>
+            <p className="font-body text-base text-muted-foreground leading-relaxed mb-6">
+              Responda 6 perguntas e descubra se a cirurgia de catarata pode estar indicada para o seu caso. Baseado nos critérios da Sociedade Brasileira de Oftalmologia.
+            </p>
+            <Link
+              href="/ferramentas"
+              className="inline-flex items-center gap-2 bg-gold text-navy font-ui text-sm font-bold px-7 py-4 rounded-xl hover:bg-gold-light transition-colors shadow-md"
+            >
+              Usar a Calculadora de Catarata
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/* ========== 18. CTA FINAL ========== */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden">
         <div
