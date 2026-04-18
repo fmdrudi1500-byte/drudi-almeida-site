@@ -58,10 +58,25 @@ const organizationSchema = {
   openingHoursSpecification: openingHours,
   medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
   hasMap: "https://maps.google.com/maps?q=Drudi+e+Almeida+Santana",
+  foundingDate: "2014",
+  founder: [
+    { "@id": `${BASE_URL}/sobre#dr-fernando` },
+    { "@id": `${BASE_URL}/sobre#dra-priscilla` },
+  ],
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    minValue: 20,
+    maxValue: 100,
+  },
+  areaServed: [
+    { "@type": "City", name: "São Paulo", sameAs: "https://www.wikidata.org/wiki/Q174" },
+    { "@type": "City", name: "Guarulhos", sameAs: "https://www.wikidata.org/wiki/Q182701" },
+  ],
   sameAs: [
-    "https://instagram.com/drudialmeida",
-    "https://facebook.com/drudialmeida",
+    "https://www.instagram.com/drudialmeida",
+    "https://www.facebook.com/drudialmeida",
     "https://www.google.com/maps/place/Drudi+e+Almeida/",
+    "https://www.youtube.com/@drudialmeida",
   ],
   aggregateRating: {
     "@type": "AggregateRating",
@@ -75,20 +90,42 @@ const organizationSchema = {
 // ── Physicians ─────────────────────────────────────────────────
 const drFernandoSchema = {
   "@context": "https://schema.org",
-  "@type": "Physician",
+  "@type": ["Physician", "Person"],
   "@id": `${BASE_URL}/sobre#dr-fernando`,
   name: "Dr. Fernando Macei Drudi",
   givenName: "Fernando",
+  additionalName: "Macei",
   familyName: "Drudi",
   honorificPrefix: "Dr.",
   description:
-    "Oftalmologista especialista em Catarata e Retina Cirúrgica. Diretor Clínico da Drudi e Almeida Oftalmologia. Membro do Conselho Brasileiro de Oftalmologia (CBO). Preceptor de Retina e Catarata na Residência Médica do IAMSPE.",
+    "Oftalmologista brasileiro especialista em Catarata e Retina Cirúrgica. Diretor Clínico da Drudi e Almeida Oftalmologia. Membro do Conselho Brasileiro de Oftalmologia (CBO). Preceptor concursado de Retina e Catarata na Residência Médica do IAMSPE/HSPE. Cirurgião voluntário do Projeto Amazônico de Oftalmologia Humanitária (Unifesp/Marinha do Brasil). Condecorado com a Medalha Amigos da Marinha.",
   medicalSpecialty: ["http://schema.org/Optometric", "http://schema.org/Surgical"],
-  identifier: {
-    "@type": "PropertyValue",
-    name: "CRM-SP",
-    value: "139300",
-  },
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      name: "CRM-SP",
+      value: "139300",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "RQE",
+      value: "50645",
+    },
+    {
+      "@type": "PropertyValue",
+      name: "ORCID",
+      value: "0009-0006-5376-3521",
+    },
+  ],
+  sameAs: [
+    "https://www.wikidata.org/wiki/Q139375992",
+    "https://pt.wikipedia.org/wiki/Usu%C3%A1rio(a):Dr.Fernando_Drudi",
+    "https://orcid.org/0009-0006-5376-3521",
+    "https://scholar.google.com/citations?user=8yFvF_YAAAAJ",
+    "https://www.scielo.br/j/rbof/a/s8NNtWRY9sfNrWDQjWXcvhs/",
+    "https://www.instagram.com/dr.fernandodrudi",
+    "https://www.institutodavisao.org.br/area-do-medico/dr-fernando-macei-drudi/",
+  ],
   worksFor: {
     "@id": `${BASE_URL}/#organization`,
   },
@@ -97,13 +134,38 @@ const drFernandoSchema = {
   alumniOf: [
     {
       "@type": "EducationalOrganization",
+      name: "Universidade Federal Fluminense",
+      sameAs: "https://www.wikidata.org/wiki/Q280247",
+    },
+    {
+      "@type": "EducationalOrganization",
       name: "IAMSPE — Instituto de Assistência Médica ao Servidor Público Estadual",
+      sameAs: "https://www.wikidata.org/wiki/Q139376009",
     },
   ],
-  memberOf: {
-    "@type": "MedicalOrganization",
-    name: "Conselho Brasileiro de Oftalmologia (CBO)",
-  },
+  memberOf: [
+    {
+      "@type": "MedicalOrganization",
+      name: "Conselho Brasileiro de Oftalmologia (CBO)",
+    },
+    {
+      "@type": "MedicalOrganization",
+      name: "Sociedade Brasileira de Catarata e Cirurgia Refrativa (BRASCRS)",
+    },
+    {
+      "@type": "Organization",
+      name: "Instituto Paulista de Estudos e Pesquisas em Oftalmologia (IPEPO)",
+      sameAs: "https://www.institutodavisao.org.br",
+    },
+  ],
+  award: "Medalha Amigos da Marinha — Marinha do Brasil",
+  knowsAbout: [
+    "Cirurgia de catarata por facoemulsificação",
+    "Retina cirúrgica",
+    "Vitrectomia",
+    "Implante de lente intraocular",
+    "Oftalmologia humanitária",
+  ],
   image: {
     "@type": "ImageObject",
     url: `${BASE_URL}/images/dr-fernando-800w.webp`,
@@ -115,14 +177,15 @@ const drFernandoSchema = {
 
 const draPriscillaSchema = {
   "@context": "https://schema.org",
-  "@type": "Physician",
+  "@type": ["Physician", "Person"],
   "@id": `${BASE_URL}/sobre#dra-priscilla`,
-  name: "Dra. Priscilla R. de Almeida",
+  name: "Dra. Priscilla Rodrigues de Almeida",
   givenName: "Priscilla",
+  additionalName: "Rodrigues",
   familyName: "Almeida",
   honorificPrefix: "Dra.",
   description:
-    "Oftalmologista especialista em Córnea, Segmento Anterior e Lentes de Contato Especiais. Diretora Técnica da Drudi e Almeida Oftalmologia. Fellowship em Córnea e Doenças Externas pela EPM/UNIFESP. Especialista em adaptação de lentes para ceratocone.",
+    "Oftalmologista brasileira especialista em Córnea, Segmento Anterior e Lentes de Contato Especiais. Diretora Técnica da Drudi e Almeida Oftalmologia. Fellowship em Córnea e Doenças Externas pela Escola Paulista de Medicina (EPM/UNIFESP). Especialista em adaptação de lentes de contato para ceratocone. Membro do Conselho Brasileiro de Oftalmologia (CBO).",
   medicalSpecialty: ["http://schema.org/Optometric"],
   identifier: [
     {
@@ -136,6 +199,9 @@ const draPriscillaSchema = {
       value: "59216",
     },
   ],
+  sameAs: [
+    "https://www.instagram.com/dra.priscillaalmeida",
+  ],
   worksFor: {
     "@id": `${BASE_URL}/#organization`,
   },
@@ -145,18 +211,28 @@ const draPriscillaSchema = {
     {
       "@type": "EducationalOrganization",
       name: "Escola Paulista de Medicina — EPM/UNIFESP",
+      sameAs: "https://www.wikidata.org/wiki/Q1399695",
     },
   ],
-  memberOf: {
-    "@type": "MedicalOrganization",
-    name: "Conselho Brasileiro de Oftalmologia (CBO)",
-  },
+  memberOf: [
+    {
+      "@type": "MedicalOrganization",
+      name: "Conselho Brasileiro de Oftalmologia (CBO)",
+    },
+  ],
+  knowsAbout: [
+    "Córnea e doenças externas",
+    "Ceratocone",
+    "Crosslinking de córnea",
+    "Adaptação de lentes de contato especiais",
+    "Segmento anterior",
+  ],
   image: {
     "@type": "ImageObject",
     url: `${BASE_URL}/images/dra-priscilla-800w.webp`,
     width: 800,
     height: 1067,
-    caption: "Dra. Priscilla R. de Almeida — Diretora Técnica, Drudi e Almeida Oftalmologia",
+    caption: "Dra. Priscilla Rodrigues de Almeida — Diretora Técnica, Drudi e Almeida Oftalmologia",
   },
 };
 
